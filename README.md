@@ -25,3 +25,4 @@ All connected together through an Nginx server (not included), talking to a ligh
 **To-do:**
 - Cache the static files (CSS mostly) in the browser (save server load)
 - Regularly check the DB for group balance, adjust the group selection to maintain it
+- Adjust the end.html chunks to handle cookie errors gracefully
