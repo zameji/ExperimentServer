@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+	
+    <head>
+        <title>My experiment</title>
+		<script src="jspsych/jspsych.js"></script>
+		<script src="PluginDetect.js"></script>
+		<script src="util_md5.js"></script>
+		<script src="jspsych/plugins/jspsych-html-keyboard-response.js"></script>
+		<script src="jspsych/plugins/jspsych-image-keyboard-response.js"></script>
+		<!--<script src="http://wzrd.in/standalone/uuid%2Fv1@latest"></script>-->
+
+		<link href="jspsych/css/jspsych.css" rel="stylesheet" type="text/css"></link>
+    </head>
+    <body>
+	</body>
+	
+  <script>
+
+    /* create timeline */
+    var timeline = [];
+
+    /* define welcome message trial */
+    var welcome = {
+      type: "html-keyboard-response",
+      stimulus: "Welcome to the experiment. Press any key to begin."
+    };
+    timeline.push(welcome);
+
+    /* define instructions trial */
+    var instructions = {
+      type: "html-keyboard-response",
+      stimulus: "<p>In this experiment, a circle will appear in the center " +
+          "of the screen.</p><p>If the circle is <strong>blue</strong>, " +
+          "press the letter F on the keyboard as fast as you can.</p>" +
+          "<p>If the circle is <strong>orange</strong>, press the letter J " +
+          "as fast as you can.</p>" +
+          "<div style='width: 700px;'>"+
+          "<div style='float: left;'><img src='img/blue.png'></img>" +
+          "<p class='small'><strong>Press the F key</strong></p></div>" +
+          "<div class='float: right;'><img src='img/orange.png'></img>" +
+          "<p class='small'><strong>Press the J key</strong></p></div>" +
+          "</div>"+
+          "<p>Press any key to begin.</p>",
+      post_trial_gap: 2000
+    };
+    timeline.push(instructions);
+
+    /* test trials */
+
+    var test_stimuli = [
+      { stimulus: "img/blue.png", data: { test_part: 'test', correct_response: 'f' } },
+      { stimulus: "img/orange.png", data: { test_part: 'test', correct_response: 'j' } }
+    ];
+
+    var fixation = {
+      type: 'html-keyboard-response',
+      stimulus: '<div style="font-size:60px;">+</div>',
+      choices: jsPsych.NO_KEYS,
+      trial_duration: function(){
+        return jsPsych.randomization.sampleWithoutReplacement([250, 500, 750, 1000, 1250, 1500, 1750, 2000], 1)[0];
+      },
+      data: {test_part: 'fixation'}
+    }
+
+    var test = {
+      type: "image-keyboard-response",
+      stimulus: jsPsych.timelineVariable('stimulus'),
+      choices: ['f', 'j'],
+      data: jsPsych.timelineVariable('data'),
+      on_finish: function(data){
+        data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+      },
+    }
+
+    var test_procedure = {
+      timeline: [fixation, test],
+      timeline_variables: test_stimuli,
+      repetitions: 5,
+      randomize_order: true
+    }
+    timeline.push(test_procedure);
+
+    /* define debrief */
+
+    var debrief_block = {
+      type: "html-keyboard-response",
+      stimulus: function() {
+
+        var trials = jsPsych.data.get().filter({test_part: 'test'});
+        var correct_trials = trials.filter({correct: true});
+        var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
+        var rt = Math.round(correct_trials.select('rt').mean());
+
+        return "<p>You responded correctly on "+accuracy+"% of the trials.</p>"+
+        "<p>Your average response time was "+rt+"ms.</p>"+
+        "<p>Press any key to complete the experiment. Thank you!</p>";
+
+      }
+    };
+    timeline.push(debrief_block);
+
+	function saveData(name, data){
+	  var xhr = new XMLHttpRequest();
+	  xhr.open('POST', 'write_data.php'); // 'write_data.php' is the path to the php file described above.
+	  xhr.setRequestHeader('Content-Type', 'application/json');
+	  xhr.send(JSON.stringify({filename: name, filedata: data}));
+	}
+
+function setCookie(cname, cvalue, exdays) {
+	var d = new Date();
+	d.setTime(d.getTime() + (exdays*24*60*60*1000));
+	var expires = "expires="+ d.toUTCString();
+	document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookieValue(a) {
+	var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+	return b ? b.pop() : '';
+}
+
+function getID() {
+	var user_id = getCookieValue("id");
+	if (user_id != "") {
+		return user_id;			
+	} else {
+		window.location.href = "https://www.psycholinguistics.ml/cookie_error.html";
+	}
+}	
+	
+function insertAfter(el, referenceNode) {
+	    referenceNode.parentNode.insertBefore(el, referenceNode);
+	}
+	
+function moveOn(){
+	var sequence = getCookieValue("group");
+	var progress = getCookieValue("progress");
+	
+	var finalmessage = document.createElement("p");
+	finalmessage.innerHTML = "You can take a break now";			
+	before = document.querySelector('div.jspsych-content-wrapper');
+	insertAfter(finalmessage, before);
+
+	var continuation = document.createElement("a");
+	continuation.innerHTML = "<br>Click here to continue";
+	continuation.href = "https://www.psycholinguistics.ml/jspsych/experiment.html";
+	before = document.querySelector('div.jspsych-content');
+	insertAfter(continuation, before);
+	
+	//user deleted cookies? send them to the landing page
+	if(progress == ""){
+		finalmessage.innerHTML = 'Cannot track your progress. Did you delete cookies? <br>You will have to start again.<br><a href="https://www.psycholinguistics.ml/">Click here to continue.</a>'
+		}
+		
+	//update progress
+	progress++;
+	setCookie("progress", progress, 7);
+		
+	//until all three elements done, continue to next test
+	if (progress<3){
+		sequence = sequence[progress];		
+		switch (sequence){
+				case "A":
+					continuation.href ="https://www.psycholinguistics.ml/ibex_1/experiment.html";
+					break;
+				case "B":
+					continuation.href ="https://www.psycholinguistics.ml/ibex_1/experiment.html";
+					break;
+				case "C":
+					continuation.href ="https://www.psycholinguistics.ml/ibex_1/experiment.html";
+					break;
+				case "D":
+					continuation.href ="https://www.psycholinguistics.ml/ibex_1/experiment.html";
+					break;												
+				case "E": 
+					continuation.href ="https://www.psycholinguistics.ml/ibex_2/experiment.html";
+					break;	
+				default:
+					document.getElementById('continue').href = "https://www.psycholinguistics.ml/cookie_error.html";
+						}
+	}	else {
+		window.location.href = "https://www.psycholinguistics.ml/finished.html";
+	};
+}
+
+
+    var user_id = getID();
+
+    /* start the experiment */
+    jsPsych.init({
+      timeline: timeline,
+      on_finish: function() {
+		saveData(user_id, jsPsych.data.get().csv());
+		moveOn();
+      }
+    });
+  </script>
+
+</html>

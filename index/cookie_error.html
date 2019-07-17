@@ -1,0 +1,55 @@
+<meta charset="UTF-8">
+
+<html>
+		  <head>
+				<title>Error</title>
+				<link rel="stylesheet" type="text/css" href="https://www.psycholinguistics.ml/css/global_main.css">
+				<link rel="stylesheet" type="text/css" href="https://www.psycholinguistics.ml/css/global_mainB.css">
+				<link rel="stylesheet" type="text/css" href="https://www.psycholinguistics.ml/css/Form.css">
+		  </head>
+		<body>
+		  <div>
+				<p style="text-align: center"><span id = message></span></p>
+				<p style="text-align: center"><a href="https://psycholinguistics.ml">Start over</a></p>
+				
+		  </div>
+
+		<script>
+
+
+function setCookie(cname, cvalue, exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  var expires = "expires="+ d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookieValue(a) {
+  var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+		return b ? b.pop() : '';
+}
+
+function checkCookie(id) {
+	var user_id = getCookieValue("id");
+	if (user_id != "") {
+		return user_id;
+	} else {
+		setCookie("id", id, 7);
+		return id;
+	}
+}		
+
+cookiesOn = false;
+setCookie("ERROR_TEST", "TEST", 0.0001);
+if (getCookieValue("ERROR_TEST") == "TEST"){
+	document.getElementById("message").innerHTML = "We lost track of your progress. Did you delete cookies?";
+	cookiesOn = true;
+	setCookie("ERROR_TEST", "", 0.0001);
+	} else {
+	document.getElementById("message").innerHTML = "We lost track of your progress. Did you disable cookies?";	
+	}
+
+
+</script>
+</body>
+</html>
