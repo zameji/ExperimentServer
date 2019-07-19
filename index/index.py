@@ -3,7 +3,7 @@ import types
 import sys
 import cgi
 
-WORKING_DIR = "/home/ubuntu/index"
+WORKING_DIR = "/home/ubuntu/server/index"
 SERVER_STATE_DIR = "server_state"
 
 HAVE_FLOCK = False
