@@ -70,7 +70,9 @@ def nextgroup(n):
 	i +=1
 	i = i%len(combined)
 	
-	return combined[i]
+	#return combined[i]
+	#For development of Part 2, always return group "EAJ"
+	return "EAJ"
 
 if __name__ == "__main__":
 	html = u"""Content-type:text/html\r\n\r\n
