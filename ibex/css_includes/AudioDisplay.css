@@ -1,0 +1,8 @@
+.next-item-failure-message {
+    color: red;
+    text-align: center;
+}
+.next-item-message {
+    font-style: italic;
+    text-align: center;
+}

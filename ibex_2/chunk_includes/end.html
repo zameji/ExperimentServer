@@ -1,0 +1,63 @@
+<div style="width: 60em;">
+<p>
+	You can take a break now.
+</p>
+<p>
+	<a id="continue" href="https://psycholinguistics.ml/">Click here to continue</a>
+</p>
+</div>
+
+<script>
+	function getCookieValue(a) {
+	  var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+			return b ? b.pop() : '';
+	}
+
+	function setCookie(cname, cvalue, exdays) {
+		var d = new Date();
+		d.setTime(d.getTime() + (exdays*24*60*60*1000));
+		var expires = "expires="+ d.toUTCString();
+		document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+		}
+
+	var sequence = getCookieValue("group");
+	var progress = getCookieValue("progress");
+
+	//user deleted cookies? send them to the landing page
+	if(progress == ""){
+		document.getElementById("final_message").innerHTML = 'Cannot track your progress. Did you delete cookies? <br>You will have to start again.<br><a href="https://www.psycholinguistics.ml/">Click here to continue.</a>'
+		}
+		
+	//update progress
+	progress++;
+	setCookie("progress", progress, 7);
+		
+	//until all three elements done, continue to next test
+	if (progress<3){
+		sequence = sequence[progress];		
+		switch (sequence){
+				case "A":
+					document.getElementById('continue').href ="https://www.psycholinguistics.ml/ibex_1/experiment.html";
+					break;
+				case "B":
+					document.getElementById('continue').href ="https://www.psycholinguistics.ml/ibex_1/experiment.html";
+					break;					
+				case "C":
+					document.getElementById('continue').href ="https://www.psycholinguistics.ml/ibex_1/experiment.html";
+					break;					
+				case "D":
+					document.getElementById('continue').href ="https://www.psycholinguistics.ml/ibex_1/experiment.html";
+					break;
+				case "J": 
+					document.getElementById('continue').href = "https://www.psycholinguistics.ml/jspsych/experiment.html";
+					break;
+				default:
+					document.getElementById('continue').href = "https://www.psycholinguistics.ml/cookie_error.html";
+						}
+	}	else {
+		window.location.href = "https://www.psycholinguistics.ml/finished.html";
+	};
+	
+
+</script>
+
