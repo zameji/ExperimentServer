@@ -4,7 +4,7 @@
 #
 # You may need to edit this.
 #
-SERVER_CONF_PY_FILE = "/home/ubuntu/ibex/server_conf.py"
+SERVER_CONF_PY_FILE = "/home/ubuntu/ibex/server/server_conf.py"
 
 
 # Copyright (c) 2007, Alex Drummond <a.d.drummond@gmail.com>
