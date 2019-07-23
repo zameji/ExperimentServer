@@ -75,21 +75,21 @@ var items = [
 
 	["sendResults", "__SendResults__", { }],
 
-  "practice",
+  ["practice",
   "PictureDisplay", {transfer: 1500,
             normalMessage: "Please recall this image",
-            url: "/img/1A.png"},
+            url: "https://www.psycholinguistics.ml/ibex_2https://www.psycholinguistics.ml/ibex_2/img/1A.png"},
   "DashedSentence", {s: "This is a practice task to get you used to remembering images like this."},
   "PictureQuestion", {
         q: "Is this the image you saw?",
-        url: "/img/1B.png",
+        url: "https://www.psycholinguistics.ml/ibex_2/img/1B.png",
         as:["yes", "no"]}
           ],
 
     ["practice",
     "PictureDisplay", {transfer: 1500,
               normalMessage: "Please recall this image",
-              url: "/img/2A.png"},
+              url: "https://www.psycholinguistics.ml/ibex_2/img/2A.png"},
     "DashedSentence", {s: "Sometimes sentences will be followed by questions so make sure you read carefully."},
     "Question", {q: "Was the sentence about reading carefully?",
           as:["yes", "no"]}
@@ -98,18 +98,18 @@ var items = [
 ["practice",
   "AudioDisplay", {transfer: "keypress",
             normalMessage: "Please remember this word, then press any key to continue.",
-            url: "/audio/1A.m4a"},
+            url: "https://www.psycholinguistics.ml/ibex_2/audio/1A.m4a"},
   "DashedSentence", {s: "This is a practice task to get you used to listening to audio like this."},
   "AudioQuestion", {
         q: "Is this the sound you heard?",
-        url: "/audio/1B.m4a",
-        as:["yes", "no""]}
+        url: "https://www.psycholinguistics.ml/ibex_2/audio/1B.m4a",
+        as:["yes", "no"]}
             ],
 
 ["practice",
   "AudioDisplay", {transfer: "keypress",
             normalMessage: "Please remember this word, then press any key to continue.",
-            url: "/audio/2A.m4a"},
+            url: "https://www.psycholinguistics.ml/ibex_2/audio/2A.m4a"},
   "DashedSentence", {s: "Sentences may also be followed by questions checking how carefully you read."},
   "Question", {
         q: "Was the sentence about reading quickly?",
