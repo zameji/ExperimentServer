@@ -26,3 +26,5 @@ All connected together through an Nginx server (not included), talking to a ligh
 - Cache the static files (CSS mostly) in the browser (save server load)
 - Regularly check the DB for group balance, adjust the group selection to maintain it
 - Adjust the end.html chunks to handle cookie errors gracefully
+- Fix the checkValid function to stop mobile devices from submitting
+- Preload & cache the pictures/audio locally to avoid issues with loading times
