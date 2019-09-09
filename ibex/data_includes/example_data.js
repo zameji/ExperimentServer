@@ -391,6 +391,6 @@ IbexCodeFinal
 ["Exp1_ListB_secondPair", "DashedSentence", {s: "Four years ago, they established that the mandatory testing was unnecessary and could be abolished."}, "Question", {q: "When was it established that the testing was unnecessary?", as: ["four years ago", "last week", "a couple months ago"]}],
 ["Exp1_ListB_firstPair", "DashedSentence", {s: "My professor pointed out the mythological scenes that the sculpture was based on."}],
 ["Exp1_ListB_secondPair", "DashedSentence", {s: "Mrs. Archilego searched for the mythological terms in the new fictional novel."}],
-["Exp1_ListB_firstPair", "DashedSentence", {s: "Daniel wasn't very interested in the national debate although everyone was talking about it."}],
+["Exp1_ListB_firstPair", "DashedSentence", {s: "Daniel wasn't very interested in the national debate although everyone was talking about it."}]
 
 ];
