@@ -78,7 +78,7 @@ var items = [
   ["practice",
   "PictureDisplay", {transfer: 1500,
             normalMessage: "Please recall this image",
-            url: "https://www.psycholinguistics.ml/ibex_2https://www.psycholinguistics.ml/ibex_2/img/1A.png"},
+            url: "https://www.psycholinguistics.ml/ibex_2/img/1A.png"},
   "DashedSentence", {s: "This is a practice task to get you used to remembering images like this."},
   "PictureQuestion", {
         q: "Is this the image you saw?",
