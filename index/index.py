@@ -60,9 +60,12 @@ def nextgroup(n):
 	
 	ibex_1 = ["A", "B", "C", "D"]
 	ibex_2 = ["E"]
-	jspsych = ["J"]
+	jspsych = ["J", "K", "L"]
 	
-	combined = [x for x in list(permutations([ibex_1, ibex_2, jspsych],3))]
+	#combine the various jspsych versions
+	jspsych_versions = ["".join(x) for x in list(permutations(jspsych, len(jspsych)))]
+	
+	combined = [x for x in list(permutations([ibex_1, ibex_2, jspsych_versions],3))]
 	combined = [list(iter_product(*x)) for x in combined]
 	combined = ["".join(item) for sublist in combined for item in sublist]
 	
