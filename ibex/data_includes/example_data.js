@@ -313,6 +313,7 @@ var items = [
 ["Exp1_ListB_secondPair", "DashedSentence", {s: "Given Sheila's extensive network of highly skilled colleagues it seemed likely she would get the project."}],
 ["Exp1_ListB_firstPair", "DashedSentence", {s: "Rick's father observed the faint mist where the leak seemed to be."}, "Question", {q: "Who observed the mist where the leak seemed to be?", as: ["Rick's father", "Jessie's brother", "Becca's sister"]}],
 ["Exp1_ListB_secondPair", "DashedSentence", {s: "The woman with the long dark coat thought that the faint shadows cast under the tree were beautiful."}, "Question", {q: "What was the woman wearing?", as: ["a dark coat", "a long scarf", "both"]}],
+["Exp1_ListB_firstPair", "DashedSentence", {s: "Rita figured that the frigid temperatures were keeping the creatures in hibernation."}],
 ["Exp1_ListB_secondPair", "DashedSentence", {s: "Ignoring the frigid waters, Heather went for a swim."}],
 ["Exp1_ListB_firstPair", "DashedSentence", {s: "My family admired the gorgeous name that we gave to the baby."}],
 ["Exp1_ListB_secondPair", "DashedSentence", {s: "My new friend commented on the gorgeous picture in my sister's renovated kitchen."}],
@@ -605,6 +606,7 @@ var items = [
 ["Exp1_ListD_secondPair", "DashedSentence", {s: "Rick's father observed the faint mist where the leak seemed to be."}, "Question", {q: "Who observed the mist where the leak seemed to be?", as: ["Rick's father", "Jessie's brother", "Becca's sister"]}],
 ["Exp1_ListD_secondPair", "DashedSentence", {s: "The woman with the long dark coat thought that the faint shadows cast under the tree were beautiful."}, "Question", {q: "What was the woman wearing?", as: ["a dark coat", "a long scarf", "both"]}],
 ["Exp1_ListD_secondPair", "DashedSentence", {s: "Ignoring the frigid waters, Heather went for a swim."}],
+["Exp1_ListD_secondPair", "DashedSentence", {s: "Rita figured that the frigid temperatures were keeping the creatures in hibernation."}],
 ["Exp1_ListD_secondPair", "DashedSentence", {s: "My family admired the gorgeous name that we gave to the baby."}],
 ["Exp1_ListD_secondPair", "DashedSentence", {s: "My new friend commented on the gorgeous picture in my sister's renovated kitchen."}],
 ["Exp1_ListD_secondPair", "DashedSentence", {s: "It is often a gradual destruction of species that leads to extinction."}],
@@ -688,6 +690,6 @@ var items = [
 ["Exp1_ListD_secondPair", "DashedSentence", {s: "Discussing the troubling issue didn't lead to any solution."}, "Question", {q: "Did discussing the issue lead to change?", as: ["no", "yes"]}],
 ["Exp1_ListD_secondPair", "DashedSentence", {s: "Ms. Derry addressed the troubling signs of teenage angst that her son was showing."}],
 ["Exp1_ListD_secondPair", "DashedSentence", {s: "With the uncanny gift for learning a language, the student could speak Japanese nearly fluently."}, "Question", {q: "What language could the student speak?", as: ["Japanese", "Korean", "Hindi"]}],
-["Exp1_ListD_secondPair", "DashedSentence", {s: "The man with the uncanny precision in mathematics answered my question."}, "Question", {q: "What did the man have precision in?", as: ["mathematics",  "science", "literature"]}],r", "DashedSentence", {s: "Daniel wasn't very interested in the national debate although everyone was talking about it."}]
+["Exp1_ListD_secondPair", "DashedSentence", {s: "The man with the uncanny precision in mathematics answered my question."}, "Question", {q: "What did the man have precision in?", as: ["mathematics",  "science", "literature"]}]
 
 ];
