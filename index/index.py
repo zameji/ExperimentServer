@@ -475,19 +475,19 @@ if __name__ == "__main__":
 								break;							
 								
 							case "K":
-								form_next.value = "https://www.psycholinguistics.ml/jspsych_axcpt/index.html";
+								form_next.value = "https://www.psycholinguistics.ml/jspsych_1/index.html";
 								break;							
 
 							case "L":
-								form_next.value = "https://www.psycholinguistics.ml/jspsych_rst/reading_span_web_english.html";
+								form_next.value = "https://www.psycholinguistics.ml/jspsych_2/reading_span_web_english.html";
 								break;							
 
 							case "M":
-								form_next.value = "https://www.psycholinguistics.ml/jspsych_flanker/index.html";
+								form_next.value = "https://www.psycholinguistics.ml/jspsych_3/index.html";
 								break;				
 								
 							case "N":
-								form_next.value = "https://www.psycholinguistics.ml/jspsych_ravens/index.html";
+								form_next.value = "https://www.psycholinguistics.ml/jspsych_4/index.html";
 								break;												
 
 							default:
@@ -557,11 +557,11 @@ if __name__ == "__main__":
 						//		break;							
 								
 						//	case "K":
-						//		form_next.value = "https://www.psycholinguistics.ml/jspsych_axcpt/index.html";
+						//		form_next.value = "https://www.psycholinguistics.ml/jspsych_1/index.html";
 						//		break;							
 
 						//	case "L":
-						//		form_next.value = "https://www.psycholinguistics.ml/jspsych_rst/reading_span_web_english.html";
+						//		form_next.value = "https://www.psycholinguistics.ml/jspsych_2/reading_span_web_english.html";
 						//		break;							
 
 						//	default:
