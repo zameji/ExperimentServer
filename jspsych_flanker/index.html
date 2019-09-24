@@ -37,10 +37,9 @@
 	  var FD = new FormData();
 	  var next = moveOn();
 	  
-	  FD.append("next", next);
-	  
-	  xhrRedirect.open('POST', 'https://www.psycholinguistics.ml/forward.php');
-	  xhrRedirect.send(FD);
+	  document.open();
+	  document.write('<p style="style="text-align:center; font-family: Lucida, Console, monospace; font-size: medium;">You can take a break now.<br /> <a href="'+next+'">Click here to continue</a>');
+	  document.close();
 
 	}
 
