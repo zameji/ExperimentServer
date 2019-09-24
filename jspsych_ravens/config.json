@@ -1,0 +1,18 @@
+{
+    "cognitive_atlas_task_id": "trm_4f24211a03b07",
+    "instructions":"Respond to the stimuli on the screen.",
+    "description":"Expfactory experiment",
+    "url":"https://www.github.com/expfactory-experiments/ravens",
+    "contributors": [
+        "Zeynep Enkavi",
+        "Ian Eisenberg",
+        "Patrick Bissett",
+        "Vanessa Sochat",
+        "Russell Poldrack"
+    ],
+    "exp_id": "ravens",
+    "name": "Raven's Matrices",
+    "reference": ["http://link.springer.com/chapter/10.1007/978-1-4615-0153-4_11"],
+    "template": "jspsych",
+    "time": 999
+}
