@@ -51,7 +51,7 @@
 		if (!id.startsWith(document.getElementById("prolificID").value)){
 			document.getElementById("message").innerHTML = "ERROR: ID not recognized. Check that it is correct.";
 			return false;			
-		} else if (getCookieValue("progress")!="3"){
+		} else if (getCookieValue("progress")!="6"){
 			document.getElementById("message").innerHTML = "ERROR: Wrong progress state.";
 			return false;				
 		} else {return true};		
