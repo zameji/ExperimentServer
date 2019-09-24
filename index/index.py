@@ -62,7 +62,7 @@ def nextgroup(n):
 	# ibex_2 = ["I"] #had to change to fit with the increased ibex amounts
 	# todo: we are dropping ibex 2, right?
 
-	jspsych = ["J", "K", "L"]
+	jspsych = ["J", "K", "L", "M", "N"]
 
 	#combine the various jspsych versions
 	jspsych_versions = ["".join(x) for x in list(permutations(jspsych, len(jspsych)))]
@@ -75,7 +75,6 @@ def nextgroup(n):
 	i = combined.index(n)
 	i +=1
 	i = i%len(combined)
-
 	
 	return combined[i]
 
@@ -482,6 +481,14 @@ if __name__ == "__main__":
 							case "L":
 								form_next.value = "https://www.psycholinguistics.ml/jspsych_rst/reading_span_web_english.html";
 								break;							
+
+							case "M":
+								form_next.value = "https://www.psycholinguistics.ml/jspsych_flanker/index.html";
+								break;				
+								
+							case "N":
+								form_next.value = "https://www.psycholinguistics.ml/jspsych_ravens/index.html";
+								break;												
 
 							default:
 								form_next.value = "https://www.psycholinguistics.ml/cookie_error.html";

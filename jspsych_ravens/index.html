@@ -26,6 +26,105 @@
 <script src='experiment.js'></script>
 
 <script>
+
+	function saveData(name, data){
+	  var xhr = new XMLHttpRequest();
+	  xhr.open('POST', 'write_data.php'); // 'write_data.php' is the path to the php file described above.
+	  xhr.setRequestHeader('Content-Type', 'application/json');
+	  xhr.send(JSON.stringify({filename: name, filedata: data}));
+	}
+
+function setCookie(cname, cvalue, exdays) {
+	var d = new Date();
+	d.setTime(d.getTime() + (exdays*24*60*60*1000));
+	var expires = "expires="+ d.toUTCString();
+	document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookieValue(a) {
+	var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+	return b ? b.pop() : '';
+}
+
+function getID() {
+	var user_id = getCookieValue("id");
+	if (user_id != "") {
+		return user_id;			
+	} else {
+		window.location.href = "https://www.psycholinguistics.ml/cookie_error.html";
+	}
+}	
+	
+function insertAfter(el, referenceNode) {
+	    referenceNode.parentNode.insertBefore(el, referenceNode);
+	}
+	
+function moveOn(){
+	var sequence = getCookieValue("group");
+	var progress = getCookieValue("progress");
+	
+	var finalmessage = document.createElement("p");
+	finalmessage.innerHTML = "You can take a break now";			
+	before = document.querySelector('div.jspsych-content-wrapper');
+	insertAfter(finalmessage, before);
+
+	var continuation = document.createElement("a");
+	continuation.innerHTML = "<br>Click here to continue";
+	continuation.href = "https://www.psycholinguistics.ml/jspsych/experiment.html";
+	before = document.querySelector('div.jspsych-content');
+	insertAfter(continuation, before);
+	
+	//user deleted cookies? send them to the landing page
+	if(progress == ""){
+		finalmessage.innerHTML = 'Cannot track your progress. Did you delete cookies? <br>You will have to start again.<br><a href="https://www.psycholinguistics.ml/">Click here to continue.</a>'
+		}
+		
+	//update progress
+	progress++;
+	setCookie("progress", progress, 7);
+		
+	//until all three elements done, continue to next test
+	if (progress<4){
+		sequence = sequence[progress];		
+		switch (sequence){
+				case "A":
+				case "B":
+				case "C":
+				case "D":
+				case "E":
+				case "F":
+				case "G":
+				case "H":
+					document.getElementById('continue').href ="https://www.psycholinguistics.ml/ibex/experiment.html";
+					break;
+				case "J":
+					document.getElementById('continue').href ="https://www.psycholinguistics.ml/jspsych/experiment.html";
+					break;
+				case "K":
+					document.getElementById('continue').href ="https://www.psycholinguistics.ml/jspsych_axcpt/index.html";
+					break;
+				case "L":
+					document.getElementById('continue').href ="https://www.psycholinguistics.ml/jspsych_rst/reading_span_web_english.html";
+					break;					
+				case "M":
+					document.getElementById('continue').href ="https://www.psycholinguistics.ml/jspsych_flanker/index.html";
+					break;					
+				case "N":
+					document.getElementById('continue').href ="https://www.psycholinguistics.ml/jspsych_ravens/index.html";
+					break;										
+					
+				default:
+						continuation.href  = "https://www.psycholinguistics.ml/cookie_error.html";
+						}
+	}	else {
+		window.location.href = "https://www.psycholinguistics.ml/finished.html";
+	};
+}
+
+
+    var user_id = getID();
+
+
 $( document ).ready(function() {
 
     jsPsych.init({
@@ -36,37 +135,10 @@ $( document ).ready(function() {
                addID('ravens')
              },
 
-             on_finish: function(data){
-
-                 // Serialize the data
-                 var promise = new Promise(function(resolve, reject) {
-                     var data = jsPsych.data.dataAsJSON();
-                     resolve(data);
-                 })
-
-                 promise.then(function(data) {
-
-
-                     $.ajax({
-                         type: "POST",
-                         url: '/save',
-                         data: { "data": data },
-                         success: function(){ document.location = "/next" },
-                         dataType: "application/json",
-
-                         // Endpoint not running, local save
-                         error: function(err) {
-
-                             if (err.status == 200){
-                                 document.location = "/next";
-                             } else {
-                                 // If error, assue local save
-                                 jsPsych.data.localSave('ravens_results.csv', 'csv');
-                             }
-                         }
-                     });
-                 })
-             }
+             on_finish: function() {
+		saveData(user_id, jsPsych.data.dataAsCSV());
+		moveOn();
+      }
 
       });
 });

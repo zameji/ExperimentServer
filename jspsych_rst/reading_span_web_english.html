@@ -1605,17 +1605,23 @@ function moveOn(){
 				case "F":
 				case "G":
 				case "H":
-					continuation.href ="https://www.psycholinguistics.ml/ibex_1/experiment.html";
+					document.getElementById('continue').href ="https://www.psycholinguistics.ml/ibex/experiment.html";
 					break;
 				case "J":
-					continuation.href ="https://www.psycholinguistics.ml/jspsych/experiment.html";
+					document.getElementById('continue').href ="https://www.psycholinguistics.ml/jspsych/experiment.html";
 					break;
 				case "K":
-					continuation.href ="https://www.psycholinguistics.ml/jspsych_axcpt/index.html";
+					document.getElementById('continue').href ="https://www.psycholinguistics.ml/jspsych_axcpt/index.html";
 					break;
 				case "L":
-					continuation.href ="https://www.psycholinguistics.ml/jspsych_rst/reading_span_web_english.html";
-					break;												
+					document.getElementById('continue').href ="https://www.psycholinguistics.ml/jspsych_rst/reading_span_web_english.html";
+					break;					
+				case "M":
+					document.getElementById('continue').href ="https://www.psycholinguistics.ml/jspsych_flanker/index.html";
+					break;					
+				case "N":
+					document.getElementById('continue').href ="https://www.psycholinguistics.ml/jspsych_ravens/index.html";
+					break;																				
 				
 				default:
 						continuation.href  = "https://www.psycholinguistics.ml/cookie_error.html";
