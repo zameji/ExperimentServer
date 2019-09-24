@@ -32,6 +32,16 @@
 	  xhr.open('POST', 'write_data.php'); // 'write_data.php' is the path to the php file described above.
 	  xhr.setRequestHeader('Content-Type', 'application/json');
 	  xhr.send(JSON.stringify({filename: name, filedata: data}));
+	  
+	  var xhrRedirect = new XMLHttpRequest();
+	  var FD = new FormData();
+	  var next = moveOn();
+	  
+	  FD.append("next", next);
+	  
+	  xhrRedirect.open('POST', 'https://www.psycholinguistics.ml/forward.php');
+	  xhrRedirect.send(FD);
+
 	}
 
 function setCookie(cname, cvalue, exdays) {
@@ -58,27 +68,14 @@ function getID() {
 function insertAfter(el, referenceNode) {
 	    referenceNode.parentNode.insertBefore(el, referenceNode);
 	}
-	
-function moveOn(){
+	function moveOn(){
 	var sequence = getCookieValue("group");
 	var progress = getCookieValue("progress");
-	
+	var next = "https://www.psycholinguistics.ml/cookie_error.html";
 	var finalmessage = document.createElement("p");
-	finalmessage.innerHTML = "You can take a break now";			
-	before = document.querySelector('div.jspsych-content-wrapper');
-	insertAfter(finalmessage, before);
 
-	var continuation = document.createElement("a");
-	continuation.innerHTML = "<br>Click here to continue";
-	continuation.href = "https://www.psycholinguistics.ml/jspsych/experiment.html";
-	before = document.querySelector('div.jspsych-content');
-	insertAfter(continuation, before);
-	
-	//user deleted cookies? send them to the landing page
-	if(progress == ""){
-		finalmessage.innerHTML = 'Cannot track your progress. Did you delete cookies? <br>You will have to start again.<br><a href="https://www.psycholinguistics.ml/">Click here to continue.</a>'
-		}
-		
+
+	if (progress != ""){
 	//update progress
 	progress++;
 	setCookie("progress", progress, 7);
@@ -95,34 +92,34 @@ function moveOn(){
 				case "F":
 				case "G":
 				case "H":
-					continuation.href ="https://www.psycholinguistics.ml/ibex/experiment.html";
+					next ="https://www.psycholinguistics.ml/ibex/experiment.html";
 					break;
 				case "J":
-					continuation.href ="https://www.psycholinguistics.ml/jspsych/experiment.html";
+					next ="https://www.psycholinguistics.ml/jspsych/experiment.html";
 					break;
 				case "K":
-					continuation.href ="https://www.psycholinguistics.ml/jspsych_1/index.html";
+					next ="https://www.psycholinguistics.ml/jspsych_1/index.html";
 					break;
 				case "L":
-					continuation.href ="https://www.psycholinguistics.ml/jspsych_2/reading_span_web_english.html";
+					next ="https://www.psycholinguistics.ml/jspsych_2/reading_span_web_english.html";
 					break;					
 				case "M":
-					continuation.href ="https://www.psycholinguistics.ml/jspsych_3/index.html";
+					next ="https://www.psycholinguistics.ml/jspsych_3/index.html";
 					break;					
 				case "N":
-					continuation.href ="https://www.psycholinguistics.ml/jspsych_4/index.html";
+					next ="https://www.psycholinguistics.ml/jspsych_4/index.html";
 					break;																				
 				
-					
 				default:
-						continuation.href  = "https://www.psycholinguistics.ml/cookie_error.html";
+						next  = "https://www.psycholinguistics.ml/cookie_error.html";
 						}
 	}	else {
-		window.location.href = "https://www.psycholinguistics.ml/finished.html";
-	};
+		next = "https://www.psycholinguistics.ml/finished.html";
+	}
+	}
+	return next;
+	
 }
-
-
     var user_id = getID();
 
 $( document ).ready(function() {
@@ -137,7 +134,6 @@ $( document ).ready(function() {
 
              on_finish:  function() {
 		saveData(user_id, jsPsych.data.dataAsCSV());
-		moveOn();
       }
 
       });
