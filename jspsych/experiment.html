@@ -3,7 +3,7 @@
 <html>
 	
     <head>
-        <title>My experiment</title>
+        <title>Experiment</title>
 		<script src="jspsych/jspsych.js"></script>
 		<script src="PluginDetect.js"></script>
 		<script src="util_md5.js"></script>
@@ -158,26 +158,24 @@ function moveOn(){
 	setCookie("progress", progress, 7);
 		
 	//until all three elements done, continue to next test
-	if (progress<3){
+	if (progress<4){
 		sequence = sequence[progress];		
 		switch (sequence){
-				case "A":
+				case "S":
 					continuation.href ="https://www.psycholinguistics.ml/ibex_1/experiment.html";
 					break;
-				case "B":
-					continuation.href ="https://www.psycholinguistics.ml/ibex_1/experiment.html";
+				case "J":
+					continuation.href ="https://www.psycholinguistics.ml/jspsych/experiment.html";
 					break;
-				case "C":
-					continuation.href ="https://www.psycholinguistics.ml/ibex_1/experiment.html";
+				case "K":
+					continuation.href ="https://www.psycholinguistics.ml/jspsych_axcpt/index.html";
 					break;
-				case "D":
-					continuation.href ="https://www.psycholinguistics.ml/ibex_1/experiment.html";
+				case "L":
+					continuation.href ="https://www.psycholinguistics.ml/jspsych_rst/reading_span_web_english.html";
 					break;												
-				case "E": 
-					continuation.href ="https://www.psycholinguistics.ml/ibex_2/experiment.html";
-					break;	
+				
 				default:
-					document.getElementById('continue').href = "https://www.psycholinguistics.ml/cookie_error.html";
+						continuation.href  = "https://www.psycholinguistics.ml/cookie_error.html";
 						}
 	}	else {
 		window.location.href = "https://www.psycholinguistics.ml/finished.html";

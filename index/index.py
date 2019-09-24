@@ -58,14 +58,15 @@ def nextgroup(n):
 	from itertools import product as iter_product
 	from itertools import permutations
 	
-	ibex_1 = ["A", "B", "C", "D"]
-	ibex_2 = ["E"]
+	ibex_1 = ["A"]
+	# ibex_2 = ["E"]
 	jspsych = ["J", "K", "L"]
 	
 	#combine the various jspsych versions
 	jspsych_versions = ["".join(x) for x in list(permutations(jspsych, len(jspsych)))]
 	
-	combined = [x for x in list(permutations([ibex_1, ibex_2, jspsych_versions],3))]
+	# combined = [x for x in list(permutations([ibex_1, ibex_2, jspsych_versions],3))]
+	combined = [x for x in list(permutations([ibex_1, jspsych_versions],2))]
 	combined = [list(iter_product(*x)) for x in combined]
 	combined = ["".join(item) for sublist in combined for item in sublist]
 	
@@ -73,9 +74,9 @@ def nextgroup(n):
 	i +=1
 	i = i%len(combined)
 	
-	#return combined[i]
+	return combined[i]
 	#For development of Part 2, always return group "EAB"
-	return "EAJ"
+	# return "EAJ"
 
 if __name__ == "__main__":
 	html = u"""Content-type:text/html\r\n\r\n
@@ -458,23 +459,24 @@ if __name__ == "__main__":
 							case "A":
 								form_next.value = "https://www.psycholinguistics.ml/ibex_1/experiment.html";
 								break;
-							case "B":
-								form_next.value = "https://www.psycholinguistics.ml/ibex_1/experiment.html";
-								break;
-							case "C":
-								form_next.value = "https://www.psycholinguistics.ml/ibex_1/experiment.html";
-								break;
-							case "D":
-								form_next.value = "https://www.psycholinguistics.ml/ibex_1/experiment.html";
-								break;					
-								
-							case "E":
-								form_next.value = "https://www.psycholinguistics.ml/ibex_2/experiment.html";
-								break;
+
 
 							case "J":
 								form_next.value = "https://www.psycholinguistics.ml/jspsych/experiment.html";
 								break;							
+								
+							case "K":
+								form_next.value = "https://www.psycholinguistics.ml/jspsych_axcpt/index.html";
+								break;							
+
+							case "L":
+								form_next.value = "https://www.psycholinguistics.ml/jspsych_rst/reading_span_web_english.html";
+								break;							
+
+							default:
+								form_next.value = "https://www.psycholinguistics.ml/cookie_error.html";
+
+								
 							}
 						}
 						

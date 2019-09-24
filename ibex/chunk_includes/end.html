@@ -33,15 +33,21 @@
 	setCookie("progress", progress, 7);
 		
 	//until all three elements done, continue to next test
-	if (progress<3){
+	if (progress<4){
 		sequence = sequence[progress];		
 		switch (sequence){
-				case "E":
-					document.getElementById('continue').href ="https://www.psycholinguistics.ml/ibex_2/experiment.html";
+				case "A":
+					document.getElementById('continue').href ="https://www.psycholinguistics.ml/ibex/experiment.html";
 					break;
-				case "J": 
-					document.getElementById('continue').href = "https://www.psycholinguistics.ml/jspsych/experiment.html";
+				case "J":
+					document.getElementById('continue').href ="https://www.psycholinguistics.ml/jspsych/experiment.html";
 					break;
+				case "K":
+					document.getElementById('continue').href ="https://www.psycholinguistics.ml/jspsych_axcpt/index.html";
+					break;
+				case "L":
+					document.getElementById('continue').href ="https://www.psycholinguistics.ml/jspsych_rst/reading_span_web_english.html";
+					break;					
 				default:
 					document.getElementById('continue').href = "https://www.psycholinguistics.ml/cookie_error.html";
 						}
