@@ -419,7 +419,7 @@ if __name__ == "__main__":
 					<p style="text-align: center"><span id = rn></span></p>
 					<p style="text-align: center"><span id = cookies>Cookies: Unchecked</span></p>
 					<p style="text-align: center"><span id = mobile>Mobile: No</span></p>
-
+					<p style="text-align: center"><a href="https://www.psycholinguistics.ml/policy.html">Cookies notice - Privacy policy</a></p>
 				  </div>
 
 				<script>
