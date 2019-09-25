@@ -417,7 +417,7 @@ if __name__ == "__main__":
 
 					<p id=message style="color: red; text-align: center"></p>
 					<p style="text-align: center"><span id = rn></span></p>
-					<p style="text-align: center"><span id = cookies>Cookies: OFF</span></p>
+					<p style="text-align: center"><span id = cookies>Cookies: Unchecked</span></p>
 					<p style="text-align: center"><span id = mobile>Mobile: No</span></p>
 
 				  </div>
@@ -560,7 +560,7 @@ if __name__ == "__main__":
 							valid = false;
 							}
 							
-						if (document.getElementById("cookieConsent").value != "yes"){
+						if (!document.getElementById("cookieConsent").value == "yes"){
 							document.getElementById("cookieError").innerHTML = "Cannot proceed without your consent.";
 							valid = false;
 						}
