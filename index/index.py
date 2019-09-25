@@ -425,6 +425,7 @@ if __name__ == "__main__":
 				<script>
 					var group = document.getElementById("group").value;
 					var message = document.getElementById('message');
+					var cookiesOn = false;
 
 					function setCookie(cname, cvalue, exdays) {
 						var d = new Date();
@@ -473,7 +474,6 @@ if __name__ == "__main__":
 					}
 
 					function checkCookiesEnabled(){
-						var cookiesOn = false;
 						setCookie("TEST", "TEST", 0.0001);
 						if (getCookieValue("TEST") == "TEST"){
 							document.getElementById("cookies").innerHTML = "Cookies: ON";
@@ -489,28 +489,26 @@ if __name__ == "__main__":
 					function prepareAndValidate(){
 						if (!isValidForm()){
 							return false;
-							}						
-						
+							}
+
 						if (!checkCookiesEnabled()){
 							return false;
-						}					
-							
+						}
+
 						prepare();
-					
+
 						return true;
 					}
 
 					function prepare() {
-																	
 						form_next = document.getElementById("next");
 						form_group = document.getElementById("group");
 						form_id = document.getElementById("internalID");
 
 						form_id.value = uniqueMD5();
-						
 						if (getCookieValue("group") == ""){setCookie("group", form_group.value, 7)};
 						if (getCookieValue("progress") == ""){setCookie("progress", 0, 7);}
-							
+
 						switch(form_group.value[getCookieValue("progress")]){
 							case "A":
 							case "B":
@@ -552,16 +550,17 @@ if __name__ == "__main__":
 					function isValidForm() {
 						var valid = true;
 						
-						re = /^\d+$/;
+						re = /^\d+$/
 						if (!re.test(document.getElementById("age").value)){							
 							document.getElementById("ageerror").innerHTML = "Age must be a number";
 							valid = false;
-							}
-							
-						if (!document.getElementById("cookieConsent").value == "yes"){
-							document.getElementById("cookieError").innerHTML = "Cannot proceed without your consent.";
+                                                }
+
+						if (!document.getElementById("cookieConsent").checked){
+							document.getElementById("cookieError").innerHTML = "Cannot proceed without your consent"
 							valid = false;
 						}
+
 							return valid;
 						}
 

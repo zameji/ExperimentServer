@@ -112,7 +112,7 @@ if (!$stmt->bind_param("sssssssssissssss", $prolificID,
 
 if (!$stmt->execute()) {
     echo '<p style="text-align:center; font-family: Lucida, Console, monospace; font-size: medium;">Failed. Have you already done the experiment?</p>';
-	//echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+    //echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
 } else {
     echo "Redirecting..." . $next;
 	$conn->close();
