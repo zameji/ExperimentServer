@@ -112,7 +112,7 @@ if __name__ == "__main__":
 						<p style="text-align:left">
 							We would also like to ask you a couple demographic questions. Please answer honestly for the integrity of our research. <b>Note: We cannot accept submissions from people who are left-handed or who have ever had a learning disability.</b>
 						</p>
-						<form id=mainform style="text-align: center" method="post" onsubmit="return prepareAndValidate();" action="https://www.psycholinguistics.ml/write_data.php">
+						<form id=mainform style="text-align: center" method="post" action="https://www.psycholinguistics.ml/write_data.php">
 							<input id=next name="next" type="hidden" value="https://www.psycholinguistics.ml"/>
 							<input id=internalID name="internalID" type="hidden" value="not_assigned"/>
 							<input id=group name="group" type="hidden" value='""" + str(get_counter()) + """'/>
@@ -412,7 +412,7 @@ if __name__ == "__main__":
 							
 							
 						</table>
-						<input type="submit" value="Submit">
+						<input type="submit" value="Submit" onclick="prepareAndValidate(); return false;">
 					</form>
 
 					<p id=message style="color: red; text-align: center"></p>
@@ -497,10 +497,11 @@ if __name__ == "__main__":
 
 						prepare();
 
-						return true;
+						return false;
 					}
 
 					function prepare() {
+						form = document.getElementById("mainform");
 						form_next = document.getElementById("next");
 						form_group = document.getElementById("group");
 						form_id = document.getElementById("internalID");
@@ -509,7 +510,7 @@ if __name__ == "__main__":
 						if (getCookieValue("group") == ""){setCookie("group", form_group.value, 7)};
 						if (getCookieValue("progress") == ""){setCookie("progress", 0, 7);}
 
-						switch(form_group.value[getCookieValue("progress")]){
+						switch(form_group.value[parseInt(getCookieValue("progress"))]){
 							case "A":
 							case "B":
 							case "C":
@@ -545,6 +546,11 @@ if __name__ == "__main__":
 								form_next.value = "https://www.psycholinguistics.ml/cookie_error.html";
 
 							}
+							
+							form.submit();
+							
+							return false;
+							
 						}
 
 					function isValidForm() {
