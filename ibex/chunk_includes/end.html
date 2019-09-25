@@ -20,9 +20,7 @@
 	var progress = getCookieValue("progress");
 	var next = 'https://www.psycholinguistics.ml/cookie_error.html';
 	//user deleted cookies? send them to the landing page
-	if(progress == ""){
-		document.getElementById("final_message").innerHTML = 'Cannot track your progress. Did you delete cookies? <br>You will have to start again.<br><a href="https://www.psycholinguistics.ml/">Click here to continue.</a>'
-		}
+	if(progress != ""){
 		
 	//update progress
 	progress++;
@@ -63,10 +61,8 @@
 						}
 	}	else {
 		next = "https://www.psycholinguistics.ml/finished.html";
-	};
-	
-	var xhrRedirect = new XMLHttpRequest();
-	var FD = new FormData();
+	}
+	}
 	var next = moveOn();
 	  
 	  document.open();
