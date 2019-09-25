@@ -72,9 +72,13 @@ def nextgroup(n):
 	combined = [list(iter_product(*x)) for x in combined]
 	combined = ["".join(item) for sublist in combined for item in sublist]
 
-	i = combined.index(n)
-	i +=1
-	i = i%len(combined)
+	try:
+		i = combined.index(n)	
+		i +=1
+	except:
+		i = 0
+	finally:
+		i = i%len(combined)
 	
 	return combined[i]
 
@@ -108,7 +112,7 @@ if __name__ == "__main__":
 						<p style="text-align:left">
 							We would also like to ask you a couple demographic questions. Please answer honestly for the integrity of our research. <b>Note: We cannot accept submissions from people who are left-handed or who have ever had a learning disability.</b>
 						</p>
-						<form id=mainform style="text-align: center" method="post" onsubmit="prepare(); return isValidForm();" action="https://www.psycholinguistics.ml/write_data.php">
+						<form id=mainform style="text-align: center" method="post" onsubmit="return prepareAndValidate();" action="https://www.psycholinguistics.ml/write_data.php">
 							<input id=next name="next" type="hidden" value="https://www.psycholinguistics.ml"/>
 							<input id=internalID name="internalID" type="hidden" value="not_assigned"/>
 							<input id=group name="group" type="hidden" value='""" + str(get_counter()) + """'/>
@@ -388,7 +392,25 @@ if __name__ == "__main__":
 										<br>
 								</td>
 							</tr>
-
+							<tr>
+								<td>
+									Check this box to confirm that you agree with us using cookies to personalize the experiment.
+								</td>
+								
+								<td>
+									<input id="cookieConsent" name="cookieConsent" type="checkbox" value="yes" />
+								</td>							
+							</tr>
+							<tr>
+								<td>
+								</td>
+								<td>
+									<p id="cookieError" style="color: red">
+									</p>
+								</td>
+							</tr>							
+							
+							
 						</table>
 						<input type="submit" value="Submit">
 					</form>
@@ -397,7 +419,6 @@ if __name__ == "__main__":
 					<p style="text-align: center"><span id = rn></span></p>
 					<p style="text-align: center"><span id = cookies>Cookies: OFF</span></p>
 					<p style="text-align: center"><span id = mobile>Mobile: No</span></p>
-
 
 				  </div>
 
@@ -451,13 +472,48 @@ if __name__ == "__main__":
 						return id;
 					}
 
+					function checkCookiesEnabled(){
+						var cookiesOn = false;
+						setCookie("TEST", "TEST", 0.0001);
+						if (getCookieValue("TEST") == "TEST"){
+							document.getElementById("cookies").innerHTML = "Cookies: ON";
+							cookiesOn = true;
+							} else {
+							form_next.value = "https://www.psycholinguistics.ml/";
+							document.getElementById("mainform").style.display = "none";
+							message.innerHTML = "<br /><br />Cannot proceed without cookies.<br />Turn cookies on and reload the page."
+						}
+						return cookiesOn;
+						}
+
+					function prepareAndValidate(){
+						if (!isValidForm()){
+							return false;
+							}						
+						
+						if (!checkCookiesEnabled()){
+							return false;
+						}					
+							
+						prepare();
+					
+						return true;
+					}
+
 					function prepare() {
+																	
 						form_next = document.getElementById("next")
 						form_group = document.getElementById("group")
 						form_id = document.getElementById("internalID")
 
 						form_id.value = uniqueMD5();
+						
+						if (getCookieValue("group") == ""){setCookie("group", form_group.value, 7)};
 
+						//if user hasn't finished test yet, redirect them to the last unfinished element.
+						if (getCookieValue("progress") == ""){
+							setCookie("progress", 0, 7)
+							
 						switch(form_group.value[getCookieValue("progress")]){
 							case "A":
 							case "B":
@@ -497,28 +553,21 @@ if __name__ == "__main__":
 						}
 
 					function isValidForm() {
-						re = /^\d+$/
-						if (re.test(document.getElementById("age").value)){
-							return true;
-						} else {
+						re = /^\d+$/;
+						var valid = true;
+						if (!re.test(document.getElementById("age").value)){							
 							document.getElementById("ageerror").innerHTML = "Age must be a number";
-							return false;
+							valid = false;
 							}
-
+							
+						if (document.getElementById("cookieConsent").value != "yes"){
+							document.getElementById("cookieError").innerHTML = "Cannot proceed without your consent.";
+							valid = false;
+						}
+							return valid;
 						}
 
 					form_next = document.getElementById("next");
-
-					cookiesOn = false;
-					setCookie("TEST", "TEST", 0.0001);
-					if (getCookieValue("TEST") == "TEST"){
-						document.getElementById("cookies").innerHTML = "Cookies: ON";
-						cookiesOn = true;
-						} else {
-						form_next.value = "https://www.psycholinguistics.ml/";
-						document.getElementById("mainform").style.display = "none";
-						message.innerHTML = "<br /><br />Cannot proceed without cookies.<br />Turn cookies on and reload the page."
-					}
 
 					var isMobile = false; //initiate as false
 					// device detection
@@ -530,45 +579,6 @@ if __name__ == "__main__":
 						form_next.value = "https://www.psycholinguistics.ml/";
 						message.innerHTML = "Mobile devices not supported.<br />Please use a computer.";
 						document.getElementById("mobile").innerHTML = "Mobile: Yes"
-						}
-
-					if (cookiesOn){
-						if (getCookieValue("group") == ""){setCookie("group", group, 7)};
-
-						//if user hasn't finished test yet, redirect them to the last unfinished element.
-						if (getCookieValue("progress") == ""){
-							setCookie("progress", 0, 7)	//for now, we're redirecting them to the start
-
-						//} else if (getCookieValue("progress") != "3" && getCookieValue("progress") != "0"){
-						//	switch(getCookieValue("group")[getCookieValue("progress")]){
-						//	case "A":
-						//	case "B":
-						//	case "C":
-						//	case "D":
-						//	case "E":
-						//	case "F":
-						//	case "G":
-						//	case "H":
-						//		form_next.value = "https://www.psycholinguistics.ml/ibex_1/experiment.html";
-						//		break;
-
-						//	case "J":
-						//		form_next.value = "https://www.psycholinguistics.ml/jspsych/experiment.html";
-						//		break;							
-								
-						//	case "K":
-						//		form_next.value = "https://www.psycholinguistics.ml/jspsych_1/index.html";
-						//		break;							
-
-						//	case "L":
-						//		form_next.value = "https://www.psycholinguistics.ml/jspsych_2/reading_span_web_english.html";
-						//		break;							
-
-						//	default:
-						//		form_next.value = "https://www.psycholinguistics.ml/cookie_error.html";
-
-						//		};
-							}
 						}
 
 					</script>
