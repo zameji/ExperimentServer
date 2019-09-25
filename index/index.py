@@ -226,7 +226,7 @@ if __name__ == "__main__":
 								<td>
 								</td>
 								<td>
-									<p id=ageerror style="color: red">
+									<p id="ageerror" style="color: red">
 									</p>
 								</td>
 							</tr>
@@ -502,17 +502,14 @@ if __name__ == "__main__":
 
 					function prepare() {
 																	
-						form_next = document.getElementById("next")
-						form_group = document.getElementById("group")
-						form_id = document.getElementById("internalID")
+						form_next = document.getElementById("next");
+						form_group = document.getElementById("group");
+						form_id = document.getElementById("internalID");
 
 						form_id.value = uniqueMD5();
 						
 						if (getCookieValue("group") == ""){setCookie("group", form_group.value, 7)};
-
-						//if user hasn't finished test yet, redirect them to the last unfinished element.
-						if (getCookieValue("progress") == ""){
-							setCookie("progress", 0, 7)
+						if (getCookieValue("progress") == ""){setCookie("progress", 0, 7);}
 							
 						switch(form_group.value[getCookieValue("progress")]){
 							case "A":
@@ -553,8 +550,9 @@ if __name__ == "__main__":
 						}
 
 					function isValidForm() {
-						re = /^\d+$/;
 						var valid = true;
+						
+						re = /^\d+$/;
 						if (!re.test(document.getElementById("age").value)){							
 							document.getElementById("ageerror").innerHTML = "Age must be a number";
 							valid = false;
@@ -578,7 +576,7 @@ if __name__ == "__main__":
 					if (isMobile){
 						form_next.value = "https://www.psycholinguistics.ml/";
 						message.innerHTML = "Mobile devices not supported.<br />Please use a computer.";
-						document.getElementById("mobile").innerHTML = "Mobile: Yes"
+						document.getElementById("mobile").innerHTML = "Mobile: Yes";
 						}
 
 					</script>
