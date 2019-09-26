@@ -1566,9 +1566,10 @@ function getCookieValue(a) {
 
 function getID() {
 	var user_id = getCookieValue("id");
+	console.log("User ID" + getCookieValue("id"));
 	if (user_id != "") {
 		return user_id;			
-	} else {
+	} else {		
 		window.location.href = "https://www.psycholinguistics.ml/cookie_error.html?rst=id";
 	}
 }	
