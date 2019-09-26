@@ -509,8 +509,6 @@ if __name__ == "__main__":
 			form_id = document.getElementById("internalID");
 
 			form_id.value = uniqueMD5();
-			setCookie("group", form_group.value, 7);
-			setCookie("progress", 0, 7);
 
 			switch(form_group.value[0]){
 				case "A":
@@ -550,11 +548,8 @@ if __name__ == "__main__":
 				}
 											
 				console.log("Group identified as: " + form_group.value);
-				console.log("Group saved as: " + getCookieValue("group"));
-				console.log("Progress saved as: " + getCookieValue("progress"));
 				console.log("Continuing to: " + form_next.value);
-							
-				
+											
 				form.submit();
 				
 				return false;
