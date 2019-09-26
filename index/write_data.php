@@ -114,6 +114,10 @@ if (!$stmt->execute()) {
     echo '<p style="text-align:center; font-family: Lucida, Console, monospace; font-size: medium;">Failed. Have you already done the experiment?</p>';
     //echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
 } else {
+	setcookie("id", $internalID, time()+144000, "/", "psycholinguistics.ml");
+	setcookie("group", $testgroup, time()+144000, "/", "psycholinguistics.ml");
+	setcookie("progress", 0, time()+144000, "/", "psycholinguistics.ml");
+	
     echo "Redirecting..." . $next;
 	$conn->close();
 	header("Location: ". $next, true, 302);
