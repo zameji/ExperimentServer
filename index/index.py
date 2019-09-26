@@ -549,8 +549,12 @@ if __name__ == "__main__":
 
 				}
 				
+								
 				console.log("Group identified as: " + form_group.value);
+				console.log("Group saved as: " + getCookieValue("group"));
+				console.log("Progress saved as: " + getCookieValue("progress"));
 				console.log("Continuing to: " + form_next.value);
+							
 				
 				form.submit();
 				
