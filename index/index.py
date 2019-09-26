@@ -87,10 +87,11 @@ def nextgroup(n):
 
 if __name__ == "__main__":
 	html = u"""Content-type:text/html\r\n\r\n
-			<meta charset="UTF-8">
+
 
 			<html>
 				<head>
+							<meta charset="UTF-8">
 						<title>Welcome</title>
 						<script src="util_md5.js"></script>
 						<link rel="stylesheet" type="text/css" href="https://www.psycholinguistics.ml/css/global_main.css">
