@@ -116,7 +116,7 @@ if (!$stmt->execute()) {
 } else {
     echo "Redirecting..." . $next;
 	$conn->close();
-	header("Location: ". $next, true, 301);
+	header("Location: ". $next, true, 302);
 	exit();
 	
 }
