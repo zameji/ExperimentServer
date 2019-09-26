@@ -2,13 +2,13 @@
 <head>
     <meta charset='UTF-8'>
     <title>Memory test</title>
-    <script src="jquery.min.js"></script>
-    <script src="jspsych.js"></script>
-    <script src="plugins/jspsych-text.js"></script>
-    <script src="plugins/jspsych-single-stim.js"></script>
-    <script src="plugins/jspsych-survey-text.js"></script>
-    <script src="plugins/jspsych-instructions.js"></script>
-    <link href="css/jspsych.css" rel="stylesheet" type="text/css">
+    <script src="https://www.psycholinguistics/jspsych_2/jquery.min.js"></script>
+    <script src="https://www.psycholinguistics/jspsych_2/jspsych.js"></script>
+    <script src="https://www.psycholinguistics/jspsych_2/plugins/jspsych-text.js"></script>
+    <script src="https://www.psycholinguistics/jspsych_2/plugins/jspsych-single-stim.js"></script>
+    <script src="https://www.psycholinguistics/jspsych_2/plugins/jspsych-survey-text.js"></script>
+    <script src="https://www.psycholinguistics/jspsych_2/plugins/jspsych-instructions.js"></script>
+    <link href="https://www.psycholinguistics/jspsych_2/css/jspsych.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700' rel='stylesheet' type='text/css'>
 </head>
@@ -1573,9 +1573,10 @@ function getID() {
 	}
 }	
 	
-function insertAfter(el, referenceNode) {
-	    referenceNode.parentNode.insertBefore(el, referenceNode);
-	}
+	function insertAfter(el, referenceNode) {
+			referenceNode.parentNode.insertBefore(el, referenceNode);
+		}
+	
 	function moveOn(){
 	var sequence = getCookieValue("group");
 	var progress = getCookieValue("progress");
