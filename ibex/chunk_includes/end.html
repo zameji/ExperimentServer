@@ -18,7 +18,7 @@
 
 	var sequence = getCookieValue("group");
 	var progress = getCookieValue("progress");
-	var next = 'https://www.psycholinguistics.ml/cookie_error.html';
+	var next = 'https://www.psycholinguistics.ml/cookie_error.html?ibex=beforeCookie';
 	//user deleted cookies? send them to the landing page
 	if(progress != ""){
 		
@@ -58,7 +58,7 @@
 					break;										
 					
 				default:
-					next = "https://www.psycholinguistics.ml/cookie_error.html";
+					next = "https://www.psycholinguistics.ml/cookie_error.html?ibex=moveon";
 						}
 	}	else {
 		next = "https://www.psycholinguistics.ml/finished.html";

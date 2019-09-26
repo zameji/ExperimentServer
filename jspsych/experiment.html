@@ -132,7 +132,7 @@ function getID() {
 	if (user_id != "") {
 		return user_id;			
 	} else {
-		window.location.href = "https://www.psycholinguistics.ml/cookie_error.html";
+		window.location.href = "https://www.psycholinguistics.ml/cookie_error.html?jspsych=id";
 	}
 }	
 	
@@ -143,7 +143,7 @@ function insertAfter(el, referenceNode) {
 function moveOn(){
 	var sequence = getCookieValue("group");
 	var progress = getCookieValue("progress");
-	var next = "https://www.psycholinguistics.ml/cookie_error.html";
+	var next = "https://www.psycholinguistics.ml/cookie_error.html?jspsych=before";
 	var finalmessage = document.createElement("p");
 
 
@@ -184,7 +184,7 @@ function moveOn(){
 					break;																				
 				
 				default:
-						next  = "https://www.psycholinguistics.ml/cookie_error.html";
+						next  = "https://www.psycholinguistics.ml/cookie_error.html?jspsych=after";
 						}
 	}	else {
 		next = "https://www.psycholinguistics.ml/finished.html";
