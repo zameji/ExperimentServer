@@ -508,10 +508,10 @@ if __name__ == "__main__":
 			form_id = document.getElementById("internalID");
 
 			form_id.value = uniqueMD5();
-			if (getCookieValue("group") == ""){setCookie("group", form_group.value, 7)};
-			if (getCookieValue("progress") == ""){setCookie("progress", 0, 7)}
+			setCookie("group", form_group.value, 7);
+			setCookie("progress", 0, 7);
 
-			switch(form_group.value[parseInt(getCookieValue("progress"))]){
+			switch(form_group.value[0]){
 				case "A":
 				case "B":
 				case "C":
