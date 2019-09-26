@@ -544,12 +544,8 @@ if __name__ == "__main__":
 					form_next.value = "https://www.psycholinguistics.ml/jspsych_4/index.html";
 					break;												
 
-				default:
-					form_next.value = "https://www.psycholinguistics.ml/cookie_error.html";
-
 				}
-				
-								
+											
 				console.log("Group identified as: " + form_group.value);
 				console.log("Group saved as: " + getCookieValue("group"));
 				console.log("Progress saved as: " + getCookieValue("progress"));
