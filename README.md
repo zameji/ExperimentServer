@@ -6,8 +6,8 @@ All connected together through an Nginx server (not included), talking to a ligh
 
 
 **Access:**
-- SSH: keyfile + password (experiment)
-- MySQL: root/ubuntu user (ubuntuExperiment2019)
+- SSH: keyfile + password
+- MySQL: root/ubuntu user
 
 **Filesystem description:**
 - Files are located on the server in /home/ubuntu/server/
