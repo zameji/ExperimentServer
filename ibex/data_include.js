@@ -17,16 +17,16 @@ sequence = sequence[progress];
 
 switch (sequence){
         case "A":
-            var shuffleSequence = seq("intro3", sepWith("sep", seq("practice", "intro4", randomize("Exp1_ListA_firstPair"), randomize("Exp1_ListA_secondPair"), "exitpoll", "sendResults", "end")));
+            var shuffleSequence = seq("intro3", sepWith("sep", seq("practice", "intro4", randomize("Exp1_ListA_firstPair"), "pause", randomize("Exp1_ListA_secondPair"), "exitpoll", "sendResults", "end")));
             break;
         case "B":
-            var shuffleSequence = seq("intro3", sepWith("sep", seq("practice", "intro4", randomize("Exp1_ListA_secondPair"), randomize("Exp1_ListA_firstPair"), "exitpoll", "sendResults", "end")));
+            var shuffleSequence = seq("intro3", sepWith("sep", seq("practice", "intro4", randomize("Exp1_ListA_secondPair"), "pause", randomize("Exp1_ListA_firstPair"), "exitpoll", "sendResults", "end")));
             break;
         case "C":
-            var shuffleSequence = seq("intro3", sepWith("sep", seq("practice", "intro4", randomize("Exp1_ListB_firstPair"), randomize("Exp1_ListB_secondPair"), "exitpoll", "sendResults", "end")));
+            var shuffleSequence = seq("intro3", sepWith("sep", seq("practice", "intro4", randomize("Exp1_ListB_firstPair"), "pause", randomize("Exp1_ListB_secondPair"), "exitpoll", "sendResults", "end")));
             break;
         case "D":
-            var shuffleSequence = seq("intro3", sepWith("sep", seq("practice", "intro4", randomize("Exp1_ListB_secondPair"), randomize("Exp1_ListB_firstPair"), "exitpoll", "sendResults", "end")));
+            var shuffleSequence = seq("intro3", sepWith("sep", seq("practice", "intro4", randomize("Exp1_ListB_secondPair"), "pause", randomize("Exp1_ListB_firstPair"), "exitpoll", "sendResults", "end")));
             break;
         default:
             var shuffleSequence = seq("end");
