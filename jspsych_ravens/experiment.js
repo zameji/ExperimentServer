@@ -464,7 +464,7 @@ var practice_node_2 = {
 var start_test_block = {
   type: 'poldrack-text',
   cont_key: [13],
-  text: '<div class = centerbox><p class = center-block-text>You are now ready to begin the test trials.<br><br>Press <strong> Enter </strong> to continue.</p></div>',
+  text: '<div class = centerbox><p class = center-block-text>You are now ready to begin the test trials.<br><br>This task should take about 10 minutes. If you get stuck, give your best guess and move on.<br><br>Press <strong> Enter </strong> to continue.</p></div>',
   timing_post_trial: 0,
   timing_response: 180000,
   data: {

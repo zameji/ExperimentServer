@@ -108,7 +108,7 @@ if __name__ == "__main__":
 							This study has to do with the way native English speakers read and understand sentences.
 						</p>
 						<p style="text-align:left">
-							We define "native English speakers" as people whose earliest memories involve speaking primarily English and who continue to consider English as their main language of communication. For this study, participants must also have grown up in a primarily English speaking country from the list below and not have became fluent in a foreign language before the age of 13.
+							We define "native English speakers" as people whose earliest memories involve speaking primarily English and who continue to consider English as their main language of communication. For this study, participants must also have grown up in a primarily English speaking country from the list below and not have become fluent in a foreign language before the age of 13.
 						</p>
 						<p style="text-align:left">
 							We would also like to ask you a couple demographic questions. Please answer honestly for the integrity of our research. <b>Note: We cannot accept submissions from people who are left-handed or who have ever had a learning disability.</b>
