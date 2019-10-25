@@ -66,20 +66,20 @@ def nextgroup(n):
 
 	#combine the various jspsych versions
 	jspsych_versions = ["".join(x) for x in list(permutations(jspsych, len(jspsych)))]
-
+	
 	# combined = [x for x in list(permutations([ibex_1, ibex_2, jspsych_versions],3))]
 	combined = [x for x in list(permutations([ibex_1, jspsych_versions],2))]
 	combined = [list(iter_product(*x)) for x in combined]
 	combined = ["".join(item) for sublist in combined for item in sublist]
 
 	try:
-		i = combined.index(n)
+		i = combined.index(n)	
 		i +=1
 	except:
 		i = 0
 	finally:
 		i = i%len(combined)
-
+	
 	return combined[i]
 
 	#For development of Part 2, always return group "EAB"
@@ -204,6 +204,17 @@ if __name__ == "__main__":
 								<br>
 								<br>
 						</td>
+					<tr>
+						<td colspan="2">
+							If you wish to explain your language background, please do so below:
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<textarea name="write_something" maxlength=1000 rows="5" cols="40"></textarea>
+							<br>
+						</td>
+					</tr>
 
 				<tr>
 					<td>
@@ -278,6 +289,74 @@ if __name__ == "__main__":
 							<br>
 					</td>
 				</tr>
+
+				<tr>
+					<td>
+						How often do you type on a computer?
+					</td>
+					<td>
+						<input name="typing" type="radio" value="typerarely" class="obligatory" required="required" id="type1weekly" />
+							<label for="type1weekly">
+								One or two days per week
+							</label><br>
+						<input name="typing" type="radio" value="type3weekly" id="type3weekly"/>
+							<label for="type3weekly">
+								Three or four days per week
+							</label>
+							<br>
+						<input name="typing" type="radio" value="type3hours" id="type4hours"/>
+							<label for="type4hours">
+								One to four hours every day
+							</label>
+							<br>
+						<input name="typing" type="radio" value="type8hours" id="type8hours"/>
+							<label for="type8hours">
+								Five to eight hours every day
+							</label>
+							<br>
+						<input name="typing" type="radio" value="typeallday" id="typeallday"/>
+							<label for="typeallday">
+								More than eight hours every day
+							</label>
+							<br>
+							<br>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						How would you rate your typing speed?
+					</td>
+					<td>
+						<input name="typingspeed" type="radio" value="typeveryslow" class="obligatory" required="required" id="typeveryslow" />
+							<label for="typeslow">
+								Very slow
+							</label>
+							<br>
+						<input name="typingspeed" type="radio" value="typeslow" id="typeslow"/>
+							<label for="typeslow">
+								Pretty slow
+							</label>
+							<br>
+						<input name="typingspeed" type="radio" value="typemiddle" id="typemiddle"/>
+							<label for="typemiddle">
+								Neither slow nor fast
+							</label>
+							<br>
+						<input name="typingspeed" type="radio" value="typefast" id="typefast"/>
+							<label for="typefast">
+								Pretty fast
+							</label>
+							<br>
+						<input name="typingspeed" type="radio" value="typeveryfast" id="typeveryfast"/>
+							<label for="typeveryfast">
+								Very fast
+							</label>
+							<br>
+							<br>
+					</td>
+				</tr>
+
 				<tr>
 					<td>
 						Are you right-handed or left-handed?
@@ -319,10 +398,10 @@ if __name__ == "__main__":
 					<td>
 						Check this box to confirm that you agree with us using cookies to personalize the experiment.
 					</td>
-
+					
 					<td>
 						<input id="cookieConsent" name="cookieConsent" type="checkbox" value="yes" />
-					</td>
+					</td>							
 				</tr>
 				<tr>
 					<td>
@@ -331,9 +410,9 @@ if __name__ == "__main__":
 						<p id="cookieError" style="color: red">
 						</p>
 					</td>
-				</tr>
-
-
+				</tr>							
+				
+				
 			</table>
 			<input type="submit" value="Submit" onclick="prepareAndValidate(); return false;">
 		</form>
@@ -445,43 +524,43 @@ if __name__ == "__main__":
 
 				case "J":
 					form_next.value = "https://www.psycholinguistics.ml/jspsych/experiment.html";
-					break;
-
+					break;							
+					
 				case "K":
 					form_next.value = "https://www.psycholinguistics.ml/jspsych_1/index.html";
-					break;
+					break;							
 
 				case "L":
 					form_next.value = "https://www.psycholinguistics.ml/jspsych_2/reading_span_web_english.html";
-					break;
+					break;							
 
 				case "M":
 					form_next.value = "https://www.psycholinguistics.ml/jspsych_3/index.html";
-					break;
-
+					break;				
+					
 				case "N":
 					form_next.value = "https://www.psycholinguistics.ml/jspsych_4/index.html";
-					break;
+					break;												
 
 				default:
 					form_next.value = "https://www.psycholinguistics.ml/cookie_error.html?index";
 
 				}
-
+											
 				console.log("Group identified as: " + form_group.value);
 				console.log("Continuing to: " + form_next.value);
-
+											
 				form.submit();
-
+				
 				return false;
-
+				
 			}
 
 		function isValidForm() {
 			var valid = true;
-
+			
 			re = /^\d+$/
-			if (!re.test(document.getElementById("age").value)){
+			if (!re.test(document.getElementById("age").value)){							
 				document.getElementById("ageerror").innerHTML = "Age must be a number";
 				valid = false;
 									}
