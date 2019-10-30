@@ -69,7 +69,7 @@ function getNextExperiment(){
 					next ="https://www.psycholinguistics.ml/jspsych/experiment.html";//circles-REPLACE LATER WITH VOCAB
 					break;
 				case "K":
-					next ="https://www.psycholinguistics.ml/jspsych_1/index.html";//AXCPT
+					next ="https://www.psycholinguistics.ml/jspsych_1/static/index.html";//AXCPT
 					break;
 				case "L":
 					next ="https://www.psycholinguistics.ml/jspsych_2/reading_span_web_english.html"; //RST
