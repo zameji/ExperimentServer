@@ -92,9 +92,11 @@ if __name__ == "__main__":
 
 			<html>
 				<head>
-							<meta charset="UTF-8">
+						<meta charset="UTF-8">
 						<title>Welcome</title>
 						<script src="util_md5.js"></script>
+						<!-- Cookie handling JS code. -->
+						<script type="text/javascript" src="https://www.psycholinguistics.ml/index/util/cookie.js"></script>
 						<link rel="stylesheet" type="text/css" href="https://www.psycholinguistics.ml/css/global_main.css">
 						<link rel="stylesheet" type="text/css" href="https://www.psycholinguistics.ml/css/global_mainB.css">
 						<link rel="stylesheet" type="text/css" href="https://www.psycholinguistics.ml/css/Form.css">
@@ -418,18 +420,6 @@ if __name__ == "__main__":
 		var message = document.getElementById('message');
 		var cookiesOn = false;
 
-		function setCookie(cname, cvalue, exdays) {
-			var d = new Date();
-			d.setTime(d.getTime() + (exdays*24*60*60*1000));
-			var expires = "expires="+ d.toUTCString();
-			document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-		}
-
-		function getCookieValue(a) {
-			var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
-			return b ? b.pop() : '';
-		}
-
 		function checkCookie(id) {
 			var user_id = getCookieValue("id");
 			if (user_id != "" && user_id.startsWith(document.getElementById("prolificID").value)) {
@@ -498,58 +488,14 @@ if __name__ == "__main__":
 			form_id = document.getElementById("internalID");
 
 			form_id.value = uniqueMD5();
+				
+			form_next.value = getNextExperiment();
+			console.log("Group identified as: " + form_group.value);
+			console.log("Continuing to: " + form_next.value);
 
-			switch(form_group.value[0]){
-				case "A":
-				case "B":
-				case "C":
-				case "D":
-				case "E":
-				case "F":
-				case "G":
-				case "H":
-					form_next.value = "https://www.psycholinguistics.ml/ibex_1/experiment.html";
-					break;
+			form.submit();
 
-				case "J":
-					form_next.value = "https://www.psycholinguistics.ml/jspsych/experiment.html";
-					break;
-
-				case "K":
-					form_next.value = "https://www.psycholinguistics.ml/jspsych_1/index.html";
-					break;
-
-				case "L":
-					form_next.value = "https://www.psycholinguistics.ml/jspsych_2/reading_span_web_english.html";
-					break;
-
-				case "M":
-					form_next.value = "https://www.psycholinguistics.ml/jspsych_3/index.html";
-					break;
-
-				case "N":
-					form_next.value = "https://www.psycholinguistics.ml/jspsych_4/index.html";
-					break;
-
-				case "O":
-				      next ="https://www.psycholinguistics.ml/jspsych_5/index.html";
-				      break;
-
-				 case "P":
-				      next ="https://www.psycholinguistics.ml/jspsych_6/index.html";
-				      break;
-
-				default:
-					form_next.value = "https://www.psycholinguistics.ml/cookie_error.html?index";
-
-				}
-
-				console.log("Group identified as: " + form_group.value);
-				console.log("Continuing to: " + form_next.value);
-
-				form.submit();
-
-				return false;
+			return false;
 
 			}
 
