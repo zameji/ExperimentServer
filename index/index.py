@@ -489,7 +489,7 @@ if __name__ == "__main__":
 
 			form_id.value = uniqueMD5();
 				
-			form_next.value = getNextExperiment();
+			form_next.value = getFirstExperiment();
 			console.log("Group identified as: " + form_group.value);
 			console.log("Continuing to: " + form_next.value);
 

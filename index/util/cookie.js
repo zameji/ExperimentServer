@@ -5,7 +5,7 @@ function saveData(name, data){
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.send(JSON.stringify({filename: name, filedata: data}));
 
-  var next = moveOn();
+  var next = getNextExperiment();
   console.log("Moving to: " + next);
 
   document.open();
@@ -50,6 +50,65 @@ function getNextExperiment(){
 	progress = parseInt(progress)
 	progress++;
 	setCookie("progress", progress, 7);
+
+	//until all three elements done, continue to next test
+	if (progress<8){
+		sequence = sequence[progress];
+		switch (sequence){
+				case "A":
+				case "B":
+				case "C":
+				case "D":
+				case "E":
+				case "F":
+				case "G":
+				case "H":
+					next ="https://www.psycholinguistics.ml/ibex/experiment.html";
+					break;
+				case "J":
+					next ="https://www.psycholinguistics.ml/jspsych/experiment.html";//circles-REPLACE LATER WITH VOCAB
+					break;
+				case "K":
+					next ="https://www.psycholinguistics.ml/jspsych_1/static/index.html";//AXCPT
+					break;
+				case "L":
+					next ="https://www.psycholinguistics.ml/jspsych_2/reading_span_web_english.html"; //RST
+					break;
+				case "M":
+					next ="https://www.psycholinguistics.ml/jspsych_3/index.html";//Flanker
+					break;
+				case "N":
+					next ="https://www.psycholinguistics.ml/jspsych_4/index.html";//Ravens
+					break;
+				case "O":
+					next ="https://www.psycholinguistics.ml/jspsych_5/index.html";//Big5
+					break;
+				case "P":
+					next ="https://www.psycholinguistics.ml/jspsych_6/index.html";//Navon
+					break;
+
+				default:
+						next  = "https://www.psycholinguistics.ml/cookie_error.html";
+						}
+	}	else {
+		next = "https://www.psycholinguistics.ml/finished.html";
+	}
+	}
+	return next;
+
+}
+
+
+function getFirstExperiment(){
+	var sequence = getCookieValue("group");
+	var progress = getCookieValue("progress");
+	var next = "https://www.psycholinguistics.ml/cookie_error.html";
+	var finalmessage = document.createElement("p");
+
+
+	if (progress != ""){
+	//update progress
+	progress = parseInt(progress)
 
 	//until all three elements done, continue to next test
 	if (progress<8){
