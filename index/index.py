@@ -62,15 +62,16 @@ def nextgroup(n):
 	# ibex_2 = ["I"] #had to change to fit with the increased ibex amounts
 	# todo: we are dropping ibex 2, right?
 
-	jspsych = ["J", "K", "L", "M", "N"]
+	jspsych = ["J", "K", "L", "M", "N", "O", "P"]
 
 	#combine the various jspsych versions
 	jspsych_versions = ["".join(x) for x in list(permutations(jspsych, len(jspsych)))]
 
 	# combined = [x for x in list(permutations([ibex_1, ibex_2, jspsych_versions],3))]
-	combined = [x for x in list(permutations([ibex_1, jspsych_versions],2))]
-	combined = [list(iter_product(*x)) for x in combined]
-	combined = ["".join(item) for sublist in combined for item in sublist]
+	#combined = [x for x in list(permutations([ibex_1, jspsych_versions],2))]
+	#combined = [list(iter_product(*x)) for x in combined]
+	#combined = ["".join(item) for sublist in combined for item in sublist]
+	combined = jspsych_versions
 
 	try:
 		i = combined.index(n)
@@ -541,6 +542,14 @@ if __name__ == "__main__":
 				case "N":
 					form_next.value = "https://www.psycholinguistics.ml/jspsych_4/index.html";
 					break;
+
+				case "O":
+				      next ="https://www.psycholinguistics.ml/jspsych_5/index.html";
+				      break;
+
+				 case "P":
+				      next ="https://www.psycholinguistics.ml/jspsych_6/index.html";
+				      break;
 
 				default:
 					form_next.value = "https://www.psycholinguistics.ml/cookie_error.html?index";

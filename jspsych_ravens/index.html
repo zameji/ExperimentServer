@@ -79,8 +79,8 @@ progress = parseInt(progress)
 progress++;
 setCookie("progress", progress, 7);
 
-//until all three elements done, continue to next test
-if (progress<6){
+/until all three elements done, continue to next test
+if (progress<8){
   sequence = sequence[progress];
   switch (sequence){
       case "A":
@@ -94,23 +94,29 @@ if (progress<6){
         next ="https://www.psycholinguistics.ml/ibex/experiment.html";
         break;
       case "J":
-        next ="https://www.psycholinguistics.ml/jspsych/experiment.html";
+        next ="https://www.psycholinguistics.ml/jspsych/experiment.html";//circles-REPLACE LATER WITH VOCAB
         break;
       case "K":
-        next ="https://www.psycholinguistics.ml/jspsych_1/index.html";
+        next ="https://www.psycholinguistics.ml/jspsych_1/index.html";//AXCPT
         break;
       case "L":
-        next ="https://www.psycholinguistics.ml/jspsych_2/reading_span_web_english.html";
+        next ="https://www.psycholinguistics.ml/jspsych_2/reading_span_web_english.html"; //RST
         break;
       case "M":
-        next ="https://www.psycholinguistics.ml/jspsych_3/index.html";
+        next ="https://www.psycholinguistics.ml/jspsych_3/index.html";//Flanker
         break;
       case "N":
-        next ="https://www.psycholinguistics.ml/jspsych_4/index.html";
+        next ="https://www.psycholinguistics.ml/jspsych_4/index.html";//Ravens
+        break;
+      case "O":
+        next ="https://www.psycholinguistics.ml/jspsych_5/index.html";//Big5
+        break;
+      case "P":
+        next ="https://www.psycholinguistics.ml/jspsych_6/index.html";//Navon
         break;
 
       default:
-          next  = "https://www.psycholinguistics.ml/cookie_error.html?flanker=after";
+          next  = "https://www.psycholinguistics.ml/cookie_error.html?jspsych=after";
           }
 }	else {
   next = "https://www.psycholinguistics.ml/finished.html";
@@ -119,6 +125,8 @@ if (progress<6){
 return next;
 
 }
+
+
   var user_id = getID();
 
 
