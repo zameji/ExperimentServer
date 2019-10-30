@@ -14,14 +14,14 @@ function getRealIpAddr()
       $ip=$_SERVER['REMOTE_ADDR'];
     }
     return $ip;
-} 
- 
+}
+
 //pull form fields into php variables
 $prolificID = $_POST['prolificID'];
 $nativelang= $_POST['nativelang'];
 $bilingual = $_POST['bilingual'];
 $origin = $_POST['origin'];
-$write_something= $_POST['write_something'];
+$write_something= "";
 $age= $_POST['age'];
 $sex = $_POST['sex'];
 $edu= $_POST['edu'];
@@ -35,7 +35,7 @@ $next = $_POST['next'];
 $ip = getRealIpAddr();
 
 // redirect non-fitting candidates
-if ($reading == 'yes' or $origin=='other' or $handness=='left'){
+if ($reading == 'yes' or $origin=='other'){
 	$next = "https://www.psycholinguistics.ml/thank_you.html";
 };
 
@@ -52,24 +52,24 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
-} 
+}
 
 
-if (!($stmt = $conn->prepare("INSERT INTO results (prolific_id, 
+if (!($stmt = $conn->prepare("INSERT INTO results (prolific_id,
 								internal_id,
 								ip,
 								time_started,
 								test_group,
-								nativelang, 
-								bilingual, 
-								origin, 
-								write_something, 
-								age, 
-								sex, 
-								edu, 
-								typing, 
-								typingspeed, 
-								handness, 
+								nativelang,
+								bilingual,
+								origin,
+								write_something,
+								age,
+								sex,
+								edu,
+								typing,
+								typingspeed,
+								handness,
 								reading) VALUES (?,
 											?,
 											?,
@@ -83,8 +83,8 @@ if (!($stmt = $conn->prepare("INSERT INTO results (prolific_id,
 											?,
 											?,
 											?,
-											?, 
-											?, 
+											?,
+											?,
 											?
 											)"))) {
     echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
@@ -95,16 +95,16 @@ if (!$stmt->bind_param("sssssssssissssss", $prolificID,
 										$ip,
 										$time_started,
 										$testgroup,
-										$nativelang, 
-										$bilingual, 
-										$origin, 
-										$write_something, 
-										$age, 
-										$sex, 
-										$edu, 
-										$typing, 
-										$typingspeed, 
-										$handness, 
+										$nativelang,
+										$bilingual,
+										$origin,
+										$write_something,
+										$age,
+										$sex,
+										$edu,
+										$typing,
+										$typingspeed,
+										$handness,
 										$reading)) {
     echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
 }
@@ -117,11 +117,11 @@ if (!$stmt->execute()) {
 	setcookie("id", $internalID, time()+144000, "/", "psycholinguistics.ml");
 	setcookie("group", $testgroup, time()+144000, "/", "psycholinguistics.ml");
 	setcookie("progress", 0, time()+144000, "/", "psycholinguistics.ml");
-	
+
     echo "Redirecting..." . $next;
 	$conn->close();
 	header("Location: ". $next, true, 302);
 	exit();
-	
+
 }
 ?>

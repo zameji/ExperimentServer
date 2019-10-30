@@ -205,18 +205,6 @@ if __name__ == "__main__":
 								<br>
 								<br>
 						</td>
-					<tr>
-						<td colspan="2">
-							If you wish to explain your language background, please do so below:
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2">
-							<textarea name="write_something" maxlength=1000 rows="5" cols="40"></textarea>
-							<br>
-						</td>
-					</tr>
-
 				<tr>
 					<td>
 						How old are you? (in years)
