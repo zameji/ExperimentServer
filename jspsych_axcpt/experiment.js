@@ -39,9 +39,9 @@ var possible_responses = [
 ]
 var chars = 'BCDEFGHIJLMNOPQRSTUVWZ'
 var trial_proportions = ["AX", "AX", "AX", "AX", "AX", "AX", "AX", "BX", "AY", "BY"]
-var block1_list = jsPsych.randomization.repeat(trial_proportions, 4)
-var block2_list = jsPsych.randomization.repeat(trial_proportions, 4)
-var block3_list = jsPsych.randomization.repeat(trial_proportions, 4)
+var block1_list = jsPsych.randomization.repeat(trial_proportions, 1)
+var block2_list = jsPsych.randomization.repeat(trial_proportions, 1)
+var block3_list = jsPsych.randomization.repeat(trial_proportions, 1)
 var blocks = [block1_list, block2_list, block3_list]
 
 /* ************************************ */
@@ -111,7 +111,7 @@ var feedback_instruct_block = {
 var instructions_block = {
   type: 'poldrack-instructions',
   pages: [
-    '<div class = centerbox><p class = block-text>In this task, on each trial you will see a letter presented for a short time, followed by the presentation of another letter. For instance you may see "A", which would then disappear to be replaced by "F".</p><p class = block-text>Your job is to respond by pressing an arrow key during the presentation of the <strong>second</strong> letter. If the first letter was an "A" <strong>AND</strong> the second letter was an "X", press the ' +
+    '<div class = centerbox><p class = block-text>In this task, on each trial you will see a letter presented for a short time, followed by the presentation of another letter. For instance you may see "A", which would then disappear to be replaced by "F".</p><p class = block-text>Your job is to respond by pressing a key (F or J) during the presentation of the <strong>second</strong> letter. If the first letter was an "A" <strong>AND</strong> the second letter was an "X", press the ' +
     possible_responses[0][0] + '. Otherwise press the ' + possible_responses[1][0] +
     '.</p></div>',
     '<div class = centerbox><p class = block-text>We will now start the experiment. Remember, press the F key after you see "A" followed by an "X", and the J key for all other combinations.</p></div>'
@@ -183,6 +183,7 @@ var A_cue = {
   correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
   incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text>Incorrect</div></div>',
   timeout_message: '<div class = centerbox>Respond faster</div>',
+  timing_feedback_duration: 1000,
   timing_stim: 300,
   timing_response: 5200,
   response_ends_trial: false,
@@ -201,6 +202,7 @@ var other_cue = {
   correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
   incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text>Incorrect</div></div>',
   timeout_message: '<div class = centerbox>Respond faster</div>',
+  timing_feedback_duration: 1000,
   timing_stim: 300,
   timing_response: 5200,
   response_ends_trial: false,
@@ -219,6 +221,7 @@ var X_probe = {
   correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
   incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text>Incorrect</div></div>',
   timeout_message: '<div class = centerbox>Respond faster</div>',
+  timing_feedback_duration: 1000,
   timing_stim: 300,
   timing_response: 1300,
   response_ends_trial: false,
@@ -237,6 +240,7 @@ var other_probe = {
   correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
   incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text>Incorrect</div></div>',
   timeout_message: '<div class = centerbox>Respond faster</div>',
+  timing_feedback_duration: 1000,
   timing_stim: 300,
   timing_response: 1300,
   response_ends_trial: false,
