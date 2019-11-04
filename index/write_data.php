@@ -21,7 +21,7 @@ $prolificID = $_POST['prolificID'];
 $nativelang= $_POST['nativelang'];
 $bilingual = $_POST['bilingual'];
 $origin = $_POST['origin'];
-$write_something= "";
+$write_something= "a";
 $age= $_POST['age'];
 $sex = $_POST['sex'];
 $edu= $_POST['edu'];
@@ -111,8 +111,8 @@ if (!$stmt->bind_param("sssssssssissssss", $prolificID,
 
 
 if (!$stmt->execute()) {
-    echo '<p style="text-align:center; font-family: Lucida, Console, monospace; font-size: medium;">Failed. Have you already done the experiment?</p>';
-    //echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+    //echo '<p style="text-align:center; font-family: Lucida, Console, monospace; font-size: medium;">Failed. Have you already done the experiment?</p>';
+    echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
 } else {
 	setcookie("id", $internalID, time()+144000, "/", "psycholinguistics.ml");
 	setcookie("group", $testgroup, time()+144000, "/", "psycholinguistics.ml");
