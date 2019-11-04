@@ -35,7 +35,7 @@ var instructTimeThresh = 0 ///in seconds
 // task specific variables
 var possible_responses = [
   ["F key", 70],
-  ["J key", 73]
+  ["J key", 74]
 ]
 var chars = 'BCDEFGHIJLMNOPQRSTUVWZ'
 var trial_proportions = ["AX", "AX", "AX", "AX", "AX", "AX", "AX", "BX", "AY", "BY"]
