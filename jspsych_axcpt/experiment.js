@@ -182,8 +182,8 @@ var A_cue = {
   },
   timing_stim: 300,
   timing_response: 5200,
-  response_ends_trial: false,
-  timing_post_trial: 0
+  response_ends_trial: true,
+  timing_post_trial: null
 };
 
 var other_cue = {
@@ -198,7 +198,7 @@ var other_cue = {
   timing_stim: 300,
   timing_response: 5200,
   response_ends_trial: false,
-  timing_post_trial: 0
+  timing_post_trial: null
 };
 
 var X_probe = {
@@ -213,7 +213,7 @@ var X_probe = {
   timing_stim: 300,
   timing_response: 1300,
   response_ends_trial: false,
-  timing_post_trial: 0
+  timing_post_trial: null
 };
 
 var other_probe = {
@@ -228,7 +228,7 @@ var other_probe = {
   timing_stim: 300,
   timing_response: 1300,
   response_ends_trial: false,
-  timing_post_trial: 0
+  timing_post_trial: null
 };
 
 /* ************************************ */
