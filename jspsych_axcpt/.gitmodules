@@ -1,3 +1,0 @@
-[submodule "jsPsych"]
-	path = static/lib/jsPsych
-	url = git@github.com:mshvartsman/jsPsych.git
