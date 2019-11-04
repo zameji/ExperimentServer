@@ -166,8 +166,8 @@ var wait_block = {
     trial_id: "wait"
   },
   timing_post_trial: 500,
-  timing_stim: 1000,
-  timing_response: 0
+  timing_stim: 0,
+  timing_response: 1000
 }
 
 /* define test block cues and probes*/
