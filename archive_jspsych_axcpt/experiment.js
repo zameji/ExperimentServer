@@ -35,13 +35,13 @@ var instructTimeThresh = 0 ///in seconds
 // task specific variables
 var possible_responses = [
   ["F key", 70],
-  ["J key", 72]
+  ["J key", 74]
 ]
 var chars = 'BCDEFGHIJLMNOPQRSTUVWZ'
 var trial_proportions = ["AX", "AX", "AX", "AX", "AX", "AX", "AX", "BX", "AY", "BY"]
-var block1_list = jsPsych.randomization.repeat(trial_proportions, 4)
-var block2_list = jsPsych.randomization.repeat(trial_proportions, 4)
-var block3_list = jsPsych.randomization.repeat(trial_proportions, 4)
+var block1_list = jsPsych.randomization.repeat(trial_proportions, 1)
+var block2_list = jsPsych.randomization.repeat(trial_proportions, 1)
+var block3_list = jsPsych.randomization.repeat(trial_proportions, 1)
 var blocks = [block1_list, block2_list, block3_list]
 
 /* ************************************ */
@@ -180,6 +180,10 @@ var A_cue = {
     trial_id: "cue",
     exp_stage: "test"
   },
+  correct_text: 'Correct!',
+  incorrect_text: 'Incorrect',
+  timeout_message: 'Respond faster',
+  timing_feedback_duration: 1000,
   timing_stim: 300,
   timing_response: 5200,
   response_ends_trial: false,
@@ -195,6 +199,10 @@ var other_cue = {
     trial_id: "cue",
     exp_stage: "test"
   },
+  correct_text: 'Correct!',
+  incorrect_text: 'Incorrect',
+  timeout_message: 'Respond faster',
+  timing_feedback_duration: 1000,
   timing_stim: 300,
   timing_response: 5200,
   response_ends_trial: false,
@@ -210,6 +218,10 @@ var X_probe = {
     trial_id: "probe",
     exp_stage: "test"
   },
+  correct_text: 'Correct!',
+  incorrect_text: 'Incorrect',
+  timeout_message: 'Respond faster',
+  timing_feedback_duration: 1000,
   timing_stim: 300,
   timing_response: 1300,
   response_ends_trial: false,
@@ -225,6 +237,10 @@ var other_probe = {
     trial_id: "probe",
     exp_stage: "test"
   },
+  correct_text: 'Correct!',
+  incorrect_text: 'Incorrect',
+  timeout_message: 'Respond faster',
+  timing_feedback_duration: 1000,
   timing_stim: 300,
   timing_response: 1300,
   response_ends_trial: false,
