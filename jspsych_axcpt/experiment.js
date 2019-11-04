@@ -159,15 +159,12 @@ var rest_block = {
 
 var wait_block = {
   type: 'poldrack-single-stim',
-  stimulus: '<div class = centerbox><div class = AX_feedback>Trial over, get ready for the next one.</div></div>',
+  stimulus: '<div class = centerbox><div class = AX_feedback>Trial over, press any key to continue.</div></div>',
   is_html: true,
   data: {
     trial_id: "wait"
   },
   response_ends_trial: true
-  //timing_post_trial: 500,
-  //timing_stim: 1000,
-  //timing_response: 1000
 }
 
 /* define test block cues and probes*/
