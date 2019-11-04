@@ -111,10 +111,10 @@ var feedback_instruct_block = {
 var instructions_block = {
   type: 'poldrack-instructions',
   pages: [
-    '<div class = centerbox><p class = block-text>In this task, on each trial you will see a letter presented for a short time, followed by the presentation of another letter. For instance you may see "A", which would then disappear to be replaced by "F".</p><p class = block-text>Your job is to respond by pressing a key (F or J) during the presentation of the <strong>second</strong> letter. If the first letter was an "A" <strong>AND</strong> the second letter was an "X", press the ' +
+    '<div class = centerbox><p class = block-text>In this task, on each trial you will see a letter presented for a short time, followed by the presentation of another letter. For instance you may see "A", which would be replaced by "F" after a short break.</p><p class = block-text>Your job is to respond by pressing a key (F or J) during the presentation of the <strong>second</strong> letter. If the first letter was an "A" <strong>AND</strong> the second letter was an "X", press the ' +
     possible_responses[0][0] + '. Otherwise press the ' + possible_responses[1][0] +
     '.</p></div>',
-    '<div class = centerbox><p class = block-text>We will now start the experiment. Remember, press the F key after you see "A" followed by an "X", and the J key for all other combinations.</p></div>'
+    '<div class = centerbox><p class = block-text>We will now start the experiment. You will not get feedback, so be sure to remember the keys: press the F key after you see "A" followed by an "X", and the J key for all other combinations.</p></div>'
   ],
   allow_keys: false,
   data: {

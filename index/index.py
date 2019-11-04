@@ -286,27 +286,27 @@ if __name__ == "__main__":
 						How often do you read in your free time? (Books, news articles, anything longer than a few paragraphs.)
 					</td>
 					<td>
-						<input name="typing" type="radio" value="typerarely" class="obligatory" required="required" id="type1weekly" />
-							<label for="type1weekly">
+						<input name="reading_amt" type="radio" value="1" class="obligatory" required="required" id="type1weekly" />
+							<label for="1">
 								Rarely or never
 							</label><br>
-						<input name="typing" type="radio" value="type3weekly" id="type3weekly"/>
-							<label for="type3weekly">
+						<input name="reading_amt" type="radio" value="2" id="type3weekly"/>
+							<label for="2">
 								An hour per week or less
 							</label>
 							<br>
-						<input name="typing" type="radio" value="type3hours" id="type4hours"/>
-							<label for="type4hours">
+						<input name="reading_amt" type="radio" value="3" id="type4hours"/>
+							<label for="3">
 								About three to five hours per week
 							</label>
 							<br>
-						<input name="typing" type="radio" value="type8hours" id="type8hours"/>
-							<label for="type8hours">
+						<input name="reading_amt" type="radio" value="4" id="type8hours"/>
+							<label for="4">
 								About an hour every day
 							</label>
 							<br>
-						<input name="typing" type="radio" value="typeallday" id="typeallday"/>
-							<label for="typeallday">
+						<input name="reading_amt" type="radio" value="5" id="typeallday"/>
+							<label for="5">
 								More than an hour a day
 							</label>
 							<br>
@@ -319,28 +319,28 @@ if __name__ == "__main__":
 						Would you say you enjoy reading?
 					</td>
 					<td>
-						<input name="typingspeed" type="radio" value="typeveryslow" class="obligatory" required="required" id="typeveryslow" />
-							<label for="typeslow">
+						<input name="reading_enj" type="radio" value="1" class="obligatory" required="required" id="typeveryslow" />
+							<label for="1">
 								No, I prefer not to read if I don't have to
 							</label>
 							<br>
-						<input name="typingspeed" type="radio" value="typeslow" id="typeslow"/>
-							<label for="typeslow">
+						<input name="reading_enj" type="radio" value="2" id="typeslow"/>
+							<label for="2">
 								Not really, I read sometimes, but only if something is very interesting to me
 							</label>
 							<br>
-						<input name="typingspeed" type="radio" value="typemiddle" id="typemiddle"/>
-							<label for="typemiddle">
+						<input name="reading_enj" type="radio" value="3" id="typemiddle"/>
+							<label for="3">
 								Kind of, there are some books/sources that I enjoy but others I don't
 							</label>
 							<br>
-						<input name="typingspeed" type="radio" value="typefast" id="typefast"/>
-							<label for="typefast">
+						<input name="reading_enj" type="radio" value="4" id="typefast"/>
+							<label for="4">
 								Yeah, I like reading and have several favorite books/sources
 							</label>
 							<br>
-						<input name="typingspeed" type="radio" value="typeveryfast" id="typeveryfast"/>
-							<label for="typeveryfast">
+						<input name="reading_enj" type="radio" value="5" id="typeveryfast"/>
+							<label for="5">
 								Yes, I am a passionate reader and consider reading one of my favorite hobbies
 							</label>
 							<br>
@@ -488,7 +488,7 @@ if __name__ == "__main__":
 			form_id = document.getElementById("internalID");
 
 			form_id.value = uniqueMD5();
-				
+
 			form_next.value = getFirstExperiment();
 			console.log("Group identified as: " + form_group.value);
 			console.log("Continuing to: " + form_next.value);
