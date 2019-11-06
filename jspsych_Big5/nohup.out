@@ -1,0 +1,7 @@
+WARN engine jcb64@2.0.2: wanted: {"node":">=10.16.3"} (current: {"node":"8.10.0","npm":"3.5.2"})
+WARN engine @alheimsins/bigfive-calculate-score@1.0.3: wanted: {"node":">=10.16.3"} (current: {"node":"8.10.0","npm":"3.5.2"})
+WARN engine @alheimsins/b5-result-text@1.7.4: wanted: {"node":">=10.16.3"} (current: {"node":"8.10.0","npm":"3.5.2"})
+WARN engine @alheimsins/b5-johnson-120-ipip-neo-pi-r@2.1.8: wanted: {"node":">=10.16.3"} (current: {"node":"8.10.0","npm":"3.5.2"})
+npm WARN deprecated flatten@1.0.2: I wrote this module a very long time ago; you should use something else.
+npm WARN deprecated core-js@1.2.7: core-js@<2.6.8 is no longer maintained. Please, upgrade to core-js@3 or at least to actual version of core-js@2.
+WARN engine fsevents@2.1.1: wanted: {"node":"^8.16.0 || ^10.6.0 || >=11.0.0"} (current: {"node":"8.10.0","npm":"3.5.2"})
