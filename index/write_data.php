@@ -49,7 +49,7 @@ $dbname = "experiment";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
-echo "got 1";
+
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -60,26 +60,13 @@ if (!($stmt = $conn->prepare("UPDATE participants set ip=?,  time_started=?,  te
     echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
 }
 //echo "A";
-//echo $ip . "\n" . $time_started . "\n" . $testgroup . "\n" . $progress . "\n" . $jspsych_group . "\n" . $jspsych_progress . "\n" . $ibex_1_group . "\n" . $nativelang . "\n" . $bilingual . "\n" . $origin . "\n" . $age . "\n" . $sex . "\n" . $edu . "\n" . $handness . "\n" . $reading . "\n" . $prolificID;
+echo "<br>" . $ip . "<br>" . $time_started . "<br>" . $testgroup . "<br>" . $progress . "<br>" . $jspsych_group . "<br>" . $jspsych_progress . "<br>" . $ibex_1_group . "<br>" . $nativelang . "<br>" . $bilingual . "<br>" . $origin . "<br>" . $age . "<br>" . $sex . "<br>" . $edu . "<br>" . $handness . "<br>" . $reading . "<br>" . $prolificID;
 
-if (!$stmt->bind_param("s", $ip))  echo "Binding ip failed: (" . $stmt->errno . ") " . $stmt->error;}
-if (!$stmt->bind_param("s", $time_started))  echo "Binding time_started failed: (" . $stmt->errno . ") " . $stmt->error;}
-if (!$stmt->bind_param("s", $testgroup))  echo "Binding testgroup failed: (" . $stmt->errno . ") " . $stmt->error;}
-if (!$stmt->bind_param("i", $progress))  echo "Binding progress failed: (" . $stmt->errno . ") " . $stmt->error;}
-if (!$stmt->bind_param("s", $jspsych_group))  echo "Binding jspsych_group failed: (" . $stmt->errno . ") " . $stmt->error;}
-
-if (!$stmt->bind_param("i", $jspsych_progress))  echo "Binding jspsych_progress failed: (" . $stmt->errno . ") " . $stmt->error;}
-if (!$stmt->bind_param("s", $ibex_1_group))  echo "Binding ibex_1_group failed: (" . $stmt->errno . ") " . $stmt->error;}
-if (!$stmt->bind_param("s", $nativelang))  echo "Binding nativelang failed: (" . $stmt->errno . ") " . $stmt->error;}
-if (!$stmt->bind_param("s", $bilingual))  echo "Binding bilingual failed: (" . $stmt->errno . ") " . $stmt->error;}
-if (!$stmt->bind_param("s", $origin))  echo "Binding origin failed: (" . $stmt->errno . ") " . $stmt->error;}
-
-if (!$stmt->bind_param("s", $age))  echo "Binding age failed: (" . $stmt->errno . ") " . $stmt->error;}
-if (!$stmt->bind_param("s", $sex))  echo "Binding sex failed: (" . $stmt->errno . ") " . $stmt->error;}
-if (!$stmt->bind_param("s", $edu))  echo "Binding edu failed: (" . $stmt->errno . ") " . $stmt->error;}
-if (!$stmt->bind_param("s", $handness))  echo "Binding handness failed: (" . $stmt->errno . ") " . $stmt->error;}
-if (!$stmt->bind_param("s", $prolificID))  echo "Binding prolificID failed: (" . $stmt->errno . ") " . $stmt->error;}
-
+if (!$stmt->bind_param("sssisisssssssss", $ip, $time_started, $testgroup, $progress, $jspsych_group,
+										$jspsych_progress, $ibex_1_group, $nativelang, $bilingual, $origin,
+										$age, $sex, $edu, $handness, $prolificID)) {echo "Binding ip failed: (" . $stmt->errno . ") " . $stmt->error;}
+										
+										
 if (!$stmt->execute()) {
     //echo '<p style="text-align:center; font-family: Lucida, Console, monospace; font-size: medium;">Failed. Have you already done the experiment?</p>';
     echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
