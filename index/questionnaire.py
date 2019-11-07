@@ -393,7 +393,7 @@ if __name__ == "__main__":
 				</tr>
 				<tr>
 					<td>
-						Check this box to confirm that you agree with us using cookies to personalize the experiment.
+						Check this box to confirm that you agree with the experiment.
 					</td>
 
 					<td>
@@ -431,11 +431,7 @@ if __name__ == "__main__":
 				return false;
 				}
 
-			if (!checkCookiesEnabled()){
-				return false;
-			}
-
-			prepare();
+			form.submit();;
 
 			return false;
 		}
