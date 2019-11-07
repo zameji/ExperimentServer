@@ -420,9 +420,7 @@ if __name__ == "__main__":
 				return false;
 				}
 				
-			document.getElementById("mainform").submit();
-
-			return false;
+			return true;
 		}
 
 		function isValidForm() {
