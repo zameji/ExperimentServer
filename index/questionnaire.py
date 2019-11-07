@@ -131,7 +131,6 @@ if __name__ == "__main__":
 							We would also like to ask you a couple demographic questions. Please answer honestly for the integrity of our research.
 						</p>
 						<form id=mainform style="text-align: center" method="post" action="https://www.psycholinguistics.ml/write_data.php">
-							<input id=next name="next" type="hidden" value="https://www.psycholinguistics.ml"/>
 							<input id=internalID name="internalID" type="hidden" value="not_assigned"/>
 							<input id=group name="group" type="hidden" value='""" + str(groups[0]) + """'/>
 							<input id=jspsych_group name="jspsych_group" type="hidden" value='""" + str(groups[1]) + """'/>
@@ -430,8 +429,8 @@ if __name__ == "__main__":
 			if (!isValidForm()){
 				return false;
 				}
-
-			form.submit();;
+				
+			document.getElementById("mainform").submit();
 
 			return false;
 		}
@@ -452,8 +451,6 @@ if __name__ == "__main__":
 
 				return valid;
 			}
-
-		form_next = document.getElementById("next");
 
 		</script>
 		</body>
