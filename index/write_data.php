@@ -17,7 +17,8 @@ function getRealIpAddr()
 }
 
 //pull form fields into php variables
-$prolificID = $_POST['prolificID'];
+$prolificID = getcookie("id");
+
 $ip = getRealIpAddr();
 $time_started = date("Y-m-d H:i:s");
 

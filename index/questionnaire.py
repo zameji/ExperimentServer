@@ -108,7 +108,7 @@ if __name__ == "__main__":
 		<title>Welcome</title>
 		<script src="util_md5.js"></script>
 		<!-- Cookie handling JS code. -->
-		<script type="text/javascript" src="https://www.psycholinguistics.ml/index/util/cookie.js"></script>
+		<script type="text/javascript" src="https://www.psycholinguistics.ml/index/cookie.js"></script>
 		<link rel="stylesheet" type="text/css" href="https://www.psycholinguistics.ml/css/global_main.css" />
 		<link rel="stylesheet" type="text/css" href="https://www.psycholinguistics.ml/css/global_mainB.css"/>
 		<link rel="stylesheet" type="text/css" href="https://www.psycholinguistics.ml/css/Form.css" />
@@ -395,7 +395,7 @@ if __name__ == "__main__":
 						</td>
 					</tr>
 				</table>
-				<input type="submit" value="Submit"/>
+				<input name="submit" type="submit" value="Submit"/>
 			</form>
 			<p id="message" style="color: red; text-align: center"></p>
 			<p style="text-align: center">
