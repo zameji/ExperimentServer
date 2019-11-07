@@ -67,11 +67,13 @@ if (!$stmt->bind_param("sssisisssssssss",
 										$testgroup,
 										$progress,
 										$jspsych_group,
+										
 										$jspsych_progress,
 										$ibex_1_group,
 										$nativelang,
 										$bilingual,
 										$origin,
+										
 										$age,
 										$sex,
 										$edu,

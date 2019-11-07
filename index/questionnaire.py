@@ -132,9 +132,9 @@ if __name__ == "__main__":
 						</p>
 						<form id=mainform style="text-align: center" method="post" action="https://www.psycholinguistics.ml/write_data.php">
 							<input id=internalID name="internalID" type="hidden" value="not_assigned"/>
-							<input id=group name="group" type="hidden" value='""" + str(groups[0]) + """'/>
-							<input id=jspsych_group name="jspsych_group" type="hidden" value='""" + str(groups[1]) + """'/>
-							<input id=ibex_1_group name="ibex_1_group" type="hidden" value='""" + str(groups[2]) + """'/>
+							<input id="group" name="group" type="hidden" value='""" + str(groups[0]) + """'/>
+							<input id="jspsych_group" name="jspsych_group" type="hidden" value='""" + str(groups[1]) + """'/>
+							<input id="ibex_1_group" name="ibex_1_group" type="hidden" value='""" + str(groups[2]) + """'/>
 				<table style='border-collapse: collapse;'>
 
 					<tr>
