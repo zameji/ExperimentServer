@@ -127,7 +127,7 @@ if __name__ == "__main__":
 			<p style="text-align:left">
 							We would also like to ask you a couple demographic questions. Please answer honestly for the integrity of our research.
 						</p>
-			<form id="mainform" style="text-align: center" method="post" action="https://www.psycholinguistics.ml/write_data.php">
+			<form id="mainform" style="text-align: center" method="post" action="https://www.psycholinguistics.ml/write_data.php" onsubmit="return prepareAndValidate()">
 				<input id="internalID" name="internalID" type="hidden" value="not_assigned"/>
 				<input id="group" name="group" type="hidden" value='""" + str(groups[0]) + """'/>
 				<input id="jspsych_group" name="jspsych_group" type="hidden" value='""" + str(groups[1]) + """'/>
@@ -395,7 +395,7 @@ if __name__ == "__main__":
 						</td>
 					</tr>
 				</table>
-				<input type="submit" value="Submit" onclick="prepareAndValidate(); return false;" />
+				<input type="submit" value="Submit"/>
 			</form>
 			<p id="message" style="color: red; text-align: center"></p>
 			<p style="text-align: center">
