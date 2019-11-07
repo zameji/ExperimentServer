@@ -59,26 +59,12 @@ if ($conn->connect_error) {
 if (!($stmt = $conn->prepare("UPDATE participants set ip=?,  time_started=?,  test_group=?,  progress=?,  jspsych_group=?,  jspsych_progress=?,  ibex_1_group=?,  nativelang=?,  bilingual=?,  origin=?,  age=?,  sex=?,  education=?,  handness=?,  reading_disability=? where prolific_id=?"))) {
     echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
 }
-//echo "A";
-<<<<<<< HEAD
-<<<<<<< HEAD
 echo "<br>" . $ip . "<br>" . $time_started . "<br>" . $testgroup . "<br>" . $progress . "<br>" . $jspsych_group . "<br>" . $jspsych_progress . "<br>" . $ibex_1_group . "<br>" . $nativelang . "<br>" . $bilingual . "<br>" . $origin . "<br>" . $age . "<br>" . $sex . "<br>" . $edu . "<br>" . $handness . "<br>" . $reading . "<br>" . $prolificID;
 
-if (!$stmt->bind_param("sssisisssssssss", $ip, $time_started, $testgroup, $progress, $jspsych_group,
-										$jspsych_progress, $ibex_1_group, $nativelang, $bilingual, $origin,
-										$age, $sex, $edu, $handness, $prolificID)) {echo "Binding ip failed: (" . $stmt->errno . ") " . $stmt->error;}
-=======
-=======
->>>>>>> b647daad504da0425806a1b3da72ad95e9254fb6
-echo $ip . "<br>" . $time_started . "<br>" . $testgroup . "<br>" . $progress . "<br>" . $jspsych_group . "<br>" . $jspsych_progress . "<br>" . $ibex_1_group . "<br>" . $nativelang . "<br>" . $bilingual . "<br>" . $origin . "<br>" . $age . "<br>" . $sex . "<br>" . $edu . "<br>" . $handness . "<br>" . $reading . "<br>" . $prolificID;
-
-if (!$stmt->bind_param("sssisisssssssss", $ip, $time_started, $testgroup, $progress, $jspsych_group,
-										$jspsych_progress, $ibex_1_group, $nativelang, $bilingual, $origin,
-										$age, $sex, $edu, $handness, $prolificID)) {echo "Binding ip failed: (" . $stmt->errno . ") " . $stmt->error;}} 
-<<<<<<< HEAD
->>>>>>> b647daad504da0425806a1b3da72ad95e9254fb6
-=======
->>>>>>> b647daad504da0425806a1b3da72ad95e9254fb6
+$stmt -> bind_param("sssisisssssssss", "A", "B", "C", 0, "D" 1, "E", "F", "G", "H", "I", "J", "K", "L", "uuuuuuuuuuuuuuuuuuuuuuuu");
+//if (!$stmt->bind_param("sssisisssssssss", $ip, $time_started, $testgroup, $progress, $jspsych_group,
+//										$jspsych_progress, $ibex_1_group, $nativelang, $bilingual, $origin,
+//										$age, $sex, $edu, $handness, $prolificID)) {echo "Binding ip failed: (" . $stmt->errno . ") " . $stmt->error;}
 										
 										
 if (!$stmt->execute()) {
