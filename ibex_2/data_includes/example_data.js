@@ -1,7 +1,8 @@
-var sequence = getCookieValue("group");
-var progress = getCookieValue("progress");
+var sequence = getCookieValue("ibex_2_group");
 
-sequence = sequence[progress];
+if (sequence == ""){
+	sequence = "E"
+}
 
 switch (sequence){
         case "E":

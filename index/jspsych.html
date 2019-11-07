@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+  <head>
+  	<meta charset="UTF-8">
+    <title>JS</title>
+	<link rel="stylesheet" type="text/css" href="https://www.psycholinguistics.ml/css/global_main.css">
+	<link rel="stylesheet" type="text/css" href="https://www.psycholinguistics.ml/css/global_mainB.css">
+	<link rel="stylesheet" type="text/css" href="https://www.psycholinguistics.ml/css/Form.css">
+    <!-- Cookie handling JS code. -->
+	<script type="text/javascript" src="https://www.psycholinguistics.ml/index/cookie.js"></script>
+	
+	</head>
+	<body>
+		<p>
+		<div id="message">You are about to start a JSPsych session.</div>
+		<a id="next" href="https://www.psycholinguistics.ml/server_error.html">Click here to continue</a>
+		</p>
+		
+		<script>
+		var sequence = getCookieValue("jspsych_group");
+		var progress = parseInt(getCookieValue("jspsych_progress"));
+		
+		if (progress > 0){
+			document.getElementById("message").innerHTML = "You will continue with JSPsych with the next unfinished element."
+		}
+		
+		sequence = sequence[progress];
+		
+		switch (sequence){
+				case "J":
+					next ="https://www.psycholinguistics.ml/jspsych/experiment.html";//circles-REPLACE LATER WITH VOCAB
+					break;
+				case "K":
+					next ="https://www.psycholinguistics.ml/jspsych_1/static/index.html";//AXCPT
+					break;
+				case "L":
+					next ="https://www.psycholinguistics.ml/jspsych_2/reading_span_web_english.html"; //RST
+					break;
+				case "M":
+					next ="https://www.psycholinguistics.ml/jspsych_3/index.html";//Flanker
+					break;
+				case "N":
+					next ="https://www.psycholinguistics.ml/jspsych_4/index.html";//Ravens
+					break;
+				case "O":
+					next ="https://www.psycholinguistics.ml/jspsych_5/index.html";//Big5
+					break;
+				case "P":
+					next ="https://www.psycholinguistics.ml/jspsych_6/index.html";//Navon
+					break;
+				default:
+					next ="https://www.psycholinguistics.ml/cookie_error.html";
+					}
+			document.getElementById("next").href = next;
+			
+		</script>
+		
+	</body>
+</html>

@@ -88,7 +88,7 @@ def generate_html(setcounter=None, overview=False):
     <!-- Set up configuration variables. -->
     <script type="text/javascript" src="conf.js"></script>
 	<!-- Cookie handling JS code. -->
-    <script type="text/javascript" src="https://www.psycholinguistics.ml/index/util/cookie.js"></script>
+    <script type="text/javascript" src="https://www.psycholinguistics.ml/index/cookie.js"></script>
     <!-- The main body of JS code. -->
     <script type="text/javascript" src="%s?include=main.js%s%s"></script>
 

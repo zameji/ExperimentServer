@@ -10,10 +10,7 @@ function getCookieValue(a) {
         return b ? b.pop() : '';
 }
 
-var sequence = getCookieValue("group");
-var progress = getCookieValue("progress");
-
-sequence = sequence[progress];
+var sequence = getCookieValue("ibex_1_group");
 
 switch (sequence){
         case "A":
