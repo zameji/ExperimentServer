@@ -23,9 +23,9 @@ $time_started = date("Y-m-d H:i:s");
 
 $testgroup = $_POST['group'];
 $progress = 0;
-$jspsych_group = $_POST['jspsych_group']
+$jspsych_group = $_POST['jspsych_group'];
 $jspsych_progress = 0;
-$ibex_1_group = $_POST['ibex_1_group']
+$ibex_1_group = $_POST['ibex_1_group'];
 
 $nativelang= $_POST['nativelang'];
 $bilingual = $_POST['bilingual'];
@@ -98,7 +98,7 @@ if (!$stmt->bind_param("sssisisssssssss",
 										$progress,
 										$jspsych_group,
 										$jspsych_progress,
-										$ibex_1_group
+										$ibex_1_group,
 										$nativelang,
 										$bilingual,
 										$origin,
@@ -133,7 +133,8 @@ if (!$stmt->execute()) {
 			$next = "https://www.psycholinguistics.ml/jspsych.html";
 			break;
 		default:
-			$next = "https://www.psycholinguistics.ml/index/server_error.html"		
+			$next = "https://www.psycholinguistics.ml/index/server_error.html";
+			break;	
 	}
 
     echo "Redirecting..." . $next;

@@ -8,13 +8,16 @@
 </head>
 
 <body>
+	<!-- Cookie handling JS code. -->
+	<script type="text/javascript" src="https://www.psycholinguistics.ml/index/cookie.js"></script>
+
 <div id="allContent">
 	<p style="text-align: center; font-size: medium">
 		Please enter your Prolific ID:
 	</p>
-	<form id="mainform" style="text-align: center" method="post" action="https://www.psycholinguistics.ml/write_data.php">
+	<form id="mainform" style="text-align: center" method="post" action="https://www.psycholinguistics.ml/login.php">
 		<p>
-			<textarea id=prolificID name="prolificID" maxlength=24 class="obligatory" required="required" rows="1" cols="24"></textarea><br />
+			<textarea id="prolificID" name="prolificID" maxlength=24 class="obligatory" required="required" rows="1" cols="24"></textarea><br />
 			<div id="idError" style="color: red; face: bold"></div>
 		</p>
 		<p>

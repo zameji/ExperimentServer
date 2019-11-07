@@ -8,9 +8,11 @@ $username = "ubuntu";
 $password = "ubuntuExperiment2019";
 $dbname = "experiment";
 
+
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
+ 
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -25,19 +27,25 @@ if (!$stmt->bind_param("s", $prolificID)) {
     echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
 }
 
+
 $result = $conn->query($stmt);
 
 if ($result->num_rows > 0) {
 	//Participant exists, find his continuation
 	$row = $result->fetch_assoc();
-	$test_group = row["test_group"];
-	$progress = row["progress"];
-	$jspsych_group = row["jspsych_group"];
-	$jspsych_progress = row["jspsych_progress"];
-	$ibex_1_group = row["ibex_1_group"];		
+
+	if (row["test_group"] > ''){
+		$test_group = row["test_group"];
+		$progress = row["progress"];
+		$jspsych_group = row["jspsych_group"];
+		$jspsych_progress = row["jspsych_progress"];
+		$ibex_1_group = row["ibex_1_group"];		
 	
-	mysql_free_result($result);
-	
+		mysql_free_result($result);
+	} else {
+		$progress = -1;
+		$test_group = "X";
+		}
 	switch (substr($test_group, $progress, 1)) {
     //ibex 1
 	case "1":
@@ -58,7 +66,8 @@ if ($result->num_rows > 0) {
         $next = "https://www.psycholinguistics.ml/welcomeback.html";
         break;
     default:
-        $next = "https://www.psycholinguistics.ml/index/server_error.html"	
+        $next = "https://www.psycholinguistics.ml/index/server_error.html";
+	break;	
 	}
 
 	echo "Redirecting..." . $next;
