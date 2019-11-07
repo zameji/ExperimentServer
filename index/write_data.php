@@ -55,21 +55,27 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-
-if (!($stmt = $conn->prepare("UPDATE participants set ip=?,  time_started=?,  test_group=?,  progress=?,  jspsych_group=?,  jspsych_progress=?,  ibex_1_group=?,  nativelang=?,  bilingual=?,  origin=?,  age=?,  sex=?,  education=?,  handness=?,  reading_disability=? where prolific_id=?"))) {
-    echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
-}
-echo "<br>" . $ip . "<br>" . $time_started . "<br>" . $testgroup . "<br>" . $progress . "<br>" . $jspsych_group . "<br>" . $jspsych_progress . "<br>" . $ibex_1_group . "<br>" . $nativelang . "<br>" . $bilingual . "<br>" . $origin . "<br>" . $age . "<br>" . $sex . "<br>" . $edu . "<br>" . $handness . "<br>" . $reading . "<br>" . $prolificID;
-
-$stmt -> bind_param("sssisisssssssss", "A", "B", "C", 0, "D" 1, "E", "F", "G", "H", "I", "J", "K", "L", "uuuuuuuuuuuuuuuuuuuuuuuu");
-//if (!$stmt->bind_param("sssisisssssssss", $ip, $time_started, $testgroup, $progress, $jspsych_group,
-//										$jspsych_progress, $ibex_1_group, $nativelang, $bilingual, $origin,
-//										$age, $sex, $edu, $handness, $prolificID)) {echo "Binding ip failed: (" . $stmt->errno . ") " . $stmt->error;}
-										
-										
-if (!$stmt->execute()) {
+$query = "UPDATE participants
+		SET ip='%{$ip}%',
+		time_started='%{$time_started}%',
+		test_group='%{$testgroup}%',
+		progress=%{$progress}%,
+		jspsych_group='%{$jspsych_group}%',
+		jspsych_progress=%{$jspsych_progress}%,
+		ibex_1_group='%{$ibex_1_group}%',
+		nativelang='%{$nativelang}%',
+		bilingual='%{$bilingual}%',
+		origin='%{$origin}%',
+		age='%{$age}%',
+		sex='%{$sex}%',
+		education='%{$edu}%',
+		handness='%{$handness}%',
+		reading_disability='%{$reading}%' 
+		WHERE prolific_id='%{$prolificID}%'";
+					
+if (!$conn-> query($query)) {
     //echo '<p style="text-align:center; font-family: Lucida, Console, monospace; font-size: medium;">Failed. Have you already done the experiment?</p>';
-    echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+    echo "Execute failed: (" . $conn->errno . ") " . $conn->error;
 } else {
 	echo "got here";
 	switch (substr($testgroup, 0, 1)){
