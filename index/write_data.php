@@ -61,17 +61,23 @@ if (!($stmt = $conn->prepare("UPDATE participants set ip=?,  time_started=?,  te
 }
 //echo "A";
 <<<<<<< HEAD
+<<<<<<< HEAD
 echo "<br>" . $ip . "<br>" . $time_started . "<br>" . $testgroup . "<br>" . $progress . "<br>" . $jspsych_group . "<br>" . $jspsych_progress . "<br>" . $ibex_1_group . "<br>" . $nativelang . "<br>" . $bilingual . "<br>" . $origin . "<br>" . $age . "<br>" . $sex . "<br>" . $edu . "<br>" . $handness . "<br>" . $reading . "<br>" . $prolificID;
 
 if (!$stmt->bind_param("sssisisssssssss", $ip, $time_started, $testgroup, $progress, $jspsych_group,
 										$jspsych_progress, $ibex_1_group, $nativelang, $bilingual, $origin,
 										$age, $sex, $edu, $handness, $prolificID)) {echo "Binding ip failed: (" . $stmt->errno . ") " . $stmt->error;}
 =======
+=======
+>>>>>>> b647daad504da0425806a1b3da72ad95e9254fb6
 echo $ip . "<br>" . $time_started . "<br>" . $testgroup . "<br>" . $progress . "<br>" . $jspsych_group . "<br>" . $jspsych_progress . "<br>" . $ibex_1_group . "<br>" . $nativelang . "<br>" . $bilingual . "<br>" . $origin . "<br>" . $age . "<br>" . $sex . "<br>" . $edu . "<br>" . $handness . "<br>" . $reading . "<br>" . $prolificID;
 
 if (!$stmt->bind_param("sssisisssssssss", $ip, $time_started, $testgroup, $progress, $jspsych_group,
 										$jspsych_progress, $ibex_1_group, $nativelang, $bilingual, $origin,
 										$age, $sex, $edu, $handness, $prolificID)) {echo "Binding ip failed: (" . $stmt->errno . ") " . $stmt->error;}} 
+<<<<<<< HEAD
+>>>>>>> b647daad504da0425806a1b3da72ad95e9254fb6
+=======
 >>>>>>> b647daad504da0425806a1b3da72ad95e9254fb6
 										
 										
