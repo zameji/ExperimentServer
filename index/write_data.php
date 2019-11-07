@@ -57,37 +57,7 @@ if ($conn->connect_error) {
 }
 
 
-if (!($stmt = $conn->prepare("UPDATE participants set (
-								ip,
-								time_started,
-								test_group,
-								progress,
-								jspsych_group,
-								jspsych_progress,
-								ibex_1_group,
-								nativelang,
-								bilingual,
-								origin,
-								age,
-								sex,
-								education,
-								handness,
-								reading_disability) VALUES (?,
-															?,
-															?,
-															?,
-															?,
-															?,
-															?,
-															?,
-															?,
-															?,
-															?,
-															?,
-															?,
-															?,
-															?
-											) where prolific_id=?"))) {
+if (!($stmt = $conn->prepare("UPDATE participants set (ip=?,  time_started=?,  test_group=?,  progress=?,  jspsych_group=?,  jspsych_progress=?,  ibex_1_group=?,  nativelang=?,  bilingual=?,  origin=?,  age=?,  sex=?,  education=?,  handness=?,  reading_disability=?) where prolific_id=?;"))) {
     echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
 }
 
@@ -115,7 +85,7 @@ if (!$stmt->execute()) {
     //echo '<p style="text-align:center; font-family: Lucida, Console, monospace; font-size: medium;">Failed. Have you already done the experiment?</p>';
     echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
 } else {
-
+	echo (substr($testgroup, 0, 1));
 	switch (substr($testgroup, 0, 1)){
 		
 		case "1":
