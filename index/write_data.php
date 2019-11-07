@@ -1,4 +1,7 @@
  <?php
+echo var_dump($_POST);
+
+
 function getRealIpAddr()
 {
     if (!empty($_SERVER['HTTP_CLIENT_IP']))   //check ip from share internet
@@ -57,7 +60,7 @@ if ($conn->connect_error) {
 }
 
 
-if (!($stmt = $conn->prepare("UPDATE participants set (ip=?,  time_started=?,  test_group=?,  progress=?,  jspsych_group=?,  jspsych_progress=?,  ibex_1_group=?,  nativelang=?,  bilingual=?,  origin=?,  age=?,  sex=?,  education=?,  handness=?,  reading_disability=?) where prolific_id=?;"))) {
+if (!($stmt = $conn->prepare("UPDATE participants set ip=?,  time_started=?,  test_group=?,  progress=?,  jspsych_group=?,  jspsych_progress=?,  ibex_1_group=?,  nativelang=?,  bilingual=?,  origin=?,  age=?,  sex=?,  education=?,  handness=?,  reading_disability=? where prolific_id=?"))) {
     echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
 }
 
