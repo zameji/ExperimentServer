@@ -19,16 +19,9 @@ if ($conn->connect_error) {
 }
 
 //Check whether participant exists
-if (!($stmt = $conn->prepare("SELECT test_group, progress, jspsych_group, jspsych_progress, ibex_1_group FROM participants WHERE prolific_ID=?"))) {
-    echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
-}
+$query = "SELECT test_group, progress, jspsych_group, jspsych_progress, ibex_1_group FROM participants WHERE prolific_ID='%{$prolificID}%'"))) {
 
-if (!$stmt->bind_param("s", $prolificID)) {
-    echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
-}
-
-
-$result = $conn->query($stmt);
+$result = $conn->query($query);
 
 if ($result->num_rows > 0) {
 	//Participant exists, find his continuation

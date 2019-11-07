@@ -76,7 +76,7 @@ def nextgroup(n):
 
 	combined = []
 	for testgroup in testgroups:
-		for js in jspsych:
+		for js in jspsych_versions:
 			for ibx in ibex_1:
 				combined.append("_".join([testgroup, js, ibx]))
 				
