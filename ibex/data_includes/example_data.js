@@ -1,4 +1,8 @@
-<script type="text/javascript" src="https://www.psycholinguistics.ml/index/cookie.js"></script>
+
+function getCookieValue(a) {
+	var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+	return b ? b.pop() : '';
+}
 
 var sequence = getCookieValue("ibex_1_group");
 
