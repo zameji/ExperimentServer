@@ -26,32 +26,29 @@ $result = $conn->query($query);
 if ($result->num_rows > 0) {
 	//Participant exists, find his continuation
 	$row = $result->fetch_assoc();
-
 	if ($row["test_group"] > ''){
 		$test_group = $row["test_group"];
 		$progress = $row["progress"];
 		$jspsych_group = $row["jspsych_group"];
 		$jspsych_progress = $row["jspsych_progress"];
 		$ibex_1_group = $row["ibex_1_group"];		
-	
-		mysql_free_result($result);
+		$result -> free();
 	
 	switch (substr($test_group, $progress, 1)) {
-		echo "YOu're going to: " . substr($test_group, $progress, 1);
     //ibex 1
 	case "1":
 		setcookie("ibex_1_group", $ibex_1_group, time()+144000, "/", "psycholinguistics.ml");	
-		setcookie("next", "https://www.psycholinguistics.ml/ibex/experiment.html", time()+144000, "/", "psycholinguistics.ml");			
+		setrawcookie("next", 'https://www.psycholinguistics.ml/ibex_1/experiment.html', time()+144000, "/", "psycholinguistics.ml");			
         $next = "https://www.psycholinguistics.ml/welcomeback.html";
         break;
     //ibex_2
 	case "2":
-		setcookie("next", "https://www.psycholinguistics.ml/ibex_2/experiment.html", time()+144000, "/", "psycholinguistics.ml");			
+		setrawcookie("next", 'https://www.psycholinguistics.ml/ibex_2/experiment.html', time()+144000, "/", "psycholinguistics.ml");			
         $next = "https://www.psycholinguistics.ml/welcomeback.html";
         break;
 	//jspsych
     case "J":
-		setcookie("next", "https://www.psycholinguistics.ml/index/jspsych.html", time()+144000, "/", "psycholinguistics.ml");		
+		setrawcookie("next", 'https://www.psycholinguistics.ml/index/jspsych.html', time()+144000, "/", "psycholinguistics.ml");		
 		setcookie("jspsych_group", $jspsych_group, time()+144000, "/", "psycholinguistics.ml");
 		setcookie("jspsych_progress", $jspsych_progress, time()+144000, "/", "psycholinguistics.ml");
         $next = "https://www.psycholinguistics.ml/welcomeback.html";
@@ -64,7 +61,7 @@ if ($result->num_rows > 0) {
 		$next = "https://www.psycholinguistics.ml/questionnaire.html";
 		}
 		
-	echo "Redirecting..." . $next;
+	echo "Redirecting... <br /> If nothing happens, <a href='" . $next . "'> click here </a>";
 	$conn->close();
 	header("Location: ". $next, true, 302);
 	exit();

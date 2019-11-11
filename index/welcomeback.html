@@ -10,7 +10,8 @@ Welcome back.
 Click here to continue where you left off
 </a>
 <script>
-var nxt = getCookie("next");
+var nxt = getCookieValue("next");
+console.log(nxt);
 document.getElementById("next").href = nxt;
 </script>
 </body>

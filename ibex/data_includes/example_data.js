@@ -1,3 +1,4 @@
+<script type="text/javascript" src="https://www.psycholinguistics.ml/index/cookie.js"></script>
 
 var sequence = getCookieValue("ibex_1_group");
 
