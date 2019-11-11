@@ -1,13 +1,11 @@
 <?php
-
-//get ID
-//$referrer = $_GET["from"];
-$prolificID = $_COOKIE["id"]
-
+$prolificID = $_COOKIE['prolificID'];
+ 
 $servername = "localhost";
 $username = "ubuntu";
 $password = "ubuntuExperiment2019";
 $dbname = "experiment";
+
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -29,8 +27,7 @@ if ($result->num_rows > 0) {
 	$row = $result->fetch_assoc();
 	$progress = $row["progress"] + 1;
 	$result -> free();
-	$query = "UPDATE participants set progress=".$progress."WHERE prolific_ID='".$prolificID."'"
-
+	$query = "UPDATE participants set progress=".$progress."WHERE prolific_ID='".$prolificID."'";
 	
 	if (!$conn->query($query)) {
 		//echo '<p style="text-align:center; font-family: Lucida, Console, monospace; font-size: medium;">Failed. Have you already done the experiment?</p>';
@@ -58,7 +55,8 @@ if ($result->num_rows > 0) {
 				$next = "https://www.psycholinguistics.ml/jspsych.html";
 				break;
 			default:
-				$next = "https://www.psycholinguistics.ml/index/server_error.html"		
+				$next = "https://www.psycholinguistics.ml/index/server_error.html";
+				break;
 			}
 		}
 
@@ -68,14 +66,15 @@ if ($result->num_rows > 0) {
 		header("Location: ". $next, true, 302);
 		exit();
 
-}	
-		
+	}
+	
+}		
 		echo "Redirecting..." . $next;
 		$result -> free();
 		$conn->close();
 		header("Location: ". "https://www.psycholinguistics.ml", true, 302);
 		exit();
 		
-}
+
 
 ?>
