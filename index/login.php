@@ -27,7 +27,7 @@ if ($result->num_rows > 0) {
 	//Participant exists, find his continuation
 	$row = $result->fetch_assoc();
 
-	if (row["test_group"] > ''){
+	if ($row["test_group"] > ''){
 		$test_group = row["test_group"];
 		$progress = row["progress"];
 		$jspsych_group = row["jspsych_group"];
