@@ -1,5 +1,5 @@
 <?php
-$prolificID = $_COOKIE['prolificID'];
+$prolificID = $_COOKIE['id'];
  
 $servername = "localhost";
 $username = "ubuntu";
@@ -25,9 +25,12 @@ if ($result->num_rows > 0) {
 	//TODO: Verify that they came from the correct referrer
 	
 	$row = $result->fetch_assoc();
+	$testgroup = $row["test_group"];
 	$progress = $row["progress"] + 1;
 	$result -> free();
-	$query = "UPDATE participants set progress=".$progress."WHERE prolific_ID='".$prolificID."'";
+
+//	echo "next: ".$testgroup . "-" . $progress;
+	$query = "UPDATE participants set progress=".$progress." WHERE prolific_ID='".$prolificID."'";
 	
 	if (!$conn->query($query)) {
 		//echo '<p style="text-align:center; font-family: Lucida, Console, monospace; font-size: medium;">Failed. Have you already done the experiment?</p>';
@@ -63,7 +66,7 @@ if ($result->num_rows > 0) {
 		echo "Redirecting..." . $next;
 		$conn -> commit();
 		$conn->close();
-		header("Location: ". $next, true, 302);
+		//header("Location: ". $next, true, 302);
 		exit();
 
 	}
@@ -72,7 +75,7 @@ if ($result->num_rows > 0) {
 		echo "Redirecting..." . $next;
 		$result -> free();
 		$conn->close();
-		header("Location: ". "https://www.psycholinguistics.ml", true, 302);
+		//header("Location: ". "https://www.psycholinguistics.ml", true, 302);
 		exit();
 		
 
