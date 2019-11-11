@@ -56,22 +56,22 @@ if ($conn->connect_error) {
 }
 
 $query = "UPDATE participants
-		SET ip='%{$ip}%',
-		time_started='%{$time_started}%',
-		test_group='%{$testgroup}%',
-		progress='%{$progress}%',
-		jspsych_group='%{$jspsych_group}%',
-		jspsych_progress='%{$jspsych_progress}%',
-		ibex_1_group='%{$ibex_1_group}%',
-		nativelang='%{$nativelang}%',
-		bilingual='%{$bilingual}%',
-		origin='%{$origin}%',
-		age='%{$age}%',
-		sex='%{$sex}%',
-		education='%{$edu}%',
-		handness='%{$handness}%',
-		reading_disability='%{$reading}%' 
-		WHERE prolific_id='%{$prolificID}%'";
+		SET ip='".$ip."',
+		time_started='".$time_started."',
+		test_group='".$testgroup."',
+		progress='".$progress."',
+		jspsych_group='".$jspsych_group."',
+		jspsych_progress='".$jspsych_progress."',
+		ibex_1_group='".$ibex_1_group."',
+		nativelang='".$nativelang."',
+		bilingual='".$bilingual."',
+		origin='".$origin."',
+		age='".$age."',
+		sex='".$sex."',
+		education='".$edu."',
+		handness='".$handness."',
+		reading_disability='".$reading."' 
+		WHERE prolific_id='".$prolificID."'";
 					
 if (!$conn-> query($query)) {
     //echo '<p style="text-align:center; font-family: Lucida, Console, monospace; font-size: medium;">Failed. Have you already done the experiment?</p>';
@@ -82,7 +82,7 @@ if (!$conn-> query($query)) {
 		
 		case "1":
 			setcookie("ibex_1_group", $ibex_1_group, time()+144000, "/", "psycholinguistics.ml");		
-			$next = "https://www.psycholinguistics.ml/ibex/experiment.html";
+			$next = "https://www.psycholinguistics.ml/ibex_1/experiment.html";
 			break;
 			
 		case "2":
