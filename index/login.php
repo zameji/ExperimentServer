@@ -19,7 +19,7 @@ if ($conn->connect_error) {
 }
 
 //Check whether participant exists
-$query = "SELECT test_group, progress, jspsych_group, jspsych_progress, ibex_1_group FROM participants WHERE prolific_ID='%{$prolificID}%'";
+$query = "SELECT test_group, progress, jspsych_group, jspsych_progress, ibex_1_group FROM participants WHERE prolific_ID='".$prolificID."'";
 
 $result = $conn->query($query);
 
