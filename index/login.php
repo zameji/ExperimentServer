@@ -24,6 +24,7 @@ $query = "SELECT test_group, progress, jspsych_group, jspsych_progress, ibex_1_g
 $result = $conn->query($query);
 
 if ($result->num_rows > 0) {
+	echo "WELCOME BACK";
 	//Participant exists, find his continuation
 	$row = $result->fetch_assoc();
 
@@ -35,10 +36,7 @@ if ($result->num_rows > 0) {
 		$ibex_1_group = $row["ibex_1_group"];		
 	
 		mysql_free_result($result);
-	} else {
-		$progress = -1;
-		$test_group = "X";
-		}
+	
 	switch (substr($test_group, $progress, 1)) {
     //ibex 1
 	case "1":
@@ -62,7 +60,10 @@ if ($result->num_rows > 0) {
         $next = "https://www.psycholinguistics.ml/index/server_error.html";
 	break;	
 	}
-
+} else {
+		$next = "https://www.psycholinguistics.ml/questionnaire.html";
+		}
+		
 	echo "Redirecting..." . $next;
 	$conn->close();
 	header("Location: ". $next, true, 302);
