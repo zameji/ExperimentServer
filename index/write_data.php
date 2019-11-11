@@ -77,7 +77,6 @@ if (!$conn-> query($query)) {
     //echo '<p style="text-align:center; font-family: Lucida, Console, monospace; font-size: medium;">Failed. Have you already done the experiment?</p>';
     echo "Execute failed: (" . $conn->errno . ") " . $conn->error;
 } else {
-	echo "got here";
 	switch (substr($testgroup, 0, 1)){
 		
 		case "1":
@@ -99,7 +98,8 @@ if (!$conn-> query($query)) {
 			break;	
 	}
 
-    echo "Redirecting..." . $next;
+    echo "Redirecting...<br /> If nothing happens, <a href='" . $next ."'>click here</a>";
+	$conn->commit();
 	$conn->close();
 	header("Location: ". $next, true, 302);
 	exit();
