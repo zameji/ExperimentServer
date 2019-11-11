@@ -64,6 +64,9 @@ def nextgroup(n):
 	testgroups = ["1", "2", "J"]
 	testgroups_versions = ["".join(x) for x in list(permutations(testgroups, len(testgroups)))]
 	
+	# Only allow those where Ibex 2 is the last one
+	testgroups_versions = [x for x in testgroups_versions if x.endswith("2")]
+	
 	ibex_1 = ["A", "B", "C", "D", "E", "F", "G", "H"]
 		
 	# ibex_2 = ["I"] #had to change to fit with the increased ibex amounts
