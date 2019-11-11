@@ -24,7 +24,6 @@ $query = "SELECT test_group, progress, jspsych_group, jspsych_progress, ibex_1_g
 $result = $conn->query($query);
 
 if ($result->num_rows > 0) {
-	echo "WELCOME BACK";
 	//Participant exists, find his continuation
 	$row = $result->fetch_assoc();
 
@@ -38,6 +37,7 @@ if ($result->num_rows > 0) {
 		mysql_free_result($result);
 	
 	switch (substr($test_group, $progress, 1)) {
+		echo "YOu're going to: " . substr($test_group, $progress, 1);
     //ibex 1
 	case "1":
 		setcookie("ibex_1_group", $ibex_1_group, time()+144000, "/", "psycholinguistics.ml");	
