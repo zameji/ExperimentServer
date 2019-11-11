@@ -28,11 +28,11 @@ if ($result->num_rows > 0) {
 	$row = $result->fetch_assoc();
 
 	if ($row["test_group"] > ''){
-		$test_group = row["test_group"];
-		$progress = row["progress"];
-		$jspsych_group = row["jspsych_group"];
-		$jspsych_progress = row["jspsych_progress"];
-		$ibex_1_group = row["ibex_1_group"];		
+		$test_group = $row["test_group"];
+		$progress = $row["progress"];
+		$jspsych_group = $row["jspsych_group"];
+		$jspsych_progress = $row["jspsych_progress"];
+		$ibex_1_group = $row["ibex_1_group"];		
 	
 		mysql_free_result($result);
 	} else {
