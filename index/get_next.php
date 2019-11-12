@@ -27,6 +27,8 @@ if ($result->num_rows > 0) {
 	$row = $result->fetch_assoc();
 	$testgroup = $row["test_group"];
 	$progress = $row["progress"] + 1;
+	$jspsych_group = $row["jspsych_group"];
+	$jspsych_progress = $row["jspsych_progress"];
 	$result -> free();
 
 //	echo "next: ".$testgroup . "-" . $progress;

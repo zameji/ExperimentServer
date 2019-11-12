@@ -41,8 +41,7 @@ $reading_enj = $_POST['reading_enj'];
 
 // redirect non-fitting candidates
 if ($reading == 'yes' or 
-	!($origin == 'US' or $origin == 'UK') or
-	
+	!($origin == 'US' or $origin == 'UK')
 	){
 	$next = "https://www.psycholinguistics.ml/thank_you.html";
 };
