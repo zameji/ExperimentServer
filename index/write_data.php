@@ -36,9 +36,14 @@ $edu= $_POST['edu'];
 
 $handness= $_POST['handness'];
 $reading= $_POST['read'];
+$reading_amt = $_POST['reading_amt'];
+$reading_enj = $_POST['reading_enj'];
 
 // redirect non-fitting candidates
-if ($reading == 'yes' or $origin=='other'){
+if ($reading == 'yes' or 
+	!($origin == 'US' or $origin == 'UK') or
+	
+	){
 	$next = "https://www.psycholinguistics.ml/thank_you.html";
 };
 
@@ -70,7 +75,9 @@ $query = "UPDATE participants
 		sex='".$sex."',
 		education='".$edu."',
 		handness='".$handness."',
-		reading_disability='".$reading."' 
+		reading_disability='".$reading."',
+		reading_amount='".$reading_amt."',
+		reading_enjoyment='".$reading_enj."'
 		WHERE prolific_id='".$prolificID."'";
 					
 if (!$conn-> query($query)) {

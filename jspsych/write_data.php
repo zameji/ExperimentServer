@@ -6,10 +6,8 @@ $data = $post_data['filedata'];
 // write the file to disk
 file_put_contents($name, $data);
 
-
 //Get user ID, update their Jspsych progress
-$prolificID = getcookie("id");
-
+$prolificID = $_COOKIE("id");
 
 $servername = "localhost";
 $username = "ubuntu";
@@ -24,15 +22,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-
 //Check whether participant exists
-if (!($stmt = $conn->prepare("SELECT jspsych_group, jspsych_progress FROM participants WHERE prolific_ID=?"))) {
-    echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
-}
-
-if (!$stmt->bind_param("s", $prolificID)) {
-    echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
-}
+$stmt = "SELECT jspsych_group, jspsych_progress FROM participants where prolific_id='".$prolificID."'";
 
 $result = $conn->query($stmt);
 
@@ -49,29 +40,20 @@ if ($result->num_rows > 0) {
 	
 }
 
-mysql_free_result($result);
+$result -> free();
 
+$query = "UPDATE participants set
+								jspsych_progress = ".$jspsych_progress."
+								where prolific_id='".$prolificID."'";
 
-if (!($stmt = $conn->prepare("UPDATE participants set (
-								jspsych_progress) 
-								VALUES (?) 
-								where prolific_id=?"))) {
-    echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
-}
-
-if (!$stmt->bind_param("is",
-							$jspsych_progress,
-							$prolificID)) {
-    echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
-}
-
-if (!$stmt->execute()) {
+if (!$conn->query($query)) {
     //echo '<p style="text-align:center; font-family: Lucida, Console, monospace; font-size: medium;">Failed. Have you already done the experiment?</p>';
     echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
 } else {
 	setcookie("jspsych_progress", $progress, time()+144000, "/", "psycholinguistics.ml");
 
-	switch (substr($testgroup, 0, 1)){
+	if ($progress < 7){
+	switch (substr($testgroup, $progress, 1)){
 		
 		case "J":
 			$next ="https://www.psycholinguistics.ml/jspsych/experiment.html";//circles-REPLACE LATER WITH VOCAB
@@ -96,10 +78,13 @@ if (!$stmt->execute()) {
 			break;
 
 		default:
-			$next = "https://www.psycholinguistics.ml/index/server_error.html"		
+			$next = "https://www.psycholinguistics.ml/index/server_error.html";
+			break;
 	}
+} else {$next = "https://www.psycholinguistics.ml/get_next.php";}
 
     echo "Redirecting..." . $next;
+	$conn -> commit();
 	$conn->close();
 	header("Location: ". $next, true, 302);
 	exit();
