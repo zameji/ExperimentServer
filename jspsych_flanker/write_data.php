@@ -1,11 +1,10 @@
 <?php
-$post_data = json_decode(file_get_contents('php://input'), true);
+$post_data = json_decode(file_get_contents('php://input'), true); 
 // the directory "data" must be writable by the server
-$name = "data/".$post_data['filename'].".csv";
+$name = "data/".$post_data['filename'].".csv"; 
 $data = $post_data['filedata'];
 // write the file to disk
 file_put_contents($name, $data);
-
 
 //Get user ID, update their Jspsych progress
 $prolificID = $_COOKIE["id"];
@@ -48,7 +47,7 @@ $query = "UPDATE participants set
 								where prolific_id='".$prolificID."'";
 
 if (!$conn->query($query)) {
-    //echo '<p style="text-align:center; font-family: Lucida, Console, monospace; font-size: medium;">Failed. Have you already done the experiment?</p>';
+    echo '<p style="text-align:center; font-family: Lucida, Console, monospace; font-size: medium;">Failed. Have you already done the experiment?</p>';
     echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
 } else {
 	setcookie("jspsych_progress", $progress, time()+144000, "/", "psycholinguistics.ml");
@@ -87,8 +86,9 @@ if (!$conn->query($query)) {
     echo "Redirecting..." . $next;
 	$conn -> commit();
 	$conn->close();
-	header("Location: ". $next, true, 302);
+	header("Location:". $next, true, 302);
 	exit();
 
 }
+
 ?>

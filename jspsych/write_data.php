@@ -1,5 +1,4 @@
 <?php
-echo "Received";
 $post_data = json_decode(file_get_contents('php://input'), true); 
 // the directory "data" must be writable by the server
 $name = "data/".$post_data['filename'].".csv"; 
@@ -7,7 +6,6 @@ $data = $post_data['filedata'];
 // write the file to disk
 file_put_contents($name, $data);
 
-echo "Saved";
 //Get user ID, update their Jspsych progress
 $prolificID = $_COOKIE["id"];
 
@@ -26,7 +24,6 @@ if ($conn->connect_error) {
 
 //Check whether participant exists
 $stmt = "SELECT jspsych_group, jspsych_progress FROM participants where prolific_id='".$prolificID."'";
-echo "ALL READY";
 
 $result = $conn->query($stmt);
 
@@ -89,7 +86,7 @@ if (!$conn->query($query)) {
     echo "Redirecting..." . $next;
 	$conn -> commit();
 	$conn->close();
-	header("Location: ". $next, true, 302);
+	header("Location:". $next, true, 302);
 	exit();
 
 }
