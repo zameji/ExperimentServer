@@ -44,7 +44,7 @@ if ($result->num_rows > 0) {
 $result -> free();
 
 $query = "UPDATE participants set
-								jspsych_progress = ".$jspsych_progress."
+								jspsych_progress = ".$progress."
 								where prolific_id='".$prolificID."'";
 
 if (!$conn->query($query)) {

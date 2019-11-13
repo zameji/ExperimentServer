@@ -46,7 +46,7 @@ if ($result->num_rows > 0) {
 $result -> free();
 
 $query = "UPDATE participants set
-								jspsych_progress = ".$jspsych_progress."
+								jspsych_progress = ".$progress."
 								where prolific_id='".$prolificID."'";
 
 if (!$conn->query($query)) {
@@ -89,7 +89,7 @@ if (!$conn->query($query)) {
     echo "Redirecting..." . $next;
 	$conn -> commit();
 	$conn->close();
-	// header("Location: ". $next, true, 302);
+	header("Location: ". $next, true, 302);
 	exit();
 
 }
