@@ -8,7 +8,7 @@ file_put_contents($name, $data);
 
 
 //Get user ID, update their Jspsych progress
-$prolificID = $_COOKIE("id");
+$prolificID = $_COOKIE["id"];
 
 $servername = "localhost";
 $username = "ubuntu";
