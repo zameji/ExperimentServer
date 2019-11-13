@@ -4,13 +4,6 @@ function saveData(name, data){
   xhr.open('POST', 'write_data.php'); // 'write_data.php' is the path to the php file described above.
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.send(JSON.stringify({filename: name, filedata: data}));
-
-  var next = getNextExperiment();
-  console.log("Moving to: " + next);
-
-  document.open();
-  document.write('<p style="text-align:center; font-family: Lucida, Console, monospace; font-size: large;">You can take a break now.<br /> <a href="'+next+'">Click here to continue</a>');
-  document.close();
 }
 
 function setCookie(cname, cvalue, exdays) {
