@@ -55,7 +55,7 @@ if ($result->num_rows > 0) {
         break;
     default:
         $next = "https://www.psycholinguistics.ml/index/server_error.html";
-	break;	
+		break;	
 	}
 } else {
 		$next = "https://www.psycholinguistics.ml/questionnaire.html";
@@ -84,7 +84,7 @@ else{
 		//echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
 	} else {
 
-		echo "Redirecting..." . $next;
+		echo "Redirecting... https://www.psycholinguistics.ml/questionnaire.html";
 		$conn->close();
 		header("Location: ". "https://www.psycholinguistics.ml/questionnaire.html", true, 302);
 		exit();

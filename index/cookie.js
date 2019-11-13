@@ -4,6 +4,17 @@ function saveData(name, data){
   xhr.open('POST', 'write_data.php'); // 'write_data.php' is the path to the php file described above.
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.send(JSON.stringify({filename: name, filedata: data}));
+  
+  xhr.onreadystatechange = function () {
+	if (xhr.status == 200 && xhr.status < 300)
+	{
+		var response = JSON.parse(xhr.responseText);
+		if(response.location){
+		  window.location.href = response.location;
+		}
+	} 
+
+    }
 }
 
 function setCookie(cname, cvalue, exdays) {
