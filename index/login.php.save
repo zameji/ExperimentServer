@@ -32,36 +32,39 @@ if ($result->num_rows > 0) {
 		$jspsych_group = $row["jspsych_group"];
 		$jspsych_progress = $row["jspsych_progress"];
 		$ibex_1_group = $row["ibex_1_group"];		
-		$result -> free();
+	echo "GO";	
+		mysql_free_result($result -> f;
+		echo "GOTCH";
+		echo "YOu're going to: " . substr($test_group, $progress, 1);
 	
 	switch (substr($test_group, $progress, 1)) {
     //ibex 1
 	case "1":
 		setcookie("ibex_1_group", $ibex_1_group, time()+144000, "/", "psycholinguistics.ml");	
-		setrawcookie("next", 'https://www.psycholinguistics.ml/ibex_1/experiment.html', time()+144000, "/", "psycholinguistics.ml");			
+		setcookie("next", "https://www.psycholinguistics.ml/ibex/experiment.html", time()+144000, "/", "psycholinguistics.ml");			
         $next = "https://www.psycholinguistics.ml/welcomeback.html";
         break;
     //ibex_2
 	case "2":
-		setrawcookie("next", 'https://www.psycholinguistics.ml/ibex_2/experiment.html', time()+144000, "/", "psycholinguistics.ml");			
+		setcookie("next", "https://www.psycholinguistics.ml/ibex_2/experiment.html", time()+144000, "/", "psycholinguistics.ml");			
         $next = "https://www.psycholinguistics.ml/welcomeback.html";
         break;
 	//jspsych
     case "J":
-		setrawcookie("next", 'https://www.psycholinguistics.ml/index/jspsych.html', time()+144000, "/", "psycholinguistics.ml");		
+		setcookie("next", "https://www.psycholinguistics.ml/index/jspsych.html", time()+144000, "/", "psycholinguistics.ml");		
 		setcookie("jspsych_group", $jspsych_group, time()+144000, "/", "psycholinguistics.ml");
 		setcookie("jspsych_progress", $jspsych_progress, time()+144000, "/", "psycholinguistics.ml");
         $next = "https://www.psycholinguistics.ml/welcomeback.html";
         break;
     default:
         $next = "https://www.psycholinguistics.ml/index/server_error.html";
-		break;	
+	break;	
 	}
 } else {
 		$next = "https://www.psycholinguistics.ml/questionnaire.html";
 		}
 		
-	echo "Redirecting... <br /> If nothing happens, <a href='" . $next . "'> click here </a>";
+	echo "Redirecting..." . $next;
 	$conn->close();
 	header("Location: ". $next, true, 302);
 	exit();
@@ -84,7 +87,7 @@ else{
 		//echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
 	} else {
 
-		echo "Redirecting... https://www.psycholinguistics.ml/questionnaire.html";
+		echo "Redirecting..." . $next;
 		$conn->close();
 		header("Location: ". "https://www.psycholinguistics.ml/questionnaire.html", true, 302);
 		exit();
