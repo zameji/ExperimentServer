@@ -1,6 +1,8 @@
 # Citation for the BFI-2
 # Soto, C. J., & John, O. P. (2017). The next Big Five Inventory (BFI-2): Developing and assessing a hierarchical model with 15 facets to enhance bandwidth, fidelity, and predictive power. Journal of Personality and Social Psychology, 113, 117-143.
 
+# http://www.colby.edu/psych/personality-lab/
+
 question = [
     ("1. Is outgoing, sociable","E_"),
     ("2. Is compassionate, has a soft heart", "A_"),
