@@ -13,7 +13,6 @@ function saveData(name, data){
 		  window.location.href = response.location;
 		}
 	} 
-
     }
 }
 
