@@ -8,7 +8,7 @@ with open("write_data.php", "w+") as f:
         string = "$big5_q" + str(i) + "= $_POST['Big5_Q" + str(i) + "'];\n"
         php += string
 
-    query = "$query = 'UPDATE vocab SET"
+    query = "$query = 'UPDATE big5 SET"
     for i in range(60):
         i += 1
         query+= " big5_q" + str(i) + "='\" .  $big5_q" + str(i) + " . \"',"
