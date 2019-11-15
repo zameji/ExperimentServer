@@ -11,11 +11,15 @@ words = [
     ["entrapment", "partner", "fool", "companion", "mirror"], #9
     ["junk", "squeeze", "trash",  "punch", "crack"], #10
     ["trivial", "crude", "presidential", "flow", "minor"], #11
+    ["prattle", "siren", "couch", "chatter", "good"], #12
+    ["above", "slow", "over", "pierce", "what"], #13
+    ["assail", "designate", "arcane", "capitulate", "specify"], #14
     ]
+
 syn = {
     0:[3,4], 1:[0,1], 2:[1,3], 3:[3,4], 4:[0,3], 5:[0,3],
     6:[0,4], 7:[1,3], 8:[0,4], 9:[1,3], 10:[0,2], 11:[0,4],
-    
+    12:[0,3], 13:[0,2], 14:[1,4],
     }
 
 table = "<table>"
