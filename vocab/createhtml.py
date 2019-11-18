@@ -1,3 +1,5 @@
+import random
+
 words = [
     ["tiny", "faded", "new", "large", "big"], #0
     ["shovel", "spade", "needle", "oak", "club"], #1
@@ -16,21 +18,29 @@ words = [
     ["assail", "designate", "arcane", "capitulate", "specify"], #14
     ]
 
-syn = {
-    0:[3,4], 1:[0,1], 2:[1,3], 3:[3,4], 4:[0,3], 5:[0,3],
-    6:[0,4], 7:[1,3], 8:[0,4], 9:[1,3], 10:[0,2], 11:[0,4],
-    12:[0,3], 13:[0,2], 14:[1,4],
-    }
-
 table = "<table>"
 
-for index, unit in enumerate(words):
-    qname = "Q" + str(index+1) + "A1"
-    dkname = "Q" + str(index+1) + "DK"
-    table += "<tr><td>"+str(index+1)+".</td><td><input id='"+qname+"' name='"+qname+"' type='checkbox' />"+unit[0]+"</td><td><input id='"+dkname+"' name='"+dkname+"' type='checkbox' />Don't know</td></tr>"
-    for i in range(1,3):
-        qname = "Q" + str(index+1) + "A"+str(i+1)
-        table += "<tr><td></td><td><input id='"+qname+"' name='"+qname+"' type='checkbox' />"+unit[i]+"</td><td></td></tr>"
+q_number = 1
+
+for list in words:
+    answers = []
+    table += "<tr><td>"+ str(q_number) + ". " + list[0] + ":</td><td>"
+    correct = "<input name='vocab_" + str(q_number) +"' type='radio' value='1' class='obligatory' required='required' id='" + list[1] + "' />"
+    correct += "<label for='" + list[1] + "'>" + list[1] + "</label><br />"
+    answers += correct
+    incorrect_1 = "<input name='vocab_" + str(q_number) +"' type='radio' value='0' class='obligatory' required='required' id='" + list[2] + "' />"
+    incorrect_1 += "<label for='" + list[2] + "'>" + list[2] + "</label><br />"
+    answers += incorrect_1
+    incorrect_2 = "<input name='vocab_" + str(q_number) +"' type='radio' value='0' class='obligatory' required='required' id='" + list[3] + "' />"
+    incorrect_2 += "<label for='" + list[3] + "'>" + list[3] + "</label><br />"
+    answers += incorrect_2
+    incorrect_3 = "<input name='vocab_" + str(q_number) +"' type='radio' value='0' class='obligatory' required='required' id='" + list[4] + "' />"
+    incorrect_3 += "<label for='" + list[4] + "'>" + list[4] + "</label><br />"
+    answers += incorrect_3
+    answers = random.shuffle(answers)
+    print(answers)
+q_number +=1
+
 
 table += "</table>"
 print(table)
