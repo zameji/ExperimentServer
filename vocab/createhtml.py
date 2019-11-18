@@ -6,7 +6,7 @@ words = [
     ["TALK", "speak", "draw", "eat", "sleep"],
     ["PERMIT", "allow", "sew", "cut", "drive"],
     ["PARDON", "forgive", "pound", "divide", "tell"],
-    ["COUCH", "soda", "pin", "eraser", "glass"],
+    ["COUCH", "sofa", "pin", "eraser", "glass"],
     ["REMEMBER", "recall", "swim", "number", "defy"],
     ["TUMBLE", "fall", "drink", "dread", "think"],
     ["HIDEOUS", "dreadful", "silvery", "tilted", "young"],
