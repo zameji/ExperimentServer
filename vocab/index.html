@@ -1,384 +1,645 @@
-<html>
-	<head>
-		<meta charset="UTF-8" />
-		<title>Vocab</title>
-		<script src="util_md5.js"></script>
-		<!-- Cookie handling JS code. -->
-		<script type="text/javascript" src="https://www.psycholinguistics.ml/index/cookie.js"></script>
-		<link rel="stylesheet" type="text/css" href="https://www.psycholinguistics.ml/css/global_main.css" />
-		<link rel="stylesheet" type="text/css" href="https://www.psycholinguistics.ml/css/global_mainB.css"/>
-		<link rel="stylesheet" type="text/css" href="https://www.psycholinguistics.ml/css/Form.css" />
-	</head>
-	<body style="font-size: medium">
-		<div style="text-align:center; margin: 50px;">
-			<p>
-				<b>Vocabulary</b>
-			</p>
-			<p style="text-align:left">
-							Instructions
-						</p>
-			<p style="text-align:left">
-							Instructions
-			<p style="text-align:left">
-							Instructions
-						</p>
-			<form id="mainform" style="text-align: center" method="post" action="https://www.psycholinguistics.ml/vocab/write_data.php" onsubmit="return prepareAndValidate()">
-				<table style='border-collapse: collapse;'>
-          <tr>
-						<td></td>
-						<td></td>
-            <td></td>
-					</tr>
-					<tr>
-						<td>
-							1.
-						</td>
-						<td>
-							<input id="Q1A1" name="Q1A1" type="checkbox" />
-							<label for="Q1A1">
-									nonsynonym1
-								</label>
-            </td>
-            <td>
-							<input id="Q1DK" name="Q1DK" type="checkbox" />
-							<label for="Q1DK">
-									Don't know
-								</label>
-            </td>
-					</tr>
-          <tr>
-            <td>
-            </td>
-            <td>
-              <input id="Q1A2" name="Q1A2" type="checkbox" />
-              <label for="Q1A2">
-                  nonsynonym2
-                </label>
-            </td>
-            <td>
-            </td>
-          </tr>
-          <tr>
-            <td>
-            </td>
-            <td>
-              <input id="Q1A3" name="Q1A3" type="checkbox" />
-              <label for="Q1A3">
-                  nonsynonym3
-                </label>
-            </td>
-            <td>
-            </td>
-          </tr>
-          <tr>
-            <td>
-            </td>
-            <td>
-              <input id="Q1A4" name="Q1A4" type="checkbox" />
-              <label for="Q1A4">
-                  nonsynonym4
-                </label>
-            </td>
-            <td>
-            </td>
-          </tr>
-          <tr>
-            <td>
-            </td>
-            <td>
-              <input id="Q1A5" name="Q1A5" type="checkbox" />
-              <label for="Q1A5">
-                  nonsynonym5
-                </label>
-            </td>
-            <td>
-            </td>
-          </tr>
-
-					<tr>
-						<td>
-							Have you ever reached fluency in another language?
-						</td>
-						<td>
-							<input name="bilingual" type="radio" value="monolingual" class="obligatory" required="required" id="bilingualno" />
-							<label for="bilingualno">
-									No
-								</label>
-							<br />
-							<input name="bilingual" type="radio" value="latebilingual" id="bilinguallate"/>
-							<label for="bilinguallate">
-									Yes, after the age of 13
-								</label>
-							<br />
-							<input name="bilingual" type="radio" value="earlybilingual" id="bilingualearly"/>
-							<label for="bilingualearly">
-									Yes, between the ages of 5 and 13
-								</label>
-							<br />
-							<input name="bilingual" type="radio" value="fullbilingual" id="bilingualfull"/>
-							<label for="bilingualfull">
-									Yes, in early childhood
-								</label>
-							<br />
-							<br />
-							<br />
-						</td>
-					</tr>
-					<tr></tr>
-					<td>
-							In which country did you spend the majority of your childhood?
-						</td>
-					<td>
-						<input name="origin" type="radio" value="UK" class="obligatory" required="required" id="originUK" />
-						<label for="originUK">
-									UK
-								</label>
-						<br />
-						<input name="origin" type="radio" value="USA" id="originUSA"/>
-						<label for="originUSA">
-									USA
-								</label>
-						<br />
-						<input name="origin" type="radio" value="other" id="originother"/>
-						<label for="originother">
-									Other
-								</label>
-						<br />
-						<br />
-						<br />
-					</td>
-					<tr>
-						<td>
-						How old are you? (in years)
-					</td>
-						<td>
-							<input id="age" name="age" type="text" size="30" class="obligatory" required="required" />
-						</td>
-					</tr>
-					<tr>
-						<td></td>
-						<td>
-							<p id="ageerror" style="color: red"></p>
-						</td>
-					</tr>
-					<tr>
-						<td>
-						What gender do you identify with?
-					</td>
-						<td>
-							<input name="sex" type="radio" value="male" class="obligatory" required="required" id="csexmale" />
-							<label for="csexmale">
-								Male
-							</label>
-							<br />
-							<input name="sex" type="radio" value="female" id="csexfemale"/>
-							<label for="csexfemale">
-								Female
-							</label>
-							<br />
-							<input name="sex" type="radio" value="other" id="csexother"/>
-							<label for="csexother">
-								Other
-							</label>
-							<br />
-							<br />
-						</td>
-					</tr>
-					<tr>
-						<td>
-						What is your highest level of education?
-					</td>
-						<td>
-							<input name="edu" type="radio" value="1" class="obligatory" required="required" id="edu1" />
-							<label for="edu1">
-								High school or less
-							</label>
-							<br />
-							<input name="edu" type="radio" value="2" id="edu2"/>
-							<label for="edu2">
-								Associate's degree
-							</label>
-							<br />
-							<input name="edu" type="radio" value="3" id="edu3"/>
-							<label for="edu3">
-								Bachelor's degree
-							</label>
-							<br />
-							<input name="edu" type="radio" value="4" id="edu4"/>
-							<label for="edu4">
-								Master's degree
-							</label>
-							<br />
-							<input name="edu" type="radio" value="5" id="edu5"/>
-							<label for="edu5">
-								PhD / Doctoral degree
-							</label>
-							<br />
-							<br />
-						</td>
-					</tr>
-					<tr>
-						<td>
-						How often do you read in your free time? (Books, news articles, anything longer than a few paragraphs.)
-					</td>
-						<td>
-							<input name="reading_amt" type="radio" value="1" class="obligatory" required="required" id="type1weekly" />
-							<label for="1">
-								Rarely or never
-							</label>
-							<br />
-							<input name="reading_amt" type="radio" value="2" id="type3weekly"/>
-							<label for="2">
-								An hour per week or less
-							</label>
-							<br />
-							<input name="reading_amt" type="radio" value="3" id="type4hours"/>
-							<label for="3">
-								About three to five hours per week
-							</label>
-							<br />
-							<input name="reading_amt" type="radio" value="4" id="type8hours"/>
-							<label for="4">
-								About an hour every day
-							</label>
-							<br />
-							<input name="reading_amt" type="radio" value="5" id="typeallday"/>
-							<label for="5">
-								More than an hour a day
-							</label>
-							<br />
-							<br />
-						</td>
-					</tr>
-					<tr>
-						<td>
-						Would you say you enjoy reading?
-					</td>
-						<td>
-							<input name="reading_enj" type="radio" value="1" class="obligatory" required="required" id="typeveryslow" />
-							<label for="1">
-								No, I prefer not to read if I don't have to
-							</label>
-							<br />
-							<input name="reading_enj" type="radio" value="2" id="typeslow"/>
-							<label for="2">
-								Not really, I read sometimes, but only if something is very interesting to me
-							</label>
-							<br />
-							<input name="reading_enj" type="radio" value="3" id="typemiddle"/>
-							<label for="3">
-								Kind of, there are some books/sources that I enjoy but others I don't
-							</label>
-							<br />
-							<input name="reading_enj" type="radio" value="4" id="typefast"/>
-							<label for="4">
-								Yeah, I like reading and have several favorite books/sources
-							</label>
-							<br />
-							<input name="reading_enj" type="radio" value="5" id="typeveryfast"/>
-							<label for="5">
-								Yes, I am a passionate reader and consider reading one of my favorite hobbies
-							</label>
-							<br />
-							<br />
-						</td>
-					</tr>
-					<tr>
-						<td>
-						Are you right-handed or left-handed?
-					</td>
-						<td>
-							<input name="handness" type="radio" value="righthanded" class="obligatory" required="required" id="righthanded" />
-							<label for="righthanded">
-								Right-handed
-							</label>
-							<br />
-							<input name="handness" type="radio" value="lefthanded" id="lefthanded"/>
-							<label for="lefthanded">
-								Left-handed
-							</label>
-							<br />
-							<br />
-						</td>
-					</tr>
-					<tr>
-						<td>
-						Do you or have you ever had a reading disability?
-					</td>
-						<td>
-							<input name="read" type="radio" value="yes" class="obligatory" required="required" id="readyes" />
-							<label for="readyes">
-								Yes
-							</label>
-							<br />
-							<input name="read" type="radio" value="no" id="readno"/>
-							<label for="readno">
-								No
-							</label>
-							<br />
-							<br />
-						</td>
-					</tr>
-					<tr>
-						<td>
-						Check this box to confirm that you agree with the experiment.
-					</td>
-						<td>
-							<input id="cookieConsent" name="cookieConsent" type="checkbox" value="yes" />
-						</td>
-					</tr>
-					<tr>
-						<td></td>
-						<td>
-							<p id="cookieError" style="color: red"></p>
-						</td>
-					</tr>
-				</table>
-				<input name="submit" type="submit" value="Submit"/>
-			</form>
-			<p id="message" style="color: red; text-align: center"></p>
-			<p style="text-align: center">
-				<span id = "rn"></span>
-			</p>
-			<p style="text-align: center">
-				<span id = "cookies">Cookies: Unchecked</span>
-			</p>
-			<p style="text-align: center">
-				<span id = "mobile">Mobile: No</span>
-			</p>
-			<p style="text-align: center">
-				<a href="https://www.psycholinguistics.ml/policy.html">Cookies notice - Privacy policy</a>
-			</p>
-		</div>
-		<script>
-
-		var message = document.getElementById('message');
-
-		function prepareAndValidate(){
-			if (!isValidForm()){
-				return false;
-				}
-
-			return true;
-		}
-
-		function isValidForm() {
-			var valid = true;
-
-			re = /^\d+$/
-			if (!re.test(document.getElementById("age").value)){
-				document.getElementById("ageerror").innerHTML = "Age must be a number";
-				valid = false;
-									}
-
-			if (!document.getElementById("cookieConsent").checked){
-				document.getElementById("cookieError").innerHTML = "Cannot proceed without your consent"
-				valid = false;
-			}
-
-				return valid;
-			}
-
-		</script>
-	</body>
-</html>
+<table>
+    <p><b>Vocabulary</b></p>
+    <p style='text-align:left'>In the test below, you are given a word in capital letters. Select the word that means the same thing, or most nearly the same thing, as the capitalized word.</p>
+    <p style='text-align:left'>If you don't know, guess.</p>
+    <tr>
+        <td>1. TALK:</td>
+        <td>
+            <input name='vocab_1' type='radio' value='0' class='obligatory' required='required' id='vocab_1_0' />
+            <label for='vocab_1_0'>draw</label>
+            <br />
+            <input name='vocab_1' type='radio' value='1' class='obligatory' required='required' id='vocab_1_1' />
+            <label for='vocab_1_1'>speak</label>
+            <br />
+            <input name='vocab_1' type='radio' value='0' class='obligatory' required='required' id='vocab_1_0' />
+            <label for='vocab_1_0'>eat</label>
+            <br />
+            <input name='vocab_1' type='radio' value='0' class='obligatory' required='required' id='vocab_1_0' />
+            <label for='vocab_1_0'>sleep</label>
+            <br />
+            <br />
+            <tr>
+                <td>2. PERMIT:</td>
+                <td>
+                    <input name='vocab_2' type='radio' value='0' class='obligatory' required='required' id='vocab_2_0' />
+                    <label for='vocab_2_0'>cut</label>
+                    <br />
+                    <input name='vocab_2' type='radio' value='0' class='obligatory' required='required' id='vocab_2_0' />
+                    <label for='vocab_2_0'>drive</label>
+                    <br />
+                    <input name='vocab_2' type='radio' value='1' class='obligatory' required='required' id='vocab_2_1' />
+                    <label for='vocab_2_1'>allow</label>
+                    <br />
+                    <input name='vocab_2' type='radio' value='0' class='obligatory' required='required' id='vocab_2_0' />
+                    <label for='vocab_2_0'>sew</label>
+                    <br />
+                    <br />
+                    <tr>
+                        <td>3. PARDON:</td>
+                        <td>
+                            <input name='vocab_3' type='radio' value='0' class='obligatory' required='required' id='vocab_3_0' />
+                            <label for='vocab_3_0'>divide</label>
+                            <br />
+                            <input name='vocab_3' type='radio' value='0' class='obligatory' required='required' id='vocab_3_0' />
+                            <label for='vocab_3_0'>tell</label>
+                            <br />
+                            <input name='vocab_3' type='radio' value='0' class='obligatory' required='required' id='vocab_3_0' />
+                            <label for='vocab_3_0'>pound</label>
+                            <br />
+                            <input name='vocab_3' type='radio' value='1' class='obligatory' required='required' id='vocab_3_1' />
+                            <label for='vocab_3_1'>forgive</label>
+                            <br />
+                            <br />
+                            <tr>
+                                <td>4. COUCH:</td>
+                                <td>
+                                    <input name='vocab_4' type='radio' value='1' class='obligatory' required='required' id='vocab_4_1' />
+                                    <label for='vocab_4_1'>soda</label>
+                                    <br />
+                                    <input name='vocab_4' type='radio' value='0' class='obligatory' required='required' id='vocab_4_0' />
+                                    <label for='vocab_4_0'>glass</label>
+                                    <br />
+                                    <input name='vocab_4' type='radio' value='0' class='obligatory' required='required' id='vocab_4_0' />
+                                    <label for='vocab_4_0'>eraser</label>
+                                    <br />
+                                    <input name='vocab_4' type='radio' value='0' class='obligatory' required='required' id='vocab_4_0' />
+                                    <label for='vocab_4_0'>pin</label>
+                                    <br />
+                                    <br />
+                                    <tr>
+                                        <td>5. REMEMBER:</td>
+                                        <td>
+                                            <input name='vocab_5' type='radio' value='1' class='obligatory' required='required' id='vocab_5_1' />
+                                            <label for='vocab_5_1'>recall</label>
+                                            <br />
+                                            <input name='vocab_5' type='radio' value='0' class='obligatory' required='required' id='vocab_5_0' />
+                                            <label for='vocab_5_0'>defy</label>
+                                            <br />
+                                            <input name='vocab_5' type='radio' value='0' class='obligatory' required='required' id='vocab_5_0' />
+                                            <label for='vocab_5_0'>number</label>
+                                            <br />
+                                            <input name='vocab_5' type='radio' value='0' class='obligatory' required='required' id='vocab_5_0' />
+                                            <label for='vocab_5_0'>swim</label>
+                                            <br />
+                                            <br />
+                                            <tr>
+                                                <td>6. TUMBLE:</td>
+                                                <td>
+                                                    <input name='vocab_6' type='radio' value='0' class='obligatory' required='required' id='vocab_6_0' />
+                                                    <label for='vocab_6_0'>drink</label>
+                                                    <br />
+                                                    <input name='vocab_6' type='radio' value='1' class='obligatory' required='required' id='vocab_6_1' />
+                                                    <label for='vocab_6_1'>fall</label>
+                                                    <br />
+                                                    <input name='vocab_6' type='radio' value='0' class='obligatory' required='required' id='vocab_6_0' />
+                                                    <label for='vocab_6_0'>dread</label>
+                                                    <br />
+                                                    <input name='vocab_6' type='radio' value='0' class='obligatory' required='required' id='vocab_6_0' />
+                                                    <label for='vocab_6_0'>think</label>
+                                                    <br />
+                                                    <br />
+                                                    <tr>
+                                                        <td>7. HIDEOUS:</td>
+                                                        <td>
+                                                            <input name='vocab_7' type='radio' value='0' class='obligatory' required='required' id='vocab_7_0' />
+                                                            <label for='vocab_7_0'>tilted</label>
+                                                            <br />
+                                                            <input name='vocab_7' type='radio' value='0' class='obligatory' required='required' id='vocab_7_0' />
+                                                            <label for='vocab_7_0'>young</label>
+                                                            <br />
+                                                            <input name='vocab_7' type='radio' value='1' class='obligatory' required='required' id='vocab_7_1' />
+                                                            <label for='vocab_7_1'>dreadful</label>
+                                                            <br />
+                                                            <input name='vocab_7' type='radio' value='0' class='obligatory' required='required' id='vocab_7_0' />
+                                                            <label for='vocab_7_0'>silvery</label>
+                                                            <br />
+                                                            <br />
+                                                            <tr>
+                                                                <td>8. CORDIAL:</td>
+                                                                <td>
+                                                                    <input name='vocab_8' type='radio' value='0' class='obligatory' required='required' id='vocab_8_0' />
+                                                                    <label for='vocab_8_0'>leafy</label>
+                                                                    <br />
+                                                                    <input name='vocab_8' type='radio' value='0' class='obligatory' required='required' id='vocab_8_0' />
+                                                                    <label for='vocab_8_0'>muddy</label>
+                                                                    <br />
+                                                                    <input name='vocab_8' type='radio' value='1' class='obligatory' required='required' id='vocab_8_1' />
+                                                                    <label for='vocab_8_1'>hearty</label>
+                                                                    <br />
+                                                                    <input name='vocab_8' type='radio' value='0' class='obligatory' required='required' id='vocab_8_0' />
+                                                                    <label for='vocab_8_0'>swift</label>
+                                                                    <br />
+                                                                    <br />
+                                                                    <tr>
+                                                                        <td>9. EVIDENT:</td>
+                                                                        <td>
+                                                                            <input name='vocab_9' type='radio' value='0' class='obligatory' required='required' id='vocab_9_0' />
+                                                                            <label for='vocab_9_0'>sceptical</label>
+                                                                            <br />
+                                                                            <input name='vocab_9' type='radio' value='0' class='obligatory' required='required' id='vocab_9_0' />
+                                                                            <label for='vocab_9_0'>afraid</label>
+                                                                            <br />
+                                                                            <input name='vocab_9' type='radio' value='1' class='obligatory' required='required' id='vocab_9_1' />
+                                                                            <label for='vocab_9_1'>obvious</label>
+                                                                            <br />
+                                                                            <input name='vocab_9' type='radio' value='0' class='obligatory' required='required' id='vocab_9_0' />
+                                                                            <label for='vocab_9_0'>green</label>
+                                                                            <br />
+                                                                            <br />
+                                                                            <tr>
+                                                                                <td>10. IMPOSTER:</td>
+                                                                                <td>
+                                                                                    <input name='vocab_10' type='radio' value='1' class='obligatory' required='required' id='vocab_10_1' />
+                                                                                    <label for='vocab_10_1'>pretender</label>
+                                                                                    <br />
+                                                                                    <input name='vocab_10' type='radio' value='0' class='obligatory' required='required' id='vocab_10_0' />
+                                                                                    <label for='vocab_10_0'>book</label>
+                                                                                    <br />
+                                                                                    <input name='vocab_10' type='radio' value='0' class='obligatory' required='required' id='vocab_10_0' />
+                                                                                    <label for='vocab_10_0'>conductor</label>
+                                                                                    <br />
+                                                                                    <input name='vocab_10' type='radio' value='0' class='obligatory' required='required' id='vocab_10_0' />
+                                                                                    <label for='vocab_10_0'>officer</label>
+                                                                                    <br />
+                                                                                    <br />
+                                                                                    <tr>
+                                                                                        <td>11. MERIT:</td>
+                                                                                        <td>
+                                                                                            <input name='vocab_11' type='radio' value='0' class='obligatory' required='required' id='vocab_11_0' />
+                                                                                            <label for='vocab_11_0'>separate</label>
+                                                                                            <br />
+                                                                                            <input name='vocab_11' type='radio' value='1' class='obligatory' required='required' id='vocab_11_1' />
+                                                                                            <label for='vocab_11_1'>deserve</label>
+                                                                                            <br />
+                                                                                            <input name='vocab_11' type='radio' value='0' class='obligatory' required='required' id='vocab_11_0' />
+                                                                                            <label for='vocab_11_0'>distrust</label>
+                                                                                            <br />
+                                                                                            <input name='vocab_11' type='radio' value='0' class='obligatory' required='required' id='vocab_11_0' />
+                                                                                            <label for='vocab_11_0'>fight</label>
+                                                                                            <br />
+                                                                                            <br />
+                                                                                            <tr>
+                                                                                                <td>12. FASCINATE:</td>
+                                                                                                <td>
+                                                                                                    <input name='vocab_12' type='radio' value='0' class='obligatory' required='required' id='vocab_12_0' />
+                                                                                                    <label for='vocab_12_0'>fix</label>
+                                                                                                    <br />
+                                                                                                    <input name='vocab_12' type='radio' value='0' class='obligatory' required='required' id='vocab_12_0' />
+                                                                                                    <label for='vocab_12_0'>stir</label>
+                                                                                                    <br />
+                                                                                                    <input name='vocab_12' type='radio' value='0' class='obligatory' required='required' id='vocab_12_0' />
+                                                                                                    <label for='vocab_12_0'>welcome</label>
+                                                                                                    <br />
+                                                                                                    <input name='vocab_12' type='radio' value='1' class='obligatory' required='required' id='vocab_12_1' />
+                                                                                                    <label for='vocab_12_1'>enchant</label>
+                                                                                                    <br />
+                                                                                                    <br />
+                                                                                                    <tr>
+                                                                                                        <td>13. INDICATE:</td>
+                                                                                                        <td>
+                                                                                                            <input name='vocab_13' type='radio' value='0' class='obligatory' required='required' id='vocab_13_0' />
+                                                                                                            <label for='vocab_13_0'>excite</label>
+                                                                                                            <br />
+                                                                                                            <input name='vocab_13' type='radio' value='0' class='obligatory' required='required' id='vocab_13_0' />
+                                                                                                            <label for='vocab_13_0'>defy</label>
+                                                                                                            <br />
+                                                                                                            <input name='vocab_13' type='radio' value='1' class='obligatory' required='required' id='vocab_13_1' />
+                                                                                                            <label for='vocab_13_1'>signify</label>
+                                                                                                            <br />
+                                                                                                            <input name='vocab_13' type='radio' value='0' class='obligatory' required='required' id='vocab_13_0' />
+                                                                                                            <label for='vocab_13_0'>bicker</label>
+                                                                                                            <br />
+                                                                                                            <br />
+                                                                                                            <tr>
+                                                                                                                <td>14. IGNORANT:</td>
+                                                                                                                <td>
+                                                                                                                    <input name='vocab_14' type='radio' value='0' class='obligatory' required='required' id='vocab_14_0' />
+                                                                                                                    <label for='vocab_14_0'>sharp</label>
+                                                                                                                    <br />
+                                                                                                                    <input name='vocab_14' type='radio' value='0' class='obligatory' required='required' id='vocab_14_0' />
+                                                                                                                    <label for='vocab_14_0'>red</label>
+                                                                                                                    <br />
+                                                                                                                    <input name='vocab_14' type='radio' value='1' class='obligatory' required='required' id='vocab_14_1' />
+                                                                                                                    <label for='vocab_14_1'>uninformed</label>
+                                                                                                                    <br />
+                                                                                                                    <input name='vocab_14' type='radio' value='0' class='obligatory' required='required' id='vocab_14_0' />
+                                                                                                                    <label for='vocab_14_0'>precise</label>
+                                                                                                                    <br />
+                                                                                                                    <br />
+                                                                                                                    <tr>
+                                                                                                                        <td>15. FORTIFY:</td>
+                                                                                                                        <td>
+                                                                                                                            <input name='vocab_15' type='radio' value='1' class='obligatory' required='required' id='vocab_15_1' />
+                                                                                                                            <label for='vocab_15_1'>strengthen</label>
+                                                                                                                            <br />
+                                                                                                                            <input name='vocab_15' type='radio' value='0' class='obligatory' required='required' id='vocab_15_0' />
+                                                                                                                            <label for='vocab_15_0'>deaden</label>
+                                                                                                                            <br />
+                                                                                                                            <input name='vocab_15' type='radio' value='0' class='obligatory' required='required' id='vocab_15_0' />
+                                                                                                                            <label for='vocab_15_0'>submerge</label>
+                                                                                                                            <br />
+                                                                                                                            <input name='vocab_15' type='radio' value='0' class='obligatory' required='required' id='vocab_15_0' />
+                                                                                                                            <label for='vocab_15_0'>vent</label>
+                                                                                                                            <br />
+                                                                                                                            <br />
+                                                                                                                            <tr>
+                                                                                                                                <td>16. RENOWN:</td>
+                                                                                                                                <td>
+                                                                                                                                    <input name='vocab_16' type='radio' value='1' class='obligatory' required='required' id='vocab_16_1' />
+                                                                                                                                    <label for='vocab_16_1'>fame</label>
+                                                                                                                                    <br />
+                                                                                                                                    <input name='vocab_16' type='radio' value='0' class='obligatory' required='required' id='vocab_16_0' />
+                                                                                                                                    <label for='vocab_16_0'>head</label>
+                                                                                                                                    <br />
+                                                                                                                                    <input name='vocab_16' type='radio' value='0' class='obligatory' required='required' id='vocab_16_0' />
+                                                                                                                                    <label for='vocab_16_0'>loyalty</label>
+                                                                                                                                    <br />
+                                                                                                                                    <input name='vocab_16' type='radio' value='0' class='obligatory' required='required' id='vocab_16_0' />
+                                                                                                                                    <label for='vocab_16_0'>length</label>
+                                                                                                                                    <br />
+                                                                                                                                    <br />
+                                                                                                                                    <tr>
+                                                                                                                                        <td>17. NARRATE:</td>
+                                                                                                                                        <td>
+                                                                                                                                            <input name='vocab_17' type='radio' value='0' class='obligatory' required='required' id='vocab_17_0' />
+                                                                                                                                            <label for='vocab_17_0'>buy</label>
+                                                                                                                                            <br />
+                                                                                                                                            <input name='vocab_17' type='radio' value='0' class='obligatory' required='required' id='vocab_17_0' />
+                                                                                                                                            <label for='vocab_17_0'>associate</label>
+                                                                                                                                            <br />
+                                                                                                                                            <input name='vocab_17' type='radio' value='1' class='obligatory' required='required' id='vocab_17_1' />
+                                                                                                                                            <label for='vocab_17_1'>tell</label>
+                                                                                                                                            <br />
+                                                                                                                                            <input name='vocab_17' type='radio' value='0' class='obligatory' required='required' id='vocab_17_0' />
+                                                                                                                                            <label for='vocab_17_0'>yield</label>
+                                                                                                                                            <br />
+                                                                                                                                            <br />
+                                                                                                                                            <tr>
+                                                                                                                                                <td>18. MASSIVE:</td>
+                                                                                                                                                <td>
+                                                                                                                                                    <input name='vocab_18' type='radio' value='0' class='obligatory' required='required' id='vocab_18_0' />
+                                                                                                                                                    <label for='vocab_18_0'>speedy</label>
+                                                                                                                                                    <br />
+                                                                                                                                                    <input name='vocab_18' type='radio' value='0' class='obligatory' required='required' id='vocab_18_0' />
+                                                                                                                                                    <label for='vocab_18_0'>low</label>
+                                                                                                                                                    <br />
+                                                                                                                                                    <input name='vocab_18' type='radio' value='1' class='obligatory' required='required' id='vocab_18_1' />
+                                                                                                                                                    <label for='vocab_18_1'>large</label>
+                                                                                                                                                    <br />
+                                                                                                                                                    <input name='vocab_18' type='radio' value='0' class='obligatory' required='required' id='vocab_18_0' />
+                                                                                                                                                    <label for='vocab_18_0'>bright</label>
+                                                                                                                                                    <br />
+                                                                                                                                                    <br />
+                                                                                                                                                    <tr>
+                                                                                                                                                        <td>19. HILARITY:</td>
+                                                                                                                                                        <td>
+                                                                                                                                                            <input name='vocab_19' type='radio' value='0' class='obligatory' required='required' id='vocab_19_0' />
+                                                                                                                                                            <label for='vocab_19_0'>grace</label>
+                                                                                                                                                            <br />
+                                                                                                                                                            <input name='vocab_19' type='radio' value='1' class='obligatory' required='required' id='vocab_19_1' />
+                                                                                                                                                            <label for='vocab_19_1'>laughter</label>
+                                                                                                                                                            <br />
+                                                                                                                                                            <input name='vocab_19' type='radio' value='0' class='obligatory' required='required' id='vocab_19_0' />
+                                                                                                                                                            <label for='vocab_19_0'>malice</label>
+                                                                                                                                                            <br />
+                                                                                                                                                            <input name='vocab_19' type='radio' value='0' class='obligatory' required='required' id='vocab_19_0' />
+                                                                                                                                                            <label for='vocab_19_0'>speed</label>
+                                                                                                                                                            <br />
+                                                                                                                                                            <br />
+                                                                                                                                                            <tr>
+                                                                                                                                                                <td>20. SMIRCHED:</td>
+                                                                                                                                                                <td>
+                                                                                                                                                                    <input name='vocab_20' type='radio' value='0' class='obligatory' required='required' id='vocab_20_0' />
+                                                                                                                                                                    <label for='vocab_20_0'>stolen</label>
+                                                                                                                                                                    <br />
+                                                                                                                                                                    <input name='vocab_20' type='radio' value='0' class='obligatory' required='required' id='vocab_20_0' />
+                                                                                                                                                                    <label for='vocab_20_0'>pointed</label>
+                                                                                                                                                                    <br />
+                                                                                                                                                                    <input name='vocab_20' type='radio' value='1' class='obligatory' required='required' id='vocab_20_1' />
+                                                                                                                                                                    <label for='vocab_20_1'>soiled</label>
+                                                                                                                                                                    <br />
+                                                                                                                                                                    <input name='vocab_20' type='radio' value='0' class='obligatory' required='required' id='vocab_20_0' />
+                                                                                                                                                                    <label for='vocab_20_0'>remade</label>
+                                                                                                                                                                    <br />
+                                                                                                                                                                    <br />
+                                                                                                                                                                    <tr>
+                                                                                                                                                                        <td>21. SQUANDER:</td>
+                                                                                                                                                                        <td>
+                                                                                                                                                                            <input name='vocab_21' type='radio' value='0' class='obligatory' required='required' id='vocab_21_0' />
+                                                                                                                                                                            <label for='vocab_21_0'>cut</label>
+                                                                                                                                                                            <br />
+                                                                                                                                                                            <input name='vocab_21' type='radio' value='0' class='obligatory' required='required' id='vocab_21_0' />
+                                                                                                                                                                            <label for='vocab_21_0'>belittle</label>
+                                                                                                                                                                            <br />
+                                                                                                                                                                            <input name='vocab_21' type='radio' value='1' class='obligatory' required='required' id='vocab_21_1' />
+                                                                                                                                                                            <label for='vocab_21_1'>waste</label>
+                                                                                                                                                                            <br />
+                                                                                                                                                                            <input name='vocab_21' type='radio' value='0' class='obligatory' required='required' id='vocab_21_0' />
+                                                                                                                                                                            <label for='vocab_21_0'>tease</label>
+                                                                                                                                                                            <br />
+                                                                                                                                                                            <br />
+                                                                                                                                                                            <tr>
+                                                                                                                                                                                <td>22. CAPTION:</td>
+                                                                                                                                                                                <td>
+                                                                                                                                                                                    <input name='vocab_22' type='radio' value='1' class='obligatory' required='required' id='vocab_22_1' />
+                                                                                                                                                                                    <label for='vocab_22_1'>heading</label>
+                                                                                                                                                                                    <br />
+                                                                                                                                                                                    <input name='vocab_22' type='radio' value='0' class='obligatory' required='required' id='vocab_22_0' />
+                                                                                                                                                                                    <label for='vocab_22_0'>ape</label>
+                                                                                                                                                                                    <br />
+                                                                                                                                                                                    <input name='vocab_22' type='radio' value='0' class='obligatory' required='required' id='vocab_22_0' />
+                                                                                                                                                                                    <label for='vocab_22_0'>drum</label>
+                                                                                                                                                                                    <br />
+                                                                                                                                                                                    <input name='vocab_22' type='radio' value='0' class='obligatory' required='required' id='vocab_22_0' />
+                                                                                                                                                                                    <label for='vocab_22_0'>ballet</label>
+                                                                                                                                                                                    <br />
+                                                                                                                                                                                    <br />
+                                                                                                                                                                                    <tr>
+                                                                                                                                                                                        <td>23. FACILITATE:</td>
+                                                                                                                                                                                        <td>
+                                                                                                                                                                                            <input name='vocab_23' type='radio' value='0' class='obligatory' required='required' id='vocab_23_0' />
+                                                                                                                                                                                            <label for='vocab_23_0'>strip</label>
+                                                                                                                                                                                            <br />
+                                                                                                                                                                                            <input name='vocab_23' type='radio' value='0' class='obligatory' required='required' id='vocab_23_0' />
+                                                                                                                                                                                            <label for='vocab_23_0'>turn</label>
+                                                                                                                                                                                            <br />
+                                                                                                                                                                                            <input name='vocab_23' type='radio' value='0' class='obligatory' required='required' id='vocab_23_0' />
+                                                                                                                                                                                            <label for='vocab_23_0'>bewilder</label>
+                                                                                                                                                                                            <br />
+                                                                                                                                                                                            <input name='vocab_23' type='radio' value='1' class='obligatory' required='required' id='vocab_23_1' />
+                                                                                                                                                                                            <label for='vocab_23_1'>help</label>
+                                                                                                                                                                                            <br />
+                                                                                                                                                                                            <br />
+                                                                                                                                                                                            <tr>
+                                                                                                                                                                                                <td>24. JOCOSE:</td>
+                                                                                                                                                                                                <td>
+                                                                                                                                                                                                    <input name='vocab_24' type='radio' value='1' class='obligatory' required='required' id='vocab_24_1' />
+                                                                                                                                                                                                    <label for='vocab_24_1'>humorous</label>
+                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                    <input name='vocab_24' type='radio' value='0' class='obligatory' required='required' id='vocab_24_0' />
+                                                                                                                                                                                                    <label for='vocab_24_0'>fervid</label>
+                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                    <input name='vocab_24' type='radio' value='0' class='obligatory' required='required' id='vocab_24_0' />
+                                                                                                                                                                                                    <label for='vocab_24_0'>plain</label>
+                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                    <input name='vocab_24' type='radio' value='0' class='obligatory' required='required' id='vocab_24_0' />
+                                                                                                                                                                                                    <label for='vocab_24_0'>paltry</label>
+                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                    <tr>
+                                                                                                                                                                                                        <td>25. APPRISE:</td>
+                                                                                                                                                                                                        <td>
+                                                                                                                                                                                                            <input name='vocab_25' type='radio' value='0' class='obligatory' required='required' id='vocab_25_0' />
+                                                                                                                                                                                                            <label for='vocab_25_0'>delight</label>
+                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                            <input name='vocab_25' type='radio' value='1' class='obligatory' required='required' id='vocab_25_1' />
+                                                                                                                                                                                                            <label for='vocab_25_1'>inform</label>
+                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                            <input name='vocab_25' type='radio' value='0' class='obligatory' required='required' id='vocab_25_0' />
+                                                                                                                                                                                                            <label for='vocab_25_0'>strew</label>
+                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                            <input name='vocab_25' type='radio' value='0' class='obligatory' required='required' id='vocab_25_0' />
+                                                                                                                                                                                                            <label for='vocab_25_0'>reduce</label>
+                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                            <tr>
+                                                                                                                                                                                                                <td>26. RUE:</td>
+                                                                                                                                                                                                                <td>
+                                                                                                                                                                                                                    <input name='vocab_26' type='radio' value='0' class='obligatory' required='required' id='vocab_26_0' />
+                                                                                                                                                                                                                    <label for='vocab_26_0'>eat</label>
+                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                    <input name='vocab_26' type='radio' value='0' class='obligatory' required='required' id='vocab_26_0' />
+                                                                                                                                                                                                                    <label for='vocab_26_0'>dominate</label>
+                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                    <input name='vocab_26' type='radio' value='1' class='obligatory' required='required' id='vocab_26_1' />
+                                                                                                                                                                                                                    <label for='vocab_26_1'>lament</label>
+                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                    <input name='vocab_26' type='radio' value='0' class='obligatory' required='required' id='vocab_26_0' />
+                                                                                                                                                                                                                    <label for='vocab_26_0'>cure</label>
+                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                    <tr>
+                                                                                                                                                                                                                        <td>27. DENIZEN:</td>
+                                                                                                                                                                                                                        <td>
+                                                                                                                                                                                                                            <input name='vocab_27' type='radio' value='0' class='obligatory' required='required' id='vocab_27_0' />
+                                                                                                                                                                                                                            <label for='vocab_27_0'>senator</label>
+                                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                                            <input name='vocab_27' type='radio' value='0' class='obligatory' required='required' id='vocab_27_0' />
+                                                                                                                                                                                                                            <label for='vocab_27_0'>atom</label>
+                                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                                            <input name='vocab_27' type='radio' value='0' class='obligatory' required='required' id='vocab_27_0' />
+                                                                                                                                                                                                                            <label for='vocab_27_0'>fish</label>
+                                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                                            <input name='vocab_27' type='radio' value='1' class='obligatory' required='required' id='vocab_27_1' />
+                                                                                                                                                                                                                            <label for='vocab_27_1'>inhabitant</label>
+                                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                                            <tr>
+                                                                                                                                                                                                                                <td>28. DIVEST:</td>
+                                                                                                                                                                                                                                <td>
+                                                                                                                                                                                                                                    <input name='vocab_28' type='radio' value='1' class='obligatory' required='required' id='vocab_28_1' />
+                                                                                                                                                                                                                                    <label for='vocab_28_1'>dispossess</label>
+                                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                                    <input name='vocab_28' type='radio' value='0' class='obligatory' required='required' id='vocab_28_0' />
+                                                                                                                                                                                                                                    <label for='vocab_28_0'>rally</label>
+                                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                                    <input name='vocab_28' type='radio' value='0' class='obligatory' required='required' id='vocab_28_0' />
+                                                                                                                                                                                                                                    <label for='vocab_28_0'>pledge</label>
+                                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                                    <input name='vocab_28' type='radio' value='0' class='obligatory' required='required' id='vocab_28_0' />
+                                                                                                                                                                                                                                    <label for='vocab_28_0'>intrude</label>
+                                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                                    <tr>
+                                                                                                                                                                                                                                        <td>29. AMULET:</td>
+                                                                                                                                                                                                                                        <td>
+                                                                                                                                                                                                                                            <input name='vocab_29' type='radio' value='0' class='obligatory' required='required' id='vocab_29_0' />
+                                                                                                                                                                                                                                            <label for='vocab_29_0'>orphan</label>
+                                                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                                                            <input name='vocab_29' type='radio' value='0' class='obligatory' required='required' id='vocab_29_0' />
+                                                                                                                                                                                                                                            <label for='vocab_29_0'>dingo</label>
+                                                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                                                            <input name='vocab_29' type='radio' value='1' class='obligatory' required='required' id='vocab_29_1' />
+                                                                                                                                                                                                                                            <label for='vocab_29_1'>charm</label>
+                                                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                                                            <input name='vocab_29' type='radio' value='0' class='obligatory' required='required' id='vocab_29_0' />
+                                                                                                                                                                                                                                            <label for='vocab_29_0'>pond</label>
+                                                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                                                            <tr>
+                                                                                                                                                                                                                                                <td>30. INEXORABLE:</td>
+                                                                                                                                                                                                                                                <td>
+                                                                                                                                                                                                                                                    <input name='vocab_30' type='radio' value='0' class='obligatory' required='required' id='vocab_30_0' />
+                                                                                                                                                                                                                                                    <label for='vocab_30_0'>untidy</label>
+                                                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                                                    <input name='vocab_30' type='radio' value='0' class='obligatory' required='required' id='vocab_30_0' />
+                                                                                                                                                                                                                                                    <label for='vocab_30_0'>involatile</label>
+                                                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                                                    <input name='vocab_30' type='radio' value='1' class='obligatory' required='required' id='vocab_30_1' />
+                                                                                                                                                                                                                                                    <label for='vocab_30_1'>rigid</label>
+                                                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                                                    <input name='vocab_30' type='radio' value='0' class='obligatory' required='required' id='vocab_30_0' />
+                                                                                                                                                                                                                                                    <label for='vocab_30_0'>sparse</label>
+                                                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                                                    <tr>
+                                                                                                                                                                                                                                                        <td>31. SERRATED:</td>
+                                                                                                                                                                                                                                                        <td>
+                                                                                                                                                                                                                                                            <input name='vocab_31' type='radio' value='1' class='obligatory' required='required' id='vocab_31_1' />
+                                                                                                                                                                                                                                                            <label for='vocab_31_1'>notched</label>
+                                                                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                                                                            <input name='vocab_31' type='radio' value='0' class='obligatory' required='required' id='vocab_31_0' />
+                                                                                                                                                                                                                                                            <label for='vocab_31_0'>armed</label>
+                                                                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                                                                            <input name='vocab_31' type='radio' value='0' class='obligatory' required='required' id='vocab_31_0' />
+                                                                                                                                                                                                                                                            <label for='vocab_31_0'>dried</label>
+                                                                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                                                                            <input name='vocab_31' type='radio' value='0' class='obligatory' required='required' id='vocab_31_0' />
+                                                                                                                                                                                                                                                            <label for='vocab_31_0'>blunt</label>
+                                                                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                                                                            <tr>
+                                                                                                                                                                                                                                                                <td>32. LISSOM:</td>
+                                                                                                                                                                                                                                                                <td>
+                                                                                                                                                                                                                                                                    <input name='vocab_32' type='radio' value='0' class='obligatory' required='required' id='vocab_32_0' />
+                                                                                                                                                                                                                                                                    <label for='vocab_32_0'>convex</label>
+                                                                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                                                                    <input name='vocab_32' type='radio' value='1' class='obligatory' required='required' id='vocab_32_1' />
+                                                                                                                                                                                                                                                                    <label for='vocab_32_1'>loose</label>
+                                                                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                                                                    <input name='vocab_32' type='radio' value='0' class='obligatory' required='required' id='vocab_32_0' />
+                                                                                                                                                                                                                                                                    <label for='vocab_32_0'>moldy</label>
+                                                                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                                                                    <input name='vocab_32' type='radio' value='0' class='obligatory' required='required' id='vocab_32_0' />
+                                                                                                                                                                                                                                                                    <label for='vocab_32_0'>supple</label>
+                                                                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                                                                    <tr>
+                                                                                                                                                                                                                                                                        <td>33. MOLLIFY:</td>
+                                                                                                                                                                                                                                                                        <td>
+                                                                                                                                                                                                                                                                            <input name='vocab_33' type='radio' value='0' class='obligatory' required='required' id='vocab_33_0' />
+                                                                                                                                                                                                                                                                            <label for='vocab_33_0'>pertain</label>
+                                                                                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                                                                                            <input name='vocab_33' type='radio' value='0' class='obligatory' required='required' id='vocab_33_0' />
+                                                                                                                                                                                                                                                                            <label for='vocab_33_0'>abuse</label>
+                                                                                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                                                                                            <input name='vocab_33' type='radio' value='1' class='obligatory' required='required' id='vocab_33_1' />
+                                                                                                                                                                                                                                                                            <label for='vocab_33_1'>mitigate</label>
+                                                                                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                                                                                            <input name='vocab_33' type='radio' value='0' class='obligatory' required='required' id='vocab_33_0' />
+                                                                                                                                                                                                                                                                            <label for='vocab_33_0'>direct</label>
+                                                                                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                                                                                            <tr>
+                                                                                                                                                                                                                                                                                <td>34. PLAGIARIZE:</td>
+                                                                                                                                                                                                                                                                                <td>
+                                                                                                                                                                                                                                                                                    <input name='vocab_34' type='radio' value='0' class='obligatory' required='required' id='vocab_34_0' />
+                                                                                                                                                                                                                                                                                    <label for='vocab_34_0'>revoke</label>
+                                                                                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                                                                                    <input name='vocab_34' type='radio' value='1' class='obligatory' required='required' id='vocab_34_1' />
+                                                                                                                                                                                                                                                                                    <label for='vocab_34_1'>appropriate</label>
+                                                                                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                                                                                    <input name='vocab_34' type='radio' value='0' class='obligatory' required='required' id='vocab_34_0' />
+                                                                                                                                                                                                                                                                                    <label for='vocab_34_0'>maintain</label>
+                                                                                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                                                                                    <input name='vocab_34' type='radio' value='0' class='obligatory' required='required' id='vocab_34_0' />
+                                                                                                                                                                                                                                                                                    <label for='vocab_34_0'>intend</label>
+                                                                                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                                                                                    <tr>
+                                                                                                                                                                                                                                                                                        <td>35. ORIFICE:</td>
+                                                                                                                                                                                                                                                                                        <td>
+                                                                                                                                                                                                                                                                                            <input name='vocab_35' type='radio' value='0' class='obligatory' required='required' id='vocab_35_0' />
+                                                                                                                                                                                                                                                                                            <label for='vocab_35_0'>brush</label>
+                                                                                                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                                                                                                            <input name='vocab_35' type='radio' value='0' class='obligatory' required='required' id='vocab_35_0' />
+                                                                                                                                                                                                                                                                                            <label for='vocab_35_0'>lute</label>
+                                                                                                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                                                                                                            <input name='vocab_35' type='radio' value='1' class='obligatory' required='required' id='vocab_35_1' />
+                                                                                                                                                                                                                                                                                            <label for='vocab_35_1'>hole</label>
+                                                                                                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                                                                                                            <input name='vocab_35' type='radio' value='0' class='obligatory' required='required' id='vocab_35_0' />
+                                                                                                                                                                                                                                                                                            <label for='vocab_35_0'>building</label>
+                                                                                                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                                                                                                            <tr>
+                                                                                                                                                                                                                                                                                                <td>36. QUERULOUS:</td>
+                                                                                                                                                                                                                                                                                                <td>
+                                                                                                                                                                                                                                                                                                    <input name='vocab_36' type='radio' value='0' class='obligatory' required='required' id='vocab_36_0' />
+                                                                                                                                                                                                                                                                                                    <label for='vocab_36_0'>maniacal</label>
+                                                                                                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                                                                                                    <input name='vocab_36' type='radio' value='0' class='obligatory' required='required' id='vocab_36_0' />
+                                                                                                                                                                                                                                                                                                    <label for='vocab_36_0'>devout</label>
+                                                                                                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                                                                                                    <input name='vocab_36' type='radio' value='0' class='obligatory' required='required' id='vocab_36_0' />
+                                                                                                                                                                                                                                                                                                    <label for='vocab_36_0'>curious</label>
+                                                                                                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                                                                                                    <input name='vocab_36' type='radio' value='1' class='obligatory' required='required' id='vocab_36_1' />
+                                                                                                                                                                                                                                                                                                    <label for='vocab_36_1'>complaining</label>
+                                                                                                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                                                                                                    <tr>
+                                                                                                                                                                                                                                                                                                        <td>37. PARIAH:</td>
+                                                                                                                                                                                                                                                                                                        <td>
+                                                                                                                                                                                                                                                                                                            <input name='vocab_37' type='radio' value='0' class='obligatory' required='required' id='vocab_37_0' />
+                                                                                                                                                                                                                                                                                                            <label for='vocab_37_0'>locker</label>
+                                                                                                                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                                                                                                                            <input name='vocab_37' type='radio' value='0' class='obligatory' required='required' id='vocab_37_0' />
+                                                                                                                                                                                                                                                                                                            <label for='vocab_37_0'>lentil</label>
+                                                                                                                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                                                                                                                            <input name='vocab_37' type='radio' value='0' class='obligatory' required='required' id='vocab_37_0' />
+                                                                                                                                                                                                                                                                                                            <label for='vocab_37_0'>priest</label>
+                                                                                                                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                                                                                                                            <input name='vocab_37' type='radio' value='1' class='obligatory' required='required' id='vocab_37_1' />
+                                                                                                                                                                                                                                                                                                            <label for='vocab_37_1'>outcast</label>
+                                                                                                                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                                                                                                                            <tr>
+                                                                                                                                                                                                                                                                                                                <td>38. ABET:</td>
+                                                                                                                                                                                                                                                                                                                <td>
+                                                                                                                                                                                                                                                                                                                    <input name='vocab_38' type='radio' value='0' class='obligatory' required='required' id='vocab_38_0' />
+                                                                                                                                                                                                                                                                                                                    <label for='vocab_38_0'>waken</label>
+                                                                                                                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                                                                                                                    <input name='vocab_38' type='radio' value='0' class='obligatory' required='required' id='vocab_38_0' />
+                                                                                                                                                                                                                                                                                                                    <label for='vocab_38_0'>ensue</label>
+                                                                                                                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                                                                                                                    <input name='vocab_38' type='radio' value='1' class='obligatory' required='required' id='vocab_38_1' />
+                                                                                                                                                                                                                                                                                                                    <label for='vocab_38_1'>incite</label>
+                                                                                                                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                                                                                                                    <input name='vocab_38' type='radio' value='0' class='obligatory' required='required' id='vocab_38_0' />
+                                                                                                                                                                                                                                                                                                                    <label for='vocab_38_0'>placate</label>
+                                                                                                                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                                                                                                                    <tr>
+                                                                                                                                                                                                                                                                                                                        <td>39. TEMERITY:</td>
+                                                                                                                                                                                                                                                                                                                        <td>
+                                                                                                                                                                                                                                                                                                                            <input name='vocab_39' type='radio' value='0' class='obligatory' required='required' id='vocab_39_0' />
+                                                                                                                                                                                                                                                                                                                            <label for='vocab_39_0'>timidity</label>
+                                                                                                                                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                                                                                                                                            <input name='vocab_39' type='radio' value='0' class='obligatory' required='required' id='vocab_39_0' />
+                                                                                                                                                                                                                                                                                                                            <label for='vocab_39_0'>kindness</label>
+                                                                                                                                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                                                                                                                                            <input name='vocab_39' type='radio' value='0' class='obligatory' required='required' id='vocab_39_0' />
+                                                                                                                                                                                                                                                                                                                            <label for='vocab_39_0'>desire</label>
+                                                                                                                                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                                                                                                                                            <input name='vocab_39' type='radio' value='1' class='obligatory' required='required' id='vocab_39_1' />
+                                                                                                                                                                                                                                                                                                                            <label for='vocab_39_1'>rashness</label>
+                                                                                                                                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                                                                                                                                            <tr>
+                                                                                                                                                                                                                                                                                                                                <td>40. PRISTINE:</td>
+                                                                                                                                                                                                                                                                                                                                <td>
+                                                                                                                                                                                                                                                                                                                                    <input name='vocab_40' type='radio' value='0' class='obligatory' required='required' id='vocab_40_0' />
+                                                                                                                                                                                                                                                                                                                                    <label for='vocab_40_0'>vain</label>
+                                                                                                                                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                                                                                                                                    <input name='vocab_40' type='radio' value='1' class='obligatory' required='required' id='vocab_40_1' />
+                                                                                                                                                                                                                                                                                                                                    <label for='vocab_40_1'>first</label>
+                                                                                                                                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                                                                                                                                    <input name='vocab_40' type='radio' value='0' class='obligatory' required='required' id='vocab_40_0' />
+                                                                                                                                                                                                                                                                                                                                    <label for='vocab_40_0'>level</label>
+                                                                                                                                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                                                                                                                                    <input name='vocab_40' type='radio' value='0' class='obligatory' required='required' id='vocab_40_0' />
+                                                                                                                                                                                                                                                                                                                                    <label for='vocab_40_0'>sound</label>
+                                                                                                                                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                                                                                                                                    <br />
+</table>

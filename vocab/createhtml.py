@@ -1,46 +1,77 @@
 import random
 
-words = [
-    ["tiny", "faded", "new", "large", "big"], #0
-    ["shovel", "spade", "needle", "oak", "club"], #1
-    ["walk", "rob", "juggle", "steal", "discover"], #2
-    ["finish", "embellish", "cap", "squeak", "talk"], #3
-    ["recall", "flex", "efface", "remember", "divest"], #4
-    ["implore", "fancy", "recant", "beg", "answer"], #5
-    ["deal", "claim", "plea", "recoup", "sale"], #6
-    ["mindful", "negligent", "neurotic", "lax", "delectable"], #7
-    ["quash", "evade", "enumerate", "assist", "defeat"], #8
-    ["entrapment", "partner", "fool", "companion", "mirror"], #9
-    ["junk", "squeeze", "trash",  "punch", "crack"], #10
-    ["trivial", "crude", "presidential", "flow", "minor"], #11
-    ["prattle", "siren", "couch", "chatter", "good"], #12
-    ["above", "slow", "over", "pierce", "what"], #13
-    ["assail", "designate", "arcane", "capitulate", "specify"], #14
-    ]
+#source: Shipley & Burlingame 1941
 
-table = "<table>"
+words = [
+    ["TALK", "speak", "draw", "eat", "sleep"],
+    ["PERMIT", "allow", "sew", "cut", "drive"],
+    ["PARDON", "forgive", "pound", "divide", "tell"],
+    ["COUCH", "soda", "pin", "eraser", "glass"],
+    ["REMEMBER", "recall", "swim", "number", "defy"],
+    ["TUMBLE", "fall", "drink", "dread", "think"],
+    ["HIDEOUS", "dreadful", "silvery", "tilted", "young"],
+    ["CORDIAL", "hearty", "swift", "muddy", "leafy"],
+    ["EVIDENT", "obvious", "green", "afraid", "sceptical"],
+    ["IMPOSTER", "pretender", "conductor", "officer", "book"],
+    ["MERIT", "deserve", "distrust", "fight", "separate"],
+    ["FASCINATE", "enchant", "welcome", "fix", "stir"],
+    ["INDICATE", "signify", "defy", "excite", "bicker"],
+    ["IGNORANT", "uninformed", "red", "sharp", "precise"],
+    ["FORTIFY", "strengthen", "submerge", "vent", "deaden"],
+    ["RENOWN", "fame", "length", "head", "loyalty"],
+    ["NARRATE", "tell", "yield", "buy", "associate"],
+    ["MASSIVE", "large", "bright", "speedy", "low"],
+    ["HILARITY", "laughter", "speed", "grace", "malice"],
+    ["SMIRCHED", "soiled", "stolen", "pointed", "remade"],
+    ["SQUANDER", "waste", "tease", "belittle", "cut"],
+    ["CAPTION", "heading", "drum", "ballet", "ape"],
+    ["FACILITATE", "help", "turn", "strip", "bewilder"],
+    ["JOCOSE", "humorous", "paltry", "fervid", "plain"],
+    ["APPRISE", "inform", "reduce", "strew", "delight"],
+    ["RUE", "lament", "eat", "dominate", "cure"],
+    ["DENIZEN", "inhabitant", "senator", "fish", "atom"],
+    ["DIVEST", "dispossess", "intrude", "rally", "pledge"],
+    ["AMULET", "charm", "orphan", "dingo", "pond"],
+    ["INEXORABLE", "rigid", "involatile", "untidy", "sparse"],
+    ["SERRATED", "notched", "dried", "armed", "blunt"],
+    ["LISSOM", "loose", "moldy", "supple", "convex"],
+    ["MOLLIFY", "mitigate", "direct", "pertain", "abuse"],
+    ["PLAGIARIZE", "appropriate", "intend", "revoke", "maintain"],
+    ["ORIFICE", "hole", "brush", "building", "lute"],
+    ["QUERULOUS", "complaining", "maniacal", "curious", "devout"],
+    ["PARIAH", "outcast", "priest", "lentil", "locker"],
+    ["ABET", "incite", "waken", "ensue", "placate"],
+    ["TEMERITY", "rashness",  "timidity", "desire", "kindness"],
+    ["PRISTINE", "first", "vain", "sound", "level"]
+]
+
+table = "<table><p><b>Vocabulary</b></p>"
+table += "<p style='text-align:left'>In the test below, you are given a word in capital letters. Select the word that means the same thing, or most nearly the same thing, as the capitalized word.</p>"
+table += "<p style='text-align:left'>If you don't know, guess.</p>"
 
 q_number = 1
 
 for list in words:
     answers = []
     table += "<tr><td>"+ str(q_number) + ". " + list[0] + ":</td><td>"
-    correct = "<input name='vocab_" + str(q_number) +"' type='radio' value='1' class='obligatory' required='required' id='" + list[1] + "' />"
-    correct += "<label for='" + list[1] + "'>" + list[1] + "</label><br />"
-    answers += correct
-    incorrect_1 = "<input name='vocab_" + str(q_number) +"' type='radio' value='0' class='obligatory' required='required' id='" + list[2] + "' />"
-    incorrect_1 += "<label for='" + list[2] + "'>" + list[2] + "</label><br />"
-    answers += incorrect_1
-    incorrect_2 = "<input name='vocab_" + str(q_number) +"' type='radio' value='0' class='obligatory' required='required' id='" + list[3] + "' />"
-    incorrect_2 += "<label for='" + list[3] + "'>" + list[3] + "</label><br />"
-    answers += incorrect_2
-    incorrect_3 = "<input name='vocab_" + str(q_number) +"' type='radio' value='0' class='obligatory' required='required' id='" + list[4] + "' />"
-    incorrect_3 += "<label for='" + list[4] + "'>" + list[4] + "</label><br />"
-    answers += incorrect_3
-    answers = random.shuffle(answers)
-    print(answers)
-q_number +=1
-
+    correct = "<input name='vocab_" + str(q_number) +"' type='radio' value='1' class='obligatory' required='required' id='vocab_" + str(q_number) + "_1' />"
+    correct += "<label for='vocab_" + str(q_number) + "_1'>" + list[1] + "</label><br />"
+    answers.append(correct)
+    incorrect_1 = "<input name='vocab_" + str(q_number) +"' type='radio' value='0' class='obligatory' required='required' id='vocab_" + str(q_number) + "_0' />"
+    incorrect_1 += "<label for='vocab_" + str(q_number) + "_0'>" + list[2] + "</label><br />"
+    answers.append(incorrect_1)
+    incorrect_2 = "<input name='vocab_" + str(q_number) +"' type='radio' value='0' class='obligatory' required='required' id='vocab_" + str(q_number) + "_0' />"
+    incorrect_2 += "<label for='vocab_" + str(q_number) + "_0'>" + list[3] + "</label><br />"
+    answers.append(incorrect_2)
+    incorrect_3 = "<input name='vocab_" + str(q_number) +"' type='radio' value='0' class='obligatory' required='required' id='vocab_" + str(q_number) + "_0' />"
+    incorrect_3 += "<label for='vocab_" + str(q_number) + "_0'>" + list[4] + "</label><br />"
+    answers.append(incorrect_3)
+    random.shuffle(answers)
+    for item in answers:
+        table += item
+    table += "<br />"
+    q_number +=1
 
 table += "</table>"
+
 print(table)
