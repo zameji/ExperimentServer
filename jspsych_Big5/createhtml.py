@@ -1,3 +1,5 @@
+import sys
+
 # Citation for the BFI-2
 # Soto, C. J., & John, O. P. (2017). The next Big Five Inventory (BFI-2): Developing and assessing a hierarchical model with 15 facets to enhance bandwidth, fidelity, and predictive power. Journal of Personality and Social Psychology, 113, 117-143.
 
@@ -45,13 +47,13 @@ question = [
     ("39. Often feels sad","N_"),
     ("40. Is complex, a deep thinker","O_"),
     ("41. Is full of energy","E_"),
-    ("42. Is suspicious of others’ intentions","A_-"),
+    ("42. Is suspicious of others' intentions","A_-"),
     ("43. Is reliable, can always be counted on","C_"),
     ("44. Keeps their emotions under control","N_-"),
     ("45. Has difficulty imagining things","O_-"),
     ("46. Is talkative","E_"),
     ("47. Can be cold and uncaring","A_-"),
-    ("48. Leaves a mess, doesn’t clean up","C_-"),
+    ("48. Leaves a mess, doesn't clean up","C_-"),
     ("49. Rarely feels anxious or afraid","N_-"),
     ("50. Thinks poetry and plays are boring","O_-"),
     ("51. Prefers to have others take charge","E_-"),
@@ -74,65 +76,94 @@ question = [
 # Open-Mindedness: 5R, 10, 15, 20, 25R, 30R, 35, 40, 45R, 50R, 55R, 60
 
 
+table = "<table>\n\t<p>\n\t\t<b>I am someone who...</b>\n\t</p>\n"
+table += "\t<p style='text-align:left'>\n\t\tHere are a number of characteristics that may or may not apply to you. \n\t\tPlease indicate the extent to which you agree or disagree with that statement.\n\t</p>\n"
+table += "\t<br>\n\t<br>\n\t<p style='text-align:center'>\n\t\tI am someone who...\n\t</p>\n"
 
-table = "<table><p><b>I am someone who...</b></p>"
-table += "<p style='text-align:left'>Here are a number of characteristics that may or may not apply to you. Please indicate the extent to which you agree or disagree with that statement.</p>"
-table += "<br><br><p style='text-align:center'>I am someone who...</p>"
 q_number = 1
-
 for tuple in question:
     text = tuple[0]
     index = tuple[1]
-    table += "<tr><td>"+ text + "</td><td>"
-    table += "<input name='Big5_Q" + str(q_number) +"' type='radio' value='" + index + "1' class='obligatory' required='required' id='" + index + "1' />"
-    table += "<label for='" + index + "1'> Disagree strongly </label><br />"
-    table += "<input name='Big5_Q" + str(q_number) +"' type='radio' value='" + index + "2' class='obligatory' required='required' id='" + index + "2' />"
-    table += "<label for='" + index + "2'> Disagree a  little </label><br />"
-    table += "<input name='Big5_Q" + str(q_number) +"' type='radio' value='" + index + "3' class='obligatory' required='required' id='" + index + "3' />"
-    table += "<label for='" + index + "3'> Neither agree nor disagree </label><br />"
-    table += "<input name='Big5_Q" + str(q_number) +"' type='radio' value='" + index + "4' class='obligatory' required='required' id='" + index + "4' />"
-    table += "<label for='" + index + "4'> Agree a little </label><br />"
-    table += "<input name='Big5_Q" + str(q_number) +"' type='radio' value='" + index + "5' class='obligatory' required='required' id='" + index + "5' />"
-    table += "<label for='" + index + "5'> Agree strongly </label><br />"
-    table += "<br /><br /></td></tr>"
+    table += "<tr>\n\t<td>\n\t\t"+ text + "\n\t</td>\n\t<td>\n"
+    table += "\t\t\t<input name='Big5_Q" + str(q_number) +"' type='radio' value='" + index + "1' class='obligatory' required='required' id='" + index + "1' />\n"
+    table += "\t\t\t<label for='" + index + "1'> Disagree strongly </label><br />\n"
+    table += "\t\t\t<input name='Big5_Q" + str(q_number) +"' type='radio' value='" + index + "2' class='obligatory' required='required' id='" + index + "2' />\n"
+    table += "\t\t\t<label for='" + index + "2'> Disagree a  little </label><br />\n"
+    table += "\t\t\t<input name='Big5_Q" + str(q_number) +"' type='radio' value='" + index + "3' class='obligatory' required='required' id='" + index + "3' />\n"
+    table += "\t\t\t<label for='" + index + "3'> Neither agree nor disagree </label><br />"
+    table += "\t\t\t<input name='Big5_Q" + str(q_number) +"' type='radio' value='" + index + "4' class='obligatory' required='required' id='" + index + "4' />\n"
+    table += "\t\t\t<label for='" + index + "4'> Agree a little </label><br />\n"
+    table += "\t\t\t<input name='Big5_Q" + str(q_number) +"' type='radio' value='" + index + "5' class='obligatory' required='required' id='" + index + "5' />\n"
+    table += "\t\t\t<label for='" + index + "5'> Agree strongly </label><br />\n"
+    table += "\t\t<br />\n\t\t<br />\n\t</td>\n</tr>\n"
     q_number += 1
 
 table += "</table>"
-print(table)
 
+html = """
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Welcome</title>
+	<link rel="stylesheet" type="text/css" href="https://www.psycholinguistics.ml/css/global_main.css">
+	<link rel="stylesheet" type="text/css" href="https://www.psycholinguistics.ml/css/global_mainB.css">
+	<link rel="stylesheet" type="text/css" href="https://www.psycholinguistics.ml/css/Form.css">
+</head>
+<body>
+<form id="mainform" style="text-align: center" method="post" action="https://www.psycholinguistics.ml/jspsych_5/write_data.php">
 
-					# <tr>
-					# 	<td>
-					# 		Question
-					# 	</td>
-					# 	<td>
-					# 		<input name='Big5_Q1' type='radio' value='1' class='obligatory' required='required' id='1' />
-					# 		<label for='1'>
-					# 				Disagree strongly
-					# 			</label>
-					# 		<br />
-					# 		<input name='Big5_Q1' type='radio' value='2' class='obligatory' required='required' id='2' />
-					# 		<label for='2'>
-					# 				Disagree a little
-					# 			</label>
-					# 		<br />
-                    #         <input name='Big5_Q1' type='radio' value='3' class='obligatory' required='required' id='3' />
-					# 		<label for='3'>
-					# 				Neutral; no opinion
-					# 			</label>
-					# 		<br />
-                    #         <input name='Big5_Q1' type='radio' value='4' class='obligatory' required='required' id='4' />
-					# 		<label for='4'>
-					# 				Agree a little
-					# 			</label>
-					# 		<br />
-                    #         <input name='Big5_Q1' type='radio' value='5' class='obligatory' required='required' id='5' />
-					# 		<label for='5'>
-					# 				Agree strongly
-					# 			</label>
-					# 		<br />
-					# 		<br />
-					# 		<br />
-					# 		<br />
-					# 	</td>
-					# </tr>
+"""
+
+html += table
+
+html += """
+
+<input name="submit" type="submit" value="Submit"/>
+</form>
+</body>
+</html>
+"""
+
+with open("index.html", "w+") as out:
+	out.write(html)
+	
+if "-m" not in sys.argv:
+	print(html)
+
+print("Done.")
+
+# <tr>
+# 	<td>
+# 		Question
+# 	</td>
+# 	<td>
+# 		<input name='Big5_Q1' type='radio' value='1' class='obligatory' required='required' id='1' />
+# 		<label for='1'>
+# 				Disagree strongly
+# 			</label>
+# 		<br />
+# 		<input name='Big5_Q1' type='radio' value='2' class='obligatory' required='required' id='2' />
+# 		<label for='2'>
+# 				Disagree a little
+# 			</label>
+# 		<br />
+#         <input name='Big5_Q1' type='radio' value='3' class='obligatory' required='required' id='3' />
+# 		<label for='3'>
+# 				Neutral; no opinion
+# 			</label>
+# 		<br />
+#         <input name='Big5_Q1' type='radio' value='4' class='obligatory' required='required' id='4' />
+# 		<label for='4'>
+# 				Agree a little
+# 			</label>
+# 		<br />
+#         <input name='Big5_Q1' type='radio' value='5' class='obligatory' required='required' id='5' />
+# 		<label for='5'>
+# 				Agree strongly
+# 			</label>
+# 		<br />
+# 		<br />
+# 		<br />
+# 		<br />
+# 	</td>
+# </tr>

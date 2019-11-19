@@ -1,6 +1,39 @@
-#copy-pasted
+<?php
+ob_start();
 
-$id = $_COOKIE['id'];$big5_q1= $_POST['Big5_Q1'];
+$id = $_COOKIE['id'];
+
+$servername = "localhost";
+$username = "ubuntu";
+$password = "ubuntuExperiment2019";
+$dbname = "experiment";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+//Check whether participant exists
+$stmt = "SELECT jspsych_group, jspsych_progress FROM participants where prolific_id='".$id."'";
+
+$result = $conn->query($stmt);
+
+// Update the progress or send them to first page if ID unknown
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $progress = $row["jspsych_progress"] + 1;
+    $testgroup = $row["jspsych_group"];
+} else {
+    $conn->close();
+    header("Location: ". "https://www.psycholinguistics.ml/", true, 302);
+    ob_end_flush();
+    exit();
+}
+
+$big5_q1= $_POST['Big5_Q1'];
 $big5_q2= $_POST['Big5_Q2'];
 $big5_q3= $_POST['Big5_Q3'];
 $big5_q4= $_POST['Big5_Q4'];
@@ -61,4 +94,48 @@ $big5_q58= $_POST['Big5_Q58'];
 $big5_q59= $_POST['Big5_Q59'];
 $big5_q60= $_POST['Big5_Q60'];
 
-$query = 'UPDATE big5 SET big5_q1='" .  $big5_q1 . "', big5_q2='" .  $big5_q2 . "', big5_q3='" .  $big5_q3 . "', big5_q4='" .  $big5_q4 . "', big5_q5='" .  $big5_q5 . "', big5_q6='" .  $big5_q6 . "', big5_q7='" .  $big5_q7 . "', big5_q8='" .  $big5_q8 . "', big5_q9='" .  $big5_q9 . "', big5_q10='" .  $big5_q10 . "', big5_q11='" .  $big5_q11 . "', big5_q12='" .  $big5_q12 . "', big5_q13='" .  $big5_q13 . "', big5_q14='" .  $big5_q14 . "', big5_q15='" .  $big5_q15 . "', big5_q16='" .  $big5_q16 . "', big5_q17='" .  $big5_q17 . "', big5_q18='" .  $big5_q18 . "', big5_q19='" .  $big5_q19 . "', big5_q20='" .  $big5_q20 . "', big5_q21='" .  $big5_q21 . "', big5_q22='" .  $big5_q22 . "', big5_q23='" .  $big5_q23 . "', big5_q24='" .  $big5_q24 . "', big5_q25='" .  $big5_q25 . "', big5_q26='" .  $big5_q26 . "', big5_q27='" .  $big5_q27 . "', big5_q28='" .  $big5_q28 . "', big5_q29='" .  $big5_q29 . "', big5_q30='" .  $big5_q30 . "', big5_q31='" .  $big5_q31 . "', big5_q32='" .  $big5_q32 . "', big5_q33='" .  $big5_q33 . "', big5_q34='" .  $big5_q34 . "', big5_q35='" .  $big5_q35 . "', big5_q36='" .  $big5_q36 . "', big5_q37='" .  $big5_q37 . "', big5_q38='" .  $big5_q38 . "', big5_q39='" .  $big5_q39 . "', big5_q40='" .  $big5_q40 . "', big5_q41='" .  $big5_q41 . "', big5_q42='" .  $big5_q42 . "', big5_q43='" .  $big5_q43 . "', big5_q44='" .  $big5_q44 . "', big5_q45='" .  $big5_q45 . "', big5_q46='" .  $big5_q46 . "', big5_q47='" .  $big5_q47 . "', big5_q48='" .  $big5_q48 . "', big5_q49='" .  $big5_q49 . "', big5_q50='" .  $big5_q50 . "', big5_q51='" .  $big5_q51 . "', big5_q52='" .  $big5_q52 . "', big5_q53='" .  $big5_q53 . "', big5_q54='" .  $big5_q54 . "', big5_q55='" .  $big5_q55 . "', big5_q56='" .  $big5_q56 . "', big5_q57='" .  $big5_q57 . "', big5_q58='" .  $big5_q58 . "', big5_q59='" .  $big5_q59 . "', big5_q60='" .  $big5_q60 . "', where prolific_id=id";
+$query = "UPDATE big5 SET big5_q1='" .  $big5_q1 . "', big5_q2='" .  $big5_q2 . "', big5_q3='" .  $big5_q3 . "', big5_q4='" .  $big5_q4 . "', big5_q5='" .  $big5_q5 . "', big5_q6='" .  $big5_q6 . "', big5_q7='" .  $big5_q7 . "', big5_q8='" .  $big5_q8 . "', big5_q9='" .  $big5_q9 . "', big5_q10='" .  $big5_q10 . "', big5_q11='" .  $big5_q11 . "', big5_q12='" .  $big5_q12 . "', big5_q13='" .  $big5_q13 . "', big5_q14='" .  $big5_q14 . "', big5_q15='" .  $big5_q15 . "', big5_q16='" .  $big5_q16 . "', big5_q17='" .  $big5_q17 . "', big5_q18='" .  $big5_q18 . "', big5_q19='" .  $big5_q19 . "', big5_q20='" .  $big5_q20 . "', big5_q21='" .  $big5_q21 . "', big5_q22='" .  $big5_q22 . "', big5_q23='" .  $big5_q23 . "', big5_q24='" .  $big5_q24 . "', big5_q25='" .  $big5_q25 . "', big5_q26='" .  $big5_q26 . "', big5_q27='" .  $big5_q27 . "', big5_q28='" .  $big5_q28 . "', big5_q29='" .  $big5_q29 . "', big5_q30='" .  $big5_q30 . "', big5_q31='" .  $big5_q31 . "', big5_q32='" .  $big5_q32 . "', big5_q33='" .  $big5_q33 . "', big5_q34='" .  $big5_q34 . "', big5_q35='" .  $big5_q35 . "', big5_q36='" .  $big5_q36 . "', big5_q37='" .  $big5_q37 . "', big5_q38='" .  $big5_q38 . "', big5_q39='" .  $big5_q39 . "', big5_q40='" .  $big5_q40 . "', big5_q41='" .  $big5_q41 . "', big5_q42='" .  $big5_q42 . "', big5_q43='" .  $big5_q43 . "', big5_q44='" .  $big5_q44 . "', big5_q45='" .  $big5_q45 . "', big5_q46='" .  $big5_q46 . "', big5_q47='" .  $big5_q47 . "', big5_q48='" .  $big5_q48 . "', big5_q49='" .  $big5_q49 . "', big5_q50='" .  $big5_q50 . "', big5_q51='" .  $big5_q51 . "', big5_q52='" .  $big5_q52 . "', big5_q53='" .  $big5_q53 . "', big5_q54='" .  $big5_q54 . "', big5_q55='" .  $big5_q55 . "', big5_q56='" .  $big5_q56 . "', big5_q57='" .  $big5_q57 . "', big5_q58='" .  $big5_q58 . "', big5_q59='" .  $big5_q59 . "', big5_q60='" .  $big5_q60 . "', where prolific_id=" . $id . ";";
+
+if (!$conn->query($query)) {
+    die("Execute failed");
+} 
+
+setcookie("jspsych_progress", $progress, time()+144000, "/", "psycholinguistics.ml");
+
+if ($progress < 7){
+switch (substr($testgroup, $progress, 1)){
+    
+    case "J":
+        $next ="https://www.psycholinguistics.ml/jspsych/experiment.html";//circles-REPLACE LATER WITH VOCAB
+        break;
+    case "K":
+        $next ="https://www.psycholinguistics.ml/jspsych_1/index.html";//AXCPT
+        break;
+    case "L":
+        $next ="https://www.psycholinguistics.ml/jspsych_2/reading_span_web_english.html"; //RST
+        break;
+    case "M":
+        $next ="https://www.psycholinguistics.ml/jspsych_3/index.html";//Flanker
+        break;
+    case "N":
+        $next ="https://www.psycholinguistics.ml/jspsych_4/index.html";//Ravens
+        break;
+    case "O":
+        $next ="https://www.psycholinguistics.ml/jspsych_5/index.html";//Big5
+        break;
+    case "P":
+        $next ="https://www.psycholinguistics.ml/jspsych_6/index.html";//Navon
+        break;
+
+    default:
+        $next = "https://www.psycholinguistics.ml/index/server_error.html";
+        break;
+}
+} else {$next = "https://www.psycholinguistics.ml/get_next.php";}
+
+$conn -> commit();
+$conn->close();
+header("Location: ". $next, true, 302);
+exit();
+ob_end_flush();
+?>

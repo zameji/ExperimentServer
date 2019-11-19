@@ -83,12 +83,26 @@ else{
 		echo '<p style="text-align:center; font-family: Lucida, Console, monospace; font-size: medium;">Failed. Have you already done the experiment?</p>';
 		//echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
 	} else {
+		
+		if (!($stmt2 = $conn->prepare("INSERT INTO big5 (prolific_id) VALUES (?)"))) {
+			echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
+		}
+
+		if (!$stmt2->bind_param("s", $prolificID)) {
+			echo "Binding parameters failed: (" . $stmt2->errno . ") " . $stmt2->error;
+		}
+		
+		if (!$stmt2->execute()) {
+			echo '<p style="text-align:center; font-family: Lucida, Console, monospace; font-size: medium;">Failed. Have you already done the experiment?</p>';
+			//echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+		} else 	{
 
 		echo "Redirecting... https://www.psycholinguistics.ml/questionnaire.html";
 		$conn->close();
 		header("Location: ". "https://www.psycholinguistics.ml/questionnaire.html", true, 302);
 		exit();
-	} 
+		} 
+	}
 }
 
 ?>
