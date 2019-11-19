@@ -1,0 +1,1 @@
+{"ast":null,"code":"import React from \"react\";\nvar __jsx = React.createElement;\nexport default (function (_ref) {\n  var data = _ref.data;\n  return __jsx(\"div\", null, __jsx(\"h2\", null, data.title), __jsx(\"p\", null, \"Score: \", data.score, \"/20 - \", data.scoreText), __jsx(\"p\", null, data.text));\n});","map":null,"metadata":{},"sourceType":"module"}

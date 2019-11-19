@@ -1,0 +1,68 @@
+{
+  "modules": {
+    "byIdentifier": {
+      "multi node_modules/next-offline/register-sw-compiled.js ./node_modules/next/dist/client/next.js": 0
+    },
+    "usedIds": {
+      "0": 0
+    }
+  },
+  "chunks": {
+    "byName": {
+      "commons": 0,
+      "static/runtime/webpack.js": 1,
+      "static/kcXVsMZ6V2e7J2ZW6m5oI/pages/_app.js": 2,
+      "static/kcXVsMZ6V2e7J2ZW6m5oI/pages/_error.js": 3,
+      "static/kcXVsMZ6V2e7J2ZW6m5oI/pages/compare.js": 4,
+      "static/kcXVsMZ6V2e7J2ZW6m5oI/pages/index.js": 5,
+      "static/kcXVsMZ6V2e7J2ZW6m5oI/pages/result.js": 6,
+      "static/runtime/main.js": 7,
+      "static/wTzIYpD6ZZAa0gijW1IPI/pages/_app.js": 8,
+      "static/wTzIYpD6ZZAa0gijW1IPI/pages/_error.js": 9,
+      "static/wTzIYpD6ZZAa0gijW1IPI/pages/compare.js": 10,
+      "static/wTzIYpD6ZZAa0gijW1IPI/pages/index.js": 11,
+      "static/wTzIYpD6ZZAa0gijW1IPI/pages/result.js": 12,
+      "static/4YpBC68Ugi-InTFBFf0wi/pages/_app.js": 2,
+      "static/4YpBC68Ugi-InTFBFf0wi/pages/_error.js": 3,
+      "static/4YpBC68Ugi-InTFBFf0wi/pages/compare.js": 4,
+      "static/4YpBC68Ugi-InTFBFf0wi/pages/index.js": 5,
+      "static/4YpBC68Ugi-InTFBFf0wi/pages/result.js": 6,
+      "static/Dc7_BMFr59MQJn7sPb1n5/pages/_app.js": 8,
+      "static/Dc7_BMFr59MQJn7sPb1n5/pages/_error.js": 9,
+      "static/Dc7_BMFr59MQJn7sPb1n5/pages/compare.js": 10,
+      "static/Dc7_BMFr59MQJn7sPb1n5/pages/index.js": 11,
+      "static/Dc7_BMFr59MQJn7sPb1n5/pages/result.js": 12,
+      "static/HPLloNxdqJs6_IiVp3nxL/pages/_app.js": 2,
+      "static/HPLloNxdqJs6_IiVp3nxL/pages/_error.js": 3,
+      "static/HPLloNxdqJs6_IiVp3nxL/pages/compare.js": 4,
+      "static/HPLloNxdqJs6_IiVp3nxL/pages/index.js": 5,
+      "static/HPLloNxdqJs6_IiVp3nxL/pages/result.js": 6,
+      "static/ZoSfJbdppaNBDx93P2c2k/pages/_app.js": 8,
+      "static/ZoSfJbdppaNBDx93P2c2k/pages/_error.js": 9,
+      "static/ZoSfJbdppaNBDx93P2c2k/pages/compare.js": 10,
+      "static/ZoSfJbdppaNBDx93P2c2k/pages/index.js": 11,
+      "static/ZoSfJbdppaNBDx93P2c2k/pages/result.js": 12,
+      "static/zvao-Z5M_Ix5jr5JPldTg/pages/_app.js": 2,
+      "static/zvao-Z5M_Ix5jr5JPldTg/pages/_error.js": 3,
+      "static/zvao-Z5M_Ix5jr5JPldTg/pages/compare.js": 4,
+      "static/zvao-Z5M_Ix5jr5JPldTg/pages/index.js": 5,
+      "static/zvao-Z5M_Ix5jr5JPldTg/pages/result.js": 6,
+      "static/OqL6UkiXdTcIuvDgGbrA1/pages/_app.js": 8,
+      "static/OqL6UkiXdTcIuvDgGbrA1/pages/_error.js": 9,
+      "static/OqL6UkiXdTcIuvDgGbrA1/pages/compare.js": 10,
+      "static/OqL6UkiXdTcIuvDgGbrA1/pages/index.js": 11,
+      "static/OqL6UkiXdTcIuvDgGbrA1/pages/result.js": 12
+    },
+    "bySource": {},
+    "usedIds": [
+      0,
+      1,
+      10,
+      11,
+      12,
+      7,
+      8,
+      9
+    ]
+  }
+}

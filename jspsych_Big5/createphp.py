@@ -59,7 +59,10 @@ for i in range(60):
     i += 1
     query+= " big5_q" + str(i) + "='\" .  $big5_q" + str(i) + " . \"',"
 
-query += ' where prolific_id=" . $id . ";";\n'
+# remove the last comma
+query = query[0:-1]
+
+query += ' where prolific_id=\'" . $id . "\';";\n'
 php += query
 
 
