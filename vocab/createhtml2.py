@@ -155,7 +155,7 @@ answers = []
 
 for name, number in authors:
     table += "<tr><td>"+ str(q_number) + ". " + list[0] + ":</td><td>"
-    answers+ = "<input id='ART" + name + str(number) + "' name='" + name + str(number) + "' type='checkbox' value='yes' /><tr>" + name + "</tr>"
+    answers+ = "<input id='ART" + name + "_" + str(number) + "' name='" + name + str(number) + "' type='checkbox' value='yes' /><tr>" + name + "</tr>"
 
 random.shuffle(answers)
 for item in answers:
