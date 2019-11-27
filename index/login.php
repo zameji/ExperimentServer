@@ -84,7 +84,7 @@ else{
 		//echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
 	} else {
 		
-		if (!($stmt2 = $conn->prepare("INSERT INTO big5 (prolific_id) VALUES (?)"))) {
+		if (!($stmt2 = $conn->prepare("CALL addParticipant(?)"))) {
 			echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
 		}
 
