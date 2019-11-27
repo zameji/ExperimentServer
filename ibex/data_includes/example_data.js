@@ -110,7 +110,7 @@ var items = [
 ["Exp1_ListA_secondPair", "DashedSentence", {s: "Carly found the arched roof of the courthouse amazing."}, "Question", {q: "Where did Carly think was amazing?", as: ["the roof of a courthouse", "the size of a classroom", "the price of a salad"]}],
 ["Exp1_ListA_firstPair", "DashedSentence", {s: "Their astonished faces revealed the children's happiness at receiving such a nice gift."}],
 ["Exp1_ListA_secondPair", "DashedSentence", {s: "Noticing the astonished look on her friend's face, the girl quickly stopped gossiping."}],
-["Exp1_ListA_firstPair", "DashedSentence", {s: "Together, the group tracked the astronomical observations on a large map spread across the table."}],
+["Exp1_ListA_firstPair", "DashedSentence", {s: "Together, the group tracked the astro	nomical observations on a large map spread across the table."}],
 ["Exp1_ListA_secondPair", "DashedSentence", {s: "The documentation included the astronomical units that had been measured."}],
 ["Exp1_ListA_firstPair", "DashedSentence", {s: "It makes sense that the attractive market was saturated with the competitor's product."}],
 ["Exp1_ListA_secondPair", "DashedSentence", {s: "My colleagues were checking out the attractive places to open an office."}, "Question", {q: "Who was checking out where to open an office?", as: ["my colleagues", "some doctors", "an insurance company"]}],
