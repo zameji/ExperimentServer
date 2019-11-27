@@ -260,7 +260,7 @@ for (b = 0; b < blocks.length; b++) {
         probe = jQuery.extend(true, {}, X_probe)
         cue.data.condition = "AX"
         probe.data.condition = "AX"
-		    probe.key_answer = 70
+		    probe.key_answer = 'f'
         break;
       case "BX":
         cue = jQuery.extend(true, {}, other_cue)
