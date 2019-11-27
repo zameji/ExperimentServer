@@ -214,7 +214,6 @@ var X_probe = {
   timing_stim: 300,
   timing_response: 1300,
   response_ends_trial: true,
-  timing_post_trial: 2000,
   timing_feedback_duration: 1000,
   correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
 	incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text>Incorrect</div></div>',
@@ -233,7 +232,6 @@ var other_probe = {
   timing_stim: 300,
   timing_response: 1300,
   response_ends_trial: true,
-  timing_post_trial: 2000,
   timing_feedback_duration: 1000,
   correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
 	incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text>Incorrect</div></div>',
@@ -256,7 +254,7 @@ for (b = 0; b < blocks.length; b++) {
         probe = jQuery.extend(true, {}, X_probe)
         cue.data.condition = "AX"
         probe.data.condition = "AX"
-		    probe.key_answer = 'f'
+		    probe.key_answer = 70
         break;
       case "BX":
         cue = jQuery.extend(true, {}, other_cue)
