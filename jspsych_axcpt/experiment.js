@@ -178,11 +178,7 @@ var A_cue = {
     exp_stage: "test"
   },
   timing_stim: 300,
-  timing_response: 5200,
-  response_ends_trial: true,
-  timing_post_trial: 2000,
-  correct_text: 'Correct!',
-  incorrect_text: 'Incorrect'
+  timing_response: 5200
 };
 
 var other_cue = {
@@ -195,11 +191,7 @@ var other_cue = {
     exp_stage: "test"
   },
   timing_stim: 300,
-  timing_response: 5200,
-  response_ends_trial: true,
-  timing_post_trial: 2000,
-  correct_text: 'Correct!',
-  incorrect_text: 'Incorrect'
+  timing_response: 5200
 };
 
 var X_probe = {
@@ -212,12 +204,13 @@ var X_probe = {
     exp_stage: "test"
   },
   timing_stim: 300,
-  timing_response: 1300,
   response_ends_trial: true,
   timing_feedback_duration: 1000,
+  timing_response: 2000,
   correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
 	incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text>Incorrect</div></div>',
-  show_stim_with_feedback: false
+  show_stim_with_feedback: false,
+  timeout_message: '<div class = centerbox><div style="color:black"; class = center-text>Respond with 'F' for A-X and 'J' for anything else</div></div>'
 };
 
 var other_probe = {
@@ -230,12 +223,13 @@ var other_probe = {
     exp_stage: "test"
   },
   timing_stim: 300,
-  timing_response: 1300,
   response_ends_trial: true,
   timing_feedback_duration: 1000,
+  timing_response: 2000,
   correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
 	incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text>Incorrect</div></div>',
-  show_stim_with_feedback: false
+  show_stim_with_feedback: false,
+  timeout_message: '<div class = centerbox><div style="color:black"; class = center-text>Respond with 'F' for A-X and 'J' for anything else</div></div>'
 };
 
 /* ************************************ */
