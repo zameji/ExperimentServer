@@ -199,7 +199,10 @@ var other_cue = {
   response_ends_trial: true,
   timing_post_trial: 2000,
   correct_text: 'Correct!',
-  incorrect_text: 'Incorrect'
+  incorrect_text: 'Incorrect',
+  on_finish: function(data){
+    data.correct = data.key_press == data.correct_response
+  }
 };
 
 var X_probe = {
@@ -217,7 +220,10 @@ var X_probe = {
   timing_post_trial: 2000,
   timing_feedback_duration: 1000,
   correct_text: 'Correct!',
-  incorrect_text: 'Incorrect'
+  incorrect_text: 'Incorrect',
+  on_finish: function(data){
+    data.correct = data.key_press == data.correct_response
+  }
 };
 
 var other_probe = {
