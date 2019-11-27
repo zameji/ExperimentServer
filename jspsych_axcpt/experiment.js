@@ -229,7 +229,7 @@ var other_probe = {
   correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
 	incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text>Incorrect</div></div>',
   show_stim_with_feedback: false,
-  timeout_message: '<div class = centerbox><div style="color:black"; class = center-text>Press "F" for A-X and "J" for anything else</div></div>'
+  timeout_message: '<div class = centerbox>Press "F" for A-X <br> and "J" for anything else</div>'
 };
 
 /* ************************************ */
