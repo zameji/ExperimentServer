@@ -27,9 +27,9 @@ def get_counter():
 		f = lock_and_open(os.path.join(WORKING_DIR, SERVER_STATE_DIR, 'counter'), "r")
 		n = f.read().strip()
 		f.close()
-		
+
 		n = n.split("_")
-		
+
 		return n
 	except (IOError, ValueError), e:
 		sys.exit(1)
@@ -63,12 +63,12 @@ def nextgroup(n):
 
 	testgroups = ["1", "2", "J"]
 	testgroups_versions = ["".join(x) for x in list(permutations(testgroups, len(testgroups)))]
-	
+
 	# Only allow those where Ibex 2 is the last one
 	testgroups_versions = [x for x in testgroups_versions if x.endswith("2")]
-	
+
 	ibex_1 = ["A", "B", "C", "D", "E", "F", "G", "H"]
-		
+
 	# ibex_2 = ["I"] #had to change to fit with the increased ibex amounts
 	# todo: we are droppin-g ibex 2, right?
 
@@ -82,7 +82,7 @@ def nextgroup(n):
 		for js in jspsych_versions:
 			for ibx in ibex_1:
 				combined.append("_".join([testgroup, js, ibx]))
-				
+
 	# combined = [x for x in list(permutations([ibex_1, ibex_2, jspsych_versions],3))]
 	#combined = [x for x in list(permutations([ibex_1, jspsych_versions],2))]
 	#combined = [list(iter_product(*x)) for x in combined]
@@ -283,72 +283,6 @@ if __name__ == "__main__":
 					</tr>
 					<tr>
 						<td>
-						How often do you read in your free time? (Books, news articles, anything longer than a few paragraphs.)
-					</td>
-						<td>
-							<input name="reading_amt" type="radio" value="1" class="obligatory" required="required" id="type1weekly" />
-							<label for="1">
-								Rarely or never
-							</label>
-							<br />
-							<input name="reading_amt" type="radio" value="2" id="type3weekly"/>
-							<label for="2">
-								An hour per week or less
-							</label>
-							<br />
-							<input name="reading_amt" type="radio" value="3" id="type4hours"/>
-							<label for="3">
-								About three to five hours per week
-							</label>
-							<br />
-							<input name="reading_amt" type="radio" value="4" id="type8hours"/>
-							<label for="4">
-								About an hour every day
-							</label>
-							<br />
-							<input name="reading_amt" type="radio" value="5" id="typeallday"/>
-							<label for="5">
-								More than an hour a day
-							</label>
-							<br />
-							<br />
-						</td>
-					</tr>
-					<tr>
-						<td>
-						Would you say you enjoy reading?
-					</td>
-						<td>
-							<input name="reading_enj" type="radio" value="1" class="obligatory" required="required" id="typeveryslow" />
-							<label for="1">
-								No, I prefer not to read if I don't have to
-							</label>
-							<br />
-							<input name="reading_enj" type="radio" value="2" id="typeslow"/>
-							<label for="2">
-								Not really, I read sometimes, but only if something is very interesting to me
-							</label>
-							<br />
-							<input name="reading_enj" type="radio" value="3" id="typemiddle"/>
-							<label for="3">
-								Kind of, there are some books/sources that I enjoy but others I don't
-							</label>
-							<br />
-							<input name="reading_enj" type="radio" value="4" id="typefast"/>
-							<label for="4">
-								Yeah, I like reading and have several favorite books/sources
-							</label>
-							<br />
-							<input name="reading_enj" type="radio" value="5" id="typeveryfast"/>
-							<label for="5">
-								Yes, I am a passionate reader and consider reading one of my favorite hobbies
-							</label>
-							<br />
-							<br />
-						</td>
-					</tr>
-					<tr>
-						<td>
 						Are you right-handed or left-handed?
 					</td>
 						<td>
@@ -422,7 +356,7 @@ if __name__ == "__main__":
 			if (!isValidForm()){
 				return false;
 				}
-				
+
 			return true;
 		}
 

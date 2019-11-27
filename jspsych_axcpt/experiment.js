@@ -215,6 +215,7 @@ var X_probe = {
   timing_response: 1300,
   response_ends_trial: true,
   timing_post_trial: 2000,
+  timing_feedback_duration: 1000,
   correct_text: 'Correct!',
   incorrect_text: 'Incorrect'
 };
@@ -232,6 +233,7 @@ var other_probe = {
   timing_response: 1300,
   response_ends_trial: true,
   timing_post_trial: 2000,
+  timing_feedback_duration: 1000,
   correct_text: 'Correct!',
   incorrect_text: 'Incorrect'
 };
@@ -252,24 +254,28 @@ for (b = 0; b < blocks.length; b++) {
         probe = jQuery.extend(true, {}, X_probe)
         cue.data.condition = "AX"
         probe.data.condition = "AX"
+		probe.data.correct_response = 70
         break;
       case "BX":
         cue = jQuery.extend(true, {}, other_cue)
         probe = jQuery.extend(true, {}, X_probe)
         cue.data.condition = "BX"
         probe.data.condition = "BX"
+		probe.data.correct_response = 74
         break;
       case "AY":
         cue = jQuery.extend(true, {}, A_cue)
         probe = jQuery.extend(true, {}, other_probe)
         cue.data.condition = "AY"
         probe.data.condition = "AY"
+		probe.data.correct_response = 74
         break;
       case "BY":
         cue = jQuery.extend(true, {}, other_cue)
         probe = jQuery.extend(true, {}, other_probe)
         cue.data.condition = "BY"
         probe.data.condition = "BY"
+		probe.data.correct_response = 74
         break;
     }
     ax_cpt_experiment.push(cue)
