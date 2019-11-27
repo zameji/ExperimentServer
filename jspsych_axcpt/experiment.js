@@ -1,4 +1,4 @@
-key_answerkey_answer/* ************************************ */
+/* ************************************ */
 /* Define helper functions */
 /* ************************************ */
 function evalAttentionChecks() {
