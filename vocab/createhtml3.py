@@ -90,7 +90,7 @@ html = """
 	<link rel="stylesheet" type="text/css" href="https://www.psycholinguistics.ml/css/Form.css">
 </head>
 <body>
-<form id="mainform" style="text-align: center" method="post" action="https://www.psycholinguistics.ml/jspsych_5/write_data.php">
+<form id="mainform" style="text-align: center" method="post" action="https://www.psycholinguistics.ml/vocab/write_data3.php">
 
 """
 
