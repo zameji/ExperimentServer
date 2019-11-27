@@ -216,8 +216,9 @@ var X_probe = {
   response_ends_trial: true,
   timing_post_trial: 2000,
   timing_feedback_duration: 1000,
-  correct_text: 'Correct!',
-  incorrect_text: 'Incorrect'
+  correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
+	incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text>Incorrect</div></div>',
+  show_stim_with_feedback: false
 };
 
 var other_probe = {
@@ -234,8 +235,9 @@ var other_probe = {
   response_ends_trial: true,
   timing_post_trial: 2000,
   timing_feedback_duration: 1000,
-  correct_text: 'Correct!',
-  incorrect_text: 'Incorrect'
+  correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
+	incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text>Incorrect</div></div>',
+  show_stim_with_feedback: false
 };
 
 /* ************************************ */
