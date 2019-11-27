@@ -1,4 +1,4 @@
-/* ************************************ */
+key_answerkey_answer/* ************************************ */
 /* Define helper functions */
 /* ************************************ */
 function evalAttentionChecks() {
@@ -209,8 +209,7 @@ var X_probe = {
   choices: [possible_responses[0][1], possible_responses[1][1]],
   data: {
     trial_id: "probe",
-    exp_stage: "test",
-    correct_response: 70
+    exp_stage: "test"
   },
   timing_stim: 300,
   timing_response: 1300,
@@ -261,28 +260,28 @@ for (b = 0; b < blocks.length; b++) {
         probe = jQuery.extend(true, {}, X_probe)
         cue.data.condition = "AX"
         probe.data.condition = "AX"
-		probe.data.correct_response = 70
+		    probe.key_answer = 70
         break;
       case "BX":
         cue = jQuery.extend(true, {}, other_cue)
         probe = jQuery.extend(true, {}, X_probe)
         cue.data.condition = "BX"
         probe.data.condition = "BX"
-		probe.data.correct_response = 74
+		    probe.key_answer = 74
         break;
       case "AY":
         cue = jQuery.extend(true, {}, A_cue)
         probe = jQuery.extend(true, {}, other_probe)
         cue.data.condition = "AY"
         probe.data.condition = "AY"
-		probe.data.correct_response = 74
+		    probe.key_answer = 74
         break;
       case "BY":
         cue = jQuery.extend(true, {}, other_cue)
         probe = jQuery.extend(true, {}, other_probe)
         cue.data.condition = "BY"
         probe.data.condition = "BY"
-		probe.data.correct_response = 74
+		    probe.key_answer = 74
         break;
     }
     ax_cpt_experiment.push(cue)
