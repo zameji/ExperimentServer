@@ -210,7 +210,7 @@ var X_probe = {
   data: {
     trial_id: "probe",
     exp_stage: "test",
-    correct_response: 'f'
+    correct_response: 70
   },
   timing_stim: 300,
   timing_response: 1300,
