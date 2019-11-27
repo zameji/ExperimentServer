@@ -86,10 +86,10 @@ header("Location: ". $next, true, 302);
 exit();
 ob_end_flush();
 ?>
-
+"""
 
 # Finally, we write the PHP code to the PHP file
-with open("write_data.php", "w+") as f:
+with open("write_data2.php", "w+") as f:
 
     f.write(php)
 
