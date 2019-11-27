@@ -76,9 +76,9 @@ $colloc_q40= $_POST['colloc_Q40'];
 
 $query = "UPDATE colloc SET colloc_q1='" .  $colloc_q1 . "', colloc_q2='" .  $colloc_q2 . "', colloc_q3='" .  $colloc_q3 . "', colloc_q4='" .  $colloc_q4 . "', colloc_q5='" .  $colloc_q5 . "', colloc_q6='" .  $colloc_q6 . "', colloc_q7='" .  $colloc_q7 . "', colloc_q8='" .  $colloc_q8 . "', colloc_q9='" .  $colloc_q9 . "', colloc_q10='" .  $colloc_q10 . "', colloc_q11='" .  $colloc_q11 . "', colloc_q12='" .  $colloc_q12 . "', colloc_q13='" .  $colloc_q13 . "', colloc_q14='" .  $colloc_q14 . "', colloc_q15='" .  $colloc_q15 . "', colloc_q16='" .  $colloc_q16 . "', colloc_q17='" .  $colloc_q17 . "', colloc_q18='" .  $colloc_q18 . "', colloc_q19='" .  $colloc_q19 . "', colloc_q20='" .  $colloc_q20 . "', colloc_q21='" .  $colloc_q21 . "', colloc_q22='" .  $colloc_q22 . "', colloc_q23='" .  $colloc_q23 . "', colloc_q24='" .  $colloc_q24 . "', colloc_q25='" .  $colloc_q25 . "', colloc_q26='" .  $colloc_q26 . "', colloc_q27='" .  $colloc_q27 . "', colloc_q28='" .  $colloc_q28 . "', colloc_q29='" .  $colloc_q29 . "', colloc_q30='" .  $colloc_q30 . "', colloc_q31='" .  $colloc_q31 . "', colloc_q32='" .  $colloc_q32 . "', colloc_q33='" .  $colloc_q33 . "', colloc_q34='" .  $colloc_q34 . "', colloc_q35='" .  $colloc_q35 . "', colloc_q36='" .  $colloc_q36 . "', colloc_q37='" .  $colloc_q37 . "', colloc_q38='" .  $colloc_q38 . "', colloc_q39='" .  $colloc_q39 . "', colloc_q40='" .  $colloc_q40 . "' where prolific_id='" . $id . "';";
 
-//if (!$conn->query($query)) {
-//  die("Execute failed");
-//}
+if (!$conn->query($query)) {
+ die("Execute failed");
+}
 
 $next ="https://www.psycholinguistics.ml/vocab/index4.html";
 

@@ -96,9 +96,9 @@ $vocabB_q60= $_POST['vocabB_Q60'];
 
 $query = "UPDATE vocabB SET vocabB_q1='" .  $vocabB_q1 . "', vocabB_q2='" .  $vocabB_q2 . "', vocabB_q3='" .  $vocabB_q3 . "', vocabB_q4='" .  $vocabB_q4 . "', vocabB_q5='" .  $vocabB_q5 . "', vocabB_q6='" .  $vocabB_q6 . "', vocabB_q7='" .  $vocabB_q7 . "', vocabB_q8='" .  $vocabB_q8 . "', vocabB_q9='" .  $vocabB_q9 . "', vocabB_q10='" .  $vocabB_q10 . "', vocabB_q11='" .  $vocabB_q11 . "', vocabB_q12='" .  $vocabB_q12 . "', vocabB_q13='" .  $vocabB_q13 . "', vocabB_q14='" .  $vocabB_q14 . "', vocabB_q15='" .  $vocabB_q15 . "', vocabB_q16='" .  $vocabB_q16 . "', vocabB_q17='" .  $vocabB_q17 . "', vocabB_q18='" .  $vocabB_q18 . "', vocabB_q19='" .  $vocabB_q19 . "', vocabB_q20='" .  $vocabB_q20 . "', vocabB_q21='" .  $vocabB_q21 . "', vocabB_q22='" .  $vocabB_q22 . "', vocabB_q23='" .  $vocabB_q23 . "', vocabB_q24='" .  $vocabB_q24 . "', vocabB_q25='" .  $vocabB_q25 . "', vocabB_q26='" .  $vocabB_q26 . "', vocabB_q27='" .  $vocabB_q27 . "', vocabB_q28='" .  $vocabB_q28 . "', vocabB_q29='" .  $vocabB_q29 . "', vocabB_q30='" .  $vocabB_q30 . "', vocabB_q31='" .  $vocabB_q31 . "', vocabB_q32='" .  $vocabB_q32 . "', vocabB_q33='" .  $vocabB_q33 . "', vocabB_q34='" .  $vocabB_q34 . "', vocabB_q35='" .  $vocabB_q35 . "', vocabB_q36='" .  $vocabB_q36 . "', vocabB_q37='" .  $vocabB_q37 . "', vocabB_q38='" .  $vocabB_q38 . "', vocabB_q39='" .  $vocabB_q39 . "', vocabB_q40='" .  $vocabB_q40 . "', vocabB_q41='" .  $vocabB_q41 . "', vocabB_q42='" .  $vocabB_q42 . "', vocabB_q43='" .  $vocabB_q43 . "', vocabB_q44='" .  $vocabB_q44 . "', vocabB_q45='" .  $vocabB_q45 . "', vocabB_q46='" .  $vocabB_q46 . "', vocabB_q47='" .  $vocabB_q47 . "', vocabB_q48='" .  $vocabB_q48 . "', vocabB_q49='" .  $vocabB_q49 . "', vocabB_q50='" .  $vocabB_q50 . "', vocabB_q51='" .  $vocabB_q51 . "', vocabB_q52='" .  $vocabB_q52 . "', vocabB_q53='" .  $vocabB_q53 . "', vocabB_q54='" .  $vocabB_q54 . "', vocabB_q55='" .  $vocabB_q55 . "', vocabB_q56='" .  $vocabB_q56 . "', vocabB_q57='" .  $vocabB_q57 . "', vocabB_q58='" .  $vocabB_q58 . "', vocabB_q59='" .  $vocabB_q59 . "', vocabB_q60='" .  $vocabB_q60 . "' where prolific_id='" . $id . "';";
 
-//if (!$conn->query($query)) {
-//    die("Execute failed");
-//}
+if (!$conn->query($query)) {
+   die("Execute failed");
+}
 
 setcookie("jspsych_progress", $progress, time()+144000, "/", "psycholinguistics.ml");
 

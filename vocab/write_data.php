@@ -76,9 +76,9 @@ $vocab_q40= $_POST['vocab_Q40'];
 
 $query = "UPDATE vocab SET vocab_q1='" .  $vocab_q1 . "', vocab_q2='" .  $vocab_q2 . "', vocab_q3='" .  $vocab_q3 . "', vocab_q4='" .  $vocab_q4 . "', vocab_q5='" .  $vocab_q5 . "', vocab_q6='" .  $vocab_q6 . "', vocab_q7='" .  $vocab_q7 . "', vocab_q8='" .  $vocab_q8 . "', vocab_q9='" .  $vocab_q9 . "', vocab_q10='" .  $vocab_q10 . "', vocab_q11='" .  $vocab_q11 . "', vocab_q12='" .  $vocab_q12 . "', vocab_q13='" .  $vocab_q13 . "', vocab_q14='" .  $vocab_q14 . "', vocab_q15='" .  $vocab_q15 . "', vocab_q16='" .  $vocab_q16 . "', vocab_q17='" .  $vocab_q17 . "', vocab_q18='" .  $vocab_q18 . "', vocab_q19='" .  $vocab_q19 . "', vocab_q20='" .  $vocab_q20 . "', vocab_q21='" .  $vocab_q21 . "', vocab_q22='" .  $vocab_q22 . "', vocab_q23='" .  $vocab_q23 . "', vocab_q24='" .  $vocab_q24 . "', vocab_q25='" .  $vocab_q25 . "', vocab_q26='" .  $vocab_q26 . "', vocab_q27='" .  $vocab_q27 . "', vocab_q28='" .  $vocab_q28 . "', vocab_q29='" .  $vocab_q29 . "', vocab_q30='" .  $vocab_q30 . "', vocab_q31='" .  $vocab_q31 . "', vocab_q32='" .  $vocab_q32 . "', vocab_q33='" .  $vocab_q33 . "', vocab_q34='" .  $vocab_q34 . "', vocab_q35='" .  $vocab_q35 . "', vocab_q36='" .  $vocab_q36 . "', vocab_q37='" .  $vocab_q37 . "', vocab_q38='" .  $vocab_q38 . "', vocab_q39='" .  $vocab_q39 . "', vocab_q40='" .  $vocab_q40 . "' where prolific_id='" . $id . "';";
 
-//if (!$conn->query($query)) {
-//    die("Execute failed");
-//}
+if (!$conn->query($query)) {
+   die("Execute failed");
+}
 
 $next ="https://www.psycholinguistics.ml/vocab/index2.html";
 
