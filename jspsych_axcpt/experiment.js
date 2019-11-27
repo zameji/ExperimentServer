@@ -209,7 +209,8 @@ var X_probe = {
   choices: [possible_responses[0][1], possible_responses[1][1]],
   data: {
     trial_id: "probe",
-    exp_stage: "test"
+    exp_stage: "test",
+    correct_response: 'f'
   },
   timing_stim: 300,
   timing_response: 1300,
