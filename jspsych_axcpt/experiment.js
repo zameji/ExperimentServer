@@ -203,7 +203,7 @@ var other_cue = {
 };
 
 var X_probe = {
-  type: 'poldrack-single-stim',
+  type: 'poldrack-categorize',
   stimulus: '<div class = centerbox><div class = AX_text>X</div></div>',
   is_html: true,
   choices: [possible_responses[0][1], possible_responses[1][1]],
@@ -217,14 +217,11 @@ var X_probe = {
   timing_post_trial: 2000,
   timing_feedback_duration: 1000,
   correct_text: 'Correct!',
-  incorrect_text: 'Incorrect',
-  on_finish: function(data){
-    data.correct = data.key_press == data.correct_response
-  }
+  incorrect_text: 'Incorrect'
 };
 
 var other_probe = {
-  type: 'poldrack-single-stim',
+  type: 'poldrack-categorize',
   stimulus: getChar,
   is_html: true,
   choices: [possible_responses[0][1], possible_responses[1][1]],
@@ -238,10 +235,7 @@ var other_probe = {
   timing_post_trial: 2000,
   timing_feedback_duration: 1000,
   correct_text: 'Correct!',
-  incorrect_text: 'Incorrect',
-  on_finish: function(data){
-    data.correct = data.key_press == data.correct_response
-  }
+  incorrect_text: 'Incorrect'
 };
 
 /* ************************************ */
