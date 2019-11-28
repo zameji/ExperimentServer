@@ -48,7 +48,7 @@ if ($result->num_rows > 0) {
 
 for i in range(140):
     i += 1
-    string = "$ART_q" + str(i) + "= $_POST['ART_Q" + str(i) + "'];\n"
+    string = "$ART_q" + str(i) + "= $_POST['ART_" + str(i) + "'];\n"
     php += string
 
 php += "\n"
@@ -57,7 +57,7 @@ php += "\n"
 query = "$query = \"UPDATE ART SET"
 for i in range(140):
     i += 1
-    query+= " ART_q" + str(i) + "='\" .  $ART_q" + str(i) + " . \"',"
+    query+= " ART_" + str(i) + "='\" .  $ART_" + str(i) + " . \"',"
 
 # remove the last comma
 query = query[0:-1]

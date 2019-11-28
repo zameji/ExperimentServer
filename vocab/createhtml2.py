@@ -33,6 +33,7 @@ authors = [
     ["Ray Bradbury", 1],
     ["Ursula K. Le Guin", 1],
     ["Roland Barthes", 1],
+    ["John Searle", 1],
     ["Jean Baudrillard", 1],
     ["Michel Foucault", 1],
     ["Bertrand Russell", 1],
@@ -92,7 +93,7 @@ authors = [
     ["Matt Ridley", 1],
     ["John Maynard Smith", 1],
     ["Diane Ackerman", 1],
-    ["JeVrey Gray", 1],
+    ["Jeffrey Gray", 1],
     ["Joseph LeDoux", 1],
     ["Oliver Sacks", 1],
     ["Naomi Wolf", 1],
@@ -154,15 +155,16 @@ q_number = 1
 answers = []
 
 for name, number in authors:
-    #table += "<tr><td>"+ str(q_number) + ". " + name + ":</td><td>"
-    string = "<input id='ART_" + name + "_" + str(number) + "' name='" + name + "_" + str(number) + "' type='checkbox' value='yes' /><tr>" + name + "</tr><br>"
+    print(str(q_number)+ " " + name)
+    string = "<input id='ART_" + str(q_number) + "' name='ART_" + str(q_number) + "' type='checkbox' value='" + str(number) + "' /><tr>" + name + "</tr><br>"
     answers.append(string)
+    q_number +=1
 
 random.shuffle(answers)
 for item in answers:
     table += item
 
-q_number +=1
+
 
 table += "</table>"
 
@@ -189,7 +191,6 @@ html += """
 </body>
 </html>
 """
-
 print(html)
 
 # with open("index.html", "w+") as out:
@@ -199,3 +200,144 @@ print(html)
 # 	print(html)
 #
 # print("Done.")
+
+# 1 Sidney Sheldon
+# 2 Danielle Steele
+# 3 Jackie Collins
+# 4 Judith Krantz
+# 5 Nora Roberts
+# 6 Iris Johansen
+# 7 Diana Palmer
+# 8 Catherine Anderson
+# 9 Joy Fielding
+# 10 Nicholas Sparks
+# 11 Stephen Hawking
+# 12 Stephen J. Gould
+# 13 Richard Dawkins
+# 14 Thomas Kuhn
+# 15 Ernst Mayr
+# 16 Douglas Rushkoff
+# 17 Amir D. Aczel
+# 18 Robert Jordan
+# 19 Douglas Adams
+# 20 Anne McCaVrey
+# 21 William Gibson
+# 22 Terry Brooks
+# 23 Terry Goodkind
+# 24 Piers Anthony
+# 25 Arthur C. Clarke
+# 26 Ray Bradbury
+# 27 Ursula K. Le Guin
+# 28 Roland Barthes
+# 29 John Searle
+# 30 Jean Baudrillard
+# 31 Michel Foucault
+# 32 Bertrand Russell
+# 33 Antonio Damasio
+# 34 Daniel Goleman
+# 35 Dean Koontz
+# 36 John LeCarré
+# 37 Robert Ludlum
+# 38 Clive Cussler
+# 39 Sue Grafton
+# 40 Ian Rankin
+# 41 P. D. James
+# 42 John Saul
+# 43 Patricia Cornwell
+# 44 Ken Follett
+# 45 Noam Chomsky
+# 46 Norman Mailer
+# 47 Michael Moore
+# 48 Eric Schlosser
+# 49 Bob Woodward
+# 50 Pierre Berton
+# 51 Naomi Klein
+# 52 John Updike
+# 53 W. O. Mitchell
+# 54 Alice Munro
+# 55 Maeve Binchy
+# 56 Carol Shields
+# 57 John Irving
+# 58 Toni Morrison
+# 59 Amy Tan
+# 60 Rohinton Mistry
+# 61 Sinclair Ross
+# 62 Jack Canfield
+# 63 Philip C. McGraw
+# 64 M. Scott Peck
+# 65 Robert Fulghum
+# 66 Erma Bombeck
+# 67 Jean Vanier
+# 68 Stephen R. Covey
+# 69 José Saramago
+# 70 Yukio Mishima
+# 71 Gabriel Garcia Marquez
+# 72 Albert Camus
+# 73 Umberto Eco
+# 74 Milan Kundera
+# 75 Paulo Coelho
+# 76 W. G. Sebald
+# 77 Italo Calvino
+# 78 Thomas Mann
+# 79 Faith Popcorn
+# 80 Jim Collins
+# 81 Napoleon Hill
+# 82 Robert T. Kiyosaki
+# 83 Stephen C. Lundin
+# 84 Peter S. Pande
+# 85 Kenneth H. Blanchard
+# 86 Matt Ridley
+# 87 John Maynard Smith
+# 88 Diane Ackerman
+# 89 Jeffrey Gray
+# 90 Joseph LeDoux
+# 91 Oliver Sacks
+# 92 Naomi Wolf
+# 93 Robert D. Kaplan
+# 94 Susan Sontag
+# 95 Melody Beattie
+# 96 Deepak Chopra
+# 97 Marianne Williamson
+# 98 Peter F. Drucker
+# 99 Barry Z. Posner
+# 100 M. D. Johnson Spencer
+# 101 Lauren Adamson
+# 102 Eric Amsel
+# 103 Margaritia Azmitia
+# 104 Oscar Barbarin
+# 105 Reuben Baron
+# 106 Gary Beauchamp
+# 107 Thomas Bever
+# 108 Elliot Blass
+# 109 Dale Blyth
+# 110 Hilda Borko
+# 111 John Condry
+# 112 Edward Cornell
+# 113 Carl Corter
+# 114 Diane Cuneo
+# 115 Denise Daniels
+# 116 Geraldine Dawson
+# 117 Aimee Dorr
+# 118 W Patrick Dickson
+# 119 Robert Emery
+# 120 Frances Fincham
+# 121 Martin Ford
+# 122 Harold Gardin
+# 123 Frank Gresham
+# 124 Robert Inness
+# 125 Frank Keil
+# 126 Reed Larson
+# 127 Lynn Liben
+# 128 Hugh Lytton
+# 129 Franklin Manis
+# 130 Morton Mendelson
+# 131 James Morgan
+# 132 Scott Paris
+# 133 Richard Passman
+# 134 David Perry
+# 135 Miriam Sexton
+# 136 K Warner Schaie
+# 137 Robert Siegler
+# 138 Mark Strauss
+# 139 Alister Younger
+# 140 Steve Yussen

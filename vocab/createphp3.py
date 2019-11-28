@@ -48,7 +48,7 @@ if ($result->num_rows > 0) {
 
 for i in range(40):
     i += 1
-    string = "$colloc_q" + str(i) + "= $_POST['colloc_Q" + str(i) + "'];\n"
+    string = "$colloc_" + str(i) + "= $_POST['colloc_" + str(i) + "'];\n"
     php += string
 
 php += "\n"
@@ -57,7 +57,7 @@ php += "\n"
 query = "$query = \"UPDATE colloc SET"
 for i in range(40):
     i += 1
-    query+= " colloc_q" + str(i) + "='\" .  $colloc_q" + str(i) + " . \"',"
+    query+= " colloc_" + str(i) + "='\" .  $colloc_" + str(i) + " . \"',"
 
 # remove the last comma
 query = query[0:-1]
@@ -78,38 +78,7 @@ if (!$conn->query($query)) {
     die("Execute failed");
 }
 
-setcookie("jspsych_progress", $progress, time()+144000, "/", "psycholinguistics.ml");
-
-if ($progress < 7){
-switch (substr($testgroup, $progress, 1)){
-
-    case "J":
-        $next ="https://www.psycholinguistics.ml/jspsych/experiment.html";//circles-REPLACE LATER WITH VOCAB
-        break;
-    case "K":
-        $next ="https://www.psycholinguistics.ml/jspsych_1/index.html";//AXCPT
-        break;
-    case "L":
-        $next ="https://www.psycholinguistics.ml/jspsych_2/reading_span_web_english.html"; //RST
-        break;
-    case "M":
-        $next ="https://www.psycholinguistics.ml/jspsych_3/index.html";//Flanker
-        break;
-    case "N":
-        $next ="https://www.psycholinguistics.ml/jspsych_4/index.html";//Ravens
-        break;
-    case "O":
-        $next ="https://www.psycholinguistics.ml/jspsych_5/index.html";//Big5
-        break;
-    case "P":
-        $next ="https://www.psycholinguistics.ml/jspsych_6/index.html";//Navon
-        break;
-
-    default:
-        $next = "https://www.psycholinguistics.ml/index/server_error.html";
-        break;
-}
-} else {$next = "https://www.psycholinguistics.ml/get_next.php";}
+$next ="https://www.psycholinguistics.ml/vocab/index4.html";
 
 $conn -> commit();
 $conn->close();
@@ -122,7 +91,7 @@ ob_end_flush();
 
 
 # Finally, we write the PHP code to the PHP file
-with open("write_data.php", "w+") as f:
+with open("write_data3.php", "w+") as f:
 
     f.write(php)
 

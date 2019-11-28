@@ -48,7 +48,7 @@ if ($result->num_rows > 0) {
 
 for i in range(40):
     i += 1
-    string = "$vocab_q" + str(i) + "= $_POST['vocab_Q" + str(i) + "'];\n"
+    string = "$vocab_" + str(i) + "= $_POST['vocab_" + str(i) + "'];\n"
     php += string
 
 php += "\n"
@@ -57,7 +57,7 @@ php += "\n"
 query = "$query = \"UPDATE vocab SET"
 for i in range(40):
     i += 1
-    query+= " vocab_q" + str(i) + "='\" .  $vocab_q" + str(i) + " . \"',"
+    query+= " vocab_" + str(i) + "='\" .  $vocab_" + str(i) + " . \"',"
 
 # remove the last comma
 query = query[0:-1]
