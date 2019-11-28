@@ -38,11 +38,18 @@ var possible_responses = [
   ["J key", 74]
 ]
 var chars = 'BCDEFGHIJLMNOPQRSTUVWZ'
-var trial_proportions = ["AX", "AX", "AX", "AX", "AX", "AX", "AX", "BX", "AY", "BY"]
+var trial_proportions = ["AX", "AX", "AX", "AX", "AX", "AX", "AX", "AX","AX", "AX","AX", "AX","AX", "AX","AX", "AX","AX", "AX","AX", "AX","AX", "AX","AX", "AX", "BX","BX","BX","BX","AY", "AY","AY","AY","BY","BY"]
 var block1_list = jsPsych.randomization.repeat(trial_proportions, 1)
 var block2_list = jsPsych.randomization.repeat(trial_proportions, 1)
-var block3_list = jsPsych.randomization.repeat(trial_proportions, 1)
-var blocks = [block1_list, block2_list, block3_list]
+var blocks = [block1_list, block2_list]
+
+//Original Setup:
+// var chars = 'BCDEFGHIJLMNOPQRSTUVWZ'
+// var trial_proportions = ["AX", "AX", "AX", "AX", "AX", "AX", "AX", "BX", "AY", "BY"]
+// var block1_list = jsPsych.randomization.repeat(trial_proportions, 1)
+// var block2_list = jsPsych.randomization.repeat(trial_proportions, 1)
+// var block3_list = jsPsych.randomization.repeat(trial_proportions, 1)
+// var blocks = [block1_list, block2_list, block3_list]
 
 /* ************************************ */
 /* Set up jsPsych blocks */
@@ -177,8 +184,8 @@ var A_cue = {
     trial_id: "cue",
     exp_stage: "test"
   },
-  timing_stim: 300,
-  timing_response: 5200
+  timing_stim: 500,
+  timing_response: 700
 };
 
 var other_cue = {
@@ -190,8 +197,8 @@ var other_cue = {
     trial_id: "cue",
     exp_stage: "test"
   },
-  timing_stim: 300,
-  timing_response: 5200
+  timing_stim: 500,
+  timing_response: 700
 };
 
 var X_probe = {
@@ -203,7 +210,7 @@ var X_probe = {
     trial_id: "probe",
     exp_stage: "test"
   },
-  timing_stim: 300,
+  timing_stim: 500,
   response_ends_trial: true,
   timing_feedback_duration: 1000,
   timing_response: 2000,
@@ -221,7 +228,7 @@ var other_probe = {
     trial_id: "probe",
     exp_stage: "test"
   },
-  timing_stim: 300,
+  timing_stim: 500,
   response_ends_trial: true,
   timing_feedback_duration: 1000,
   timing_response: 2000,
