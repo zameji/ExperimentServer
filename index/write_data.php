@@ -41,7 +41,9 @@ $reading_enj = '0';
 
 // redirect non-fitting candidates
 if ($reading == 'yes' or
-	!($origin == 'US' or $origin == 'UK')
+	!($origin == 'US' or $origin == 'UK') or
+  !($bilingual == 'fullbilingual' or $bilingual == 'earlybilingual') or
+  ($age < 18)
 	){
 	$next = "https://www.psycholinguistics.ml/thank_you.html";
 };

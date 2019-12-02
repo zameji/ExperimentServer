@@ -161,7 +161,7 @@ if __name__ == "__main__":
 					</tr>
 					<tr>
 						<td>
-							Have you ever reached fluency in another language?
+							Have you ever reached near-native fluency in another language?
 						</td>
 						<td>
 							<input name="bilingual" type="radio" value="monolingual" class="obligatory" required="required" id="bilingualno" />
@@ -338,12 +338,12 @@ if __name__ == "__main__":
 			<p style="text-align: center">
 				<span id = "rn"></span>
 			</p>
-			<p style="text-align: center">
-				<span id = "cookies">Cookies: Unchecked</span>
-			</p>
-			<p style="text-align: center">
-				<span id = "mobile">Mobile: No</span>
-			</p>
+			<!--<p style="text-align: center">-->
+			<!--	<span id = "cookies">Cookies: Unchecked</span>-->
+			<!--</p>-->
+			<!--<p style="text-align: center">-->
+			<!--	<span id = "mobile">Device: Approved</span>-->
+			<!--</p>-->
 			<p style="text-align: center">
 				<a href="https://www.psycholinguistics.ml/policy.html">Cookies notice - Privacy policy</a>
 			</p>
