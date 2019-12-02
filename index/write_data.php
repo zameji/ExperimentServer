@@ -40,7 +40,8 @@ $reading_amt = '0';
 $reading_enj = '0';
 
 // redirect non-fitting candidates
-if ($reading == 'yes' or
+if (
+  ($reading == 'yes') or
 	!($origin == 'US' or $origin == 'UK') or
   !($bilingual == 'fullbilingual' or $bilingual == 'earlybilingual') or
   ($age < 18)
