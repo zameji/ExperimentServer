@@ -1,0 +1,20 @@
+{
+    "cognitive_atlas_task_id": "trm_4c40d2a93ea15",
+    "instructions":"Respond to the stimuli on the screen.",
+    "description":"Expfactory experiment",
+    "url":"https://www.github.com/expfactory-experiments/ax-cpt",
+    "contributors": [
+        "Ian Eisenberg",
+        "Zeynep Enkavi",
+        "Patrick Bissett",
+        "Vanessa Sochat",
+        "Russell Poldrack"
+    ],
+    "exp_id": "ax-cpt",
+    "name": "AX-CPT",
+    "notes": "Condition indicates cue/target trial type: AX, BX, AY, BY",
+    "publish": "True",
+    "reference": ["http://www.pnas.org/content/suppl/2009/04/20/0808187106.DCSupplemental/0808187106SI.pdf#nameddest=STXT"],
+    "template": "jspsych",
+    "time": 20
+}

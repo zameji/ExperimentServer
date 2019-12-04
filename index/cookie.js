@@ -1,7 +1,8 @@
 
-function saveData(name, data){
+function saveData(name, data, php_address){
+  php_address = typeof php_address !== 'undefined' ? php_address : 'write_data.php'
   var xhr = new XMLHttpRequest();
-  xhr.open('POST', 'write_data.php'); // 'write_data.php' is the path to the php file described above.
+  xhr.open('POST', php_address); // 'write_data.php' is the path to the php file described above.
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.send(JSON.stringify({filename: name, filedata: data}));
   
