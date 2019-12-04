@@ -130,7 +130,7 @@ var instructions_block = {
   ],
   allow_keys: false,
   data: {
-    exp_id: "vocab_timed",
+    exp_id: "vocab_timed4",
     trial_id: 'instruction'
   },
   show_clickable_nav: true,
@@ -183,8 +183,8 @@ var vocab_task = {
 /* Set up experiment */
 /* ************************************ */
 
-var vocab_timed_experiment = []
-vocab_timed_experiment.push(instruction_node);
+var vocab_timed_experiment4 = []
+vocab_timed_experiment4.push(instruction_node);
 
 for (b = 0; b < blocks_list.length; b++) {
 
@@ -204,6 +204,6 @@ for (b = 0; b < blocks_list.length; b++) {
 						'</table>'+
 					'</div>'
 	
-    vocab_timed_experiment.push(task)
+    vocab_timed_experiment4.push(task)
 }
-vocab_timed_experiment.push(end_block)
+vocab_timed_experiment4.push(end_block)
