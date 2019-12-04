@@ -2,7 +2,7 @@
 <head>
     <meta charset='UTF-8'>
     <meta name="robots" content="noindex">
-    <title>The Experiment Factory Timed Vocabulary Task 2</title>
+    <title>The Experiment Factory Timed Vocabulary Task 1</title>
 
 <link rel='stylesheet' type='text/css' href='jspsych.css'>
 <link rel='stylesheet' type='text/css' href='default_style.css'>
@@ -25,7 +25,7 @@
 <script src='js/jspsych/plugins/jspsych-survey-text.js'></script>
 <script src='js/jspsych/poldrack_plugins/jspsych-single-stim-button.js'></script>
 <script src='js/jspsych/poldrack_plugins/poldrack_utils.js'></script>
-<script src='experiment_4.js'></script>
+<script src='experiment.js'></script>
 <!-- Cookie handling JS code. -->
 <script type="text/javascript" src="https://www.psycholinguistics.ml/index/cookie.js"></script>
 
@@ -42,7 +42,7 @@ $( document ).ready(function() {
 
              on_finish: function() {
 				var user_id = getID()
-				saveData(user_id, jsPsych.data.dataAsCSV(), 'write_data4_timed.php');
+				saveData(user_id, jsPsych.data.dataAsCSV(), 'write_data_timed.php');
       }
 
       });
