@@ -41,6 +41,7 @@ $( document ).ready(function() {
              },
 
              on_finish: function() {
+				var user_id = getID()
 				saveData(user_id, jsPsych.data.dataAsCSV());
       }
 
