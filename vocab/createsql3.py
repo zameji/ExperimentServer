@@ -3,7 +3,7 @@ import sys
 query = "CREATE TABLE colloc (prolific_id VARCHAR(24) PRIMARY KEY NOT NULL, "
 for i in range(40):
     i += 1
-    query+= " colloc_q" + str(i) + " VARCHAR(16),"
+    query+= " colloc_" + str(i) + " VARCHAR(16),"
 
 # remove the last comma
 query = query[0:-1]

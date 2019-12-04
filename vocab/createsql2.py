@@ -3,7 +3,7 @@ import sys
 query = "CREATE TABLE ART (prolific_id VARCHAR(24) PRIMARY KEY NOT NULL, "
 for i in range(140):
     i += 1
-    query+= " ART_q" + str(i) + " VARCHAR(16),"
+    query+= " ART_" + str(i) + " VARCHAR(16),"
 
 # remove the last comma
 query = query[0:-1]
