@@ -41,16 +41,16 @@ $query = "UPDATE participants set
 
 if (!$conn->query($query)) {
     die("Execute failed: (" . $stmt->errno . ") " . $stmt->error);
-} 
+}
 
 
 setcookie("jspsych_progress", $progress, time()+144000, "/", "psycholinguistics.ml");
 
 if ($progress < 9){
 switch (substr($testgroup, $progress, 1)){
-	
+
 	case "J":
-		$next ="https://www.psycholinguistics.ml/jspsych/experiment.html";//circles-REPLACE LATER WITH VOCAB
+		$next ="https://www.psycholinguistics.ml/jspsych/experiment.html";//circles
 		break;
 	case "K":
 		$next ="https://www.psycholinguistics.ml/jspsych_1/index.html";//AXCPT
@@ -75,7 +75,7 @@ switch (substr($testgroup, $progress, 1)){
 		break;
 	case "R":
 		$next ="https://www.psycholinguistics.ml/jspsych_7/index.html";// PLACEHOLDER
-		break;						
+		break;
 
 	default:
 		$next = "https://www.psycholinguistics.ml/index/server_error.html";

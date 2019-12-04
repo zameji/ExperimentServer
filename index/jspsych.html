@@ -8,24 +8,33 @@
 	<link rel="stylesheet" type="text/css" href="https://www.psycholinguistics.ml/css/Form.css">
     <!-- Cookie handling JS code. -->
 	<script type="text/javascript" src="https://www.psycholinguistics.ml/index/cookie.js"></script>
-	
+
 	</head>
 	<body>
-		<p>
-		<div id="message">You are about to start a JSPsych session.</div>
+		<p><center>
+		<div id="message">After you continue from this page, you will be directed to around 10 short tasks in a row. <br><br>
+      No task should take more than 10 minutes. Still, this means you should set aside at least 90 minutes to complete all tasks.<br><br>
+    It is important that your computer is plugged in the entire time, and that you close all background programs. <br><br>
+  Please also ensure that you will not be disturbed. Do not watch TV, have a conversation, each your lunch, or do any other multitasking while you complete the experiment. We need to get an accurate idea of what you can do while focused! <br><br>
+Some tasks are difficult, but you are not meant to have perfect accuracy. Many tasks are a bit boring. <br><br>
+If you need a break, please do so between tasks, not in the middle of one. <br><br>
+In case that you lose connection or accidentally shut the browser, return to the home page (psycholinguistics.ml) and enter your Prolific ID again. Your performance on any task in progress will be lost, but you will be sent to the next uncompleted task.<br><br>
+If you are interested in the research, feel free to contact us on Prolific after you've completed all parts of the experiment!<br><br>
+</div></center>
+
 		<a id="next" href="https://www.psycholinguistics.ml/server_error.html">Click here to continue</a>
 		</p>
-		
+
 		<script>
 		var sequence = getCookieValue("jspsych_group");
 		var progress = parseInt(getCookieValue("jspsych_progress"));
-		
+
 		if (progress > 0){
 			document.getElementById("message").innerHTML = "You will continue with JSPsych with the next unfinished element."
 		}
-		
+
 		sequence = sequence[progress];
-		
+
 		switch (sequence){
 				case "J":
 					next ="https://www.psycholinguistics.ml/jspsych/experiment.html";//circles-REPLACE LATER WITH VOCAB
@@ -53,14 +62,14 @@
 					break;
 				case "R":
 					next ="https://www.psycholinguistics.ml/jspsych_7/index.html";// PLACEHOLDER
-					break;						
-					
+					break;
+
 				default:
 					next ="https://www.psycholinguistics.ml/cookie_error.html";
 					}
 			document.getElementById("next").href = next;
-			
+
 		</script>
-		
+
 	</body>
 </html>
