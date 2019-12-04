@@ -196,11 +196,11 @@ for (b = 0; b < blocks_list.length; b++) {
 
 	task = jQuery.extend(true, {}, vocab_task)
 	task.stimulus = '<div class = centerbox><div class =  center-block-text>' + cue + '</div>' +
-						'<table>' +
-						'<tr class = block-text> <td><b>F.</b> </td><td>' + f_choice + '</td></tr>' +
-						'<tr class = block-text> <td><b>G.</b> </td><td>' + g_choice + '</td></tr>' +
-						'<tr class = block-text> <td><b>H.</b> </td><td>' + h_choice + '</td></tr>' +
-						'<tr class = block-text> <td><b>J.</b> </td><td>' + j_choice + '</td></tr>' +
+						'<table style="margin-left:auto;margin-right:auto;">' +
+							'<tr class = block-text> <td><b>F.</b> </td><td>' + f_choice + '</td></tr>' +
+							'<tr class = block-text> <td><b>G.</b> </td><td>' + g_choice + '</td></tr>' +
+							'<tr class = block-text> <td><b>H.</b> </td><td>' + h_choice + '</td></tr>' +
+							'<tr class = block-text> <td><b>J.</b> </td><td>' + j_choice + '</td></tr>' +
 						'</table>'+
 					'</div>'
 	

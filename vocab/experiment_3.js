@@ -179,7 +179,7 @@ for (b = 0; b < blocks_list.length; b++) {
 
 	task = jQuery.extend(true, {}, colloc_task)
 	task.stimulus = '<div class = centerbox>'+
-						'<table>' +
+						'<table style="margin-left:auto;margin-right:auto;">' +
 						'<tr class = block-text> <td><b>F.</b> </td><td>' + f_choice + '</td></tr>' +
 						'<tr class = block-text> <td><b>G.</b> </td><td>' + g_choice + '</td></tr>' +
 						'<tr class = block-text> <td><b>H.</b> </td><td>' + h_choice + '</td></tr>' +
