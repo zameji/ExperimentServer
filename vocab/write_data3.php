@@ -80,7 +80,7 @@ if (!$conn->query($query)) {
     die("Execute failed");
 }
 
-$next ="https://www.psycholinguistics.ml/vocab/index4.html";
+$next ="https://www.psycholinguistics.ml/vocab/index4_timed.html";
 
 $conn -> commit();
 $conn->close();
