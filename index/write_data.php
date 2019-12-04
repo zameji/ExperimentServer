@@ -47,7 +47,7 @@ if (
   ($age < 18)
 	){
 	$next = "https://www.psycholinguistics.ml/thank_you.html";
-};
+	} else {
 
 $servername = "localhost";
 $username = "ubuntu";
@@ -90,8 +90,11 @@ $query = "UPDATE participants
 
 	$conn->commit();
 	$conn->close();
+	
+	}
+	
 	header("Location: ". $next, true, 302);
 	exit();
 
-}
+
 ?>
