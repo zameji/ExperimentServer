@@ -185,7 +185,8 @@ colloc_timed_experiment.push(instruction_node);
 for (b = 0; b < blocks_list.length; b++) {
 
 	
-	random_order = shuffle([0,1,2,3,4])
+	random_order = [0,1,2,3,4]
+	shuffle(random_order)
 	
 	f_choice = blocks_list[b][random_order[0]]
 	g_choice = blocks_list[b][random_order[1]]

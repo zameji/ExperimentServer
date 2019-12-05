@@ -183,7 +183,8 @@ for (b = 0; b < blocks_list.length; b++) {
 
 	cue = blocks_list[b][0]
 	
-	random_order = shuffle([1,2,3,4])
+	random_order = [1,2,3,4]
+	shuffle(random_order)
 	
 	f_choice = blocks_list[b][random_order[0]]
 	g_choice = blocks_list[b][random_order[1]]
