@@ -1,9 +1,10 @@
 <?php
+$prolificID = $_COOKIE['id'];
+
 $servername = "localhost";
 $username = "ubuntu";
 $password = "ubuntuExperiment2019";
 $dbname = "experiment";
-
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -63,7 +64,7 @@ if ($result->num_rows > 0) {
 	exit();
 
 } else {
-	
 	die ("This should not happen. Please, contact the developers and let them know.");
 }
+
 ?>
