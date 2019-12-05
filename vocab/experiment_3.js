@@ -185,13 +185,13 @@ colloc_timed_experiment.push(instruction_node);
 for (b = 0; b < blocks_list.length; b++) {
 
 	
-	var order = shuffle([0,1,2,3,4])
+	random_order = shuffle([0,1,2,3,4])
 	
-	f_choice = blocks_list[b][order[0]]
-	g_choice = blocks_list[b][order[1]]
-	h_choice = blocks_list[b][order[2]]
-	j_choice = blocks_list[b][order[3]]
-	k_choice = blocks_list[b][order[4]]
+	f_choice = blocks_list[b][random_order[0]]
+	g_choice = blocks_list[b][random_order[1]]
+	h_choice = blocks_list[b][random_order[2]]
+	j_choice = blocks_list[b][random_order[3]]
+	k_choice = blocks_list[b][random_order[4]]
 
 	task = jQuery.extend(true, {}, colloc_task)
 	task.stimulus = '<div class = centerbox>'+
@@ -204,7 +204,7 @@ for (b = 0; b < blocks_list.length; b++) {
 						'</table>'+
 					'</div>'
 					
-	task.key_response = possible_responses[order.indexOf(0)][1];	
+	task.key_response = possible_responses[random_order.indexOf(0)][1];	
     colloc_timed_experiment.push(task)
 }
 colloc_timed_experiment.push(end_block)
