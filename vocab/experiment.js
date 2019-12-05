@@ -6,6 +6,19 @@
 /* Define helper functions */
 /* ************************************ */
 
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1)); // random index from 0 to i
+
+    // swap elements array[i] and array[j]
+    // we use "destructuring assignment" syntax to achieve that
+    // you'll find more details about that syntax in later chapters
+    // same can be written as:
+    // let t = array[i]; array[i] = array[j]; array[j] = t
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
 var getInstructFeedback = function() {
     return '<div class = centerbox><p class = center-block-text>' + feedback_instruct_text +
       '</p></div>'
@@ -151,10 +164,10 @@ var vocab_task = {
   timing_stim: -1,
   response_ends_trial: true,
   timing_response: -1,
-  timing_feedback_duration: 1,
+  timing_feedback_duration: 1000,
   timing_post_trial: 1,
-  correct_text: "",
-  incorrect_text: ""
+  correct_text: "Correct",
+  incorrect_text: "False"
 
 };
 
@@ -169,10 +182,13 @@ vocab_timed_experiment.push(instruction_node);
 for (b = 0; b < blocks_list.length; b++) {
 
 	cue = blocks_list[b][0]
-	f_choice = blocks_list[b][1]
-	g_choice = blocks_list[b][2]
-	h_choice = blocks_list[b][3]
-	j_choice = blocks_list[b][4]
+	
+	var order = shuffle([1,2,3,4])
+	
+	f_choice = blocks_list[b][order[0]]
+	g_choice = blocks_list[b][order[1]]
+	h_choice = blocks_list[b][order[2]]
+	j_choice = blocks_list[b][order[3]]
 
 	task = jQuery.extend(true, {}, vocab_task)
 	task.stimulus = '<div class = centerbox><div class =  center-block-text>' + cue + '</div>' +
@@ -184,6 +200,7 @@ for (b = 0; b < blocks_list.length; b++) {
 						'</table>'+
 					'</div>'
 	
+	task.key_response = possible_responses[order.indexOf(1)][1];
     vocab_timed_experiment.push(task)
 }
 vocab_timed_experiment.push(end_block)
