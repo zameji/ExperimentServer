@@ -35,27 +35,24 @@ if ($result->num_rows > 0) {
     //ibex 1
 	case "1":
 		setcookie("ibex_1_group", $ibex_1_group, time()+144000, "/", "psycholinguistics.ml");	
-		setrawcookie("next", 'https://www.psycholinguistics.ml/ibex_1/experiment.html', time()+144000, "/", "psycholinguistics.ml");			
-        $next = "https://www.psycholinguistics.ml/welcomeback.html";
+		$next = 'https://www.psycholinguistics.ml/ibex_1/experiment.html';			
         break;
     //ibex_2
 	case "2":
-		setrawcookie("next", 'https://www.psycholinguistics.ml/ibex_2/experiment.html', time()+144000, "/", "psycholinguistics.ml");			
-        $next = "https://www.psycholinguistics.ml/welcomeback.html";
+		$next = 'https://www.psycholinguistics.ml/ibex_2/experiment.html';			
         break;
 	//jspsych
     case "J":
-		setrawcookie("next", 'https://www.psycholinguistics.ml/index/jspsych.html', time()+144000, "/", "psycholinguistics.ml");		
+		$next = 'https://www.psycholinguistics.ml/index/jspsych.html';
 		setcookie("jspsych_group", $jspsych_group, time()+144000, "/", "psycholinguistics.ml");
 		setcookie("jspsych_progress", $jspsych_progress, time()+144000, "/", "psycholinguistics.ml");
-        $next = "https://www.psycholinguistics.ml/welcomeback.html";
         break;
     default:
         $next = "https://www.psycholinguistics.ml/index/server_error.html";
 		break;	
 	}
 		} else {
-		$next = "https://www.psycholinguistics.ml/questionnaire.html";
+		$next = "https://www.psycholinguistics.ml/";
 		}
 		
 	echo "Redirecting... <br /> If nothing happens, <a href='" . $next . "'> click here </a>";
