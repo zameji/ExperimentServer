@@ -4,16 +4,11 @@
 /* Define helper functions */
 /* ************************************ */
 
-function shuffle(array) {
-  for (let i = array.length - 1; i > 0; i--) {
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
     let j = Math.floor(Math.random() * (i + 1)); // random index from 0 to i
 
-    // swap elements array[i] and array[j]
-    // we use "destructuring assignment" syntax to achieve that
-    // you'll find more details about that syntax in later chapters
-    // same can be written as:
-    // let t = array[i]; array[i] = array[j]; array[j] = t
-    [array[i], array[j]] = [array[j], array[i]];
+    [arr[i], arr[j]] = [arr[j], arr[i]];
   }
 }
 
@@ -219,7 +214,7 @@ for (b = 0; b < blocks_list.length; b++) {
 						'</table>'+
 					'</div>'
 					
-	task.key_response = possible_responses[random_order.indexOf(1)][1];
+	task.key_answer = possible_responses[random_order.indexOf(1)][1];
     vocab_timed_experiment4.push(task)
 }
 vocab_timed_experiment4.push(end_block)
