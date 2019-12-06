@@ -156,11 +156,11 @@ var vocab_task = {
     trial_id: "task",
     exp_stage: "test"
   },
-  timing_stim: 1000,
+  timing_stim: 5000,
   response_ends_trial: true,
   timing_response: -1,
   timing_feedback_duration: 0,
-  timing_post_trial: 1,
+  timing_post_trial: 0,
   correct_text: "Correct",
   incorrect_text: "False"
 
