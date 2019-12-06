@@ -1,0 +1,110 @@
+<div class="wrapper">
+
+<!-- HEADER --> 
+<div ng-include src="'header.html'"></div>
+
+  <!-- MAIN -->
+<div id="startDocument" class="container">
+  <div id="docNavigation">
+  <ul>
+    <li ui-sref-active="active"><a ui-sref="doc({page: 'main-start.html'})"><b>Start</b></a></li>
+    <ul class="subNav" ng-show="parentPage==='start'">
+      <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'start-glossary.html'})">Glossary</a></li>
+      <br>
+    </ul>
+    <li ui-sref-active="active"><a ui-sref="doc({page: 'main-about.html'})"><b>About</b></a></li>
+    <ul class="subNav" ng-show="parentPage==='about'">
+      <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'about-cite.html'})">How to cite</a></li>
+	    <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'about-publications.html'})">Publications</a></li>
+	    <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'about-license.html'})">License</a></li>
+      <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'about-privacy-policy.html'})">Privacy Policy</a></li>
+	    <br>
+    </ul>
+    <li ui-sref-active="active"><a ui-sref="doc({page: 'main-community.html'})"><b>Community</b></a></li>
+    <ul class="subNav" ng-show="parentPage==='community'">
+      <li><i class="fa fa-angle-right"></i> <a href="https://github.com/tatool/tatool-web" target="_blank">Github</a></li>
+      <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'community-contribute.html'})">Contribute</a></li>
+      <br>
+    </ul>
+    <li ui-sref-active="active"><a ui-sref="doc({page: 'main-use.html'})"><b>Using Tatool Web</b></a></li>
+    <ul class="subNav" ng-show="parentPage==='use'">
+      <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'use-modules.html'})">Modules</a></li>
+      <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'use-editor.html'})">Editor</a></li>
+      <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'use-analytics.html'})">Analytics</a></li>
+      <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'use-admin.html'})">Admin</a></li>
+      <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'use-host.html'})">Host Stimuli</a></li>
+      <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'use-mturk.html'})">Amazon Mechanical Turk</a></li>
+      <br>
+    </ul>
+    <li ui-sref-active="active"><a ui-sref="doc({page: 'main-faq.html'})"><b>FAQ</b></a></li>
+    <li ui-sref-active="active"><a ui-sref="doc({page: 'main-lib.html'})"><b>Task Library</b></a></li>
+    <ul class="subNav" ng-show="parentPage==='lib'">
+      <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'lib-exp.html'})">Experimental Tasks</a></li>
+      <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'lib-train.html'})">Adaptive Training Tasks</a></li> 
+      <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'lib-acc.html'})">Accessory Executables</a></li>  
+      <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'lib-bat.html'})">Task Batteries</a></li>
+      <br>
+    </ul>
+    <li ui-sref-active="active"><a ui-sref="doc({page: 'main-dev.html'})"><b>Development</b></a></li>
+    <ul class="subNav" ng-show="parentPage==='dev'">
+      <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'dev-basics.html'})">Basics</a></li>
+      <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'dev-getting-started.html'})">Getting Started</a></li>  
+	    <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'dev-admin.html'})">Administration</a></li>
+      <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'dev-executable.html'})">Executable</a></li>
+	    <ul class="subNav">
+        <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'dev-executable-project.html'})">Setup Project</a></li>
+        <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'dev-executable-templates.html'})">Create Executable</a></li>
+		    <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'dev-executable-create-stimuli.html'})">Create Stimuli</a></li>
+        <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'dev-executable-read-stimuli.html'})">Read Stimuli</a></li>
+        <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'dev-executable-properties.html'})">Create Properties</a></li>
+        <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'dev-executable-display-stimuli.html'})">Display Stimuli</a></li>
+        <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'dev-executable-input.html'})">Record Input</a></li>
+        <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'dev-executable-data.html'})">Store Data</a></li>
+        <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'dev-executable-additional.html'})">Additional Steps</a></li>
+      </ul>
+      <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'dev-build.html'})">Build Tatool</a></li>
+      <br>
+    </ul>
+    <li ui-sref-active="active"><a ui-sref="doc({page: 'main-ref.html'})"><b>Reference</b></a></li>
+      <ul class="subNav" ng-show="parentPage==='ref'">
+        <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'ref-elements.html'})">Elements</a></li>
+        <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'ref-properties.html'})">Properties</a></li>
+        <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'ref-stimulus.html'})">Stimulus</a></li>
+        <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'ref-export.html'})">Data Export</a></li>
+        <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'ref-service.html'})">Utility Services</a></li>
+        <ul class="subNav">
+          <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'ref-service-dbUtils.html'})">dbUtils</a></li>
+          <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'ref-service-executableUtils.html'})">executableUtils</a></li>
+          <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'ref-service-statusPanelUtils.html'})">statusPanelUtils</a></li>
+          <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'ref-service-timerUtils.html'})">timerUtils</a></li>
+        </ul>
+        <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'ref-directive.html'})">Template Services</a></li>
+        <ul class="subNav">
+          <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'ref-directive-tatoolStimulus.html'})">Tatool Stimulus</a></li>
+          <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'ref-directive-tatoolInput.html'})">Tatool Input</a></li>
+          <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'ref-directive-tatoolGrid.html'})">Tatool Grid</a></li>
+        </ul>
+        <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'ref-handler.html'})">Handlers</a></li>
+        <ul class="subNav">
+		  <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'ref-handler-levelHandler.html'})">levelHandler</a></li>
+          <li ui-sref-active="active"><i class="fa fa-angle-right"></i> <a ui-sref="doc({page: 'ref-handler-trialCountHandler.html'})">trialCountHandler</a></li>
+        </ul>
+      </ul>
+  </ul>
+  </div>
+  
+  <div id="docContent">
+    <div ng-include="docPage" onload="highlightCode()"></div>
+  </div>
+
+</div>
+
+
+<br><br>
+
+<!-- Footer Helper -->
+<div class="push"></div>
+</div>
+
+<!-- FOOTER --> 
+<div ng-include src="'footer.html'"></div>

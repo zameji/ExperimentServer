@@ -1,0 +1,127 @@
+{
+	"projects": [
+		{ 
+			"name" : "tatool", 
+			"access" : "public", 
+			"email" : "info@tatool.ch",
+			"description" : "The official Tatool executables project.", 
+			"executables" : [
+				{ "customType" : "tatoolChoiceReaction", "description" : "Choice Reaction Time Task", "customProperties": [
+					{ "propertyName": "stimuliPath", "propertyType": "Path" },
+					{ "propertyName": "stimuliFile", "propertyType": "Resource" },
+					{ "propertyName": "showKeys", "propertyType": "Boolean" },
+					{ "propertyName": "timerEnabled", "propertyType": "Boolean" },
+					{ "propertyName": "displayDuration" },
+					{ "propertyName": "randomisation" }
+				] },
+				{ "customType" : "tatoolCountdown", "description" : "Countdown Task", "customProperties": [
+					{ "propertyName": "countdown" },
+					{ "propertyName": "interval" },
+					{ "propertyName": "goText" }
+				] },
+				{ "customType" : "tatoolMemorySpan", "description" : "Memory Span Task", "customProperties": [
+					{ "propertyName": "stimuliPath", "propertyType": "Path" },
+					{ "propertyName": "stimuliFile", "propertyType": "Resource" },
+					{ "propertyName": "suspendAfterEachItem", "propertyType": "Boolean" },
+					{ "propertyName": "displayDuration" },
+					{ "propertyName": "intervalDuration" },
+					{ "propertyName": "randomisation" },
+					{ "propertyName": "recallText" }
+				] },
+				{ "customType" : "tatoolMemorySpanTraining", "description" : "Memory Span Training Task", "customProperties": [
+					{ "propertyName": "suspendAfterEachItem", "propertyType": "Boolean" },
+					{ "propertyName": "displayDuration" },
+					{ "propertyName": "intervalDuration" },
+					{ "propertyName": "recallText" },
+					{ "propertyName": "levelHandler" },
+					{ "propertyName": "numMemoranda" }
+				] },
+				{ "customType" : "tatoolInstruction", "description" : "Instruction Task", "customProperties": [
+					{ "propertyName": "pages", "propertyType": "ArrayResource" },
+					{ "propertyName": "images", "propertyType": "ArrayResource" }
+				] },
+				{ "customType" : "tatoolObjectLocation", "description" : "Object Location Memory Task", "customProperties": [
+					{ "propertyName": "stimuliPath", "propertyType": "Path" },
+					{ "propertyName": "stimuliFile", "propertyType": "Resource" },
+					{ "propertyName": "displayDuration" },
+					{ "propertyName": "intervalDuration" },
+					{ "propertyName": "feedbackDuration" },
+					{ "propertyName": "randomisation" }
+				] },
+				{ "customType" : "tatoolCode", "description" : "Code Task", "customProperties": [
+					{ "propertyName": "inputText" },
+					{ "propertyName": "exactCodeLength" },
+					{ "propertyName": "minCodeLength" }
+				] },
+				{ "customType" : "tatoolShifting", "description" : "Shifting Task", "customProperties": [
+					{ "propertyName": "stimuliPath", "propertyType": "Path" },
+					{ "propertyName": "stimuliFile", "propertyType": "Resource" },
+					{ "propertyName": "showKeys", "propertyType": "Boolean" },
+					{ "propertyName": "timerEnabled", "propertyType": "Boolean" },
+					{ "propertyName": "displayDuration" },
+					{ "propertyName": "displayCueDuration" },
+					{ "propertyName": "randomisation" }
+				] },
+				{ "customType" : "tatoolSimon", "description" : "Simon Task", "customProperties": [
+					{ "propertyName": "stimuliPath", "propertyType": "Path" },
+					{ "propertyName": "stimuliFile", "propertyType": "Resource" },
+					{ "propertyName": "showKeys", "propertyType": "Boolean" },
+					{ "propertyName": "timerEnabled", "propertyType": "Boolean" },
+					{ "propertyName": "displayDuration" },
+					{ "propertyName": "displayCrossDuration" },
+					{ "propertyName": "randomisation" }
+				] },
+				{ "customType" : "tatoolCorsiBlock", "description" : "Corsi Block", "customProperties": [
+					{ "propertyName": "stimuliPath", "propertyType": "Path" },
+					{ "propertyName": "stimuliFile", "propertyType": "Resource" },
+					{ "propertyName": "displayDuration" },
+					{ "propertyName": "intervalDuration" },
+					{ "propertyName": "randomisation" }
+				] },
+				{ "customType" : "tatoolTowerOfFame", "description" : "Tower Of Fame", "customProperties": [
+					{ "propertyName": "stimuliPath", "propertyType": "Path" },
+					{ "propertyName": "stimuliFile", "propertyType": "Resource" },
+					{ "propertyName": "displayDuration" },
+					{ "propertyName": "intervalDuration" }
+				] },
+				{ "customType" : "tatoolTowerOfFameTraining", "description" : "Tower Of Fame (Training)", "customProperties": [
+					{ "propertyName": "stimuliPath", "propertyType": "Path" },
+					{ "propertyName": "stimuliFile", "propertyType": "Resource" },
+					{ "propertyName": "displayDuration" },
+					{ "propertyName": "intervalDuration" }
+				] },
+				{ "customType":"tatoolLocalRecognition", "description":"Local recognition / binding task", "customProperties":[
+        			{ "propertyName": "stimuliPath", "propertyType":"Path" },
+         			{ "propertyName": "stimuliFile", "propertyType":"Resource" },
+         			{ "propertyName": "displayDuration" },
+         			{ "propertyName": "intervalDuration" }
+      			] },
+				{ "customType":"tatoolMonitoring", "description":"Monitoring Task", "customProperties":[
+        			{ "propertyName": "stimuliPath", "propertyType":"Path" },
+         			{ "propertyName": "stimuliFile", "propertyType":"Resource" },
+         			{ "propertyName": "showKeys", "propertyType": "Boolean" },
+         			{ "propertyName": "displayDuration" },
+         			{ "propertyName": "gridRows" },
+         			{ "propertyName": "gridCols" },
+         			{ "propertyName": "cellHeight" },
+         			{ "propertyName": "cellWidth" }
+      			] },
+      			{ "customType":"tatoolItemRecognition", "description":"Item Recognition Task", "customProperties":[
+        			{ "propertyName": "stimuliPath", "propertyType":"Path" },
+         			{ "propertyName": "stimuliFile", "propertyType":"Resource" },
+         			{ "propertyName": "showKeys", "propertyType": "Boolean" },
+         			{ "propertyName": "encodingDuration" },
+         			{ "propertyName": "blankDuration" },
+         			{ "propertyName": "instructionDuration" }
+      			] }
+			]
+		},
+		{ 
+			"access" : "public", 
+			"name" : "tatool-stimuli", 
+			"email" : "info@tatool.ch",
+			"description" : "The official Tatool stimuli project containing different stimuli data for reuse.", 
+			"executables" : [ ]
+		}
+	]
+}

@@ -1,0 +1,109 @@
+<div class="wrapper">
+
+<!-- HEADER --> 
+<div ng-include src="'header.html'"></div>
+  
+  
+  <div class="container">
+
+    <div ng-class="{danger:'alert alert-danger alert-dismissible', success:'alert alert-success alert-dismissible', info:'alert alert-info alert-dismissible'}[alert.type]" role="alert" ng-show="alert.visible">
+      <button type="button" class="close" ng-click="hideAlert()"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <div ng-bind-html="alert.msg"></div>
+    </div>
+
+    <div class="actionHeader" ng-if="modules.length > 0">
+      <ui-select ng-model="selectedModule" theme="bootstrap" ng-disabled="disabled" on-select="chooseModule($item)">
+        <ui-select-match placeholder="Select module...">{{$select.selected.moduleName}}</ui-select-match>
+        <ui-select-choices repeat="module in modules | filter: $select.search | orderBy:'moduleName'">
+          <span ng-bind-html="module.moduleName | highlight: $select.search"></span>
+        </ui-select-choices>
+      </ui-select>
+    </div>
+
+    <div ng-if="currentModule">
+      <button type="button" class="btn btn-primary" ng-model="showDetail.email" btn-checkbox>
+        Show Email
+      </button>
+      <button type="button" class="btn btn-default" ng-click="downloadAllData(currentModule.moduleId)">
+        <i class="fa fa-download"></i> Download All
+      </button>
+      <button type="button" class="btn btn-default" ng-click="deleteModule(currentModule.moduleId)">
+        <i class="fa fa-trash-o"></i> Delete
+      </button>
+    </div>
+
+    <br>
+
+    <div ng-if="modules.length > 0 && !currentModule.userData">
+      <b>Select a module first</b>
+    </div>
+
+    <table ng-if="currentModule.userData" class="table table-bordered table-striped table-hover table-condensed table-small">
+      <thead>
+        <tr>
+          <th width="300">
+            <a href="" ng-click="sortType = 'code'; sortReverse = !sortReverse">
+              <b>Subject</b>
+              <span ng-show="sortType == 'code' && !sortReverse" class="fa fa-caret-down"></span>
+              <span ng-show="sortType == 'code' && sortReverse" class="fa fa-caret-up"></span>
+            </a>
+          </th>
+          <th>
+            <a href="" ng-click="sortType = 'extid'; sortReverse = !sortReverse">
+              <b>External ID</b>
+              <span ng-show="sortType == 'extid' && !sortReverse" class="fa fa-caret-down"></span>
+              <span ng-show="sortType == 'extid' && sortReverse" class="fa fa-caret-up"></span>
+            </a>
+          </th>
+          <th>
+            <a href="" ng-click="sortType = 'sessionToken'; sortReverse = !sortReverse">
+              <b>Session Token</b>
+              <span ng-show="sortType == 'sessionToken' && !sortReverse" class="fa fa-caret-down"></span>
+              <span ng-show="sortType == 'sessionToken' && sortReverse" class="fa fa-caret-up"></span>
+            </a>
+          </th>
+          <th>
+            <a href="" ng-click="sortType = 'maxSessionId'; sortReverse = !sortReverse">
+              <b>Sessions</b>
+              <span ng-show="sortType == 'maxSessionId' && !sortReverse" class="fa fa-caret-down"></span>
+              <span ng-show="sortType == 'maxSessionId' && sortReverse" class="fa fa-caret-up"></span>
+            </a>
+          </th>
+          <th>
+            <a href="" ng-click="sortType = 'updated_at'; sortReverse = !sortReverse">
+              <b>Last Update</b>
+              <span ng-show="sortType == 'updated_at' && !sortReverse" class="fa fa-caret-down"></span>
+              <span ng-show="sortType == 'updated_at' && sortReverse" class="fa fa-caret-up"></span>
+            </a>
+          </th>
+          <th width="110px"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="user in currentModule.userData | orderBy:sortType:sortReverse">
+          <td> <b>{{user.code}}</b> <span ng-if="showDetail.email && user.email !== ''">({{user.email}})</span></td>
+          <td align="center"> {{user.extid}}<br></td>
+          <td align="center"> {{user.sessionToken}}<br></td>
+          <td align="center"> {{user.maxSessionId}}<br></td>
+          <td align="center"> {{formatDate(user.updated_at)}}<br></td>
+          <td align="center"> 
+            <a ng-click="showDetails(user)" class="btn btn-tatool-off" uib-tooltip="Show user details" uib-tooltip-placement="top" uib-tooltip-animation="false"><i class="fa fa-search-plus"></i></a>
+            <a ng-click="downloadData(user, currentModule)" class="btn btn-tatool-off" uib-tooltip="Download user data for this Module. Download will open a Pop-up window." uib-tooltip-placement="top" uib-tooltip-animation="false"><i class="fa fa-download"></i></a>
+            <a ng-click="deleteUserData(user, currentModule)" class="btn btn-tatool-off" uib-tooltip="Delete all uploaded user data." uib-tooltip-placement="top" uib-tooltip-animation="false"><i class="fa fa-trash-o"></i></a>
+          </td>
+        </tr>
+        <tr ng-if="currentModule.userData.length === 0">
+          <td colspan="6"> No data available </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+
+  <!-- Footer Helper -->
+  <div class="push"></div>
+
+</div>
+
+<!-- FOOTER --> 
+<div ng-include src="'footer.html'"></div>

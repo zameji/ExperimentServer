@@ -1,0 +1,35 @@
+<h2>Executable</h2>
+
+<p>In this chapter, we'll guide you through all the steps required to create your own Executable. First, you'll learn about the basic architecture of an Executable. If you haven't done so yet, make sure to read the <a ui-sref="doc({page: 'start-glossary.html'})">Tatool Glossary</a>.</p>
+
+<hr class="hr-red">
+
+<h3 id="architecture">Executable Architecture<span class="pull-right"><a href ng-click="scrollTo('top')"><i class="fa fa-caret-up fa-lg"></i></a></span></h3>
+
+<p>The development of Executables in Tatool follows the architectural pattern of AngularJS, which is defined as an <a href="https://plus.google.com/+AngularJS/posts/aZNVhj355G2" target="_blank">MVW</a> (Model-View-Whatever) framework. This basically means that every Tatool Executable consists of three parts:</p>
+
+<p><b>Service (&asymp; Model)</b> - JavaScript<br>This is where the business logic of the Executable sits. Here we do all the heavy lifting, such as reading stimuli files, preparing stimuli for being displayed, and saving the trial (outcome) data.</p>
+
+<div class="hint">
+  <div class="icon red"><i class="fa fa-lightbulb-o fa-2x"></i></div> 
+  <div class="text">
+    <p>Every Service is created only once per <b>Session</b> execution. Therefore, variable values will persist from one trial execution to the next.</p>
+  </div>
+</div>
+
+<p><b>Template (= View)</b> - HTML<br>This is where the view logic of the Executable sits. The view is represented as a simple HTML page which defines where you want the stimuli to appear on the screen and how it should look like.</p>
+
+<p><b>Controller (= Whatever)</b> - JavaScript<br>With the Model and the View in place, the only thing missing is the "Whatever" part. In the case of a Tatool Executable, the Controller takes on the "Whatever" role. The Controller mediates between your Service (Model) and the Template (View). This mediation is bidirectional: On the one hand, the user can click on a button in your Template and the Controller will pick up this interaction and tell the Service about it. On the other hand, the Controller can ask the Service for a new stimulus and hand it over to the Template to display. Think of the Controller as the script deciding what to do when, but keep in mind, that most of the work is done by the Service.</p>
+
+<div class="hint">
+  <div class="icon red"><i class="fa fa-lightbulb-o fa-2x"></i></div> 
+  <div class="text">
+    <p>Every Controller is created once per <b>Executable</b> execution. Therefore, variable values will <i>not</i> persist from one trial execution to the next. Hence, use the Service for variable values you want to be persistent.</p>
+  </div>
+</div>
+
+<hr class="hr-red">
+
+<h3>What's Next?<span class="pull-right"><a href ng-click="scrollTo('top')"><i class="fa fa-caret-up fa-lg"></i></a></span></h3>
+
+<p>With this theoretical background, it's time to get started with setting up our Project. To proceed, please go to <a ui-sref="doc({page: 'dev-executable-project.html'})">Setup Project</a>.</p>

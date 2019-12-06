@@ -1,0 +1,22 @@
+.colorKeepTrack_emptyCell, .colorKeepTrack_emptyCellStatic {
+  font-size: 300%;
+  background-color: transparent;
+  border: 0;
+  display: table-cell;
+  vertical-align: middle;
+  margin: 0;
+  padding: 8px;
+}
+
+.colorKeepTrack_fillCell, .colorKeepTrack_fillCellStatic {
+  font-size: 300%;
+  background-color: transparent;
+  border: 0;
+  display: table-cell;
+  vertical-align: middle;
+  margin: 0;
+  padding: 8px;
+}
+.colorKeepTrack_fillCell:hover {
+  cursor: pointer;
+}

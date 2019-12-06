@@ -1,0 +1,34 @@
+{
+  "node": true,
+  "browser": true,
+  "devel": true,
+  "esnext": true,
+  "bitwise": true,
+  "camelcase": true,
+  "curly": true,
+  "eqeqeq": true,
+  "immed": true,
+  "indent": 2,
+  "latedef": false,
+  "newcap": true,
+  "noarg": true,
+  "quotmark": "single",
+  "regexp": true,
+  "undef": true,
+  "unused": false,
+  "strict": true,
+  "trailing": true,
+  "smarttabs": true,
+  "jquery": true,
+  "-W106": true,
+  "globals": {
+    "angular": false,
+	"Sha1": false,
+	"PouchDB": false,
+	"Module": false,
+	"Session": false,
+	"bootbox": false,
+	"download": false
+  }
+}
+

@@ -1,0 +1,238 @@
+<p><a ui-sref="doc({page: 'lib-exp.html'})">Experimental Tasks</a></p>
+<h2>Item Recognition</h2>
+
+<p>In the Item Recognition paradigm, participants have to memorise a list of stimuli (e.g., words or faces). In the subsequent recognition phase, the previously presented items are intermixed with new items. The task is to indicate which items were presented previously and which were not. The executable allows for presenting a text or image to signal the transition from the memorisation to the recognition phase of the task. </p>
+
+<ul id="docPageNav">
+  <li><i class="fa fa-angle-right"></i> <a href ng-click="scrollTo('executable')">Executable</a></li>
+  <li><i class="fa fa-angle-right"></i> <a href ng-click="scrollTo('properties')">Properties</a></li>
+  <li><i class="fa fa-angle-right"></i> <a href ng-click="scrollTo('stimuli')">Stimuli File</a></li>
+  <li><i class="fa fa-angle-right"></i> <a href ng-click="scrollTo('download')">Download</a></li>
+</ul>
+
+<hr class="hr-red">
+
+<h3 id="executable">Executable<span class="pull-right"><a href ng-click="scrollTo('top')"><i class="fa fa-caret-up fa-lg"></i></a></span></h3>
+
+<p>Use the following settings in the Module Editor for this type of task: </p>
+
+<table class="table table-condensed table-bordered">
+  <tbody>
+    <tr>
+      <td class="cellB">Project</td>
+      <td>tatool</td>
+    </tr>
+    <tr>
+      <td class="cellB">Executable Type</td>
+      <td>tatoolItemRecognition</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr class="hr-red">
+
+<h3 id="properties">Properties<span class="pull-right"><a href ng-click="scrollTo('top')"><i class="fa fa-caret-up fa-lg"></i></a></span></h3>
+
+<p>The following Properties can be provided in the Module Editor to change the behaviour of the task:</p>
+
+<table class="table table-striped table-condensed table-bordered">
+  <thead>
+    <tr>
+      <th>Property Name</th>
+      <th>Property Type</th>
+      <th>Default</th>
+      <th>Mandatory</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="cellB">stimuliFile</td>
+      <td>Resource</td>
+      <td>-</td>
+      <td class="cellB">Yes</td>
+      <td>A stimuli file expecting stimuli according to the Tatool Stimulus definition.</td>
+    </tr>
+    <tr>
+      <td class="cellB">stimuliPath</td>
+      <td>Path</td>
+      <td>-</td>
+      <td class="cellB">Yes</td>
+      <td>A stimuli path where to load any resources from (stimuli images, input key images).</td>
+    </tr>
+    <tr>
+      <td class="cellB">showKeys</td>
+      <td>Boolean</td>
+      <td>true</td>
+      <td>No</td>
+      <td>Shows or hides specified input keys.</td>
+    </tr>
+    <tr>
+      <td class="cellB">encodingDuration</td>
+      <td>String</td>
+      <td>3000</td>
+      <td>No</td>
+      <td>Display duration for each memorandum.</td>
+    </tr>
+    <tr>
+      <td class="cellB">blankDuration</td>
+      <td>String</td>
+      <td>250</td>
+      <td>No</td>
+      <td>Interval duration between memoranda.</td>
+    </tr>
+    <tr>
+      <td class="cellB">instructionDuration</td>
+      <td>String</td>
+      <td>4000</td>
+      <td>No</td>
+      <td>Display duration of the instruction between the memorisation and the recognition phase. </td>
+    </tr>
+  </tbody>
+</table>
+
+<hr class="hr-red">
+
+<h3 id="stimuli">Stimuli File<span class="pull-right"><a href ng-click="scrollTo('top')"><i class="fa fa-caret-up fa-lg"></i></a></span></h3>
+
+<p>This task requires a stimuli file to run. The stimuli file has to contain the columns specified in the Stimuli File Structure below.</p>
+
+<h4>Available Stimuli Files</h4>
+
+<table class="table table-striped table-condensed table-bordered">
+  <thead>
+    <tr>
+	  <th>Task</th>
+      <th>Project</th>
+      <th>Type</th>
+      <th>File Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr> 
+    <td class="cellB">Picture Recognition<td>
+      <td>uzh-luco-battery</td>
+      <td>stimuli</td>
+      <td><a href="https://raw.githubusercontent.com/tatool/tatool-web/master/app/projects/public/tatool-stimuli/stimuli/picRecognition.csv" target="_blank">picRecognition.csv</a></td>
+      <td>Memoranda are 15 difficult to verbalise pictures that are intermixed with 15 new pictures during the recognition phase.</td>
+    </tr>
+    <tr> 
+    <td class="cellB">Picture Recognition Practice<td>
+      <td>uzh-luco-battery</td>
+      <td>stimuli</td>
+      <td><a href="https://raw.githubusercontent.com/tatool/tatool-web/master/app/projects/public/tatool-stimuli/stimuli/picRecognition_practice.csv" target="_blank">picRecognition_practice.csv</a></td>
+      <td>3 practice pictures that are intermixed with 3 new pictures during the recognition phase.</td>
+    </tr>
+    <tr> 
+	  <td class="cellB">German Word Recognition<td>
+      <td>uzh-luco-battery</td>
+      <td>stimuli</td>
+      <td><a href="https://raw.githubusercontent.com/tatool/tatool-web/master/app/projects/public/uzh-luco-battery/stimuli/de_luco_linguistic_wordRecognition.csv" target="_blank">de_luco_linguistic_wordRecognition.csv</a></td>
+      <td>Memoranda are 30 German nouns that are either concrete or abstract and intermixed with 30 new words during the recognition phase.</td>
+    </tr>
+    <tr> 
+    <td class="cellB">German Word Recognition Practice<td>
+      <td>uzh-luco-battery</td>
+      <td>stimuli</td>
+      <td><a href="https://raw.githubusercontent.com/tatool/tatool-web/master/app/projects/public/uzh-luco-battery/stimuli/de_luco_linguistic_wordRecognition_practice.csv" target="_blank">de_luco_linguistic_wordRecognition_practice.csv</a></td>
+      <td>3 practice German nouns that are either concrete or abstract and intermixed with 3 new words during the recognition phase.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Stimuli File Structure</h4>
+
+<table class="table table-striped table-condensed table-bordered">
+  <thead>
+    <tr>
+      <th>Column Name</th>
+      <th>Column Values</th>
+      <th>Mandatory</th>
+      <th>Column Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="cellB">phase</td>
+      <td>(String)</td>
+      <td class="cellB">Yes</td>
+      <td>Determines the phase of the task. <br>
+        <strong>0:</strong> Instruction, can be used to present a text or image during the transition from the memorisation to the recognition phase.<br>
+        <strong>1:</strong> Memorisation.<br>
+        <strong>2:</strong> Recognition.</td>
+    </tr>
+    <tr>
+      <td class="cellB">stimulusValue[n]</td>
+      <td>(String)/(Image Filename)</td>
+      <td class="cellB">Yes</td>
+      <td>Value to display on screen. Can either be a text or an image.</td>
+    </tr>
+    <tr>
+      <td class="cellB">stimulusValueType</td>
+      <td>text/image/circle/square</td>
+      <td class="cellB">Yes</td>
+      <td>The stimulus value type for Tatool to know how to display it.</td>
+    </tr>
+    <tr>
+      <td class="cellB">correctResponse</td>
+      <td>(String)</td>
+      <td class="cellB">Yes</td>
+      <td>The correct response for this probe.</td>
+    </tr>
+    <tr>
+      <td class="cellB">keyCount</td>
+      <td>(String)</td>
+      <td>No</td>
+      <td>Number of keys to be added for this stimuli (by default 2; mandatory for more than 2 keys).</td>
+    </tr>
+    <tr>
+      <td class="cellB">keyCode[n]</td>
+      <td>(KeyCode)</td>
+      <td class="cellB">Yes</td>
+      <td>The correct <code>keyCode</code> to press from the list of available <code>KeyCodes</code> (see <a ui-sref="doc({page: 'ref-directive-tatoolInput.html'})">Tatool Input Service</a>).</td>
+    </tr>
+    <tr>
+      <td class="cellB">keyLabel[n]</td>
+      <td>(String)/(Image Filename)</td>
+      <td>No</td>
+      <td>An alternative label to display on the input key. Can either be text or an image filename.</td>
+    </tr>
+    <tr>
+      <td class="cellB">keyLabelType[n]</td>
+      <td>text/image</td>
+      <td>No</td>
+      <td>The internal Tatool key label type for Tatool to know how to display it.</td>
+    </tr>
+    <tr>
+      <td class="cellB">response[n]</td>
+      <td>(String)</td>
+      <td class="cellB">Yes</td>
+      <td>Response value assigned to this key.</td>
+    </tr>
+    <tr>
+      <td class="cellB">stimulusValueColor</td>
+      <td></td>
+      <td>No</td>
+      <td>Defines the colour of a text/circle/square stimulus. Can be set via color name (e.g., <code>red</code>) or via hexadecimal color codes (e.g., <code>#CD0000</code>).</td>
+    </tr>
+    <tr>
+      <td class="cellB">stimulusType</td>
+      <td></td>
+      <td>No</td>
+      <td>Condition of this stimulus.</td>
+    </tr>
+    <tr>
+      <td class="cellB">probeType</td>
+      <td></td>
+      <td>No</td>
+      <td>Type of this probe.</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr class="hr-red">
+
+<h3 id="download">Download<span class="pull-right"><a href ng-click="scrollTo('top')"><i class="fa fa-caret-up fa-lg"></i></a></span></h3>
+
+<p>You can access the source code (Service, Controller, Template, CSS) for this Executable in our <a href="https://github.com/tatool/tatool-web/tree/master/app/projects/public/tatool/executables" target="_blank">Github Repository</a>.</p>

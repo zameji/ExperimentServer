@@ -1,0 +1,97 @@
+<h2>Editor</h2>
+
+<p>The Editor is a convenient way to quickly and easily create experiments. The Editor interface consists of two parts, the module navigation on the left side and the module/element settings on the right side. Move your mouse over the Tooltip icons to get brief descriptions of each field.</p>
+
+<ul id="docPageNav">
+  <li><i class="fa fa-angle-right"></i> <a href ng-click="scrollTo('settings')">Module Settings</a></li>
+  <li><i class="fa fa-angle-right"></i> <a href ng-click="scrollTo('elements')">Elements & Handlers</a></li>
+  <li><i class="fa fa-angle-right"></i> <a href ng-click="scrollTo('executables')">Executables</a></li>
+  <li><i class="fa fa-angle-right"></i> <a href ng-click="scrollTo('publish')">Publish</a></li>
+  <li><i class="fa fa-angle-right"></i> <a href ng-click="scrollTo('export')">Export & Import</a></li>
+</ul>
+
+<hr class="hr-red">
+
+<h3 id="settings">Module Settings<span class="pull-right"><a href ng-click="scrollTo('top')"><i class="fa fa-caret-up fa-lg"></i></a></span></h3>
+<p>The module setting comprise the basic module information (name, author, label), and the module behaviour settings. All module configurations are stored in <a href="http://en.wikipedia.org/wiki/JSON" target = "_blank">JSON</a> format. To easily exchange modules with other researchers, you can download a JSON file by clicking on the <b>Download</b> button at the bottom of the Editor dialog.</p>
+
+<p><img src="../../images/doc/screen-editor-module.png" class="internal"><br>
+  <i>Module Navigation (left) and Settings (right)</i></p>
+
+<hr class="hr-red">
+
+<h3 id="elements">Elements and Handlers<span class="pull-right"><a href ng-click="scrollTo('top')"><i class="fa fa-caret-up fa-lg"></i></a></span></h3>
+
+<p><a ui-sref="doc({page: 'ref-elements.html'})">Elements</a> (List or Dual Elements) group your Executables and can be executed for <i>n</i> iterations. Setting a custom Label for your Elements allows you to better distinguish between multiple Elements. You can choose between sequential or random Order of execution in case of a List Element. In case of random order, the order will be randomised at the beginning of every iteration. Take a look at <a ui-sref="doc({page: 'ref-elements.html'})">elements reference</a> to find an example on how to use Condition to dynamically enable/disable the given Element.</p>
+
+  <p><a ui-sref="doc({page: 'ref-handler.html'})">Handlers</a> are also set on the level of elements, which makes their functionality available to any child Executables or elements (e.g., another List Element). To see what properties can be set for the handlers, have a look at the <a ui-sref="doc({page: 'ref-handler.html'})">handlers reference</a>.</p>
+
+<p><img src="../../images/doc/screen-editor-element.png" class="internal"><br>
+  <i>Element and Handler Settings</i></p>
+
+<p><img src="../../images/doc/screen-editor-handler.png" class="internal"><br>
+  <i>Specification of Handler Settings and Properties</i></p>
+
+<hr class="hr-red">
+
+<h3 id="executables">Executables<span class="pull-right"><a href ng-click="scrollTo('top')"><i class="fa fa-caret-up fa-lg"></i></a></span></h3>
+
+<p>Executables can be understood as experimental paradigms. They are hence the most important component of your experiment. Browse our <a ui-sref="doc({page: 'main-lib.html'})">Task Library</a> to see which tasks are available. All of these tasks allow you to use your own stimuli, and most of them are so highly generic that you can tailor them to your needs tweaking their properties. The properties are listed for each task in the Task Library.</p>
+
+<p>If you want to use your own stimuli, you'll have to make them available somewhere where you can access them directly with an URL. If you don't have your own webhost, you can follow <a ui-sref="doc({page: 'use-host.html'})">this tutorial</a> to setup a free account with Cloudinary.</p>
+
+<p>You can also <a ui-sref="doc({page: 'main-dev.html'})">develop your own tasks</a>. If you're willing to share your Executables with other researchers, we'll be happy to host them for you for free! Otherwise, you can either run Tatool in offline lab mode (see <a ui-sref="doc({page: 'dev-getting-started.html'})">here</a>), host it on your own web server running Tatool, or we can host it for you in exchange for a small donation helping to cover our fixed hosting costs.</p>
+
+<p><img src="../../images/doc/screen-editor-executable.png" class="internal"><br>
+  <i>Specification of Executables And Their Properties</i></p>
+
+<hr class="hr-red">
+
+<h3 id="publish">Publish<span class="pull-right"><a href ng-click="scrollTo('top')"><i class="fa fa-caret-up fa-lg"></i></a></span></h3>
+
+<p>The Tatool Web Repository allows you to go live with your experiment with a few clicks. After activating the Repository for your module, you can publish your module as <b>Public</b> or <b>Private</b>.</p>
+
+<p>A <b>Public</b> module can be executed by all Tatool Web users. Public modules come also with a URL (click on <i>Show URL</i> to get your custom link) that allows for sharing your experiment with any prospective participants without having them to sign up on Tatool Web (e.g. for <b>Amazon Mechanical Turk</b>). In order to identify people using the URL you can provide a custom extid url parameter specific to the user.</p>
+
+<p>A <b>Private</b> module restricts visibility and execution of the module to a custom-defined list of Tatool Web users. After publishing the module, you can invite Tatool Web users by clicking on the <i>Invite</i> button next to the <i>Publish</i> button. The email addresses entered in the invite screen need to be Tatool Web accounts. As soon as the invited user logs into Tatool Web he/she will see a pending invitation for a Module. After accepting the invitation you'll see the change od the invitation status on the invite screen.<br>
+Private modules come also with a URL (click on <i>Show URL</i> to get your custom link) that allows for sharing your experiment with any prospective participants without having them to sign up on Tatool Web (e.g. for <b>Amazon Mechanical Turk</b>). In order to identify people using the URL you can provide a custom extid url parameter specific to the user.</p>
+
+<p>You can <i>Edit</i> your module at any time, but have to <i>Publish</i> it again to make the changes available to your users. Once you published such changes, users that have added your module first have to update it before they can execute it again. This allows for dynamic adjustments as it might be required during piloting your experiments.</p>
+
+<div class="hint">
+  <div class="icon red"><i class="fa fa-lightbulb-o fa-2x"></i></div> 
+  <div class="text">
+    <p>For most scenarions the easiest way to run an experiment with multiple participants is to publish your module as <b>Private</b> and use the URL method with a user specific <i>extid</i> parameter to run the module on different computers. This way participants can just click on a URL to take part in your experiment, and you can clearly identify them by their <i>extid</i>.</p>
+  </div>
+</div>
+
+<p><b>Note:</b> To make sure that we have sufficient web space for everyone, we currently limit the number of simultaneously published modules per researcher to <b>3</b> at a time.</p>
+
+<p><img src="../../images/doc/screen-editor-publish.png" class="internal"><br>
+  <i>Publishing Modules</i></p>
+
+<table>
+  <tr>
+    <td width="300">
+  <p><img src="../../images/doc/screen-editor-publish-public.png" class="internal"><br>
+  <i>Public Module</i></p>
+</td>
+<td width="300">
+  <p><img src="../../images/doc/screen-editor-publish-private.png" class="internal"><br>
+  <i>Private Module</i></p>
+</td>
+</table>
+
+<hr class="hr-red">
+
+<h3 id="export">Export & Import<span class="pull-right"><a href ng-click="scrollTo('top')"><i class="fa fa-caret-up fa-lg"></i></a></span></h3>
+
+<p>You can export your module's settings as a JSON file, and import a module from a JSON file. To duplicate a module, simply export it to JSON and then import that file. You can then make whatever changes are necessary.</p>
+
+<p><b>How to export/backup your module as JSON</b><br>
+On the Editor screen, click on the <i>Edit</i> button of the module you want to export, then within the Edit interface for that module, click the <i>Download</i> button at the bottom of the General Settings view. This will allow you to save a *.json file which contains all of your module's settings.</p>
+
+<p>Note that the <i>Export</i> button on the Editor screen is for exporting your data, not your module's settings.</p>
+
+<p><b>How to import a module from JSON</b><br>
+The <i>Open</i> button at the top right of the Editor screen allows you to create a module from a *.json file, such as one that you previously exported. An imported Module will always create a new entry and never replace an existing module (even if they have the same name).</p>

@@ -1,0 +1,161 @@
+<h2>dbUtils</h2>
+
+<p>The <code>dbUtils</code> service offers methods that allow you to interact with the Tatool database. The most common methods are used to save and access Module/Session Properties and Trials.
+</p>
+
+<ul id="docPageNav">
+  <li><i class="fa fa-angle-right"></i> <a href ng-click="scrollTo('property')">Property Methods</a></li>
+  <li><i class="fa fa-angle-right"></i> <a href ng-click="scrollTo('trial')">Trial Methods</a></li>
+</ul>
+
+<hr class="hr-red">
+
+<h3 id="property">Property Methods<span class="pull-right"><a href ng-click="scrollTo('top')"><i class="fa fa-caret-up fa-lg"></i></a></span></h3>
+
+<p><b>When to use Module or Session Properties</b><br>
+Module Properties should be used to store values that are unique to a Module. Session Properties should be used to store values that are unique to a Session.</p>
+<hr>
+
+<p><b class="red">setModuleProperty(element, propertyKey, propertyValue)</b> - (no return value)</p>
+<p>Stores unique string values on the Module level, thereby allowing access from different parts of the Module or to save values that can be used across multiple sessions (e.g., at the beginning of a new session, set the current difficulty level of a specific task to the last level achieved in that task in the previous session).</p>
+
+<p><b>Parameters</b><br>
+<code>element</code>: The object this property belongs to, usually the Executable or Handler object storing the property (<code>this</code>).<br>
+<code>propertyKey</code>: The key of the Property (String).<br>
+<code>propertyValue</code>: The value of the Property (String).
+</p>
+
+<p><b>Example</b></p>
+<pre><code class="language-javascript">// store the current level as a Module Property with the name currentLevel of this Executable
+dbUtils.setModuleProperty(this, 'currentLevel', 4);
+</code></pre>
+
+<hr>
+
+<p><b class="red">getModuleProperty(element, propertyKey)</b> - returns the Module Property value as a String</p>
+<p>Accesses a Module Property of a specific element.</p>
+
+<p><b>Parameters</b><br>
+<code>element</code>: The object this property belongs to, usually the Executable or Handler object storing the property (<code>this</code>).<br>
+<code>propertyKey</code>: The key of the Property (String).
+</p>
+
+<p><b>Example</b></p>
+<pre><code class="language-javascript">// get the last level saved to a Module Property with the name currentLevel of this Executable
+var currentLevel = dbUtils.getModuleProperty(this, 'currentLevel');
+</code></pre>
+
+<hr>
+
+<p><b class="red">setSessionProperty(element, propertyKey, propertyValue)</b> - (no return value)</p>
+<p>Stores unique string values on the Session level, thereby allowing access from different parts of the Module or to save values that are specific to a Session.</p>
+
+<p><b>Parameters</b><br>
+<code>element</code>: The object this property belongs to, usually the Executable or Handler object storing the property (<code>this</code>).<br>
+<code>propertyKey</code>: The key of the Property (String).<br>
+<code>propertyValue</code>: The value of the Property (String).
+</p>
+
+<p><b>Example</b></p>
+<pre><code class="language-javascript">// store the current level as a Session Property with the name currentLevel of this Executable
+dbUtils.setSessionProperty(this, 'currentLevel', 4);
+</code></pre>
+
+<hr>
+
+<p><b class="red">getSessionProperty(element, propertyKey)</b> - returns the session property value as a string</p>
+<p>Accesses a Session Property of a specific element.</p>
+
+<p><b>Parameters</b><br>
+<code>element</code>: The object this property belongs to, usually the Executable or Handler object storing the property (<code>this</code>).<br>
+<code>propertyKey</code>: The key of the Property (String)
+</p>
+
+<p><b>Example</b></p>
+<pre><code class="language-javascript">// get the last level saved to a Session Property with the name currentLevel of this Executable
+var currentLevel = dbUtils.getSessionProperty(this, 'currentLevel');
+</code></pre>
+
+<hr>
+
+<p><b class="red">getSessionNr()</b> - returns the current session number</p>
+<p>Get the current session number.</p>
+
+<p><b>Example</b></p>
+<pre><code class="language-javascript">
+var sessionNr = dbUtils.getSessionNr();
+</code></pre>
+
+<hr>
+
+<p><b class="red">getTrialNr()</b> - returns the current trial number</p>
+<p>Get the current trial number of the session.</p>
+
+<p><b>Example</b></p>
+<pre><code class="language-javascript">
+var trialNr = dbUtils.getTrialNr();
+</code></pre>
+
+<hr>
+
+<p><b class="red">getSessionCondition()</b> - returns the current session condition</p>
+<p>Get the current session condition.</p>
+
+<p><b>Example</b></p>
+<pre><code class="language-javascript">
+var condition = dbUtils.getSessionCondition();
+</code></pre>
+
+<hr>
+
+<p><b class="red">setSessionCondition()</b> - sets the session condition</p>
+<p>Sets the current session condition that is being used for every List/Dual Iterator to decide whether it should be run or skipped.</p>
+
+<p><b>Example</b></p>
+<pre><code class="language-javascript">
+var condition = 'group1';
+dbUtils.setSessionCondition(condition);
+</code></pre>
+
+<hr>
+
+<p><b class="red">getHandler(handlerName)</b> - returns the Handler object</p>
+<p>In order to access the Properties created by a handler (e.g. levelHandler), you'll need to get the handler element object. The handler object can be used as the first parameter for the get/set Property methods.</p>
+
+<p><b>Parameters</b><br>
+<code>handlerName</code>: The name of the handler as defined in the Module Editor.
+</p>
+
+<p><b>Example</b></p>
+<pre><code class="language-javascript">// get the Level Handler in order to get access to its Properties (e.g. currentLevel)
+var levelHandler = dbUtils.getHandler('myLevelHandler');
+var currentLevel = dbUtils.getModuleProperty(levelHandler, 'currentLevel');
+</code></pre>
+
+
+<hr class="hr-red">
+
+<h3 id="trial">Trial Methods<span class="pull-right"><a href ng-click="scrollTo('top')"><i class="fa fa-caret-up fa-lg"></i></a></span></h3>
+
+<hr>
+
+<p><b class="red">saveTrial(trial, showStatusFeedback)</b> - returns the trial object that has been saved</p>
+<p>Saves a Trial object to the database. A Trial object represents one line in your data export.</p>
+
+<p><b>Parameters</b><br>
+<code>trial</code>: The Trial object that should be saved to the database.<br>
+<code>showStatusFeedback</code>: Boolean value determining whether the feedback status panel should be updated (default: <code>true</code>).</p>
+
+<p><b>Example</b></p>
+<pre><code class="language-javascript">// create new trial object
+var trial = {};
+trial.stimulusValue = 'A';
+trial.correcResponse = 'B';
+trial.givenResponse = 'C';
+trial.score = 0;
+
+// save the trial and stop the executable when done
+dbUtils.saveTrial(trial).then(executableUtils.stop);
+</code></pre>
+
+<hr>

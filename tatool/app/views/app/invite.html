@@ -1,0 +1,50 @@
+<div id="inviteModal">
+  <div class="modal-header">
+    <div class="modal-title">
+      <span><b>Module Invites</b> <a class="info" tooltip="Invite registered tatool users to install your module." tooltip-placement="right"><i class="fa fa-info-circle"></i></a></span>
+      <button type="button" class="bootbox-close-button close" style="margin-left: 20px" aria-hidden="true" ng-click="ok()">×</button>
+
+      <form class="form-inline pull-right" role="form" ng-submit="inviteUser($event)" ng-class="{'has-error': inputError}">
+        <div class="input-group">
+          <input type="email" class="form-control" id="inviteEmail" ng-model="user.email" auto-focus placeholder="Enter Email...">
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-success button-up" ng-click="inviteUser($event)"><i class="fa fa-plus"></i></button>
+          </span>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-body">
+
+    <div ng-class="{danger:'alert alert-danger alert-dismissible', success:'alert alert-success alert-dismissible', info:'alert alert-info alert-dismissible'}[alert.type]" role="alert" ng-show="alert.visible">
+      <button type="button" class="close" ng-click="hideAlert()"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <div ng-bind-html="alert.msg"></div>
+    </div>
+
+    
+
+    <table class="table table-bordered table-striped table-hover table-condensed table-small">
+          <thead>
+            <tr>
+              <th><b>User</b></th>
+              <th style="text-align:center"><b>Status</b></th>
+              <th style="text-align:center"><b>Date</b></th>
+              <th> </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="user in module.invites.users" ng-class="{'success': user.status === 'accepted', 'danger': user.status === 'declined'}" >
+              <td> {{user.email}}</td>
+              <td align="center"> {{user.status}} </td>
+              <td align="center"> {{formatDate(user.date)}} </td>
+              <td> 
+                <a class="fakeButton" ng-click="removeUser(user)">Remove</a> 
+              </td>
+            </tr>
+          </tbody>
+        </table>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-tatool-off" ng-click="ok()">Close</button>
+  </div>
+</div>

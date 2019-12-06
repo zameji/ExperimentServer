@@ -1,0 +1,141 @@
+<p><a ui-sref="doc({page: 'lib-acc.html'})">Accessory Executables</a></p>
+<h2>Instruction</h2>
+
+<p>The primary purpose of this Executable is to display slides with instructions, but it can be used to present any arbitrary content using images or HTML files. It offers a pagination navigation allowing a user to either go to the next or previous slide, or to jump to a specific slide. The Instruction Executable currently doesn't allow HTML pages from external resources.</p>
+
+<ul id="docPageNav">
+  <li><i class="fa fa-angle-right"></i> <a href ng-click="scrollTo('executable')">Executable</a></li>
+  <li><i class="fa fa-angle-right"></i> <a href ng-click="scrollTo('properties')">Properties</a></li>
+  <li><i class="fa fa-angle-right"></i> <a href ng-click="scrollTo('stimuli')">Stimuli File</a></li>
+  <li><i class="fa fa-angle-right"></i> <a href ng-click="scrollTo('html')">HTML Customization</a></li>
+  <li><i class="fa fa-angle-right"></i> <a href ng-click="scrollTo('download')">Download</a></li>
+</ul>
+
+<hr class="hr-red">
+
+<h3 id="executable">Executable<span class="pull-right"><a href ng-click="scrollTo('top')"><i class="fa fa-caret-up fa-lg"></i></a></span></h3>
+
+<p>Use the following settings in the Module Editor for this type of task: </p>
+
+<table class="table table-condensed table-bordered">
+  <tbody>
+    <tr>
+      <td class="cellB">Project</td>
+      <td>tatool</td>
+    </tr>
+    <tr>
+      <td class="cellB">Executable Type</td>
+      <td>tatoolInstruction</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr class="hr-red">
+
+<h3 id="properties">Properties<span class="pull-right"><a href ng-click="scrollTo('top')"><i class="fa fa-caret-up fa-lg"></i></a></span></h3>
+
+<p>The Instruction Executable can either draw from an array of HTML pages or an array of images, but not both. The following Properties can be provided in the Module Editor to change the behaviour of the task: </p>
+
+<table class="table table-striped table-condensed table-bordered">
+  <thead>
+    <tr>
+      <th>Property Name</th>
+      <th>Property Type</th>
+      <th>Default</th>
+      <th>Mandatory</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="cellB">images</td>
+      <td>Array (Resource)</td>
+      <td>-</td>
+      <td class="cellB">(Yes)</td>
+      <td>An array of project/external image resources (png, jpg, gif). The sequence of the items in the Array represents the display sequence.</td>
+    </tr>
+    <tr>
+      <td class="cellB">pages</td>
+      <td>Array (Resource)</td>
+      <td>-</td>
+      <td class="cellB">(Yes)</td>
+      <td>An array of project HTML resources. External HTML Resources are currently not supported. The sequence of the items in the Array represents the display sequence.</td>
+    </tr>
+    <tr>
+      <td class="cellB">showDigitPagination</td>
+      <td>Boolean</td>
+      <td>true</td>
+      <td class="cellB">(No)</td>
+      <td>Allows you to hide the digit buttons in the pagination navigation.</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr class="hr-red">
+
+<h3 id="stimuli">Stimuli File<span class="pull-right"><a href ng-click="scrollTo('top')"><i class="fa fa-caret-up fa-lg"></i></a></span></h3>
+
+<p>This task does not support the use of a stimuli file.</p>
+
+<hr class="hr-red">
+
+<h3 id="html">HTML customisation<span class="pull-right"><a href ng-click="scrollTo('top')"><i class="fa fa-caret-up fa-lg"></i></a></span></h3>
+
+<p>The Instruction Executable offers a set of template variables that can be embedded in your HTML instructions to allow for dynamic content. The following template variables are currently supported:</p>
+
+<table class="table table-striped table-condensed table-bordered">
+  <thead>
+    <tr>
+      <th>Variable Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="cellB">moduleName</td>
+      <td>The name of the current Module.</td>
+    </tr>
+    <tr>
+      <td class="cellB">moduleAuthor</td>
+      <td>The author of the current Module.</td>
+    </tr>
+    <tr>
+      <td class="cellB">moduleVersion</td>
+      <td>The version of the current Module.</td>
+    </tr>
+    <tr>
+      <td class="cellB">sessionNr</td>
+      <td>The current Session ID.</td>
+    </tr>
+    <tr>
+      <td class="cellB">moduleProperties</td>
+      <td>JavaScript object representing all available moduleProperties. For example, to access the Module Property <code>currentLevel</code> of a level handler with the name <code>level</code> you would use <code>moduleProperties.level.currentLevel</code>.</td>
+    </tr>
+    <tr>
+      <td class="cellB">sessionProperties</td>
+      <td>JavaScript object representing all available sessionProperties. For example, to access the Session Property <code>myTrialNo</code> of an Executable with the name <code>myExecutable</code> you would use <code>sessionProperties.myExecutable.myTrialNo</code>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Example HTML</h4>
+<pre><code class="language-markup">&lt;div id="tatoolFormat">
+
+  &lt;h1>Welcome to {{moduleName}}&lt;/h1>
+  
+  &lt;p>
+    &lt;center>
+      You're currently in Session &lt;span class='highlight_red'>{{sessionNr}}&lt;/span> of 10 Sessions.
+    &lt;/center>
+  &lt;/p>
+
+  &lt;img ng-src="welcome.gif">
+
+&lt;/div>
+</code></pre>
+
+<hr class="hr-red">
+
+<h3 id="download">Download<span class="pull-right"><a href ng-click="scrollTo('top')"><i class="fa fa-caret-up fa-lg"></i></a></span></h3>
+
+<p>You can access the source code (Service, Controller, Template, CSS) for this Executable in our <a href="https://github.com/tatool/tatool-web/tree/master/app/projects/public/tatool/executables" target="_blank">GitHub repository</a>.</p>
