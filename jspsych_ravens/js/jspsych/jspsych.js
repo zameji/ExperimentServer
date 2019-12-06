@@ -73,8 +73,8 @@ var jsPsych = (function() {
       DOM_target = window[opts.display_element]()
     } else {
       DOM_target = opts.display_element;
-    }    
-    
+    }
+
     // add CSS class to DOM_target
     DOM_target.addClass('jspsych-display-element');
 
@@ -299,7 +299,7 @@ var jsPsych = (function() {
       if (timeline.length == 0) {
         return trial_data;
       } else {
-        if (current_location >= timeline.length) {
+        if (current_location >= timeline.length || jsPsych.totalTime() >= 1*60*1000) {
           return null;
         } else {
           return timeline[current_location].trial();

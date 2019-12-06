@@ -48,7 +48,7 @@ function assessPerformance() {
 	var avg_rt = -1
 	if (rt_array.length !== 0) {
 		avg_rt = math.median(rt_array)
-	} 
+	}
 	//calculate whether response distribution is okay
 	var responses_ok = true
 	Object.keys(choice_counts).forEach(function(key, index) {
@@ -119,7 +119,7 @@ var getInstructFeedback = function() {
     return '<div class = centerbox><p class = center-block-text>' + feedback_instruct_text +
       '</p></div>'
   }
-  
+
 
   /* ************************************ */
   /* Define experimental variables */
@@ -170,7 +170,7 @@ for (c = 0; c < task_colors.length; c++) {
 
 jsPsych.pluginAPI.preloadImages(images)
 //Set up experiment stimulus order
-var practice_trials = makeTrialList(36, stim, data)  //36
+var practice_trials = makeTrialList(5, stim, data)  //36
 for (i = 0; i < practice_trials.length; i++) {
   practice_trials[i].key_answer = practice_trials[i].data.correct_response
 }

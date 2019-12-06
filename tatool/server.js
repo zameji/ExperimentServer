@@ -5,7 +5,7 @@ var os = require('os');
 var path = require('path');
 var bodyParser = require('body-parser');
 var logger = require('morgan');
-var mongoose = require('mongoose'); 
+var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 var passport = require('passport');
 var expressJwt = require('express-jwt');
@@ -15,7 +15,7 @@ var projects = require('./projects');
 
 // server setup
 var app = express();
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 9099);
 app.set('env', process.env.NODE_ENV || process.argv[3] || 'prod');
 app.set('jwt_secret', process.env.JWT_SECRET || 'secret');
 
