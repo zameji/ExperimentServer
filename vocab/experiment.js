@@ -156,7 +156,7 @@ var vocab_task = {
     trial_id: "task",
     exp_stage: "test"
   },
-  timing_stim: 10,
+  timing_stim: 1000,
   response_ends_trial: true,
   timing_response: -1,
   timing_feedback_duration: 0,
