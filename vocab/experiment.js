@@ -18,7 +18,7 @@ var getInstructFeedback = function() {
     return '<div class = centerbox><p class = center-block-text>' + feedback_instruct_text +
       '</p></div>'
   }
-  
+
   /* ************************************ */
   /* Define experimental variables */
   /* ************************************ */
@@ -156,7 +156,7 @@ var vocab_task = {
     trial_id: "task",
     exp_stage: "test"
   },
-  timing_stim: -1,
+  timing_stim: 60 * 1000,
   response_ends_trial: true,
   timing_response: -1,
   timing_feedback_duration: 1,
@@ -177,10 +177,10 @@ vocab_timed_experiment.push(instruction_node);
 for (b = 0; b < blocks_list.length; b++) {
 
 	cue = blocks_list[b][0]
-	
+
 	random_order = [1,2,3,4]
 	shuffle(random_order)
-	
+
 	f_choice = blocks_list[b][random_order[0]]
 	g_choice = blocks_list[b][random_order[1]]
 	h_choice = blocks_list[b][random_order[2]]
@@ -195,7 +195,7 @@ for (b = 0; b < blocks_list.length; b++) {
 							'<tr class = block-text> <td><b>J.</b> </td><td>' + j_choice + '</td></tr>' +
 						'</table>'+
 					'</div>'
-	
+
 	task.key_answer = possible_responses[random_order.indexOf(1)][1];
     vocab_timed_experiment.push(task)
 }
