@@ -177,7 +177,7 @@ var vocab_task = {
   timing_stim: 60 * 1000,
   response_ends_trial: true,
   timing_response: -1,
-  timing_feedback_duration: 1,
+  timing_feedback_duration: 0,
   timing_post_trial: 1,
   correct_text: "Correct",
   incorrect_text: "False"
