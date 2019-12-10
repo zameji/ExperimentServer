@@ -59,28 +59,28 @@ var correct_responses = jsPsych.randomization.repeat([
 	["right arrow", 39]
 ], 1)
 var test_stimuli = [{
-	image: '<div class = centerbox><div class = flanker-text>ffhff</div></div>',
+	image: '<div class = centerbox><div class = flanker-text> < < > < < </div></div>',
 	data: {
 		correct_response: 72,
 		condition: 'incompatible',
 		trial_id: 'stim'
 	}
 }, {
-	image: '<div class = centerbox><div class = flanker-text>hhfhh</div></div>',
+	image: '<div class = centerbox><div class = flanker-text> > > < > > </div></div>',
 	data: {
 		correct_response: 70,
 		condition: 'incompatible',
 		trial_id: 'stim'
 	}
 }, {
-	image: '<div class = centerbox><div class = flanker-text>hhhhh</div></div>',
+	image: '<div class = centerbox><div class = flanker-text> > > > > > </div></div>',
 	data: {
 		correct_response: 72,
 		condition: 'compatible',
 		trial_id: 'stim'
 	}
 }, {
-	image: '<div class = centerbox><div class = flanker-text>fffff</div></div>',
+	image: '<div class = centerbox><div class = flanker-text> < < < < < </div></div>',
 	data: {
 		correct_response: 70,
 		condition: 'compatible',
@@ -88,8 +88,8 @@ var test_stimuli = [{
 	}
 }];
 
-practice_len = 12 //5
-exp_len = 100 //5
+practice_len = 5 //5
+exp_len = 50 //5
 var practice_trials = jsPsych.randomization.repeat(test_stimuli, practice_len / 4, true);
 var test_trials = jsPsych.randomization.repeat(test_stimuli, exp_len / 4, true);
 
@@ -153,7 +153,7 @@ var feedback_instruct_block = {
 var instructions_block = {
 	type: 'poldrack-instructions',
 	pages: [
-		"<div class = centerbox><p class = block-text>In this experiment you will see a string of five letters, composed of f's and h's. For instance, you might see 'fffff' or 'hhfhh'. Your task is to respond by pressing the key corresponding to the <strong>middle</strong> letter. So if you see 'ffhff' you would press the 'h' key.</p><p class = block-text>Please answer quickly but accurately.</p><p class = block-text>After each respond you will get feedback about whether you were correct or not. We will start with a short practice set.</p></div>"
+		"<div class = centerbox><p class = block-text>In this experiment you will see a string of five arrows, either pointing left (<) or pointing right (>). For instance, you might see '< < < < <' or '> > < > >'. Your task is to respond by pressing the key corresponding to the <strong>middle</strong> arrow. Press 'f' for a LEFT arrow (<) and 'h' for a RIGHT arrow (>). So if you see '< < > < <' you would press the 'h' key.</p><p class = block-text>Please answer quickly but accurately.</p><p class = block-text>After each respond you will get feedback about whether you were correct or not. We will start with a short practice set.</p></div>"
 	],
 	allow_keys: false,
 	data: {
