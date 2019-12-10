@@ -153,7 +153,7 @@ var feedback_instruct_block = {
 var instructions_block = {
 	type: 'poldrack-instructions',
 	pages: [
-		"<div class = centerbox><p class = block-text>In this experiment you will see a string of five arrows, either pointing left (<) or pointing right (>). </p> <p class = block-text> For instance, you might see '< < < < <' or '> > < > >'. </p> <p class = block-text>Your task is to respond by pressing the key corresponding to the <strong>middle</strong> arrow. </p> <p class = block-text>Press 'f' for a LEFT arrow (<) and 'h' for a RIGHT arrow (>). </p> <p class = block-text>So if you see '< < > < <' you would press the 'h' key.</p><p class = block-text>Please answer quickly but accurately.</p><p class = block-text>After each response you will get feedback about whether you were correct or not. We will start with a short practice set.</p></div>"
+		"<div class = centerbox><p class = block-text>In this experiment you will see a string of five arrows, either pointing left (<) or pointing right (>). </p> <p class = block-text> For instance, you might see '< < < < <' or '> > < > >'. </p> <p class = block-text>Your task is to respond by pressing the key corresponding to the <strong>middle</strong> arrow. </p> <p class = block-text>Press <strong>'f' for a LEFT arrow (<)</strong> and <strong>'h' for a RIGHT arrow (>)</strong>. </p> <p class = block-text>So if you see '< < > < <' you would press the 'h' key.</p><p class = block-text>Please answer quickly but accurately.</p><p class = block-text>After each response you will get feedback about whether you were correct or not. We will start with a short practice set.</p></div>"
 	],
 	allow_keys: false,
 	data: {
@@ -202,7 +202,7 @@ var start_test_block = {
 		trial_id: "test_intro"
 	},
 	timing_response: 180000,
-	text: '<div class = centerbox><p class = center-block-text>Done with practice. Starting test. This task will take about 10 minutes, which may feel long but try to stay focused!</p><p class = center-block-text>Press <strong>enter</strong> to begin.</p></div>',
+	text: '<div class = centerbox><p class = center-block-text>Done with practice. Starting test. This task will take about 3 minutes.</p><p class = center-block-text>Press <strong>enter</strong> to begin.</p></div>',
 	cont_key: [13],
 	timing_post_trial: 1000
 };
@@ -277,5 +277,5 @@ for (i = 0; i < exp_len; i++) {
 	flanker_experiment.push(test_block)
 }
 flanker_experiment.push(attention_node)
-flanker_experiment.push(post_task_block)
+// flanker_experiment.push(post_task_block)
 flanker_experiment.push(end_block)
