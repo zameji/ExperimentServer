@@ -174,7 +174,7 @@ var practice_trials = makeTrialList(5, stim, data)  //36
 for (i = 0; i < practice_trials.length; i++) {
   practice_trials[i].key_answer = practice_trials[i].data.correct_response
 }
-var test_trials = makeTrialList(96, stim, data) //96
+var test_trials = makeTrialList(50, stim, data) //96
 
 
 
