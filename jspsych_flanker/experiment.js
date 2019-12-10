@@ -153,7 +153,7 @@ var feedback_instruct_block = {
 var instructions_block = {
 	type: 'poldrack-instructions',
 	pages: [
-		"<div class = centerbox><p class = block-text>In this experiment you will see a string of five arrows, either pointing left (<) or pointing right (>). For instance, you might see '< < < < <' or '> > < > >'. Your task is to respond by pressing the key corresponding to the <strong>middle</strong> arrow. Press 'f' for a LEFT arrow (<) and 'h' for a RIGHT arrow (>). So if you see '< < > < <' you would press the 'h' key.</p><p class = block-text>Please answer quickly but accurately.</p><p class = block-text>After each respond you will get feedback about whether you were correct or not. We will start with a short practice set.</p></div>"
+		"<div class = centerbox><p class = block-text>In this experiment you will see a string of five arrows, either pointing left (<) or pointing right (>). </p> <p class = block-text> For instance, you might see '< < < < <' or '> > < > >'. </p> <p class = block-text>Your task is to respond by pressing the key corresponding to the <strong>middle</strong> arrow. </p> <p class = block-text>Press 'f' for a LEFT arrow (<) and 'h' for a RIGHT arrow (>). </p> <p class = block-text>So if you see '< < > < <' you would press the 'h' key.</p><p class = block-text>Please answer quickly but accurately.</p><p class = block-text>After each response you will get feedback about whether you were correct or not. We will start with a short practice set.</p></div>"
 	],
 	allow_keys: false,
 	data: {
