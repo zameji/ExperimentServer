@@ -21,6 +21,11 @@ var getChar = function() {
     '</p></div>'
 }
 
+var getChar_red = function() {
+  return '<div color="red"; class = centerbox><p class = AX_text>' + chars[Math.floor(Math.random() * 22)] +
+    '</p></div>'
+}
+
 var getInstructFeedback = function() {
     return '<div class = centerbox><p class = center-block-text>' + feedback_instruct_text +
       '</p></div>'
@@ -177,7 +182,7 @@ var wait_block = {
 /* define test block cues and probes*/
 var A_cue = {
   type: 'poldrack-single-stim',
-  stimulus: '<div class = centerbox><div class = AX_text>A</div></div>',
+  stimulus: '<div class = centerbox><div style="color:red"; class = AX_text>A</div></div>',
   is_html: true,
   choices: 'none',
   data: {
@@ -190,7 +195,7 @@ var A_cue = {
 
 var other_cue = {
   type: 'poldrack-single-stim',
-  stimulus: getChar,
+  stimulus: getChar_red,
   is_html: true,
   choices: 'none',
   data: {
@@ -223,7 +228,7 @@ var distractor = {
 
 var X_probe = {
   type: 'poldrack-categorize',
-  stimulus: '<div class = centerbox><div class = AX_text>X</div></div>',
+  stimulus: '<div class = centerbox><div style="color:red"; class = AX_text>X</div></div>',
   is_html: true,
   choices: [possible_responses[0][1], possible_responses[1][1]],
   data: {
@@ -241,7 +246,7 @@ var X_probe = {
 
 var other_probe = {
   type: 'poldrack-categorize',
-  stimulus: getChar,
+  stimulus: getChar_red,
   is_html: true,
   choices: [possible_responses[0][1], possible_responses[1][1]],
   data: {
@@ -298,11 +303,11 @@ for (b = 0; b < blocks.length; b++) {
 		probe.key_answer = 74
         break;
     }
-	
+
 	distractor_1 = jQuery.extend(true, {}, distractor)
 	distractor_2 = jQuery.extend(true, {}, distractor)
 	distractor_3 = jQuery.extend(true, {}, distractor)
-	
+
     ax_cpt_experiment.push(cue)
 	ax_cpt_experiment.push(distractor_1)
 	ax_cpt_experiment.push(distractor_2)
