@@ -201,6 +201,26 @@ var other_cue = {
   timing_response: 700
 };
 
+var distractor = {
+  type: 'poldrack-categorize',
+  stimulus: getChar,
+  is_html: true,
+  response_ends_trial: true,
+  choices: [possible_responses[0][1], possible_responses[1][1]],
+  data: {
+    trial_id: "distractor",
+    exp_stage: "test"
+  },
+  key_answer: 74,
+  timing_stim: 500,
+  timing_feedback_duration: 1000,
+  timing_response: 2000,
+  correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
+  incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text>Incorrect</div></div>',
+  show_stim_with_feedback: false,
+  timeout_message: '<div class = centerbox><div style="color:black"; class = center-text; font-size: 4>Press "F" for A-X and "J" for anything else</div></div>'
+};
+
 var X_probe = {
   type: 'poldrack-categorize',
   stimulus: '<div class = centerbox><div class = AX_text>X</div></div>',
@@ -215,7 +235,7 @@ var X_probe = {
   timing_feedback_duration: 1000,
   timing_response: 2000,
   correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
-	incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text>Incorrect</div></div>',
+  incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text>Incorrect</div></div>',
   show_stim_with_feedback: false,
   timeout_message: '<div class = centerbox><div style="color:black"; class = center-text; font-size: 4>Press "F" for A-X and "J" for anything else</div></div>'};
 
@@ -254,31 +274,39 @@ for (b = 0; b < blocks.length; b++) {
         probe = jQuery.extend(true, {}, X_probe)
         cue.data.condition = "AX"
         probe.data.condition = "AX"
-		    probe.key_answer = 70
+		probe.key_answer = 70
         break;
       case "BX":
         cue = jQuery.extend(true, {}, other_cue)
         probe = jQuery.extend(true, {}, X_probe)
         cue.data.condition = "BX"
         probe.data.condition = "BX"
-		    probe.key_answer = 74
+		probe.key_answer = 74
         break;
       case "AY":
         cue = jQuery.extend(true, {}, A_cue)
         probe = jQuery.extend(true, {}, other_probe)
         cue.data.condition = "AY"
         probe.data.condition = "AY"
-		    probe.key_answer = 74
+		probe.key_answer = 74
         break;
       case "BY":
         cue = jQuery.extend(true, {}, other_cue)
         probe = jQuery.extend(true, {}, other_probe)
         cue.data.condition = "BY"
         probe.data.condition = "BY"
-		    probe.key_answer = 74
+		probe.key_answer = 74
         break;
     }
+	
+	distractor_1 = jQuery.extend(true, {}, distractor)
+	distractor_2 = jQuery.extend(true, {}, distractor)
+	distractor_3 = jQuery.extend(true, {}, distractor)
+	
     ax_cpt_experiment.push(cue)
+	ax_cpt_experiment.push(distractor_1)
+	ax_cpt_experiment.push(distractor_2)
+	ax_cpt_experiment.push(distractor_3)
     ax_cpt_experiment.push(probe)
     ax_cpt_experiment.push(wait_block)
   }
