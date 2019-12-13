@@ -254,9 +254,27 @@ flanker_experiment.push(start_test_block)
 /* define test block */
 for (i = 0; i < exp_len; i++) {
 	flanker_experiment.push(fixation_block)
+
+
+	var leftpad = "o";
+	var rightpad = "o";
+
+	lpadSize = 5;
+  for (j=1; j<lpadSize;j++){
+		leftpad += "o";
+	}
+
+  rpadSize = 5;
+	for (j=1; j<rpadSize;j++){
+			rightpad += "o";
+		}
+
+  // var padsize = Math.random()*300 - Math.random()*300;
+
 	var test_block = {
 		type: 'poldrack-categorize',
-		stimulus: test_trials.image[i],
+		// stimulus:  '<div style="position:relative; left:'+ 300+'px">'+test_trials.image[i]+'</div>',
+		stimulus:  leftpad+test_trials.image[i]+rightpad,
 		is_html: true,
 		key_answer: test_response_array[i],
 		correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
@@ -265,7 +283,7 @@ for (i = 0; i < exp_len; i++) {
 		choices: [70, 72],
 		data: test_trials.data[i],
 		timing_feedback_duration: 1000,
-		timing_response: 1500,
+		timing_response: 2000,
 		show_stim_with_feedback: false,
 		timing_post_trial: 500,
 		on_finish: function() {

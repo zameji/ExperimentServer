@@ -10,7 +10,7 @@
 		<script src="jspsych/plugins/jspsych-html-keyboard-response.js"></script>
 		<script src="jspsych/plugins/jspsych-image-keyboard-response.js"></script>
 		<!--<script src="http://wzrd.in/standalone/uuid%2Fv1@latest"></script>-->
-		
+
 		<!-- Cookie handling JS code. -->
 		<script type="text/javascript" src="https://www.psycholinguistics.ml/index/cookie.js"></script>
 
@@ -52,6 +52,10 @@
 
     /* test trials */
 
+    var test_stimuli_single = [
+      { stimulus: "img/blue.png", data: { test_part: 'test_single', correct_response: 'f' } }
+    ];
+
     var test_stimuli = [
       { stimulus: "img/blue.png", data: { test_part: 'test', correct_response: 'f' } },
       { stimulus: "img/orange.png", data: { test_part: 'test', correct_response: 'j' } }
@@ -77,33 +81,39 @@
       },
     }
 
+    var test_procedure_single = {
+      timeline: [fixation, test],
+      timeline_variables: test_stimuli_single,
+      repetitions: 20,
+      randomize_order: true
+    }
+    timeline.push(test_procedure_single);
+
+    var instructions_2 = {
+      type: "html-keyboard-response",
+      stimulus: "<p>Good job!</p><p>If the circle is <strong>blue</strong>, " +
+          "press the letter F on the keyboard as fast as you can.</p>" +
+          "<p>If the circle is <strong>orange</strong>, press the letter J " +
+          "as fast as you can.</p>" +
+          "<div style='width: 700px;'>"+
+          "<div style='float: left;'><img src='img/blue.png'></img>" +
+          "<p class='small'><strong>Press the F key</strong></p></div>" +
+          "<div class='float: right;'><img src='img/orange.png'></img>" +
+          "<p class='small'><strong>Press the J key</strong></p></div>" +
+          "</div>"+
+          "<p>Press ENTER to continue.</p>",
+      post_trial_gap: 2000,
+      choices: [13]
+    };
+    timeline.push(instructions_2);
+
     var test_procedure = {
       timeline: [fixation, test],
       timeline_variables: test_stimuli,
-      repetitions: 5,
+      repetitions: 20,
       randomize_order: true
     }
     timeline.push(test_procedure);
-
-    /* define debrief */
-
-    var debrief_block = {
-      type: "html-keyboard-response",
-      stimulus: function() {
-
-        var trials = jsPsych.data.get().filter({test_part: 'test'});
-        var correct_trials = trials.filter({correct: true});
-        var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
-        var rt = Math.round(correct_trials.select('rt').mean());
-
-        return "<p>You responded correctly on "+accuracy+"% of the trials.</p>"+
-        "<p>Your average response time was "+rt+"ms.</p>"+
-        "<p>Press any key to complete the experiment. Thank you!</p>";
-
-      }
-    };
-    timeline.push(debrief_block);
-
 
     var user_id = getID();
 

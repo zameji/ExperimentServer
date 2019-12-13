@@ -208,7 +208,7 @@ var other_cue = {
 
 var distractor = {
   type: 'poldrack-categorize',
-  stimulus: getChar,
+  stimulus: '<div class = centerbox><div style="color:red"; class = AX_text>'+getChar+'</div></div>',
   is_html: true,
   response_ends_trial: true,
   choices: [possible_responses[0][1], possible_responses[1][1]],
@@ -223,7 +223,7 @@ var distractor = {
   correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
   incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text>Incorrect</div></div>',
   show_stim_with_feedback: false,
-  timeout_message: '<div class = centerbox><div style="color:black"; class = center-text; font-size: 4>Press "F" for A-X and "J" for anything else</div></div>'
+  timeout_message: '<div class = centerbox><div style="color:black; font-size: 40px;"; class = center-text-varsize>Press "F" for A-X<p></p>and "J" for anything else</div></div>'
 };
 
 var X_probe = {
@@ -242,7 +242,8 @@ var X_probe = {
   correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
   incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text>Incorrect</div></div>',
   show_stim_with_feedback: false,
-  timeout_message: '<div class = centerbox><div style="color:black"; class = center-text; font-size: 4>Press "F" for A-X and "J" for anything else</div></div>'};
+  timeout_message: '<div class = centerbox><div style="color:black; font-size: 40px;"; class = center-text-varsize>Press "F" for A-X<p></p>and "J" for anything else</div></div>'
+};
 
 var other_probe = {
   type: 'poldrack-categorize',
@@ -260,7 +261,7 @@ var other_probe = {
   correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
 	incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text>Incorrect</div></div>',
   show_stim_with_feedback: false,
-  timeout_message: '<div class = centerbox><div style="color:black"; class = center-text; font-size: 4>Press "F" for A-X and "J" for anything else</div></div>'
+  timeout_message: '<div class = centerbox><div style="color:black; font-size: 40px;"; class = center-text-varsize>Press "F" for A-X<p></p>and "J" for anything else</div></div>'
 };
 
 /* ************************************ */

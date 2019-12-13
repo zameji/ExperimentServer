@@ -89,12 +89,22 @@ body {
   transform: translateY(-50%);
 }
 
+/* used for large text shown in the center of the screen, like FB or stimuli */
+.center-text-varsize {
+  text-align:center;
+  position: relative;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
 /* fixation should be used like this in: '<div class = centerbox><div class = fixation>+</div></div>'*/
 .fixation {
   text-align: center;
   font-size: 150px;
   position: relative;
-  top: 50%; 
+  top: 50%;
   transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
 }

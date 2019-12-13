@@ -1,6 +1,6 @@
 <?php
 $prolificID = $_COOKIE['id'];
- 
+
 $servername = "localhost";
 $username = "ubuntu";
 $password = "ubuntuExperiment2019";
@@ -21,9 +21,9 @@ $result = $conn->query($query);
 
 // Update the progress, send them to the next page
 if ($result->num_rows > 0) {
-	
+
 	//TODO: Verify that they came from the correct referrer
-	
+
 	$row = $result->fetch_assoc();
 	$testgroup = $row["test_group"];
 	$progress = $row["progress"] + 1;
@@ -33,27 +33,27 @@ if ($result->num_rows > 0) {
 
 //	echo "next: ".$testgroup . "-" . $progress;
 	$query = "UPDATE participants set progress=".$progress." WHERE prolific_ID='".$prolificID."'";
-	
+
 	if (!$conn->query($query)) {
 		//echo '<p style="text-align:center; font-family: Lucida, Console, monospace; font-size: medium;">Failed. Have you already done the experiment?</p>';
 		echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
 	} else {
-		
+
 		if ($progress == 3){
-			$next = "https://www.psycholinguistics.ml/finished.html";
+			$next = "https://www.psycholinguistics.ml/vocab/index3_timed.html";
 		}
 		else {
 			switch (substr($testgroup, $progress, 1)){
-			
+
 			case "1":
-				setcookie("ibex_1_group", $ibex_1_group, time()+144000, "/", "psycholinguistics.ml");		
+				setcookie("ibex_1_group", $ibex_1_group, time()+144000, "/", "psycholinguistics.ml");
 				$next = "https://www.psycholinguistics.ml/ibex/experiment.html";
 				break;
-				
+
 			case "2":
 				$next = "https://www.psycholinguistics.ml/ibex_2/experiment.html";
 				break;
-				
+
 			case "J":
 				setcookie("jspsych_group", $jspsych_group, time()+144000, "/", "psycholinguistics.ml");
 				setcookie("jspsych_progress", $jspsych_progress, time()+144000, "/", "psycholinguistics.ml");
@@ -72,14 +72,14 @@ if ($result->num_rows > 0) {
 		exit();
 
 	}
-	
-}		
+
+}
 		echo "Redirecting..." . $next;
 		$result -> free();
 		$conn->close();
 		header("Location: ". "https://www.psycholinguistics.ml", true, 302);
 		exit();
-		
+
 
 
 ?>
