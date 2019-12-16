@@ -256,11 +256,11 @@ flanker_experiment.push(start_test_block)
 for (i = 0; i < exp_len; i++) {
 	flanker_experiment.push(fixation_block)
 
-	var padsize_left = Math.round(Math.random()*150 - Math.random()*150);		//Jitter by 150 pixels to the left and right off the centre
+	var padsize_left = Math.round(-15 + Math.random()*30);			//Randomize position from -15% - +15%
 	var padsize_top = Math.round(40 + Math.random()*20);			//Randomize position from 40% - 60%
 	var test_block = {
 		type: 'poldrack-categorize',
-		stimulus:  '<div class = centerbox><div class = flanker-text style="left: ' + padsize_left + 'px; top: '+ padsize_top + '%;">' + test_trials.image[i] + '</div></div>',
+		stimulus:  '<div class = centerbox><div class = flanker-text style="left: ' + padsize_left + '%; top: '+ padsize_top + '%;">' + test_trials.image[i] + '</div></div>',
 		is_html: true,
 		key_answer: test_response_array[i],
 		correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
