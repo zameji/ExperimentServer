@@ -58,29 +58,30 @@ var correct_responses = jsPsych.randomization.repeat([
 	["left arrow", 37],
 	["right arrow", 39]
 ], 1)
+
 var test_stimuli = [{
-	image: '<div class = centerbox><div class = flanker-text> < < > < < </div></div>',
+	image: '< < > < <',
 	data: {
 		correct_response: 72,
 		condition: 'incompatible',
 		trial_id: 'stim'
 	}
 }, {
-	image: '<div class = centerbox><div class = flanker-text> > > < > > </div></div>',
+	image: '> > < > >',
 	data: {
 		correct_response: 70,
 		condition: 'incompatible',
 		trial_id: 'stim'
 	}
 }, {
-	image: '<div class = centerbox><div class = flanker-text> > > > > > </div></div>',
+	image: '> > > > >',
 	data: {
 		correct_response: 72,
 		condition: 'compatible',
 		trial_id: 'stim'
 	}
 }, {
-	image: '<div class = centerbox><div class = flanker-text> < < < < < </div></div>',
+	image: '< < < < <',
 	data: {
 		correct_response: 70,
 		condition: 'compatible',
@@ -228,7 +229,7 @@ for (i = 0; i < practice_len; i++) {
 	flanker_experiment.push(fixation_block)
 	var practice_block = {
 		type: 'poldrack-categorize',
-		stimulus: practice_trials.image[i],
+		stimulus: '<div class = centerbox><div class = flanker-text>' + practice_trials.image[i]+'</div></div>',
 		is_html: true,
 		key_answer: practice_response_array[i],
 		correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
@@ -255,26 +256,11 @@ flanker_experiment.push(start_test_block)
 for (i = 0; i < exp_len; i++) {
 	flanker_experiment.push(fixation_block)
 
-
-	var leftpad = "o";
-	var rightpad = "o";
-
-	lpadSize = 5;
-  for (j=1; j<lpadSize;j++){
-		leftpad += "o";
-	}
-
-  rpadSize = 5;
-	for (j=1; j<rpadSize;j++){
-			rightpad += "o";
-		}
-
-  // var padsize = Math.random()*300 - Math.random()*300;
-
+	var padsize_left = Math.round(Math.random()*150 - Math.random()*150);		//Jitter by 150 pixels to the left and right off the centre
+	var padsize_top = Math.round(40 + Math.random()*20);			//Randomize position from 40% - 60%
 	var test_block = {
 		type: 'poldrack-categorize',
-		// stimulus:  '<div style="position:relative; left:'+ 300+'px">'+test_trials.image[i]+'</div>',
-		stimulus:  leftpad+test_trials.image[i]+rightpad,
+		stimulus:  '<div class = centerbox><div class = flanker-text style="left: ' + padsize_left + 'px; top: '+ padsize_top + '%;">' + test_trials.image[i] + '</div></div>',
 		is_html: true,
 		key_answer: test_response_array[i],
 		correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
@@ -285,7 +271,7 @@ for (i = 0; i < exp_len; i++) {
 		timing_feedback_duration: 1000,
 		timing_response: 2000,
 		show_stim_with_feedback: false,
-		timing_post_trial: 500,
+		timing_post_trial: 100,
 		on_finish: function() {
 			jsPsych.data.addDataToLastTrial({
 				exp_stage: "test"
