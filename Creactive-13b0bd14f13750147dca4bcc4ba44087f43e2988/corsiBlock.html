@@ -1,0 +1,236 @@
+<html>
+<head>
+    <title>CorsiBlock</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+ 	<script src="jspsych-5.0.3/jspsych.js"></script>
+  	<script src="jspsych-5.0.3/plugins/jspsych-call-function.js"></script>
+    <script src="jspsych-5.0.3/plugins/jspsych-text.js"></script>
+    <script src="jspsych-5.0.3/plugins/jspsych-button-response.js"></script>
+    <script src="jspsych-5.0.3/plugins/plugin-corsi.js"></script>
+    <script src="jspsych-5.0.3/plugins/jspsych-single-stim-mouse.js"></script>
+    <script src="GivitiExternalStorage/js/ExternalStorage.js"></script>
+    <link href="jspsych-5.0.3/css/jspsych.css" rel="stylesheet" type="text/css"></link>
+    <link href="creactive-tasks.css" rel="stylesheet" type="text/css"></link>
+</head>
+ <body>
+ </body>
+<script>
+
+    var appName = "CREACTIVEAmbulatoryTasksCorsi";
+    var storage = null;
+
+    function loadConfigs(){
+        var promise = $.getJSON("conf.json");
+        promise.done(function (data) {
+            console.log("Config loaded!");
+            storage = new it.marionegri.givitiweb.ExternalStorage(data.translationServiceURL, data.dataStorageServiceURL);
+        });
+        promise.fail(function (error) { 
+            console.log(error);
+        });
+        return promise;
+    }
+    
+    function loadTranslations (culture) {
+        var promise = storage.loadTranslations("Corsi Task", culture);
+        promise.done(function () {
+            console.log("Translations loaded!");
+            if (Object.getOwnPropertyNames(jsPsych.currentTrial()).length > 0) {
+                jsPsych.endExperiment("Test");
+                jsPsych.endCurrentTimeline();
+                launchJSPsych(false);
+            } else {
+                launchJSPsych(true);
+            }
+        });
+        promise.fail(function (error) { 
+            console.log(error);
+        });
+        return promise;
+    }
+
+    var languages = it.marionegri.givitiweb.PageUtils.getListOfLanguages();
+    loadConfigs()
+        .done(function() {
+          if (languages == null || languages.length == 0) {
+              loadTranslations("en-US");
+          } else {
+              loadTranslations(languages[0]);
+          }
+    });
+    
+    function onChangeLanguage(sel) {
+        loadTranslations(sel.value);
+    }
+
+
+var forward = [[2,9],[6,3],[0,8,2],[7,1,6],[3,8,0,5],[9,5,1,6],[5,4,0,3,7],[4,6,8,7,1],[3,0,8,2,7,9],[8,1,5,6,2,4],[9,0,5,3,7,5,6],[1,5,2,7,1,9,0],[6,2,9,4,6,7,3,8],[5,8,2,1,0,6,9,4],[4,7,3,9,6,2,0,8,5],[7,1,5,0,9,2,6,3,8]];
+
+var backward = [[6,3],[2,9],[7,1,6],[0,8,2],[9,5,1,6],[3,8,0,5],[4,3,8,7,1],[5,4,0,3,7],[8,1,5,6,2,4],[3,0,8,2,7,9],[1,5,2,7,1,0,9],[9,0,5,3,7,4,6],[5,8,2,1,0,6,9,4],[6,2,9,4,6,7,3,8],[7,1,5,0,9,2,6,3,8],[4,7,3,9,6,2,0,8,5]];
+
+var forwardP = [[5,2],[7,3]];
+var backwardP = [[8,1],[2,6]];
+
+var wrongCount = 0;
+
+function createCorsiTimeline (arrayOfRectangles) {
+	var result = [];
+	for (var k = 0; k < arrayOfRectangles.length; k++) {
+   	 var stimulusObject = {
+   	     stimulus: arrayOfRectangles[k]
+   	 };
+   	 result.push(stimulusObject);
+	};
+	return result;
+};
+
+
+function launchJSPsych(fullscreen)  {
+
+    var instructions = {
+      type: "text",
+      text: storage.getTranslation("corsiInstructionsBack"),
+      timing_post_trial: 2000,
+      cont_key: "mouse"
+    };
+
+   
+
+    var checkIfMaxNumberOfWrongs = function (data) {
+        console.log("OnFinish");
+        if (data.correctAns == 0) {
+            wrongCount++;
+        } else {
+            wrongCount = 0;
+        }
+        console.log("Wrong count: " + wrongCount);
+        if (wrongCount >= 2) {
+            jsPsych.endCurrentTimeline();
+            wrongCount = 0;
+        }
+    }
+
+
+      var languages = it.marionegri.givitiweb.PageUtils.getListOfLanguages();
+      var languageSelect = "<select onchange='onChangeLanguage(this)'>";
+      for (var k in languages) {
+        if (storage.currentCulture == languages[k]) {
+            languageSelect += "<option value='" + languages[k] + "' selected>" + languages[k].substr(0, 2) + "</option>";
+        } else {
+            languageSelect += "<option value='" + languages[k] + "'>" + languages[k].substr(0, 2) + "</option>";
+        }
+      }
+      languageSelect += "</select>";
+
+      /* define instructions block */
+      var instructions_block = {
+        type: "text",
+        text: "<div id='experimentDiv'>" + storage.getTranslation("corsiInstructions") + "<p>" + languageSelect + "</p></div>",
+        timing_post_trial: 2000,
+        cont_key: "mouse"
+      };
+
+
+    var corsiNodeForward = {
+        type: 'plugin-corsi',
+        timeline: createCorsiTimeline(forward),
+        timing_response: 7000,
+        direction:"forward",
+        data: {
+        	block: "experiment",
+            direction:"forward"
+        },
+        on_finish: checkIfMaxNumberOfWrongs
+    };
+
+    var corsiNodeBackward = {
+        type: 'plugin-corsi',
+        timeline: createCorsiTimeline(backward),
+        timing_response: 7000,
+        direction:"backward",
+        data: {
+        	block: "experiment", 
+            direction:"backward"
+        },
+        on_finish: checkIfMaxNumberOfWrongs
+    };
+
+   var forwardPractice = {
+		type: 'plugin-corsi',
+		timeline: createCorsiTimeline(forwardP),
+		timing_response: 7000,
+		direction: "forward",
+		data: {
+			block: "practice",
+			direction: "forward"
+			},
+		on_finish: checkIfMaxNumberOfWrongs
+	};
+
+	var backwardPractice = {
+		type: 'plugin-corsi',
+		timeline: createCorsiTimeline(backwardP),
+		timing_response: 7000,
+		direction: "backward",
+		data: {
+			block: "practice",
+			direction: "backward"
+			}
+		};
+	var after_practice = {
+	    type: 'button-response',
+	    stimulus: storage.getTranslation("endPractice"),
+	    choices: ['Repeat', 'Continue'],
+	    is_html: true,
+	    button_html: "<a class='jspsych-btn'>%choice%</a>"
+
+	  };
+	 var practice_loop_forward = {
+	    timeline: [forwardPractice, after_practice],
+	    loop_function: function(){
+	        var data =  jsPsych.data.getLastTrialData()
+
+	        if(data.button_pressed == 0){
+	            return true;
+	        } else {
+	            return false;
+	        }
+	    }
+	};
+
+	var practice_loop_backward = {
+	    timeline: [backwardPractice, after_practice],
+	    loop_function: function(){
+	        var data =  jsPsych.data.getLastTrialData()
+
+	        if(data.button_pressed == 0){
+	            return true;
+	        } else {
+	            return false;
+	        }
+	    }
+	}
+
+    var thanks = {
+    type: 'single-stim-mouse',
+    stimulus: 'static/images/thanks.png', 
+    timing_stim: 5000,
+    timing_response: 5000
+     };
+    
+    jsPsych.init({
+        timeline: [ instructions_block, practice_loop_forward, corsiNodeForward, instructions, practice_loop_backward,  corsiNodeBackward, thanks],
+        fullscreen: fullscreen,
+        default_iti: 0,
+        on_finish: function() {
+           // jsPsych.data.displayData();
+            storage.saveData(appName, jsPsych.data.getData());
+        }
+    });
+}
+
+
+</script>
+
+
+</html>

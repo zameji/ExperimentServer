@@ -1,0 +1,184 @@
+
+.jspsych-display-element, html {
+    margin: auto;
+    height: 100%;
+}
+
+#myCanvas, svg {
+    border: 1px solid #d3d3d3;
+    margin-top: -300px;
+    position: relative;
+    top: 50%;
+    display: block;
+    cursor: none;
+}
+
+#experimentDiv  {
+    margin-top: -300px;
+    position: relative;
+    top: 50%;
+    display: block;
+    height: 600px;
+}
+
+#goNoGoCanvas {
+    margin-top: -300px;
+    position: relative;
+    top: 50%;
+    display: block;
+    height: 600px;
+    cursor: none;
+}
+
+#antCanvas {
+    margin-top: -300px;
+    position: relative;
+    top: 50%;
+    display: block;
+    height: 600px;
+    width: 800px;
+    cursor: none;
+}
+
+#goNoGoFixationPoint {
+    position: absolute;
+    top:60px;
+    left:390px;
+    width:200px;
+    height:25px;
+    font-size: 3em;
+}
+
+#goNoGoFeedBack {
+    position: absolute;
+    top:250px;
+    left:50px;
+    width:200px;
+    height:25px;
+    font-size: 3em;
+}
+
+#readyPopup {
+    width: 200px;
+    height: 100px;
+    background-color: blue;
+    color: #FFF;
+    font-weight: bold;
+    margin-top: -100px;
+    margin-left: -150px;
+    position: absolute;
+    padding: 30px;
+    top: 50%;
+    left: 50%;
+    display: block;
+}
+
+#jspsych-categorize-stimulus {
+    top: 170px;
+    position: relative;
+}
+
+#nBackCanvas {
+    margin-top: -150px;
+    position: relative;
+    top: 50%;
+    display: block;
+    height: 600px;
+    cursor: none;
+}
+
+.under {
+    position: absolute;
+    left: 140px;
+    top: 120px;
+    z-index: -1;
+}
+
+.over {
+    position: absolute;
+    left: 140px;
+    top: 70px;
+    /*z-index: -1;*/
+}
+
+#antCueUp {
+    position: absolute;
+    top:100px;
+    left:400px;
+    width:200px;
+    height:25px;
+    font-size: 3em;
+}
+
+#antCueDown {
+    position: absolute;
+    top:500px;
+    left:400px;
+    width:200px;
+    height:25px;
+    font-size: 3em;
+}
+#antImageUp {
+    position: absolute;
+    top:100px;
+    left:188px;
+    width:200px;
+    height:25px;
+    font-size: 3em;
+}
+
+#antImageDown {
+    position: absolute;
+    top:500px;
+    left:188px;
+    width:200px;
+    height:25px;
+    font-size: 3em;
+}
+.ant-btn {
+   background-color: Transparent;
+   background-repeat:no-repeat;
+   border: none;
+   cursor:pointer;
+   overflow: hidden;
+   outline:none;
+   height:600px;
+   width:400px;
+
+}
+
+#antFixationPoint {
+    position: absolute;
+    top:300px;
+    left:400px;
+    width:200px;
+    height:25px;
+    font-size: 3em;
+}
+
+#antCenter {
+    position: absolute;
+    top:200px;
+    left:200px;
+    width:200px;
+    height:25px;
+    font-size: 3em;
+}
+
+#nBackFeedBack {
+    position: absolute;
+    top:100px;
+    left:380px;
+    width:200px;
+    height:50px;
+    font-size: 10em;
+    color: green;
+}
+
+#corsiText {
+  position: absolute;
+  top: 200px;
+  right: 100px;
+  font-size: 1.5em;
+  font-weight: bold;
+}

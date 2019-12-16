@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<!-- Dot comparison task
+
+
+until the age of 8 -> screen is divided to two parts. dots appears on each part
+separetly. Add some nice charectars to the game (which has more balls?)
+
+present 1-14 (5-20?) items per color on screen.
+
+
+waiting for spacebar before showing 250ms blank and then stimuli (for adults its 200ms of stimuli).
+between 5-16 dots for each color. In nature (2008) they used ratios of 1:2, 3:4, 5:6, 7:8. 10 trials for each ratio.
+they also did 10 practice trials.
+Two conditions (after ratio): 1. average dot size is equal. 2. comulative area is equal.
+
+average +-35%. 1degree is average dot size (app. 33pixels on a 1280X1024 screen 50cm)
+This means dot size ranges from 45-21px (but it surely can go down to 5pixels)
+
+Looking at the Panamath1.2 -> average dot size app. 30 deviation always 20. Base dot size = 36. between 5 to 20 dots (each color).
+
+experiment should look like that:
+waiting for spacebar press -> 200ms blank screen -> Xms presentation of dots -> masking (100ms)-> wait for response (Blue or Yellow)
+DOT SIZE - base dot size is 36px. variance 20.
+-->
+
+<head>
+	<title>Dot Comparison Task</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+   <script src="jspsych-5.0.3/jspsych.js"></script>
+  <script src="jspsych-5.0.3/plugins/jspsych-single-stim-mouse.js"></script>
+  <script src="jspsych-5.0.3/plugins/jspsych-text.js"></script>
+ 	<script src="snap.svg-min.js"></script>
+    <script src="GivitiExternalStorage/js/ExternalStorage.js"></script>
+
+ 	<!-- <script src="random-0.26.js"</script> -->
+
+  	<script src="jspsych-5.0.3/plugins/jspsych-call-function.js"></script>
+    <script src="jspsych-5.0.3/plugins/jspsych-dotcomparison_button.js"></script>
+ <script src="jspsych-5.0.3/plugins/jspsych-button-response.js"></script>
+    <link href="jspsych-5.0.3/css/jspsych.css" rel="stylesheet" type="text/css"></link>
+    <link href="creactive-tasks.css" rel="stylesheet" type="text/css"></link>
+</head>
+<body>
+</body>
+
+<script>
+
+    var appName = "CREACTIVEAmbulatoryTasksDotComparison";
+    var storage = null;
+
+    function loadConfigs(){
+        var promise = $.getJSON("conf.json");
+        promise.done(function (data) {
+            console.log("Config loaded!");
+            storage = new it.marionegri.givitiweb.ExternalStorage(data.translationServiceURL, data.dataStorageServiceURL);
+        });
+        promise.fail(function (error) { 
+            console.log(error);
+        });
+        return promise;
+    }
+    
+    function loadTranslations (culture) {
+        var promise = storage.loadTranslations("DotComparison Task", culture)
+        promise.done(function () {
+            console.log("Translations loaded!");
+            if (Object.getOwnPropertyNames(jsPsych.currentTrial()).length > 0) {
+                jsPsych.endExperiment("Test");
+                jsPsych.endCurrentTimeline();
+                launchJSPsych(false);
+            } else {
+                launchJSPsych(true);
+            }
+        });
+        promise.fail(function (error) { 
+            console.log(error);
+        });
+        return promise;
+    }
+
+    var languages = it.marionegri.givitiweb.PageUtils.getListOfLanguages();
+    loadConfigs()
+        .done(function() {
+          if (languages == null || languages.length == 0) {
+              loadTranslations("en-US");
+          } else {
+              loadTranslations(languages[0]);
+          }
+    });
+    
+    function onChangeLanguage(sel) {
+        loadTranslations(sel.value);
+    }
+    
+    var age = it.marionegri.givitiweb.PageUtils.getAge();
+    if (age == null) {
+        age = prompt("What age are you?");
+    }
+
+
+//function that will shuffle an array
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex ;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+
+function launchJSPsych(fullscreen) {
+    var stimuli = new Array();
+    for (i = 0; i < 40; i++) {
+        var stimulusObject = {};
+        if (i<10) {
+            stimulusObject.ratio = '1:2';
+        } else if (i>=10 && i<20) {
+            stimulusObject.ratio = '3:4';
+        } else if (i>=20 && i<30) {
+            stimulusObject.ratio = '5:6';
+        } else if (i>=30 && i<40) {
+            stimulusObject.ratio = '7:8';
+        }
+        if ((i % 2) == 0) {
+            stimulusObject.condition = "area";
+        } else {
+            stimulusObject.condition = "average";
+        }
+        stimuli.push(stimulusObject)
+    }
+  
+    var practice_array = [
+     { ratio: '1:2',
+      condition: 'area' },
+      { ratio: '3:4',
+      condition: "average"},
+      {
+      ratio: '1:2',
+      condition: 'area'
+      }
+    ];
+    shuffle(stimuli);
+    var practice = {
+      // a practice block
+      type: 'dotComparison-button',
+      timeline: practice_array,
+      data: {block: "practice"},
+      choices: [70,74]
+
+      };
+    var after_practice = {
+      type: 'button-response',
+      stimulus: storage.getTranslation("afterPractice"),
+      choices: ['Repeat', 'Continue'],
+      is_html: true,
+      button_html: "<a class='jspsych-btn'>%choice%</a>"
+
+    };
+
+    var practice_loop = {
+      timeline: [practice, after_practice],
+      loop_function: function(){
+          var data =  jsPsych.data.getLastTrialData()     
+          
+          if(data.button_pressed == 0){
+              return true;
+          }
+          else {
+              return false;
+          }
+      }
+
+    };
+
+    var block_forward = {
+          type: 'dotComparison-button',
+          timeline: stimuli,
+          data: {block: "blockOne"},
+          choices: [70,74]
+          //timing_response: 7000,
+
+      };
+
+      var languages = it.marionegri.givitiweb.PageUtils.getListOfLanguages();
+      var languageSelect = "<select onchange='onChangeLanguage(this)'>";
+      for (var k in languages) {
+        if (storage.currentCulture == languages[k]) {
+            languageSelect += "<option value='" + languages[k] + "' selected>" + languages[k].substr(0, 2) + "</option>";
+        } else {
+            languageSelect += "<option value='" + languages[k] + "'>" + languages[k].substr(0, 2) + "</option>";
+        }
+      }
+      languageSelect += "</select>";
+
+      /* define instructions block */
+      var instructions_block = {
+        type: "text",
+        text: "<div id='experimentDiv'>" + storage.getTranslation("dotComparisonInstructions") +
+          "<p>Age: " + age + "</p>" + languageSelect + "</div>",
+        timing_post_trial: 2000,
+				cont_key: "mouse"
+      };
+
+       var thanks = {
+        type: 'single-stim-mouse',
+        stimulus: 'static/images/thanks.png', 
+        timing_stim: 5000,
+        timing_response: 5000
+         };
+
+      jsPsych.init({
+            timeline: [ instructions_block, practice_loop, block_forward, thanks],
+            fullscreen: fullscreen,
+            on_finish: function() {
+                jsPsych.data.displayData();
+                storage.saveData(appName, jsPsych.data.getData());
+            }
+        });
+    }
+</script>
+
+</html>

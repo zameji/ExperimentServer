@@ -1,0 +1,277 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Go NoGo</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="jspsych-5.0.3/jspsych.js"></script>
+  <script src="jspsych-5.0.3/plugins/jspsych-text.js"></script>
+  <script src="jspsych-5.0.3/plugins/jspsych-button-response.js"></script>
+  <script src="jspsych-5.0.3/plugins/jspsych-single-stim.js"></script>
+  <script src="jspsych-5.0.3/plugins/jspsych-categorize-mouse.js"></script>
+  <script src="GivitiExternalStorage/js/ExternalStorage.js"></script>
+  
+  <link href="jspsych-5.0.3/css/jspsych.css" rel="stylesheet" type="text/css"></link>
+  <link href="creactive-tasks.css" rel="stylesheet" type="text/css"></link>
+</head>
+
+<body id="goNoGoCanvas">
+
+</body>
+<script>
+
+    var appName = "CREACTIVEAmbulatoryTasksGoNoGo";
+    var storage = null;
+
+    function loadConfigs(){
+        var promise = $.getJSON("conf.json");
+        promise.done(function (data) {
+            console.log("Config loaded!");
+            storage = new it.marionegri.givitiweb.ExternalStorage(data.translationServiceURL, data.dataStorageServiceURL);
+        });
+        promise.fail(function (error) { 
+            console.log(error);
+        });
+        return promise;
+    }
+    
+    function loadTranslations (culture) {
+        var promise = storage.loadTranslations("GoNoGo Task", culture)
+        promise.done(function () {
+            console.log("Translations loaded!");
+            if (Object.getOwnPropertyNames(jsPsych.currentTrial()).length > 0) {
+                jsPsych.endExperiment("Test");
+                jsPsych.endCurrentTimeline();
+                launchJSPsych(false);
+            } else {
+                launchJSPsych(true);
+            }
+        });
+        promise.fail(function (error) { 
+            console.log(error);
+        });
+        return promise;
+    }
+
+    var languages = it.marionegri.givitiweb.PageUtils.getListOfLanguages();
+    loadConfigs()
+        .done(function() {
+          if (languages == null || languages.length == 0) {
+              loadTranslations("en-US");
+          } else {
+              loadTranslations(languages[0]);
+          }
+    });
+    
+    function onChangeLanguage(sel) {
+        loadTranslations(sel.value);
+    }
+
+    /* define welcome message block */
+    //age = prompt("What age are you?");
+    var age = it.marionegri.givitiweb.PageUtils.getAge();
+    if (age == null) {
+      age = prompt("What age are you?");
+    }
+
+
+  
+  function launchJSPsych (fullscreen) {
+      // Set the variables for each age.
+      var stimExp = 0;
+      if (age == 0) {
+        var stimExp = 1000;
+        var maxTime = 1000;
+
+      } else if (age > 0 && age < 5) {
+        var stimExp = 2000;
+        var maxTime = 2000;
+
+      } else if (age >= 5 && age <= 10) {
+        var stimExp = 1000;
+        var maxTime = 1000;
+
+      } else if (age > 10) {
+        var stimExp = 500;
+        var maxTime = 1000;
+
+      }
+
+      var languages = it.marionegri.givitiweb.PageUtils.getListOfLanguages();
+      var languageSelect = "<select onchange='onChangeLanguage(this)'>";
+      for (var k in languages) {
+         if (storage.currentCulture == languages[k]) {
+            languageSelect += "<option value='" + languages[k] + "' selected>" + languages[k].substr(0, 2) + "</option>";
+        } else {
+            languageSelect += "<option value='" + languages[k] + "'>" + languages[k].substr(0, 2) + "</option>";
+        }
+      }
+      languageSelect += "</select>";
+      
+      /* define instructions block */
+      var instructions_block = {
+        type: "text",
+        cont_key: "mouse",
+        text: storage.getTranslation("goNoGoInstructions") + 
+          "<p>Age: " + age + "</p>" + languageSelect
+      };
+
+      var after_practice = {
+      type: 'button-response',
+      stimulus: storage.getTranslation("afterPractice"),
+      choices: ['Repeat', 'Continue'],
+      is_html: true,
+      button_html: "<a class='jspsych-btn'>%choice%</a>"
+
+    };
+      // var after_practice = {
+      //   type: "text",
+      //   cont_key: "mouse",
+      //   text: storage.getTranslation("") 
+      // };
+
+      /* define test block */
+      var test_stimuli = [{
+        image: 'static/images/redapple.jpg',
+        data: {
+          response: "go"
+        },
+        answer: "mouse"
+      }, {
+        image: 'static/images/greenapple.jpg',
+        data: {
+          response: "no-go"
+        },
+        answer: []
+      }];
+      //----------------------------
+
+      var timeline = [];
+      var practice_timeline =[instructions_block];
+
+      var fixation_trial = {
+        type: 'single-stim',
+        stimulus: '<DIV id="goNoGoFixationPoint">+</DIV>',
+        timing_response: 200, // how long to show the fixation for in ms
+        response_ends_trial: false,
+        choices: 'none', // no valid keys
+        timing_post_trial: 0, // no gap between fixation and image
+        is_html: true
+      }
+
+
+      //---------------------------------
+
+
+      if (age == 0) {
+        var all_trials = jsPsych.randomization.repeat(test_stimuli, [2, 1], true);
+
+      } else if (age < 5) {
+        var all_trials = jsPsych.randomization.repeat(test_stimuli, [24, 8], true);
+      } else if (5 >= age < 10) {
+        var all_trials = jsPsych.randomization.repeat(test_stimuli, [60, 20], true);
+      } else {
+        var all_trials = jsPsych.randomization.repeat(test_stimuli, [90, 30], true);
+      }
+      // add practice trials
+      var practice_trials = jsPsych.randomization.repeat(test_stimuli, [10, 5], false);
+      console.log(practice_trials);      
+      console.log(all_trials);
+      
+      for (var i = 0; i < all_trials.image.length; i++) {
+
+        timeline.push(fixation_trial);
+        timeline.push({
+          type: "categorize-mouse",
+          stimulus: all_trials.image[i],
+          key_answer: all_trials.answer[i],
+          timing_stim: stimExp,
+          timing_feedback_duration: 500,
+          usemouse: true,
+          correct_text: "<div class='under'><img src='static/images/applebasket.png'></img><div class='over'><img src='static/images/redapple.jpg'></img>",
+          show_stim_with_feedback: false,
+          incorrect_text: " ",
+          timeout_message: " ",
+          data: all_trials.data[i],
+          timing_response: maxTime,
+        });
+
+      };
+
+      for (var j=0;j<practice_trials.image.length;j++) {
+        practice_timeline.push(fixation_trial);
+        practice_timeline.push({
+          type: "categorize-mouse",
+          stimulus: practice_trials.image[j],
+          key_answer: practice_trials.answer[j],
+          timing_stim: stimExp,
+          timing_feedback_duration: 500,
+          usemouse: true,
+          correct_text: "<div class='under'><img src='static/images/applebasket.png'></img><div class='over'><img src='static/images/redapple.jpg'></img>",
+          show_stim_with_feedback: false,
+          incorrect_text: " ",
+          timeout_message: " ",
+          data: practice_trials.data[j],
+          timing_response: maxTime,
+        });
+      };
+
+
+
+  var practice_loop = {
+      timeline: [practice_timeline, after_practice],
+      loop_function: function(){
+          var data =  jsPsych.data.getLastTrialData()     
+          
+          if(data.button_pressed == 0){
+              return true;
+          } else {
+              return false;
+          }
+      }
+  }
+      console.log(practice_loop);
+      //practice_timeline.push(after_practice);
+      //timeline = practice_timeline.concat(timeline);
+      
+      /* calculate average RT in correct responses */
+      function getAverageResponseTime() {
+
+        var trials = jsPsych.data.getTrialsOfType('single-stim');
+
+        var sum_rt = 0;
+        var valid_trial_count = 0;
+        for (var i = 0; i < trials.length; i++) {
+          if (trials[i].response == 'go' && trials[i].rt > -1) {
+            sum_rt += trials[i].rt;
+            valid_trial_count++;
+          }
+        }
+        return Math.floor(sum_rt / valid_trial_count);
+      }
+      var debrief_block = {
+        type: "text",
+        text: function() {
+          return "<p>Your average response time was <strong>" +
+            getAverageResponseTime() + "ms</strong>. Press " +
+            "any key to complete the experiment. Thank you!</p>";
+        }
+      };
+
+      //timeline.push(instructions_block,practice_timeline debrief_block);
+     console.log(timeline);
+      jsPsych.init({
+        timeline: timeline,
+        show_progress_bar: true,
+        fullscreen: fullscreen,
+        default_iti: 0,
+        on_finish: function() {
+            jsPsych.data.displayData();
+            storage.saveData(appName, jsPsych.data.getData());
+        }
+      });
+  }
+</script>
+
+
+</html>

@@ -1,0 +1,414 @@
+<!doctype html>
+<html>
+<!-- this task is the nBack task. It consist of two blocks. The first 1-back, the second 2-back.
+Subject will move to second block only if he answered more than 50% of the times correctly in the first
+block -->
+<head>
+  <title>N-Back</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="jspsych-5.0.3/jspsych.js"></script>
+  <script src="jspsych-5.0.3/plugins/jspsych-text.js"></script>
+  <script src="jspsych-5.0.3/plugins/jspsych-single-stim-mouse.js"></script>
+  <script src="jspsych-5.0.3/plugins/jspsych-categorize.js"></script>
+  <script src="jspsych-5.0.3/plugins/jspsych-button-response.js"></script>
+  <script src="GivitiExternalStorage/js/ExternalStorage.js"></script>
+
+
+  <link href="jspsych-5.0.3/css/jspsych.css" rel="stylesheet" type="text/css"></link>
+  <link href="creactive-tasks.css" rel="stylesheet" type="text/css"></link>
+</head>
+
+<body id="nBackCanvas">
+
+</body>
+<script>
+
+    var appName = "CREACTIVEAmbulatoryTasksNback";
+    var storage = null;
+
+    function loadConfigs(){
+        var promise = $.getJSON("conf.json");
+        promise.done(function (data) {
+            console.log("Config loaded!");
+            storage = new it.marionegri.givitiweb.ExternalStorage(data.translationServiceURL, data.dataStorageServiceURL);
+        });
+        promise.fail(function (error) { 
+            console.log(error);
+        });
+        return promise;
+    }
+    
+    function loadTranslations (culture) {
+        var promise = storage.loadTranslations("N Back Task", culture)
+        promise.done(function () {
+            console.log("Translations loaded!");
+            if (Object.getOwnPropertyNames(jsPsych.currentTrial()).length > 0) {
+                jsPsych.endExperiment("Test");
+                jsPsych.endCurrentTimeline();
+                launchJSPsych(false);
+            } else {
+                launchJSPsych(true);
+            }
+        });
+        promise.fail(function (error) { 
+            console.log(error);
+        });
+        return promise;
+    }
+
+    var languages = it.marionegri.givitiweb.PageUtils.getListOfLanguages();
+    loadConfigs()
+        .done(function() {
+          if (languages == null || languages.length == 0) {
+              loadTranslations("en-US");
+          } else {
+              loadTranslations(languages[0]);
+          }
+    });
+    
+    function onChangeLanguage(sel) {
+        loadTranslations(sel.value);
+    }
+
+    /* define welcome message block */
+    //age = prompt("What age are you?");
+    var age = it.marionegri.givitiweb.PageUtils.getAge();
+    if (age == null) {
+      age = prompt("What age are you?");
+    }
+    
+    
+function launchJSPsych (fullscreen) {
+  // Create 10 stimulus objects (animal pictures).
+  // creating var for each picture, if we want to change something in future.
+  var picOne = 'static/images/bird.jpeg';
+  var picTwo = 'static/images/cat.jpeg';
+  var picThree = 'static/images/dog.jpeg';
+  var picFour = 'static/images/fish.jpeg';
+  var picFive = 'static/images/fox.jpeg';
+  var picSix = 'static/images/girraf.jpeg';
+  var picSeven = 'static/images/horse.jpeg'
+  var picEight ='static/images/kuala.jpeg';
+  var picNine = 'static/images/rabbit.jpeg';
+  var picTen = 'static/images/porcupine.jpeg';
+
+  // create an array of stimuli
+  var test_stimuli = [picOne,picTwo,picThree,picFour,picFive,picSix,picSeven,picEight,picNine,picTen];
+
+  // put instructions and practive session
+  var inst_block = {
+    type: "text",
+    text: storage.getTranslation("firstBlockInstructions"),
+    cont_key: "mouse"
+
+    /*storage.getTranslation("nBackInstructions") +
+            "<p>Age: " + age + "</p>" + languageSelect
+      */
+  };
+  var inst_two = {
+    type: "text",
+    text: storage.getTranslation("secondBlockInstructions"),
+    cont_key: "mouse"
+  };
+  // creating the array who decides when distractor and when target
+  // need to be first 3 distractors. Afterwards, 10 targets out of 30.
+
+  //function that fills array same thing many times
+  function fillArray(value, len) {
+    var arr = [];
+    for (var i = 0; i < len; i++) {
+      arr.push(value);
+    }
+    return arr;
+  }
+
+  // function that shuffles array
+  function shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex ;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+
+      // And swap it with the current element.
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+  }
+
+  function createTrials(target, distractor) {
+    var distractors = fillArray('distractor',distractor-3);
+    var targets = fillArray('target',target);
+    var total = targets.concat(distractors); // using concat to concatenat two arrays.
+
+    shuffle(total);
+
+    total.unshift('distractor','distractor','distractor')  //adding three more distractors at beginning of block
+
+    //
+   return total;
+  };
+  // need to set array of pictures according to array of conditions.
+  // function to get random numbers in order to randomlly pick from stimuli.
+  function getRandomIntInclusive(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  var firstBlockCond = createTrials(10,20);
+  var secondBlockCond = createTrials(10,20);
+
+
+
+  function createObjectsToRun(condBlock,n) {
+    // create the first two objects
+    var stimArray = [];
+    var firstTwo = [];
+    var a = getRandomIntInclusive(0,9);
+    stimArray.push({stimulus: test_stimuli[a], data: {condition:'distractor'}});
+    firstTwo.push(test_stimuli[a]);
+    for (i=0;i<1;i++) {
+
+    a=getRandomIntInclusive(0,9);
+
+    if (test_stimuli[a]==firstTwo[0]) {
+      do {
+        a= getRandomIntInclusive(0,9);
+      }
+      while (test_stimuli[a]==stimArray[0].stimulus)
+    }
+    stimArray.push({stimulus: test_stimuli[a], data: {condition: 'distractor'}});
+    }
+    for (i=2;i<condBlock.length;i++) {
+      a = getRandomIntInclusive(0,9);
+      if (condBlock[i] ==='distractor') {
+
+        // create stimulus who is different than before
+        if (test_stimuli[a] != stimArray[i-n].stimulus) {
+          stimArray.push({stimulus: test_stimuli[a], data: {condition:'distractor'} });
+
+        } else {
+          while (test_stimuli[a]==stimArray[i-n].stimulus) {
+            a=getRandomIntInclusive(0,9);
+            if (test_stimuli[a] == stimArray[i-n].stimulus) {
+              a=getRandomIntInclusive(0,9);
+         } else {
+            stimArray.push({stimulus: test_stimuli[a], data: {condition:'distractor'} });
+
+              }
+            }
+          }
+        }
+
+
+      else {
+        // create one that is the same as the 1/2 before
+        stimArray.push({stimulus: stimArray[i-n].stimulus, data: {condition: 'target'}});
+
+      };
+    };
+   return stimArray
+  };
+
+  function endTrial(trial_data){
+      var correct;
+      if (trial_data.condition=='distractor') {
+      if (trial_data.key_press!= -1) {
+           correct = 0;
+           }
+          else {
+          correct=1;
+          }
+         }
+      else {
+          if (trial_data.key_press!= -1) {
+           correct=1;
+          }
+          else {
+            correct=0;
+
+          }
+         }
+      return correct;
+     };
+  var stimArrayOne = createObjectsToRun(firstBlockCond, 1);
+  var stimArrayTwo = createObjectsToRun(secondBlockCond, 2);
+  var snd = new Audio("static/audio/woohoo2.wav"); // an audio file with woohooo sound
+  var mistakeCounter = 0;
+  var trial_data = jsPsych.data.getLastTrialData();
+
+  // add practice block of ten with four targets
+  var practiceCond = createTrials(4,6);
+  var practiceOneArray = createObjectsToRun(practiceCond,1);
+
+  var practice_block_one = {
+    type: 'single-stim-mouse',
+    timeline: practiceOneArray,
+    timing_response: 1500,
+    timing_post_trial: 2000,
+    usemouse: true,
+    data: {block: "practice"},
+    on_finish: function(trial_data) {
+      correct = endTrial(trial_data);
+      if (correct==1) {
+
+          document.getElementById("nBackCanvas").innerHTML = "<DIV id='nBackFeedBack'>&#10004</DIV>";
+          setTimeout(function() {document.getElementById("nBackCanvas").innerHTML= "";}, 300);
+
+        }
+
+      }
+  };
+
+  var after_practice = {
+      type: 'button-response',
+      stimulus: storage.getTranslation("endPractice"),
+      choices: ['Repeat', 'Continue'],
+      is_html: true,
+      button_html: "<a class='jspsych-btn'>%choice%</a>"
+
+    };
+
+  var practice_loop = {
+      timeline: [practice_block_one, after_practice],
+      loop_function: function(){
+          var data =  jsPsych.data.getLastTrialData()
+
+          if(data.button_pressed == 0){
+              return true;
+          } else {
+              return false;
+          }
+      }
+  }
+
+
+  var block_one = {
+    type: 'single-stim-mouse',
+    usemouse: true,
+    timeline: stimArrayOne,
+    timing_response: 1500,
+    data: {block: "one-back"},
+    on_finish: function(trial_data) {
+      correct = endTrial(trial_data);
+
+      if (correct==0) {
+        jsPsych.data.addDataToLastTrial({answer: 0});
+        mistakeCounter++; }
+      else {
+        jsPsych.data.addDataToLastTrial({answer: 1});
+        mistakeCounter= mistakeCounter;
+      }
+    }
+   };
+
+  // practice of two-back
+  // add practice block of ten with four targets
+  var practiceCond = createTrials(4,6);
+  var practiceOneArray = createObjectsToRun(practiceCond,2);
+
+  var practice_block_two = {
+    type: 'single-stim-mouse',
+    timeline: practiceOneArray,
+    timing_response: 1500,
+    timing_post_trial: 2000,
+    usemouse: true,
+    data: {block: "practice"},
+    on_finish: function(trial_data) {
+      correct = endTrial(trial_data);
+      if (correct==1) {
+        document.getElementById("nBackCanvas").innerHTML = "<DIV id='nBackFeedBack'>&#10004</DIV>";
+        setTimeout(function() {document.getElementById("nBackCanvas").innerHTML= "";}, 300);  
+        }
+
+      }
+  };
+
+  var after_practice_two = {
+      type: 'button-response',
+      stimulus: storage.getTranslation("endPractice"),
+      choices: ['Repeat', 'Continue'],
+      is_html: true,
+      button_html: "<a class='jspsych-btn'>%choice%</a>"
+
+    };
+
+  var practice_loop_two = {
+      timeline: [practice_block_two, after_practice_two],
+      loop_function: function(){
+          var data =  jsPsych.data.getLastTrialData()
+
+          if(data.button_pressed == 0){
+              return true;
+          } else {
+              return false;
+          }
+      }
+  }
+
+
+
+  var block_two = {
+    type: 'single-stim-mouse',
+    timeline: stimArrayTwo,
+    timing_response: 1500,
+    usemouse: true,
+    data: {block: "two-back"},
+    on_finish: function(trial_data) {
+      correct = endTrial(trial_data);
+      if (correct==0) {
+        jsPsych.data.addDataToLastTrial({answer: 0});
+        mistakeCounter++; }
+      else {
+        jsPsych.data.addDataToLastTrial({answer: 1});
+        mistakeCounter=mistakeCounter;
+      }
+    }
+   };
+
+
+  // the next block is a conditional one. If person made more than 10 mistakes in the first block, the second will not appear.
+  var if_node = {
+      timeline: [inst_two, practice_loop_two, block_two],
+      conditional_function: function(){
+        if (mistakeCounter>10) {
+          return false;
+        } else {
+          return true;
+        }
+      }
+
+  };
+
+  var thanks = {
+    type: 'single-stim-mouse',
+    stimulus: 'static/images/thanks.png', 
+    timing_stim: 5000,
+    timing_response: 5000
+    };
+
+  // preloading images
+  jsPsych.pluginAPI.preloadImages([test_stimuli], function(){ startExperiment(); });
+
+  function startExperiment() {
+    jsPsych.init({
+          timeline: [inst_block,practice_loop, block_one, if_node, thanks],
+          show_progress_bar: true,
+          fullscreen: fullscreen,
+          default_iti: 500,
+          on_finish: function() {
+           //   jsPsych.data.displayData();
+              storage.saveData(appName, jsPsych.data.getData());
+          }
+        });
+  };
+};
+</script>
+
+
+</html>
