@@ -43,7 +43,7 @@ $reading_enj = '0';
 if (
   ($reading == 'yes') or
 	!($origin == 'US' or $origin == 'UK') or
-  !($bilingual == 'fullbilingual' or $bilingual == 'earlybilingual') or
+  ($bilingual == 'fullbilingual' or $bilingual == 'earlybilingual') or
   ($age < 18)
 	){
 	$next = "https://www.psycholinguistics.ml/thank_you.html";
@@ -90,9 +90,9 @@ $query = "UPDATE participants
 
 	$conn->commit();
 	$conn->close();
-	
+
 	}
-	
+
 	header("Location: ". $next, true, 302);
 	exit();
 
