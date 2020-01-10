@@ -132,10 +132,10 @@ var feedback_instruct_block = {
 var instructions_block = {
   type: 'poldrack-instructions',
   pages: [
-    '<div class = centerbox><p class = block-text>In this task, you will be shown a CAPITALIZED WORD, together with an example of how it is used.</p></div>'+
-	'<div class = centerbox><p class = block-text>Your task is to find the meaning of the word among the options below the word and press the letter corresponding to the meaning.</p></div>'+
-  '<div class = centerbox><p class = block-text>Important! Please be sure to have and keep all other browser windows closed while doing this task.</p></div>'+
-  '<div class = centerbox><p class = block-text>Our algorithim is very sensitive and may flag your responses as being suspcious if other tabs, windows, or programs are open.</p></div>'
+    '<div class = centerbox><p class = block-text>In this task, you will be shown a CAPITALIZED WORD, together with an example of how it is used.</p>'+
+	'<p class = block-text>Your task is to find the meaning of the word among the options below the word and press the letter corresponding to the meaning.</p>'+
+  '<p class = block-text>Important! Please be sure to have and keep all other browser windows closed while doing this task.</p>'+
+  '<p class = block-text>Our algorithim is very sensitive and may flag your responses as being suspcious if other tabs, windows, or programs are open.</p></div>'
   ],
   allow_keys: false,
   data: {
