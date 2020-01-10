@@ -22,7 +22,7 @@ var getChar = function() {
 }
 
 var getChar_red = function() {
-  return '<div class = centerbox><p style="color:red"; class = AX_text>' + chars[Math.floor(Math.random() * 22)] +
+  return '<div class = centerbox><p class = AX_text style="color:red;">' + chars[Math.floor(Math.random() * 22)] +
     '</p></div>'
 }
 
