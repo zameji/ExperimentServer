@@ -257,12 +257,12 @@ var art_task = {
   },
   timing_stim: null,
   response_ends_trial: true,
-  timing_response: 2 * 1000,
-  timing_feedback_duration: 1000,
+  timing_response: 5 * 1000,
+  // timing_feedback_duration: 1000,
   show_stim_with_feedback: false,
   timing_post_trial: 1,
-  correct_text: "Correct",
-  incorrect_text: "False",
+  // correct_text: "Correct",
+  // incorrect_text: "False",
   timeout_message: '<div class = centerbox><div class = center-text>Respond faster</div></div>',
 
 };
