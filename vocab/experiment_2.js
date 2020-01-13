@@ -259,18 +259,16 @@ var art_task = {
   // response_ends_trial: true,
   // timing_response: 5 * 1000,
   // timing_feedback_duration: 0,
-  timing_stim: null,
+  timing_stim: 5 * 1000,
   response_ends_trial: true,
   timing_response: 5 * 1000,
-  timing_feedback_duration: 1000,
+  timing_feedback_duration: 1,
   show_stim_with_feedback: false,
   timeout_message: '<div class = centerbox><div class = center-text>Respond faster</div></div>',
   // show_stim_with_feedback: false,
   // timing_post_trial: 1,
   correct_text: '<p class = AX_text style="color:white;"> </p>',
-  incorrect_text: '<p class = AX_text style="color:white;"> </p>',
-  timeout_message: '<div class = centerbox><div class = center-text>Respond faster</div></div>',
-
+  incorrect_text: '<p class = AX_text style="color:white;"> </p>'
 };
 
 
