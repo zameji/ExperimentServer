@@ -265,11 +265,11 @@ var art_task = {
   timing_feedback_duration: 1,
   show_stim_with_feedback: false,
   timing_post_trial: 1,
-  timeout_message: '<div class = centerbox><div class = center-text>Respond faster</div></div>'
+  timeout_message: '<div class = centerbox><div class = center-text>Respond faster</div></div>',
   // show_stim_with_feedback: false,
   // timing_post_trial: 1,
-  // correct_text: "Correct",
-  // incorrect_text: "False",
+  correct_text: '<p class = AX_text style="color:red;"> </p>',
+  incorrect_text: '<p class = AX_text style="color:red;"> </p>',
   //timeout_message: '<div class = centerbox><div class = center-text>Respond faster</div></div>',
 
 };
