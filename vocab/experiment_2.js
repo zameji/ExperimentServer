@@ -255,15 +255,22 @@ var art_task = {
     trial_id: "task",
     exp_stage: "test"
   },
+  // timing_stim: null,
+  // response_ends_trial: true,
+  // timing_response: 5 * 1000,
+  // timing_feedback_duration: 0,
   timing_stim: null,
   response_ends_trial: true,
-  timing_response: 5 * 1000,
-  timing_feedback_duration: 0,
+  timing_response: null,
+  timing_feedback_duration: 1,
+  show_stim_with_feedback: false,
+  timing_post_trial: 1,
+  timeout_message: '<div class = centerbox><div class = center-text>Respond faster</div></div>'
   // show_stim_with_feedback: false,
   // timing_post_trial: 1,
   // correct_text: "Correct",
   // incorrect_text: "False",
-  timeout_message: '<div class = centerbox><div class = center-text>Respond faster</div></div>',
+  //timeout_message: '<div class = centerbox><div class = center-text>Respond faster</div></div>',
 
 };
 
