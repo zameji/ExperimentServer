@@ -268,8 +268,8 @@ var art_task = {
   timeout_message: '<div class = centerbox><div class = center-text>Respond faster</div></div>',
   // show_stim_with_feedback: false,
   // timing_post_trial: 1,
-  correct_text: '<p class = AX_text style="color:red;"> </p>',
-  incorrect_text: '<p class = AX_text style="color:red;"> </p>',
+  correct_text: '<p class = AX_text style="color:white;"> </p>',
+  incorrect_text: '<p class = AX_text style="color:white;"> </p>',
   //timeout_message: '<div class = centerbox><div class = center-text>Respond faster</div></div>',
 
 };
