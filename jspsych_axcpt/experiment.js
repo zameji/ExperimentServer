@@ -208,7 +208,7 @@ var other_cue = {
 
 var distractor = {
   type: 'poldrack-categorize',
-  stimulus: '<div class = centerbox><div style="color:red"; class = AX_text>'+getChar+'</div></div>',
+  stimulus: getChar,
   is_html: true,
   response_ends_trial: true,
   choices: [possible_responses[0][1], possible_responses[1][1]],
