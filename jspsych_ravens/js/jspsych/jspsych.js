@@ -299,7 +299,7 @@ var jsPsych = (function() {
       if (timeline.length == 0) {
         return trial_data;
       } else {
-        if (current_location >= timeline.length || jsPsych.totalTime() >= 1*60*1000) {
+        if (current_location >= timeline.length || jsPsych.totalTime() >= 5*60*1000) {
           return null;
         } else {
           return timeline[current_location].trial();

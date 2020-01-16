@@ -180,7 +180,7 @@ var vocab_task = {
   timing_stim: null,
   response_ends_trial: true,
   timing_response: null,
-  timing_feedback_duration: 1,
+  timing_feedback_duration: 1000,
   show_stim_with_feedback: false,
   timing_post_trial: 1,
   timeout_message: '<div class = centerbox><div class = center-text>Respond faster</div></div>',
