@@ -227,9 +227,11 @@ flanker_experiment = []
 flanker_experiment.push(instruction_node);
 for (i = 0; i < practice_len; i++) {
 	flanker_experiment.push(fixation_block)
+	var padsize_left = Math.round(-10 + Math.random()*20);			//Randomize position from -10% - +10%
+	var padsize_top = Math.round(40 + Math.random()*20);			//Randomize position from 40% - 60%
 	var practice_block = {
 		type: 'poldrack-categorize',
-		stimulus: '<div class = centerbox><div class = flanker-text>' + practice_trials.image[i]+'</div></div>',
+		stimulus:  '<div class = centerbox><div class = flanker-text style="left: ' + padsize_left + '%; top: '+ padsize_top + '%;">' + practice_trials.image[i] + '</div></div>',
 		is_html: true,
 		key_answer: practice_response_array[i],
 		correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
@@ -266,7 +268,7 @@ for (i = 0; i < exp_len; i++) {
 		correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
 		incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text>Incorrect</div></div>',
 		timeout_message: '<div class = centerbox><div class = flanker-text>Respond faster!</div></div>',
-		choices: [70, 72],
+		choices: [70, 74],
 		data: test_trials.data[i],
 		timing_feedback_duration: 1000,
 		timing_response: 2000,
