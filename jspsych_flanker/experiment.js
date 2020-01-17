@@ -242,11 +242,8 @@ for (i = 0; i < practice_len; i++) {
 		timing_feedback_duration: 1000,
 		show_stim_with_feedback: false,
 		timing_response: 1500,
-<<<<<<< HEAD
 		timing_post_trial: 500,
 	  response_ends_trial: true,
-=======
->>>>>>> 8148d4ba6d27678d6367243637b6c724a0748513
 		on_finish: function() {
 			jsPsych.data.addDataToLastTrial({
 				exp_stage: "practice"
@@ -277,11 +274,8 @@ for (i = 0; i < exp_len; i++) {
 		timing_feedback_duration: 1000,
 		timing_response: 2000,
 		show_stim_with_feedback: false,
-<<<<<<< HEAD
 		timing_post_trial: 100,
 	  response_ends_trial: true,
-=======
->>>>>>> 8148d4ba6d27678d6367243637b6c724a0748513
 		on_finish: function() {
 			jsPsych.data.addDataToLastTrial({
 				exp_stage: "test"
