@@ -185,7 +185,7 @@ var vocab_task = {
   timing_feedback_duration: 1000,
   show_stim_with_feedback: false,
   timing_post_trial: 1,
-  timeout_message: '<div class = centerbox><div class = center-text>Respond faster</div></div>',
+  timeout_message: '<div class = centerbox><div class = center-text>Out of time</div></div>',
   correct_text: '<p class = AX_text style="color:white;"> </p>',
   incorrect_text: '<p class = AX_text style="color:white;"> </p>'
 };
