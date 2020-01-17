@@ -319,7 +319,7 @@ if __name__ == "__main__":
 					</tr>
 					<tr>
 						<td>
-						Check this box to confirm that you agree with the experiment.
+						Check this box to confirm that you have read and agree with the <a href="https://www.psycholinguistics.ml/policy2.html" target="_blank">privacy policy</a>.
 					</td>
 						<td>
 							<input id="cookieConsent" name="cookieConsent" type="checkbox" value="yes" />
@@ -344,9 +344,6 @@ if __name__ == "__main__":
 			<!--<p style="text-align: center">-->
 			<!--	<span id = "mobile">Device: Approved</span>-->
 			<!--</p>-->
-			<p style="text-align: center">
-				<a href="https://www.psycholinguistics.ml/policy.html">Cookies notice - Privacy policy</a>
-			</p>
 		</div>
 		<script>
 
