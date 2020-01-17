@@ -243,6 +243,7 @@ for (i = 0; i < practice_len; i++) {
 		show_stim_with_feedback: false,
 		timing_response: 1500,
 		timing_post_trial: 500,
+	  response_ends_trial: true,
 		on_finish: function() {
 			jsPsych.data.addDataToLastTrial({
 				exp_stage: "practice"
@@ -274,6 +275,7 @@ for (i = 0; i < exp_len; i++) {
 		timing_response: 2000,
 		show_stim_with_feedback: false,
 		timing_post_trial: 100,
+	  response_ends_trial: true,
 		on_finish: function() {
 			jsPsych.data.addDataToLastTrial({
 				exp_stage: "test"
