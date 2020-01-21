@@ -73,9 +73,9 @@ switch (substr($testgroup, $progress, 1)){
 	case "Q":
 		$next ="https://www.psycholinguistics.ml/vocab/index4_timed.html";// Vocabulary
 		break;
-	case "R":
-		$next ="https://www.psycholinguistics.ml/jspsych_7/index.html";// PLACEHOLDER
-		break;
+	// case "R":
+	// 	$next ="https://www.psycholinguistics.ml/jspsych_7/index.html";// PLACEHOLDER
+	// 	break;
 
 	default:
 		$next = "https://www.psycholinguistics.ml/index/server_error.html";

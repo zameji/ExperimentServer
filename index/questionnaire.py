@@ -61,18 +61,18 @@ def nextgroup(n):
 	from itertools import product as iter_product
 	from itertools import permutations
 
-	testgroups = ["1", "2", "J"]
+	testgroups = ["1", "J"] #removed 2 because ibex2 is out
 	testgroups_versions = ["".join(x) for x in list(permutations(testgroups, len(testgroups)))]
 
 	# Only allow those where Ibex 2 is the last one
-	testgroups_versions = [x for x in testgroups_versions if x.endswith("2")]
+	#testgroups_versions = [x for x in testgroups_versions if x.endswith("2")]
 
 	ibex_1 = ["A", "B", "C", "D", "E", "F", "G", "H"]
 
 	# ibex_2 = ["I"] #had to change to fit with the increased ibex amounts
 	# todo: we are droppin-g ibex 2, right?
 
-	jspsych = ["J", "K", "L", "M", "N", "O", "P", "Q", "R"]
+	jspsych = ["J", "K", "L", "M", "N", "O", "P", "Q"] #removed R which was a placeholder
 
 	#combine the various jspsych versions
 	jspsych_versions = ["".join(x) for x in list(permutations(jspsych, len(jspsych)))]
