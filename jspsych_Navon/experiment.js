@@ -195,13 +195,13 @@ var instructions_block = {
   },
   pages: [
     '<div class = centerbox><p class = block-text>In this experiment you will see blue or black shapes made up of smaller shapes, like the image below. All of the smaller shapes will always be the same shape. Both the large shape and the smaller shapes can either be a circle, X, triangle or square.</p><div class = instructionImgBox><img src = "images/blue_squareofcircles.png" height = 200 width = 200></img></div></div>',
-    '<div class = centerbox><p class = block-text>Your task is to respond based on how many lines either the large or small shapes have, depending on the color. If the shape is ' +
-    task_colors[0] + ' respond based on how many lines the large shape has. If the shape is ' +
+    '<div class = centerbox><p class = block-text>Your task is to respond based on how many lines either the large or small shapes have, depending on the color. <br> If the shape is <b>' +
+    task_colors[0] + '</b> respond based on how many lines the <b>large</b> shape has. <br>If the shape is <b>' +
     task_colors[1] +
-    ' respond based on how many lines the small shape has.</p><p class = block-text>Use the number keys to respond 1 for a circle, 2 for an X, 3 for a triangle and 4 for a square.</p></div>',
-    '<div class = centerbox><p class = block-text>For instance, for the shape below you would press 3 because it is ' +
+    '</b> respond based on how many lines the <b>small</b> shape has.</p><p class = block-text>Use the number keys to respond 1 for a circle, 2 for an X, 3 for a triangle and 4 for a square.</p></div>',
+    '<div class = centerbox><p class = block-text>For instance, for the shape below you would press <b>3</b> because it is <b>' +
     task_colors[1] +
-    ' which means you should respond based on the smaller shapes. If the shape was instead ' +
+    ' </b>which means you should respond based on the <b>smaller</b> shapes. <br>If the shape was instead ' +
     task_colors[0] +
     ' you would press 2.</p><div class = instructionImgBox><img src = "images/' +
     task_colors[1] + '_Xoftriangles.png" height = 200 width = 200></img></div></div>'
