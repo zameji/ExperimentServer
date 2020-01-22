@@ -98,7 +98,7 @@ def nextgroup(n):
 	# finally:
 	# 	i = i%len(combined)
 
-	if n%2 == 0:
+	if "J1_" in n:
 		current_order = "1J_"
 	else:
 		current_order = "J1_"
