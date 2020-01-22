@@ -60,9 +60,10 @@ def nextgroup(n):
 	#"J" --> jspsych/experiment.html
 	from itertools import product as iter_product
 	from itertools import permutations
+	import random
 
-	testgroups = ["1", "J"] #removed 2 because ibex2 is out
-	testgroups_versions = ["".join(x) for x in list(permutations(testgroups, len(testgroups)))]
+	#testgroups = ["1", "J"] #removed 2 because ibex2 is out
+	#testgroups_versions = ["".join(x) for x in list(permutations(testgroups, len(testgroups)))]
 
 	# Only allow those where Ibex 2 is the last one
 	#testgroups_versions = [x for x in testgroups_versions if x.endswith("2")]
@@ -77,11 +78,11 @@ def nextgroup(n):
 	#combine the various jspsych versions
 	jspsych_versions = ["".join(x) for x in list(permutations(jspsych, len(jspsych)))]
 
-	combined = []
-	for testgroup in testgroups_versions:
-		for js in jspsych_versions:
-			for ibx in ibex_1:
-				combined.append("_".join([testgroup, js, ibx]))
+	# combined = []
+	# for testgroup in testgroups_versions:
+	# 	for js in jspsych_versions:
+	# 		for ibx in ibex_1:
+	# 			combined.append("_".join([testgroup, js, ibx]))
 
 	# combined = [x for x in list(permutations([ibex_1, ibex_2, jspsych_versions],3))]
 	#combined = [x for x in list(permutations([ibex_1, jspsych_versions],2))]
@@ -89,15 +90,27 @@ def nextgroup(n):
 	#combined = ["".join(item) for sublist in combined for item in sublist]
 	# combined = jspsych_versions
 
-	try:
-		i = combined.index(n)
-		i +=1
-	except:
-		i = 0
-	finally:
-		i = i%len(combined)
+	# try:
+	# 	i = combined.index(n)
+	# 	i +=1
+	# except:
+	# 	i = 0
+	# finally:
+	# 	i = i%len(combined)
 
-	return combined[i]
+	if n%2 == 0:
+		current_order = "1J_"
+	else:
+		current_order = "J1_"
+
+	current_order += random.choice(jspsych_versions) + "_"
+
+	current_order += (random.choice(ibex_1))
+
+	return current_order
+
+
+	#return combined[i]
 
 	#For development of Part 2, always return group "EAB"
 	# return "EAJ"
