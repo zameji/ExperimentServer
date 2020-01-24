@@ -281,7 +281,7 @@ if __name__ == "__main__":
 							<br />
 							<input name="edu" type="radio" value="2" id="edu2"/>
 							<label for="edu2">
-								Associate's degree
+								Community college or technical college
 							</label>
 							<br />
 							<input name="edu" type="radio" value="3" id="edu3"/>
