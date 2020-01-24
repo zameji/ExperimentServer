@@ -141,7 +141,7 @@ if __name__ == "__main__":
 							Risks: This experiment has various parts and may be longer than other quesionnaires or experiments you have participated in before. We see no substantial risks to you in your participation, besides perhaps your own boredom  or loss of time.
 						</p>
 			<p style="text-align:left">
-							Risks: This experiment has various parts and may be longer than other quesionnaires or experiments you have participated in before. We see no substantial risks to you in your participation, besides perhaps your own boredom  or loss of time.
+							Privacy: The data from the experiment is totally confidential, as the researchers involved will never receive your name or identifying details. We receive only your Prolific ID and the answers to demographic questions you have answered on their website.
 						</p>
 			<p style="text-align:left">
 							We would also like to ask you a couple demographic questions. Please answer honestly for the integrity of our research.
