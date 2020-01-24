@@ -138,7 +138,7 @@ if __name__ == "__main__":
 							This study has to do with the way native English speakers read and understand sentences. You will be asked to do various cognitive tasks, including reading sentences one word at a time.
 						</p>
 			<p style="text-align:left">
-							Risks: This experiment has various parts and may be longer than other quesionnaires or experiments you have participated in before. We see no substantial risks to you in your participation, besides perhaps your own boredom  or loss of time.
+							Risks: This experiment has various parts and may be longer than other questionnaires or experiments you have participated in before. We see no substantial risks to you in your participation, besides perhaps your own boredom  or loss of time.
 						</p>
 			<p style="text-align:left">
 							Privacy: The data from the experiment is totally confidential, as the researchers involved will never receive your name or identifying details. We receive only your Prolific ID and the answers to demographic questions you have answered on their website.
