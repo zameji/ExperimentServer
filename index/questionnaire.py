@@ -144,7 +144,12 @@ if __name__ == "__main__":
 							Privacy: The data from the experiment is totally confidential, as the researchers involved will never receive your name or identifying details. We receive only your Prolific ID and the answers to demographic questions you have answered on their website.
 						</p>
 			<p style="text-align:left">
-							We would also like to ask you a couple demographic questions. Please answer honestly for the integrity of our research.
+							By checking the box at the end of this page, you confirm the following statements:<br>
+							I understand that the experiment I am about to participate in will take around 90 minutes and may consist of repetitive tasks. I voluntarily agree to take part in this experiment under these conditions. <br>
+							I consent to the use of my data and its publication in fully anonymized form at a later date.
+						</p>
+			<p style="text-align:left">
+							We would also like to ask you a couple of basic questions. Please answer honestly for the integrity of our research.
 						</p>
 			<form id="mainform" style="text-align: center" method="post" action="https://www.psycholinguistics.ml/write_data.php" onsubmit="return prepareAndValidate()">
 				<input id="internalID" name="internalID" type="hidden" value="not_assigned"/>
