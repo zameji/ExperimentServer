@@ -149,7 +149,7 @@ if __name__ == "__main__":
 							I consent to the use of my data and its publication in fully anonymized form at a later date.
 						</p>
 			<p style="text-align:left">
-							We would also like to ask you a couple of basic questions. Please answer honestly for the integrity of our research.
+							First, we ask you to answer a couple of basic questions. Please answer honestly for the integrity of our research.
 						</p>
 			<form id="mainform" style="text-align: center" method="post" action="https://www.psycholinguistics.ml/write_data.php" onsubmit="return prepareAndValidate()">
 				<input id="internalID" name="internalID" type="hidden" value="not_assigned"/>
@@ -340,7 +340,7 @@ if __name__ == "__main__":
 					</tr>
 					<tr>
 						<td>
-						Check this box to confirm that you have read and agree with the <a href="https://www.psycholinguistics.ml/policy2.html" target="_blank">privacy policy</a>.
+						Check this box to confirm that you have read and agree with the <a href="https://www.psycholinguistics.ml/policy2.html" target="_blank">conditions of this experiment</a>.
 					</td>
 						<td>
 							<input id="cookieConsent" name="cookieConsent" type="checkbox" value="yes" />
