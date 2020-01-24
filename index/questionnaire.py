@@ -138,7 +138,7 @@ if __name__ == "__main__":
 							This study has to do with the way native English speakers read and understand sentences. You will be asked to do various cognitive tasks, including reading sentences one word at a time.
 						</p>
 			<p style="text-align:left">
-							This experiment has various parts and may be longer than other questionnaires or experiments you’ve participated in before. We see no substantial risks to you in your participation, besides perhaps your own boredom or loss of time.
+							test
 						</p>
 			<p style="text-align:left">
 							We would also like to ask you a couple demographic questions. Please answer honestly for the integrity of our research.
