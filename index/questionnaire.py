@@ -134,13 +134,7 @@ if __name__ == "__main__":
 			<p>
 				<b>Reading English Sentences</b>
 			</p>
-			<p style="text-align:left">This study has to do with the way native English speakers read and understand sentences. You will be asked to do various cognitive tasks, including reading sentences one word at a time.</p>
-			<p style="text-align:left">Risks: This experiment has various parts and may be longer than other questionnaires or experiments you’ve participated in before. We see no substantial risks to you in your participation, besides perhaps your own boredom or loss of time.</p>
-			<p style="text-align:left">Privacy: The data from the experiment is totally confidential, as the researchers involved will never receive your name or identifying details. We receive only your Prolific ID and the answers to demographic questions you have answered on their website.</p>
-			<p style="text-align:left">By checking the box at the end of this page, you confirm the following statements:<br>
-			I understand that the experiment I am about to participate in will take around 90 minutes and may consist of repetitive tasks. I voluntarily agree to take part in this experiment under these conditions. <br>
-			I consent to the use of my data and its publication in fully anonymized form at a later date.<br>
-			I know that I am under no obligation to participate in this study and understand that I can withdraw my participation at any time.</p>
+
 			<p style="text-align:left">We would also like to ask you a couple demographic questions. Please answer honestly for the integrity of our research.</p>
 			<form id="mainform" style="text-align: center" method="post" action="https://www.psycholinguistics.ml/write_data.php" onsubmit="return prepareAndValidate()">
 				<input id="internalID" name="internalID" type="hidden" value="not_assigned"/>
@@ -393,6 +387,14 @@ if __name__ == "__main__":
 # deleted: 			<p style="text-align:left">
 # 							We define "native English speakers" as people whose earliest memories involve speaking primarily English and who continue to consider English as their main language of communication. For this study, participants must also have grown up in a primarily English speaking country from the list below and not have become fluent in a foreign language before the age of 13. Participants must also not have or have ever had a learning disability.
 # 						</p>
+# 
+# <p style="text-align:left">This study has to do with the way native English speakers read and understand sentences. You will be asked to do various cognitive tasks, including reading sentences one word at a time.</p>
+# <p style="text-align:left">Risks: This experiment has various parts and may be longer than other questionnaires or experiments you’ve participated in before. We see no substantial risks to you in your participation, besides perhaps your own boredom or loss of time.</p>
+# <p style="text-align:left">Privacy: The data from the experiment is totally confidential, as the researchers involved will never receive your name or identifying details. We receive only your Prolific ID and the answers to demographic questions you have answered on their website.</p>
+# <p style="text-align:left">By checking the box at the end of this page, you confirm the following statements:<br>
+# I understand that the experiment I am about to participate in will take around 90 minutes and may consist of repetitive tasks. I voluntarily agree to take part in this experiment under these conditions. <br>
+# I consent to the use of my data and its publication in fully anonymized form at a later date.<br>
+# I know that I am under no obligation to participate in this study and understand that I can withdraw my participation at any time.</p>
 
 	update_counter(nextgroup)
 	sys.stdout.write(html)
