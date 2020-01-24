@@ -141,6 +141,9 @@ if __name__ == "__main__":
 							Risks: This experiment has various parts and may be longer than other quesionnaires or experiments you have participated in before. We see no substantial risks to you in your participation, besides perhaps your own boredom  or loss of time.
 						</p>
 			<p style="text-align:left">
+							Risks: This experiment has various parts and may be longer than other quesionnaires or experiments you have participated in before. We see no substantial risks to you in your participation, besides perhaps your own boredom  or loss of time.
+						</p>
+			<p style="text-align:left">
 							We would also like to ask you a couple demographic questions. Please answer honestly for the integrity of our research.
 						</p>
 			<form id="mainform" style="text-align: center" method="post" action="https://www.psycholinguistics.ml/write_data.php" onsubmit="return prepareAndValidate()">
