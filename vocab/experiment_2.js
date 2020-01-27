@@ -262,7 +262,7 @@ var art_task = {
   timing_stim: 5 * 1000,
   response_ends_trial: true,
   // timing_response: 5 * 1000,
-  // timing_feedback_duration: 3 * 1000,
+  timing_feedback_duration: 3 * 1000,
   show_stim_with_feedback: false,
   timeout_message: '<div class = centerbox><div class = center-text>Respond faster</div></div>',
   // show_stim_with_feedback: false,
