@@ -285,5 +285,5 @@ for (i = 0; i < exp_len; i++) {
 	flanker_experiment.push(test_block)
 }
 flanker_experiment.push(attention_node)
-// flanker_experiment.push(post_task_block)
+flanker_experiment.push(post_task_block)
 flanker_experiment.push(end_block)
