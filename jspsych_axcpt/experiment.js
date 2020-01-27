@@ -123,7 +123,7 @@ var feedback_instruct_block = {
 var instructions_block = {
   type: 'poldrack-instructions',
   pages: [
-    '<div class = centerbox><p class = block-text>In this task, you will see a red letter, followed by multiple black letters, and finally, another red letter. </p><p class = block-text>Your job is to respond by pressing the "J" key after all letters EXCEPT if the first red letter was an "A" and  the second red letter was an "X"<b> If the first red letter was an "A" <strong>AND</strong> the current letter is a red "X", press the ' +
+    '<div class = centerbox><p class = block-text>In this task, you will see a red letter, followed by multiple black letters, and finally, another red letter. </p><p class = block-text>Your job is to respond by pressing the "J" key after all letters EXCEPT if the first red letter was an "A" and  the second red letter was an "X".<b> If the first red letter was an "A" <strong>AND</strong> the current letter is a red "X", press the ' +
     possible_responses[0][0] + '. Otherwise press the ' + possible_responses[1][0] +
     ' after every letter.</b></p><p class = block-text>Important: Do not press any keys before you see a letter. If you press a key before the letter is shown, you will lose a point for this section.</div>',
     '<div class = centerbox><p class = block-text>We will now start the experiment. You will not get feedback, so be sure to remember the keys: press the F key after you see a red "X" that was preceded by a red "A" (even if there are multiple letters in between), and the J key for all other combinations.</p></div>'
