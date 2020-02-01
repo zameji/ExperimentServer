@@ -5,15 +5,16 @@ function saveData(name, data, php_address){
   xhr.open('POST', php_address); // 'write_data.php' is the path to the php file described above.
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.send(JSON.stringify({filename: name, filedata: data}));
-  
+
   xhr.onreadystatechange = function () {
 	if (xhr.status == 200 && xhr.status < 300)
 	{
+    console.log(xhr.responseText);
 		var response = JSON.parse(xhr.responseText);
 		if(response.location){
 		  window.location.href = response.location;
 		}
-	} 
+	}
     }
 }
 
