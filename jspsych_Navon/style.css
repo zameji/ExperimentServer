@@ -2,8 +2,10 @@ img {
     max-width: 100%;
     height: auto;
     width: auto\9; /* ie8 */
-	position: absolute;
-    margin: auto;
+	   position: absolute;
+     margin: auto;
+     margin-left: auto;
+     margin-right: auto;
     top: 0;
     left: 0;
     right: 0;
@@ -12,7 +14,7 @@ img {
 
 .instructionImgBox {
   width: 30vw;
-  height: 30vw;
+  height: 20vw;
   position:absolute;
   top:50%;
   left:50%;

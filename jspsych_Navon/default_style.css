@@ -30,7 +30,7 @@ body {
   position: fixed;
   left: 5vw;
   top: 2vh;
-  height: 94vh;
+  height: 85vh;
   width: 90vw;
   background-color: white;
   box-shadow: 1px 1px 1px #999;
@@ -62,7 +62,7 @@ body {
   height 100vw;
   text-align: justify;
   margin: 0 auto;
-  margin-bottom: 1em;
+  /*margin-bottom: 1em;*/
   font-size: 24px;
   line-height: 120%;
 }
@@ -94,7 +94,7 @@ body {
   text-align: center;
   font-size: 150px;
   position: relative;
-  top: 50%; 
+  top: 50%;
   transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
 }
@@ -130,7 +130,7 @@ Sample html: <div class = centerbox><div class = img-container><img...></img></d
 
 .jspsych-instructions-nav {
   text-align: center;
-  margin-top: 50px;
+  /*margin-top: 50px;*/
   position: relative;
   z-index: 1;
 }
