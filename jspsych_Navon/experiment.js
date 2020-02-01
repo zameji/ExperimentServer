@@ -311,6 +311,8 @@ var test_block = {
   }
 };
 
+var user_id = getID();
+
 /* create experiment definition array */
 var local_global_shape_experiment = [];
 local_global_shape_experiment.push(instruction_node);
