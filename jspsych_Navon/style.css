@@ -3,7 +3,7 @@ img {
     height: auto;
     width: auto\9; /* ie8 */
 	   position: absolute;
-     margin: auto;
+     /*margin: auto;*/
      margin-left: auto;
      margin-right: auto;
     top: 0;
@@ -15,7 +15,7 @@ img {
 .instructionImgBox {
   width: 30vw;
   height: 20vw;
-  position:absolute;
+  position: relative;
   top:50%;
   left:50%;
   margin-right:0%;
