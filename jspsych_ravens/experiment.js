@@ -1,10 +1,10 @@
 /* ************************************ */
 /* Define helper functions */
 /* ************************************ */
-function getDisplayElement() {
-  $('<div class = display_stage_background></div>').appendTo('body')
-  return $('<div class = display_stage></div>').appendTo('body')
-}
+// function getDisplayElement() {
+//   $('<div class = display_stage_background></div>').appendTo('body')
+//   return $('<div class = display_stage></div>').appendTo('body')
+// }
 
 function fillArray(value, len) {
   if (len === 0) return [];
