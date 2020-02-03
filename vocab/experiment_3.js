@@ -16,7 +16,7 @@ var getInstructFeedback = function() {
     return '<div class = centerbox><p class = center-block-text>' + feedback_instruct_text +
       '</p></div>'
   }
-  
+
   /* ************************************ */
   /* Define experimental variables */
   /* ************************************ */
@@ -97,7 +97,7 @@ var end_block = {
 };
 
 var feedback_instruct_text =
-  'Welcome to the experiment. Press <strong>enter</strong> to begin.'
+  'Welcome to the next task. Press <strong>enter</strong> to begin.'
 var feedback_instruct_block = {
   type: 'poldrack-text',
   cont_key: [13],
@@ -179,10 +179,10 @@ colloc_timed_experiment.push(instruction_node);
 
 for (b = 0; b < blocks_list.length; b++) {
 
-	
+
 	random_order = [0,1,2,3,4]
 	shuffle(random_order)
-	
+
 	f_choice = blocks_list[b][random_order[0]]
 	g_choice = blocks_list[b][random_order[1]]
 	h_choice = blocks_list[b][random_order[2]]
@@ -199,8 +199,8 @@ for (b = 0; b < blocks_list.length; b++) {
 						'<tr class = block-text> <td><b>K.</b> </td><td>' + k_choice + '</td></tr>' +
 						'</table>'+
 					'</div>'
-					
-	task.key_answer = possible_responses[random_order.indexOf(0)][1];	
+
+	task.key_answer = possible_responses[random_order.indexOf(0)][1];
     colloc_timed_experiment.push(task)
 }
 colloc_timed_experiment.push(end_block)
