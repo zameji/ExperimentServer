@@ -276,7 +276,7 @@ var practice_block = {
   choices: choices,
   timing_feedback_duration: 1000,
   show_stim_with_feedback: false,
-  timing_response: 3000, //increased from default 2000
+  timing_response: 2000,
   timing_post_trial: 500,
   on_finish: function(data) {
   	jsPsych.data.addDataToLastTrial({
@@ -294,13 +294,10 @@ var test_block = {
     trial_id: "stim",
     exp_stage: "test"
   },
-  correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
-  incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text>Incorrect</div></div>',
-  timeout_message: '<div class = centerbox><div class = center-text>Respond faster!</div></div>',
   is_html: true,
   choices: choices,
   timing_post_trial: 500,
-  timing_response: 3000, //increased from default 2000
+  timing_response: 2000,
   on_finish: function(data) {
     correct = false
   	if (data.key_press === data.correct_response) {
