@@ -263,8 +263,8 @@ var art_task = {
   timeout_message: '<div class = centerbox><div class = center-text>Respond faster</div></div>',
   // show_stim_with_feedback: false,
   // timing_post_trial: 1,
-  correct_text: NULL,
-  incorrect_text: NULL
+  correct_text: '<div class = centerbox><div class = center-text>Please wait for the next trial</div></div>',
+  incorrect_text: '<div class = centerbox><div class = center-text>Please wait for the next trial</div></div>'
 };
 
 
