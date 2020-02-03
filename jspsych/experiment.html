@@ -10,6 +10,7 @@
 		<script src="jspsych/plugins/jspsych-html-keyboard-response.js"></script>
 		<script src="jspsych/plugins/jspsych-image-keyboard-response.js"></script>
     <script src="jspsych/plugins/jspsych-survey-text.js"></script>
+    <script src="jspsych/plugins/jspsych-poldrack-text.js"></script>
 		<!--<script src="http://wzrd.in/standalone/uuid%2Fv1@latest"></script>-->
 
 		<!-- Cookie handling JS code. -->
@@ -119,6 +120,19 @@
                   '<p class = center-block-text style = "font-size: 20px">Do you have any comments about this task?</p>'],
        rows: [15, 15],
        columns: [60,60]
+    }
+    timeline.push(post_task_block);
+
+    var end_block = {
+      type: 'poldrack-text',
+      data: {
+        trial_id: "end",
+        exp_id: 'circles'
+      },
+      timing_response: 180000,
+      text: '<div class = centerbox><p class = center-block-text>Thanks for completing this task!</p><p class = center-block-text>Press <strong>enter</strong> to continue.</p></div>',
+      cont_key: [13],
+      timing_post_trial: 0
     }
     timeline.push(post_task_block);
 
