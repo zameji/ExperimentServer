@@ -52,7 +52,7 @@ var trials = [
     ["Amir D. Aczel", 70],
     ["Robert Jordan", 70],
     ["Douglas Adams", 70],
-    ["Anne McCaVrey", 70],
+    ["Anne McCaffrey", 70],
     ["William Gibson", 70],
     ["Terry Brooks", 70],
     ["Terry Goodkind", 70],
