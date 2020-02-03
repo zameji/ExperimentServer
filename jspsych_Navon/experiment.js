@@ -239,7 +239,7 @@ var start_practice_block = {
   data: {
     trial_id: "practice_intro"
   },
-  text: '<div class = centerbox><p class = center-block-text>We will start with some practice.</p><p class = center-block-text>Press <strong>enter</strong> to begin.</p></div>',
+  text: '<div class = centerbox><p class = center-block-text>We will start with some practice. During practice, you will receive feedback. Once the experiment begins, you will not get feedback.</p><p class = center-block-text>Press <strong>enter</strong> to begin.</p></div>',
   cont_key: [13],
   timing_post_trial: 1000
 };
@@ -276,7 +276,7 @@ var practice_block = {
   choices: choices,
   timing_feedback_duration: 1000,
   show_stim_with_feedback: false,
-  timing_response: 3000, //increased from default 2000
+  timing_response: 4000, //increased from default 2000
   timing_post_trial: 500,
   on_finish: function(data) {
   	jsPsych.data.addDataToLastTrial({
@@ -299,10 +299,8 @@ var test_block = {
   timeout_message: '<div class = centerbox><div class = center-text>Respond faster!</div></div>',
   is_html: true,
   choices: choices,
-  timing_feedback_duration: 1000,
-  show_stim_with_feedback: false,
   timing_post_trial: 500,
-  timing_response: 3000, //increased from default 2000
+  timing_response: 4000, //increased from default 2000
   on_finish: function(data) {
     correct = false
   	if (data.key_press === data.correct_response) {
