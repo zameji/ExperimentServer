@@ -125,7 +125,7 @@ var practice_trials = makeTrialList(10, stim, data)//10
 for (i = 0; i < practice_trials.length; i++) {
   practice_trials[i].key_answer = practice_trials[i].data.correct_response
 }
-var test_trials = makeTrialList(50, stim, data) //50
+var test_trials = makeTrialList(75, stim, data) //50
 
 
 

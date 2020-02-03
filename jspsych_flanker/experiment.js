@@ -92,7 +92,7 @@ var test_stimuli = [{
 practice_len = 5 //5
 exp_len = 50 //5
 var practice_trials = jsPsych.randomization.repeat(test_stimuli, practice_len / 4, true);
-var test_trials = jsPsych.randomization.repeat(test_stimuli, exp_len / 4, true);
+var test_trials = jsPsych.randomization.repeat(test_stimuli, exp_len / 5, true);
 
 var practice_response_array = [];
 for (i = 0; i < practice_trials.data.length; i++) {
