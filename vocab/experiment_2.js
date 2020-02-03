@@ -255,20 +255,16 @@ var art_task = {
     trial_id: "task",
     exp_stage: "test"
   },
-  // timing_stim: null,
-  // response_ends_trial: true,
-  // timing_response: 5 * 1000,
-  // timing_feedback_duration: 0,
-  timing_stim: 5 * 1000,
+  timing_stim: -1,
   response_ends_trial: true,
-  // timing_response: 5 * 1000,
-  timing_feedback_duration: 3 * 1000,
+  timing_response: 5 * 1000,
+  timing_feedback_duration: 2 * 1000,
   show_stim_with_feedback: false,
   timeout_message: '<div class = centerbox><div class = center-text>Respond faster</div></div>',
   // show_stim_with_feedback: false,
   // timing_post_trial: 1,
-  correct_text: '<p class = AX_text style="color:white;"> </p>',
-  incorrect_text: '<p class = AX_text style="color:white;"> </p>'
+  correct_text: NULL,
+  incorrect_text: NULL
 };
 
 
