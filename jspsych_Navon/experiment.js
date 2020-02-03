@@ -299,6 +299,8 @@ var test_block = {
   timeout_message: '<div class = centerbox><div class = center-text>Respond faster!</div></div>',
   is_html: true,
   choices: choices,
+  timing_feedback_duration: 1000,
+  show_stim_with_feedback: false,
   timing_post_trial: 500,
   timing_response: 3000, //increased from default 2000
   on_finish: function(data) {
