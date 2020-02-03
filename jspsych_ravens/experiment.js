@@ -36,15 +36,14 @@ var path = 'images/'
 var prefix = '<div><img src = "'
 var bottom_id = '" id="bottom_img'
 var postfix = '"</img></div>'
-var top_img = ['top_1.jpg', 'top_2.jpg', 'top_3.jpg', 'top_4.jpg', 'top_5.jpg', 'top_6.jpg',
-  'top_7.jpg', 'top_8.jpg', 'top_9.jpg', 'top_10.jpg', 'top_11.jpg', 'top_12.jpg'
+var top_img = ['top_7.jpg', 'top_8.jpg', 'top_9.jpg', 'top_10.jpg', 'top_11.jpg', 'top_12.jpg',  'top_13.jpg', 'top_14.jpg', 'top_15.jpg', 'top_16.jpg', 'top_17.jpg', 'top_18.jpg'
 ]
-//, 'top_13.jpg', 'top_14.jpg', 'top_15.jpg', 'top_16.jpg', 'top_17.jpg', 'top_18.jpg'
-var bottom_img = ['bottom_1.jpg', 'bottom_2.jpg', 'bottom_3.jpg', 'bottom_4.jpg', 'bottom_5.jpg',
-  'bottom_6.jpg', 'bottom_7.jpg', 'bottom_8.jpg', 'bottom_9.jpg', 'bottom_10.jpg',
-  'bottom_11.jpg', 'bottom_12.jpg'
+//'top_1.jpg', 'top_2.jpg', 'top_3.jpg', 'top_4.jpg', 'top_5.jpg', 'top_6.jpg',
+var bottom_img = ['bottom_7.jpg', 'bottom_8.jpg', 'bottom_9.jpg', 'bottom_10.jpg',
+  'bottom_11.jpg', 'bottom_12.jpg', 'bottom_13.jpg', 'bottom_14.jpg', 'bottom_15.jpg', 'bottom_16.jpg', 'bottom_17.jpg', 'bottom_18.jpg'
 ]
-// , 'bottom_13.jpg', 'bottom_14.jpg', 'bottom_15.jpg', 'bottom_16.jpg', 'bottom_17.jpg', 'bottom_18.jpg'
+//'bottom_1.jpg', 'bottom_2.jpg', 'bottom_3.jpg', 'bottom_4.jpg', 'bottom_5.jpg','bottom_6.jpg',
+
 var practice_tries = 0
 var practice_thresh = 5
 
@@ -61,66 +60,66 @@ var opts = ["A", "B", "C", "D", "E", "F", "G", "H"]
 
 var all_options = fillArray([opts], 18)
 
-var scale_q1 = {
-  "A": 0,
-  "B": 1,
-  "C": 0,
-  "D": 0,
-  "E": 0,
-  "F": 0,
-  "G": 0,
-  "H": 0
-}
-var scale_q2 = {
-  "A": 0,
-  "B": 0,
-  "C": 0,
-  "D": 0,
-  "E": 1,
-  "F": 0,
-  "G": 0,
-  "H": 0
-}
-var scale_q3 = {
-  "A": 0,
-  "B": 0,
-  "C": 0,
-  "D": 0,
-  "E": 0,
-  "F": 0,
-  "G": 1,
-  "H": 0
-}
-var scale_q4 = {
-  "A": 0,
-  "B": 1,
-  "C": 0,
-  "D": 0,
-  "E": 0,
-  "F": 0,
-  "G": 0,
-  "H": 0
-}
-var scale_q5 = {
-  "A": 0,
-  "B": 0,
-  "C": 1,
-  "D": 0,
-  "E": 0,
-  "F": 0,
-  "G": 0,
-  "H": 0
-}
-var scale_q6 = {
-  "A": 0,
-  "B": 1,
-  "C": 0,
-  "D": 0,
-  "E": 0,
-  "F": 0,
-  "G": 0,
-  "H": 0
-}
+// var scale_q1 = {
+//   "A": 0,
+//   "B": 1,
+//   "C": 0,
+//   "D": 0,
+//   "E": 0,
+//   "F": 0,
+//   "G": 0,
+//   "H": 0
+// }
+// var scale_q2 = {
+//   "A": 0,
+//   "B": 0,
+//   "C": 0,
+//   "D": 0,
+//   "E": 1,
+//   "F": 0,
+//   "G": 0,
+//   "H": 0
+// }
+// var scale_q3 = {
+//   "A": 0,
+//   "B": 0,
+//   "C": 0,
+//   "D": 0,
+//   "E": 0,
+//   "F": 0,
+//   "G": 1,
+//   "H": 0
+// }
+// var scale_q4 = {
+//   "A": 0,
+//   "B": 1,
+//   "C": 0,
+//   "D": 0,
+//   "E": 0,
+//   "F": 0,
+//   "G": 0,
+//   "H": 0
+// }
+// var scale_q5 = {
+//   "A": 0,
+//   "B": 0,
+//   "C": 1,
+//   "D": 0,
+//   "E": 0,
+//   "F": 0,
+//   "G": 0,
+//   "H": 0
+// }
+// var scale_q6 = {
+//   "A": 0,
+//   "B": 1,
+//   "C": 0,
+//   "D": 0,
+//   "E": 0,
+//   "F": 0,
+//   "G": 0,
+//   "H": 0
+// }
 var scale_q7 = {
   "A": 0,
   "B": 0,
@@ -181,87 +180,86 @@ var scale_q12 = {
   "G": 0,
   "H": 0
 }
-// var scale_q13 = {
-//   "A": 1,
-//   "B": 0,
-//   "C": 0,
-//   "D": 0,
-//   "E": 0,
-//   "F": 0,
-//   "G": 0,
-//   "H": 0
-// }
-// var scale_q14 = {
-//   "A": 0,
-//   "B": 0,
-//   "C": 1,
-//   "D": 0,
-//   "E": 0,
-//   "F": 0,
-//   "G": 0,
-//   "H": 0
-// }
-// var scale_q15 = {
-//   "A": 0,
-//   "B": 1,
-//   "C": 0,
-//   "D": 0,
-//   "E": 0,
-//   "F": 0,
-//   "G": 0,
-//   "H": 0
-// }
-// var scale_q16 = {
-//   "A": 0,
-//   "B": 0,
-//   "C": 0,
-//   "D": 0,
-//   "E": 1,
-//   "F": 0,
-//   "G": 0,
-//   "H": 0
-// }
-// var scale_q17 = {
-//   "A": 0,
-//   "B": 0,
-//   "C": 0,
-//   "D": 0,
-//   "E": 0,
-//   "F": 1,
-//   "G": 0,
-//   "H": 0
-// }
-// var scale_q18 = {
-//   "A": 0,
-//   "B": 0,
-//   "C": 0,
-//   "D": 1,
-//   "E": 0,
-//   "F": 0,
-//   "G": 0,
-//   "H": 0
-// }
+var scale_q13 = {
+  "A": 1,
+  "B": 0,
+  "C": 0,
+  "D": 0,
+  "E": 0,
+  "F": 0,
+  "G": 0,
+  "H": 0
+}
+var scale_q14 = {
+  "A": 0,
+  "B": 0,
+  "C": 1,
+  "D": 0,
+  "E": 0,
+  "F": 0,
+  "G": 0,
+  "H": 0
+}
+var scale_q15 = {
+  "A": 0,
+  "B": 1,
+  "C": 0,
+  "D": 0,
+  "E": 0,
+  "F": 0,
+  "G": 0,
+  "H": 0
+}
+var scale_q16 = {
+  "A": 0,
+  "B": 0,
+  "C": 0,
+  "D": 0,
+  "E": 1,
+  "F": 0,
+  "G": 0,
+  "H": 0
+}
+var scale_q17 = {
+  "A": 0,
+  "B": 0,
+  "C": 0,
+  "D": 0,
+  "E": 0,
+  "F": 1,
+  "G": 0,
+  "H": 0
+}
+var scale_q18 = {
+  "A": 0,
+  "B": 0,
+  "C": 0,
+  "D": 1,
+  "E": 0,
+  "F": 0,
+  "G": 0,
+  "H": 0
+}
 
 var score_scale = [
-  [scale_q1],
-  [scale_q2],
-  [scale_q3],
-  [scale_q4],
-  [scale_q5],
-  [scale_q6],
+  // [scale_q1],
+  // [scale_q2],
+  // [scale_q3],
+  // [scale_q4],
+  // [scale_q5],
+  // [scale_q6],
   [scale_q7],
   [scale_q8],
   [scale_q9],
   [scale_q10],
   [scale_q11],
-  [scale_q12]
-  // ,
-  //[scale_q13],
-  // [scale_q14],
-  // [scale_q15],
-  // [scale_q16],
-  // [scale_q17],
-  // [scale_q18]
+  [scale_q12],
+  [scale_q13],
+  [scale_q14],
+  [scale_q15],
+  [scale_q16],
+  [scale_q17],
+  [scale_q18]
 ]
 /* ************************************ */
 /* Set up jsPsych blocks */
