@@ -37,14 +37,14 @@ var prefix = '<div><img src = "'
 var bottom_id = '" id="bottom_img'
 var postfix = '"</img></div>'
 var top_img = ['top_1.jpg', 'top_2.jpg', 'top_3.jpg', 'top_4.jpg', 'top_5.jpg', 'top_6.jpg',
-  'top_7.jpg', 'top_8.jpg', 'top_9.jpg', 'top_10.jpg', 'top_11.jpg', 'top_12.jpg', 'top_13.jpg',
-  'top_14.jpg', 'top_15.jpg', 'top_16.jpg', 'top_17.jpg', 'top_18.jpg'
+  'top_7.jpg', 'top_8.jpg', 'top_9.jpg', 'top_10.jpg', 'top_11.jpg', 'top_12.jpg'
 ]
+//, 'top_13.jpg', 'top_14.jpg', 'top_15.jpg', 'top_16.jpg', 'top_17.jpg', 'top_18.jpg'
 var bottom_img = ['bottom_1.jpg', 'bottom_2.jpg', 'bottom_3.jpg', 'bottom_4.jpg', 'bottom_5.jpg',
   'bottom_6.jpg', 'bottom_7.jpg', 'bottom_8.jpg', 'bottom_9.jpg', 'bottom_10.jpg',
-  'bottom_11.jpg', 'bottom_12.jpg', 'bottom_13.jpg', 'bottom_14.jpg', 'bottom_15.jpg',
-  'bottom_16.jpg', 'bottom_17.jpg', 'bottom_18.jpg'
+  'bottom_11.jpg', 'bottom_12.jpg'
 ]
+// , 'bottom_13.jpg', 'bottom_14.jpg', 'bottom_15.jpg', 'bottom_16.jpg', 'bottom_17.jpg', 'bottom_18.jpg'
 var practice_tries = 0
 var practice_thresh = 5
 
@@ -181,66 +181,66 @@ var scale_q12 = {
   "G": 0,
   "H": 0
 }
-var scale_q13 = {
-  "A": 1,
-  "B": 0,
-  "C": 0,
-  "D": 0,
-  "E": 0,
-  "F": 0,
-  "G": 0,
-  "H": 0
-}
-var scale_q14 = {
-  "A": 0,
-  "B": 0,
-  "C": 1,
-  "D": 0,
-  "E": 0,
-  "F": 0,
-  "G": 0,
-  "H": 0
-}
-var scale_q15 = {
-  "A": 0,
-  "B": 1,
-  "C": 0,
-  "D": 0,
-  "E": 0,
-  "F": 0,
-  "G": 0,
-  "H": 0
-}
-var scale_q16 = {
-  "A": 0,
-  "B": 0,
-  "C": 0,
-  "D": 0,
-  "E": 1,
-  "F": 0,
-  "G": 0,
-  "H": 0
-}
-var scale_q17 = {
-  "A": 0,
-  "B": 0,
-  "C": 0,
-  "D": 0,
-  "E": 0,
-  "F": 1,
-  "G": 0,
-  "H": 0
-}
-var scale_q18 = {
-  "A": 0,
-  "B": 0,
-  "C": 0,
-  "D": 1,
-  "E": 0,
-  "F": 0,
-  "G": 0,
-  "H": 0
-}
+// var scale_q13 = {
+//   "A": 1,
+//   "B": 0,
+//   "C": 0,
+//   "D": 0,
+//   "E": 0,
+//   "F": 0,
+//   "G": 0,
+//   "H": 0
+// }
+// var scale_q14 = {
+//   "A": 0,
+//   "B": 0,
+//   "C": 1,
+//   "D": 0,
+//   "E": 0,
+//   "F": 0,
+//   "G": 0,
+//   "H": 0
+// }
+// var scale_q15 = {
+//   "A": 0,
+//   "B": 1,
+//   "C": 0,
+//   "D": 0,
+//   "E": 0,
+//   "F": 0,
+//   "G": 0,
+//   "H": 0
+// }
+// var scale_q16 = {
+//   "A": 0,
+//   "B": 0,
+//   "C": 0,
+//   "D": 0,
+//   "E": 1,
+//   "F": 0,
+//   "G": 0,
+//   "H": 0
+// }
+// var scale_q17 = {
+//   "A": 0,
+//   "B": 0,
+//   "C": 0,
+//   "D": 0,
+//   "E": 0,
+//   "F": 1,
+//   "G": 0,
+//   "H": 0
+// }
+// var scale_q18 = {
+//   "A": 0,
+//   "B": 0,
+//   "C": 0,
+//   "D": 1,
+//   "E": 0,
+//   "F": 0,
+//   "G": 0,
+//   "H": 0
+// }
 
 var score_scale = [
   [scale_q1],
@@ -254,13 +254,14 @@ var score_scale = [
   [scale_q9],
   [scale_q10],
   [scale_q11],
-  [scale_q12],
-  [scale_q13],
-  [scale_q14],
-  [scale_q15],
-  [scale_q16],
-  [scale_q17],
-  [scale_q18]
+  [scale_q12]
+  // ,
+  //[scale_q13],
+  // [scale_q14],
+  // [scale_q15],
+  // [scale_q16],
+  // [scale_q17],
+  // [scale_q18]
 ]
 /* ************************************ */
 /* Set up jsPsych blocks */
@@ -284,7 +285,7 @@ var feedback_instruct_block = {
 var instructions_block = {
   type: 'poldrack-instructions',
   pages: [
-    '<div class = centerbox><p class = block-text>You will see 18 problems. The top part of each problem is a pattern with one part cut out of it. Your task is to look at the pattern, think of what the missing part must look like to complete the pattern correctly, both along the rows and the columns, and then find the right piece out of the eight shown. Only one of the answer choices is perfectly correct.<br><br>The following page will have an example trial.</p></div>',
+    '<div class = centerbox><p class = block-text>You will see 12 problems. The top part of each problem is a pattern with one part cut out of it. Your task is to look at the pattern, think of what the missing part must look like to complete the pattern correctly, both along the rows and the columns, and then find the right piece out of the eight shown. Only one of the answer choices is perfectly correct.<br><br>The following page will have an example trial.</p></div>',
     '<div class = centerbox><p class = block-text><strong>Look at the top part (the pattern) of this sample problem.</strong> Notice that going across the rows, the number of horizontal lines is equal. Going down the columns, the number of squares is equal.<div class="sample_img"><img src = "images/practice/sample_matrix_top.jpg"</img></div><p class= "block-text"><strong>Look at the solution of this sample problem.</strong> The best completion of the missing cell is the alternative "E" which is selected below.</p><div class="sample_img"><img src = "images/practice/sample_matrix_bottom.jpg" id="bottom_img"</img></div><div class="sample_img"><img src = "images/practice/Opt_E_selected.png"</img></div></p></div>',
     '<div class = centerbox><p class = center-block-text>You will now complete two practice trials with feedback. The test trials will not include feedback.</p></div>'
   ],
