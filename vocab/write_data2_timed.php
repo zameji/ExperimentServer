@@ -3,7 +3,7 @@ ob_start();
 $post_data = json_decode(file_get_contents('php://input'), true);
 // the directory "data" must be writable by the server
 
-$name = "data/".$post_data['filename']."_".date('m-z-G-i').".csv";
+$name = "data_2/".$post_data['filename']."_".date('m-z-G-i').".csv";
 $data = $post_data['filedata'];
 
 file_put_contents($name, $data);
