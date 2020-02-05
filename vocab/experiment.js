@@ -114,8 +114,12 @@ var instructions_block = {
   type: 'poldrack-instructions',
   pages: [
     '<div class = centerbox><p class = block-text>In this task, you will be shown a CAPITALIZED WORD, together with an example of how it is used.</p>'+
-	'<p class = block-text>Select the option that BEST fits to the meaning of the word and press the corresponding  letter on the keyboard.</p>'+
-  "<p class = block-text> If you don't know a word, don't worry, just guess and continue to the next word.</p></div>"
+	'<p class = block-text>Select the option that BEST fits to the meaning of the word and press the corresponding letter on the keyboard.</p>'+
+  "<p class = block-text> We don't expect you to know all the words.</p></div>" +
+  '<p class = block-text>Important! Please be sure to keep all other browser windows closed while doing this task.</p>'+
+  '<p class = block-text>Our algorithm is very sensitive and may flag your responses as being suspicious if other tabs, windows, or programs are open.</p>'+
+  '<p class = block-text><b>You will have a set amount of time to answer each question.</b>'+
+  " If you do not answer in time, don't worry, just continue to the next question. </p></div>"
   ],
   allow_keys: false,
   data: {

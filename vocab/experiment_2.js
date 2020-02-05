@@ -211,7 +211,7 @@ var feedback_instruct_block = {
 var instructions_block = {
   type: 'poldrack-instructions',
   pages: [
-    '<div class = centerbox><p class = block-text>In this task, you will be shown several names. Some of them are authors (that is, anyone who has written at least one book), some non-authors.</p>'+
+    '<div class = centerbox><p class = block-text>In this task, you will be shown several names. Some of them are authors (that is, anyone who has written at least one book), many are not.</p>'+
 	"<p class = block-text>Press F if you know an author with the name shown. Press J otherwise.</p>"+
 	'<p class = block-text>Do not guess. You will lose a point for every name you select who is not an author.</p></div>'
   ],
