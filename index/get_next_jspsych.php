@@ -71,7 +71,7 @@ switch (substr($testgroup, $progress, 1)){
 		$next ="https://www.psycholinguistics.ml/jspsych_6/index.html";//Navon
 		break;
 	case "Q":
-		$next ="https://www.psycholinguistics.ml/vocab/index4_timed.html";// Vocabulary
+		$next ="https://www.psycholinguistics.ml/vocab/index_timed.html";// Vocabulary
 		break;
 	// case "R":
 	// 	$next ="https://www.psycholinguistics.ml/jspsych_7/index.html";// PLACEHOLDER
