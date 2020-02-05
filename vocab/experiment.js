@@ -156,13 +156,16 @@ var vocab_task = {
     trial_id: "task",
     exp_stage: "test"
   },
-  timing_stim: 4000,
+  timing_stim: -1,
   response_ends_trial: true,
-  timing_response: -1,
+  timing_response: 4 * 1000,
   timing_feedback_duration: -1,
-  timing_post_trial: 100,
-  correct_text: "+",
-  incorrect_text: "+"
+  timing_feedback_duration: 1000,
+  show_stim_with_feedback: false,
+  timing_post_trial: 1,
+  timeout_message: '<div class = centerbox><div class = center-text>Out of time</div></div>',
+  correct_text: '<div class = centerbox><div class = center-text>+</div>',
+  incorrect_text: '<div class = centerbox><div class = center-text>+</div>'
 
 };
 
