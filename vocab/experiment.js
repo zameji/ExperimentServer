@@ -114,7 +114,8 @@ var instructions_block = {
   type: 'poldrack-instructions',
   pages: [
     '<div class = centerbox><p class = block-text>In this task, you will be shown a CAPITALIZED WORD, together with an example of how it is used.</p>'+
-	'<p class = block-text>Your task is to find the meaning of the word among the options below the word and press the letter corresponding to the meaning.</p></div>'
+	'<p class = block-text>Select the option that BEST fits to the meaning of the word and press the corresponding  letter on the keyboard.</p>'+
+  "<p class = block-text> If you don't know a word, don't worry, just guess and continue to the next word.</p></div>"
   ],
   allow_keys: false,
   data: {
