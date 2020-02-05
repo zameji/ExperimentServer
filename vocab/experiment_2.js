@@ -262,7 +262,7 @@ var art_task = {
   show_stim_with_feedback: false,
   timeout_message: '<div class = centerbox><div class = center-text>Respond faster</div></div>',
   // show_stim_with_feedback: false,
-  timing_post_trial: 250,
+  timing_post_trial: 100,
   correct_text: '<div class = centerbox><div class = center-text>+</div></div>',
   incorrect_text: '<div class = centerbox><div class = center-text>+</div></div>'
 };
