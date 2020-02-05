@@ -90,9 +90,9 @@ var test_stimuli = [{
 }];
 
 practice_len = 5 //5
-exp_len = 50 //5
+exp_len = 60 //5
 var practice_trials = jsPsych.randomization.repeat(test_stimuli, practice_len / 4, true);
-var test_trials = jsPsych.randomization.repeat(test_stimuli, exp_len / 5, true); //was 4
+var test_trials = jsPsych.randomization.repeat(test_stimuli, exp_len / 4, true); //was 4
 
 var practice_response_array = [];
 for (i = 0; i < practice_trials.data.length; i++) {
@@ -203,7 +203,7 @@ var start_test_block = {
 		trial_id: "test_intro"
 	},
 	timing_response: 180000,
-	text: '<div class = centerbox><p class = center-block-text>Done with practice. Starting test. This task will take about 3 minutes.</p><p class = center-block-text>Press <strong>enter</strong> to begin.</p></div>',
+	text: '<div class = centerbox><p class = center-block-text>Done with practice. Starting test. This task will take 3-5 minutes.</p><p class = center-block-text>Press <strong>enter</strong> to begin.</p></div>',
 	cont_key: [13],
 	timing_post_trial: 1000
 };
