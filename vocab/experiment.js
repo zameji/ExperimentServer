@@ -162,7 +162,7 @@ var vocab_task = {
   },
   timing_stim: -1,
   response_ends_trial: true,
-  timing_response: 4 * 1000,
+  timing_response: 6 * 1000,
   timing_feedback_duration: -1,
   timing_feedback_duration: 1000,
   show_stim_with_feedback: false,
