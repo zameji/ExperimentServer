@@ -46,7 +46,7 @@ if (!$conn->query($query)) {
 
 setcookie("jspsych_progress", $progress, time()+144000, "/", "psycholinguistics.ml");
 
-if ($progress < 8){
+if ($progress < 9){
 switch (substr($testgroup, $progress, 1)){
 
 	case "J":
