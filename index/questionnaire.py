@@ -73,7 +73,7 @@ def nextgroup(n):
 	# ibex_2 = ["I"] #had to change to fit with the increased ibex amounts
 	# todo: we are droppin-g ibex 2, right?
 
-	jspsych = ["J", "K", "L", "M", "N", "O", "P", "Q"] #removed R which was a placeholder
+	jspsych = ["J", "K", "L", "M", "N", "O", "P", "Q", "R"] #07.02 put back in - removed R which was a placeholder
 
 	#combine the various jspsych versions
 	jspsych_versions = ["".join(x) for x in list(permutations(jspsych, len(jspsych)))]
