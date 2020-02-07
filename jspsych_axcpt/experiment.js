@@ -44,7 +44,8 @@ var possible_responses = [
   ["J key", 74]
 ]
 var chars = 'BCDEFGHIJLMNOPQRSTUVWZ'
-var trial_proportions = ["AX", "AX", "AX", "AX", "AX", "AX", "AX", "AX","AX", "AX","AX", "AX","AX", "AX","AX", "AX","AX", "AX","AX", "AX","AX", "AX","AX", "AX", "BX","BX","BX","BX","AY", "AY","AY","AY","BY","BY"]
+var trial_proportions = ["AX", "AX", "AX", "AX", "AX", "AX", "AX", "AX","AX", "AX","AX", "AX","AX", "AX","AX", "AX","AX", "BX","BX","BX","BX","AY", "AY","AY","AY","BY","BY", "BY"] //60-15-15-10 % like Lopez-Garcia (reduced to 28 trials from 34)
+// var trial_proportions = ["AX", "AX", "AX", "AX", "AX", "AX", "AX", "AX","AX", "AX","AX", "AX","AX", "AX","AX", "AX","AX", "AX","AX", "AX","AX", "AX","AX", "AX", "BX","BX","BX","BX","AY", "AY","AY","AY","BY","BY"]
 var block1_list = jsPsych.randomization.repeat(trial_proportions, 1)
 var block2_list = jsPsych.randomization.repeat(trial_proportions, 1)
 var blocks = [block1_list] //removed block2_list
@@ -318,7 +319,6 @@ for (b = 0; b < blocks.length; b++) {
     ax_cpt_experiment.push(wait_block)
   }
   ax_cpt_experiment.push(attention_node)
-  ax_cpt_experiment.push(rest_block)
 }
 ax_cpt_experiment.push(post_task_block)
 ax_cpt_experiment.push(end_block)
