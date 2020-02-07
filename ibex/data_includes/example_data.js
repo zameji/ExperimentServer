@@ -90,11 +90,11 @@ var items = [
     ["practice", "DashedSentence", {s: "This is a practice sentence to get you used to reading sentences like this."}],
     // ["practice", "DashedSentence", {s: "Please try to read as normally as possible."}],
      ["practice", "DashedSentence", {s: "This is another practice sentence with a practice question following it."},
-    //              "Question", {hasCorrect: false, randomOrder: false,
-    //                           q: "How would you like to answer this question?",
-    //                           as: ["Press 1 or click here for this answer.",
-    //                                "Press 2 or click here for this answer.",
-    //                                "Press 3 or click here for this answer."]}],
+                  "Question", {hasCorrect: false, randomOrder: false,
+                               q: "How would you like to answer this question?",
+                               as: ["Press 1 or click here for this answer.",
+                                    "Press 2 or click here for this answer.",
+                                    "Press 3 or click here for this answer."]}],
     // ["practice", "DashedSentence", {s: "This is the last practice sentence before the experiment begins."}],
 		//
     // //Stimuli
