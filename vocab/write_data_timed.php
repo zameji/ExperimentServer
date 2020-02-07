@@ -21,7 +21,7 @@ file_put_contents($name, $data);
 //
 
 header('Content-Type: application/json');
-echo json_encode(['location'=>'https://www.psycholinguistics.ml/vocab/index2_timed.html']);
+echo json_encode(['location'=>'https://www.psycholinguistics.ml/get_next_jspsych.php']);
 ob_end_flush();
 exit();
 ?>

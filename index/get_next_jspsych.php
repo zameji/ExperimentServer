@@ -46,7 +46,7 @@ if (!$conn->query($query)) {
 
 setcookie("jspsych_progress", $progress, time()+144000, "/", "psycholinguistics.ml");
 
-if ($progress < 8){
+if ($progress < 10){
 switch (substr($testgroup, $progress, 1)){
 
 	case "J":
@@ -73,9 +73,9 @@ switch (substr($testgroup, $progress, 1)){
 	case "Q":
 		$next ="https://www.psycholinguistics.ml/vocab/index_timed.html";// Vocabulary
 		break;
-	// case "R":
-	// 	$next ="https://www.psycholinguistics.ml/jspsych_7/index.html";// PLACEHOLDER
-	// 	break;
+	case "R":
+		$next ="https://www.psycholinguistics.ml/vocab/index2_timed.html";//ART
+		break;
 
 	default:
 		$next = "https://www.psycholinguistics.ml/index/server_error.html";
