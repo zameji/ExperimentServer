@@ -47,7 +47,7 @@ if ($result->num_rows > 0) {
 
 			case "1":
 				setcookie("ibex_1_group", $ibex_1_group, time()+144000, "/", "psycholinguistics.ml");
-				$next = "https://www.psycholinguistics.ml/ibex/experiment.html";
+				$next = "https://www.psycholinguistics.ml/ibex_1/experiment.html";
 				break;
 
 			case "2":
