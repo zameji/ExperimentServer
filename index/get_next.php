@@ -26,7 +26,7 @@ if ($result->num_rows > 0) {
 
 	$row = $result->fetch_assoc();
 	$testgroup = $row["test_group"];
-	$progress = $row["progress"];
+	$progress = $row["progress"] + 1;
 	$jspsych_group = $row["jspsych_group"];
 	$jspsych_progress = $row["jspsych_progress"];
 	$result -> free();
@@ -52,9 +52,9 @@ if ($result->num_rows > 0) {
 				$next = "https://www.psycholinguistics.ml/ibex_1/experiment.html";
 				break;
 
-			// case "2":
-			// 	$next = "https://www.psycholinguistics.ml/ibex_2/experiment.html";
-			// 	break;
+			case "2":
+				$next = "https://www.psycholinguistics.ml/ibex_2/experiment.html";
+				break;
 
 			case "J":
 				setcookie("jspsych_group", $jspsych_group, time()+144000, "/", "psycholinguistics.ml");
