@@ -26,13 +26,13 @@ if ($result->num_rows > 0) {
 
 	$row = $result->fetch_assoc();
 	$testgroup = $row["test_group"];
-	$progress = $row["progress"] + 1;
+	$progress = $row["progress"];
 	$jspsych_group = $row["jspsych_group"];
 	$jspsych_progress = $row["jspsych_progress"];
 	$result -> free();
 
 //	echo "next: ".$testgroup . "-" . $progress;
-	$query = "UPDATE participants set progress=".$progress." WHERE prolific_ID='".$prolificID."'";
+	$query = "UPDATE participants set progress=".$progress+1." WHERE prolific_ID='".$prolificID."'";
 
 	if (!$conn->query($query)) {
 		//echo '<p style="text-align:center; font-family: Lucida, Console, monospace; font-size: medium;">Failed. Have you already done the experiment?</p>';
@@ -50,9 +50,9 @@ if ($result->num_rows > 0) {
 				$next = "https://www.psycholinguistics.ml/ibex_1/experiment.html";
 				break;
 
-			case "2":
-				$next = "https://www.psycholinguistics.ml/ibex_2/experiment.html";
-				break;
+			// case "2":
+			// 	$next = "https://www.psycholinguistics.ml/ibex_2/experiment.html";
+			// 	break;
 
 			case "J":
 				setcookie("jspsych_group", $jspsych_group, time()+144000, "/", "psycholinguistics.ml");
