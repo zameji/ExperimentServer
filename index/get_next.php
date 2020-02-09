@@ -32,7 +32,7 @@ if ($result->num_rows > 0) {
 	$result -> free();
 
 //	echo "next: ".$testgroup . "-" . $progress;
-	$query = "UPDATE participants set progress=".$progress+1." WHERE prolific_ID='".$prolificID."'";
+	$query = "UPDATE participants set progress=".$progress." WHERE prolific_ID='".$prolificID."'";
   echo $query + "\n";
 
 	if (!$conn->query($query)) {
