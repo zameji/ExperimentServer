@@ -40,7 +40,7 @@ if ($result->num_rows > 0) {
 		echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
 	} else {
 
-		if ($progress == 3){
+		if ($progress == 2){
 			$next = "https://www.psycholinguistics.ml/vocab/index3_timed.html";
 		}
 		else {
