@@ -1,5 +1,7 @@
 <?php
 $prolificID = $_COOKIE['id'];
+$ibex_1_done = $_COOKIE['ibex_1_done'];
+$jspsych_done = $_COOKIE['jspsych_done'];
 
 $servername = "localhost";
 $username = "ubuntu";
@@ -44,28 +46,41 @@ if ($result->num_rows > 0) {
 		if ($progress == 2){
 			$next = "https://www.psycholinguistics.ml/vocab/index3_timed.html";
 		}
-		else {
+		elseif ($progress < 2){
 			switch (substr($testgroup, $progress, 1)){
 
 			case "1":
-				setcookie("ibex_1_group", $ibex_1_group, time()+144000, "/", "psycholinguistics.ml");
-				$next = "https://www.psycholinguistics.ml/ibex_1/experiment.html";
+        if($ibex_1_done == true) {
+          $next = "https://www.psycholinguistics.ml/index/server_error.html";
+        } else {
+				  setcookie("ibex_1_group", $ibex_1_group, time()+144000, "/", "psycholinguistics.ml");
+          setcookie("ibex_1_done", true, time()+144000, "/", "psycholinguistics.ml");
+				  $next = "https://www.psycholinguistics.ml/ibex_1/experiment.html";
+        }
 				break;
 
-			case "2":
-				$next = "https://www.psycholinguistics.ml/ibex_2/experiment.html";
-				break;
+			//case "2":
+			//	$next = "https://www.psycholinguistics.ml/ibex_2/experiment.html";
+			//	break;
 
 			case "J":
-				setcookie("jspsych_group", $jspsych_group, time()+144000, "/", "psycholinguistics.ml");
-				setcookie("jspsych_progress", $jspsych_progress, time()+144000, "/", "psycholinguistics.ml");
-				$next = "https://www.psycholinguistics.ml/jspsych.html";
+        if($jspsych_done == true) {
+          $next = "https://www.psycholinguistics.ml/index/server_error.html";
+        } else {
+				  setcookie("jspsych_group", $jspsych_group, time()+144000, "/", "psycholinguistics.ml");
+				  setcookie("jspsych_progress", $jspsych_progress, time()+144000, "/", "psycholinguistics.ml");
+          setcookie("jspsych_done", true, time()+144000, "/", "psycholinguistics.ml");
+				  $next = "https://www.psycholinguistics.ml/jspsych.html";
+        }
 				break;
 			default:
 				$next = "https://www.psycholinguistics.ml/index/server_error.html";
 				break;
 			}
 		}
+    else {
+      $next = "https://www.psycholinguistics.ml/index/server_error.html";
+    }
 
 		echo "Redirecting..." . $next;
 		$conn -> commit();

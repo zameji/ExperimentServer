@@ -39,6 +39,9 @@ $reading= $_POST['read'];
 $reading_amt = '0';
 $reading_enj = '0';
 
+setcookie("ibex_1_done", false, time()+144000, "/", "psycholinguistics.ml");
+setcookie("jspsych_done", false, time()+144000, "/", "psycholinguistics.ml");
+
 // redirect non-fitting candidates
 if (
   ($reading == 'yes') or
