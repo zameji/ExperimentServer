@@ -26,14 +26,14 @@ if ($result->num_rows > 0) {
 
 	$row = $result->fetch_assoc();
 	$testgroup = $row["test_group"];
-	$progress = $row["progress"] + 1;
+	$progress = $row["progress"];
+  $new_progress = $progress+1;
 	$jspsych_group = $row["jspsych_group"];
 	$jspsych_progress = $row["jspsych_progress"];
 	$result -> free();
-  echo "TEST1";
 
 //	echo "next: ".$testgroup . "-" . $progress;
-	$query = "UPDATE participants set progress=".$progress." WHERE prolific_ID='".$prolificID."'";
+	$query = "UPDATE participants set progress=".$new_progress." WHERE prolific_ID='".$prolificID."'";
 
 	if (!$conn->query($query)) {
 		//echo '<p style="text-align:center; font-family: Lucida, Console, monospace; font-size: medium;">Failed. Have you already done the experiment?</p>';
@@ -44,7 +44,6 @@ if ($result->num_rows > 0) {
 			$next = "https://www.psycholinguistics.ml/vocab/index3_timed.html";
 		}
 		else {
-        echo "TEST2 ".$progress;
 			switch (substr($testgroup, $progress, 1)){
 
 			case "1":
