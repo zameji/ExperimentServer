@@ -33,6 +33,7 @@ if ($result->num_rows > 0) {
 
 //	echo "next: ".$testgroup . "-" . $progress;
 	$query = "UPDATE participants set progress=".$progress+1." WHERE prolific_ID='".$prolificID."'";
+  echo $query + "\n";
 
 	if (!$conn->query($query)) {
 		//echo '<p style="text-align:center; font-family: Lucida, Console, monospace; font-size: medium;">Failed. Have you already done the experiment?</p>';
@@ -44,6 +45,7 @@ if ($result->num_rows > 0) {
 		}
 		else {
 			switch (substr($testgroup, $progress, 1)){
+        echo (substr($testgroup, $progress, 1));
 
 			case "1":
 				setcookie("ibex_1_group", $ibex_1_group, time()+144000, "/", "psycholinguistics.ml");
