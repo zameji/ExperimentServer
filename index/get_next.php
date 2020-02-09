@@ -28,6 +28,7 @@ if ($result->num_rows > 0) {
 	$testgroup = $row["test_group"];
 	$progress = $row["progress"];
   $new_progress = $progress+1;
+  $ibex_1_group = $row["ibex_1_group"];
 	$jspsych_group = $row["jspsych_group"];
 	$jspsych_progress = $row["jspsych_progress"];
 	$result -> free();
