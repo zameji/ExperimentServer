@@ -58,7 +58,7 @@ if ($result->num_rows > 0) {
         if($progress == 0) { //This would mean that the participant is on the first step, because $progress - 1 would be -1
           setcookie("ibex_1_group", $ibex_1_group, time()+144000, "/", "psycholinguistics.ml");
 				  $next = "https://www.psycholinguistics.ml/ibex_1/experiment.html";
-        } elseif ($comingFrom == $prev_location) { //check if coming from (either 1 or J) matches the previous step in the progress
+        } elseif ($comingFrom == "J") { //check if coming from (either 1 or J) matches the previous step in the progress
 				  setcookie("ibex_1_group", $ibex_1_group, time()+144000, "/", "psycholinguistics.ml");
 				  $next = "https://www.psycholinguistics.ml/ibex_1/experiment.html";
         } else {
@@ -75,7 +75,7 @@ if ($result->num_rows > 0) {
           setcookie("jspsych_group", $jspsych_group, time()+144000, "/", "psycholinguistics.ml");
 				  setcookie("jspsych_progress", $jspsych_progress, time()+144000, "/", "psycholinguistics.ml");
           $next = "https://www.psycholinguistics.ml/jspsych.html";
-        } elseif ($comingFrom == $prev_location) {
+        } elseif ($comingFrom == 1) {
           setcookie("jspsych_group", $jspsych_group, time()+144000, "/", "psycholinguistics.ml");
 				  setcookie("jspsych_progress", $jspsych_progress, time()+144000, "/", "psycholinguistics.ml");
           $next = "https://www.psycholinguistics.ml/jspsych.html";
