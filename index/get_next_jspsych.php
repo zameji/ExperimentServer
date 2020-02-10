@@ -46,42 +46,44 @@ if (!$conn->query($query)) {
 
 setcookie("jspsych_progress", $progress, time()+144000, "/", "psycholinguistics.ml");
 
-if ($progress < 9){
-switch (substr($testgroup, $progress, 1)){
+// if ($progress < 9){
+// switch (substr($testgroup, $progress, 1)){
+//
+// 	case "J":
+// 		$next ="https://www.psycholinguistics.ml/jspsych/experiment.html";//circles
+// 		break;
+// 	case "K":
+// 		$next ="https://www.psycholinguistics.ml/jspsych_1/index.html";//AXCPT
+// 		break;
+// 	case "L":
+// 		$next ="https://www.psycholinguistics.ml/jspsych_2/reading_span_web_english.html"; //RST
+// 		break;
+// 	case "M":
+// 		$next ="https://www.psycholinguistics.ml/jspsych_3/index.html";//Flanker
+// 		break;
+// 	case "N":
+// 		$next ="https://www.psycholinguistics.ml/jspsych_4/index.html";//Ravens
+// 		break;
+// 	case "O":
+// 		$next ="https://www.psycholinguistics.ml/jspsych_5/index.html";//Big5
+// 		break;
+// 	case "P":
+// 		$next ="https://www.psycholinguistics.ml/jspsych_6/index.html";//Navon
+// 		break;
+// 	case "Q":
+// 		$next ="https://www.psycholinguistics.ml/vocab/index_timed.html";// Vocabulary
+// 		break;
+// 	case "R":
+// 		$next ="https://www.psycholinguistics.ml/vocab/index2_timed.html";//ART
+// 		break;
+//
+// 	default:
+// 		$next = "https://www.psycholinguistics.ml/index/server_error.html";
+// 		break;
+// }
+// } else {$next = "https://www.psycholinguistics.ml/get_next.php?from=J";}
 
-	case "J":
-		$next ="https://www.psycholinguistics.ml/jspsych/experiment.html";//circles
-		break;
-	case "K":
-		$next ="https://www.psycholinguistics.ml/jspsych_1/index.html";//AXCPT
-		break;
-	case "L":
-		$next ="https://www.psycholinguistics.ml/jspsych_2/reading_span_web_english.html"; //RST
-		break;
-	case "M":
-		$next ="https://www.psycholinguistics.ml/jspsych_3/index.html";//Flanker
-		break;
-	case "N":
-		$next ="https://www.psycholinguistics.ml/jspsych_4/index.html";//Ravens
-		break;
-	case "O":
-		$next ="https://www.psycholinguistics.ml/jspsych_5/index.html";//Big5
-		break;
-	case "P":
-		$next ="https://www.psycholinguistics.ml/jspsych_6/index.html";//Navon
-		break;
-	case "Q":
-		$next ="https://www.psycholinguistics.ml/vocab/index_timed.html";// Vocabulary
-		break;
-	case "R":
-		$next ="https://www.psycholinguistics.ml/vocab/index2_timed.html";//ART
-		break;
-
-	default:
-		$next = "https://www.psycholinguistics.ml/index/server_error.html";
-		break;
-}
-} else {$next = "https://www.psycholinguistics.ml/get_next.php?from=J";}
+$next = "https://www.psycholinguistics.ml/get_next.php?from=J" //added this to skip tasks directly to redirect
 
 $conn -> commit();
 $conn->close();

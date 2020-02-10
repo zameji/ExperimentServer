@@ -104,8 +104,7 @@ if ($result->num_rows > 0) {
 	}
 
 }
-    echo $comingFrom;
-    echo substr($testgroup, $previous_progress, 1);
+    echo $prev_location;
 
 		echo "Redirecting..." . $next;
 		$result -> free();
