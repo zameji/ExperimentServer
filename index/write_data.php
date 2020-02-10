@@ -42,6 +42,16 @@ $reading_enj = '0';
 setcookie("ibex_1_done", false, time()+144000, "/", "psycholinguistics.ml");
 setcookie("jspsych_done", false, time()+144000, "/", "psycholinguistics.ml");
 
+setcookie("jspsych_J_done", false, time()+144000, "/", "psycholinguistics.ml");
+setcookie("jspsych_K_done", false, time()+144000, "/", "psycholinguistics.ml");
+setcookie("jspsych_L_done", false, time()+144000, "/", "psycholinguistics.ml");
+setcookie("jspsych_M_done", false, time()+144000, "/", "psycholinguistics.ml");
+setcookie("jspsych_N_done", false, time()+144000, "/", "psycholinguistics.ml");
+setcookie("jspsych_O_done", false, time()+144000, "/", "psycholinguistics.ml");
+setcookie("jspsych_P_done", false, time()+144000, "/", "psycholinguistics.ml");
+setcookie("jspsych_Q_done", false, time()+144000, "/", "psycholinguistics.ml");
+setcookie("jspsych_R_done", false, time()+144000, "/", "psycholinguistics.ml");
+
 // redirect non-fitting candidates
 if (
   ($reading == 'yes') or

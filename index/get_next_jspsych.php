@@ -1,6 +1,15 @@
 <?php
 //Get user ID, update their Jspsych progress
 $prolificID = $_COOKIE["id"];
+$ibex_J_done = $_COOKIE['ibex_J_done'];
+$ibex_K_done = $_COOKIE['ibex_K_done'];
+$ibex_L_done = $_COOKIE['ibex_L_done'];
+$ibex_M_done = $_COOKIE['ibex_M_done'];
+$ibex_N_done = $_COOKIE['ibex_N_done'];
+$ibex_O_done = $_COOKIE['ibex_O_done'];
+$ibex_P_done = $_COOKIE['ibex_P_done'];
+$ibex_Q_done = $_COOKIE['ibex_Q_done'];
+$ibex_J_done = $_COOKIE['ibex_R_done'];
 
 $servername = "localhost";
 $username = "ubuntu";
@@ -50,31 +59,84 @@ if ($progress < 9){
 switch (substr($testgroup, $progress, 1)){
 
 	case "J":
-		$next ="https://www.psycholinguistics.ml/jspsych/experiment.html";//circles
+    if($ibex_J_done == true) {
+      $next = "https://www.psycholinguistics.ml/index/server_error.html";
+    } else {
+      setcookie("ibex_J_done", true, time()+144000, "/", "psycholinguistics.ml");
+		  $next ="https://www.psycholinguistics.ml/jspsych/experiment.html";//circles
+    }
 		break;
+
 	case "K":
-		$next ="https://www.psycholinguistics.ml/jspsych_1/index.html";//AXCPT
+    if($ibex_K_done == true) {
+      $next = "https://www.psycholinguistics.ml/index/server_error.html";
+    } else {
+      setcookie("ibex_K_done", true, time()+144000, "/", "psycholinguistics.ml");
+		  $next ="https://www.psycholinguistics.ml/jspsych_1/index.html";//AXCPT
+    }
 		break;
+
 	case "L":
-		$next ="https://www.psycholinguistics.ml/jspsych_2/reading_span_web_english.html"; //RST
-		break;
+    if($ibex_L_done == true) {
+      $next = "https://www.psycholinguistics.ml/index/server_error.html";
+    } else {
+      setcookie("ibex_L_done", true, time()+144000, "/", "psycholinguistics.ml");
+		  $next ="https://www.psycholinguistics.ml/jspsych_2/reading_span_web_english.html"; //RST
+    }
+    break;
+
 	case "M":
-		$next ="https://www.psycholinguistics.ml/jspsych_3/index.html";//Flanker
+    if($ibex_M_done == true) {
+      $next = "https://www.psycholinguistics.ml/index/server_error.html";
+    } else {
+      setcookie("ibex_M_done", true, time()+144000, "/", "psycholinguistics.ml");
+		  $next ="https://www.psycholinguistics.ml/jspsych_3/index.html";//Flanker
+    }
 		break;
+
 	case "N":
-		$next ="https://www.psycholinguistics.ml/jspsych_4/index.html";//Ravens
-		break;
+    if($ibex_N_done == true) {
+      $next = "https://www.psycholinguistics.ml/index/server_error.html";
+    } else {
+      setcookie("ibex_N_done", true, time()+144000, "/", "psycholinguistics.ml");
+		  $next ="https://www.psycholinguistics.ml/jspsych_4/index.html";//Ravens
+    }
+		  break;
+
 	case "O":
-		$next ="https://www.psycholinguistics.ml/jspsych_5/index.html";//Big5
+    if($ibex_O_done == true) {
+      $next = "https://www.psycholinguistics.ml/index/server_error.html";
+    } else {
+      setcookie("ibex_O_done", true, time()+144000, "/", "psycholinguistics.ml");
+		  $next ="https://www.psycholinguistics.ml/jspsych_5/index.html";//Big5
+    }
 		break;
+
 	case "P":
-		$next ="https://www.psycholinguistics.ml/jspsych_6/index.html";//Navon
+    if($ibex_P_done == true) {
+      $next = "https://www.psycholinguistics.ml/index/server_error.html";
+    } else {
+      setcookie("ibex_P_done", true, time()+144000, "/", "psycholinguistics.ml");
+		  $next ="https://www.psycholinguistics.ml/jspsych_6/index.html";//Navon
+    }
 		break;
+
 	case "Q":
-		$next ="https://www.psycholinguistics.ml/vocab/index_timed.html";// Vocabulary
+    if($ibex_Q_done == true) {
+      $next = "https://www.psycholinguistics.ml/index/server_error.html";
+    } else {
+      setcookie("ibex_Q_done", true, time()+144000, "/", "psycholinguistics.ml");
+		  $next ="https://www.psycholinguistics.ml/vocab/index_timed.html";// Vocabulary
+    }
 		break;
+
 	case "R":
-		$next ="https://www.psycholinguistics.ml/vocab/index2_timed.html";//ART
+    if($ibex_R_done == true) {
+      $next = "https://www.psycholinguistics.ml/index/server_error.html";
+    } else {
+      setcookie("ibex_R_done", true, time()+144000, "/", "psycholinguistics.ml");
+		  $next ="https://www.psycholinguistics.ml/vocab/index2_timed.html";//ART
+    }
 		break;
 
 	default:
