@@ -1,7 +1,7 @@
 <?php
 $prolificID = $_COOKIE['id'];
 
-$comingFrom = $GET["from"];
+$comingFrom = strval($GET["from"]);
 
 $servername = "localhost";
 $username = "ubuntu";
@@ -62,8 +62,6 @@ if ($result->num_rows > 0) {
 				  $next = "https://www.psycholinguistics.ml/ibex_1/experiment.html";
         } else {
           #$next = "https://www.psycholinguistics.ml/vocab/no_back.html";
-          echo $comingFrom;
-          echo substr($testgroup, $previous_progress, 1);
         }
 				break;
 
@@ -82,8 +80,6 @@ if ($result->num_rows > 0) {
           $next = "https://www.psycholinguistics.ml/jspsych.html";
         } else {
           #$next = "https://www.psycholinguistics.ml/vocab/no_back.html";
-          echo $comingFrom;
-          echo substr($testgroup, $previous_progress, 1);
         }
 				break;
 
@@ -96,6 +92,9 @@ if ($result->num_rows > 0) {
       $next = "https://www.psycholinguistics.ml/index/server_error.html";
     }
 
+    echo $comingFrom;
+    echo substr($testgroup, $previous_progress, 1);
+
 		echo "Redirecting..." . $next;
 		$conn -> commit();
 		$conn->close();
@@ -105,6 +104,9 @@ if ($result->num_rows > 0) {
 	}
 
 }
+    echo $comingFrom;
+    echo substr($testgroup, $previous_progress, 1);
+
 		echo "Redirecting..." . $next;
 		$result -> free();
 		$conn->close();
