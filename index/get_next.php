@@ -1,7 +1,7 @@
 <?php
 $prolificID = $_COOKIE['id'];
 
-$comingFrom = strval($GET["from"]);
+$comingFrom = $GET["from"];
 
 $servername = "localhost";
 $username = "ubuntu";
@@ -62,7 +62,7 @@ if ($result->num_rows > 0) {
 				  setcookie("ibex_1_group", $ibex_1_group, time()+144000, "/", "psycholinguistics.ml");
 				  $next = "https://www.psycholinguistics.ml/ibex_1/experiment.html";
         } else {
-          #$next = "https://www.psycholinguistics.ml/vocab/no_back.html";
+          $next = "https://www.psycholinguistics.ml/vocab/no_back.html";
         }
 				break;
 
@@ -80,7 +80,7 @@ if ($result->num_rows > 0) {
 				  setcookie("jspsych_progress", $jspsych_progress, time()+144000, "/", "psycholinguistics.ml");
           $next = "https://www.psycholinguistics.ml/jspsych.html";
         } else {
-          #$next = "https://www.psycholinguistics.ml/vocab/no_back.html";
+          $next = "https://www.psycholinguistics.ml/vocab/no_back.html";
         }
 				break;
 
@@ -93,24 +93,21 @@ if ($result->num_rows > 0) {
       $next = "https://www.psycholinguistics.ml/index/server_error.html";
     }
 
-    echo $prev_location. " ".$comingFrom;
-
-		// echo "Redirecting..." . $next;
-		// $conn -> commit();
-		// $conn->close();
-		// header("Location: ". $next, true, 302);
-		// exit();
+		echo "Redirecting..." . $next;
+		$conn -> commit();
+		$conn->close();
+		header("Location: ". $next, true, 302);
+		exit();
 
 	}
 
 }
-    echo $prev_location. " ".$comingFrom;
 
-		// echo "Redirecting..." . $next;
-		// $result -> free();
-		// $conn->close();
-		// header("Location: ". "https://www.psycholinguistics.ml", true, 302);
-		// exit();
+		echo "Redirecting..." . $next;
+		$result -> free();
+		$conn->close();
+		header("Location: ". "https://www.psycholinguistics.ml", true, 302);
+		exit();
 
 
 
