@@ -81,7 +81,7 @@ switch (substr($testgroup, $progress, 1)){
 		$next = "https://www.psycholinguistics.ml/index/server_error.html";
 		break;
 }
-} else {$next = "https://www.psycholinguistics.ml/get_next.php";}
+} else {$next = "https://www.psycholinguistics.ml/get_next.php?from=J";}
 
 $conn -> commit();
 $conn->close();

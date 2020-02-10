@@ -1,7 +1,7 @@
 <?php
 $prolificID = $_COOKIE['id'];
-$ibex_1_done = $_COOKIE['ibex_1_done'];
-$jspsych_done = $_COOKIE['jspsych_done'];
+
+$comingFrom = $GET["from"];
 
 $servername = "localhost";
 $username = "ubuntu";
@@ -30,6 +30,7 @@ if ($result->num_rows > 0) {
 	$testgroup = $row["test_group"];
 	$progress = $row["progress"];
   $new_progress = $progress+1;
+  $previous_progress = $progress-1;
   $ibex_1_group = $row["ibex_1_group"];
 	$jspsych_group = $row["jspsych_group"];
 	$jspsych_progress = $row["jspsych_progress"];
@@ -44,18 +45,24 @@ if ($result->num_rows > 0) {
 	} else {
 
 		if ($progress == 2){
-			$next = "https://www.psycholinguistics.ml/vocab/index3_timed.html";
+      if ($comingFrom == substr($testgroup, $previous_progress, 1)){
+        $next = "https://www.psycholinguistics.ml/vocab/index3_timed.html";
+      } else {
+        $next = "https://www.psycholinguistics.ml/vocab/no_back.html";
+      }
 		}
 		elseif ($progress < 2){
 			switch (substr($testgroup, $progress, 1)){
 
 			case "1":
-        if($ibex_1_done == true) {
-          $next = "https://www.psycholinguistics.ml/index/server_error.html";
-        } else {
-				  setcookie("ibex_1_group", $ibex_1_group, time()+144000, "/", "psycholinguistics.ml");
-          setcookie("ibex_1_done", true, time()+144000, "/", "psycholinguistics.ml");
+        if($progress == 0 { //This would mean that the participant is on the first step, because $progress - 1 would be -1
+          setcookie("ibex_1_group", $ibex_1_group, time()+144000, "/", "psycholinguistics.ml");
 				  $next = "https://www.psycholinguistics.ml/ibex_1/experiment.html";
+        } elseif ($comingFrom == substr($testgroup, $previous_progress, 1))) { //check if coming from (either 1 or J) matches the previous step in the progress
+				  setcookie("ibex_1_group", $ibex_1_group, time()+144000, "/", "psycholinguistics.ml");
+				  $next = "https://www.psycholinguistics.ml/ibex_1/experiment.html";
+        } else {
+          $next = "https://www.psycholinguistics.ml/vocab/no_back.html";
         }
 				break;
 
@@ -64,15 +71,19 @@ if ($result->num_rows > 0) {
 			//	break;
 
 			case "J":
-        if($jspsych_done == true) {
-          $next = "https://www.psycholinguistics.ml/index/server_error.html";
-        } else {
-				  setcookie("jspsych_group", $jspsych_group, time()+144000, "/", "psycholinguistics.ml");
+        if($progress == 0) {
+          setcookie("jspsych_group", $jspsych_group, time()+144000, "/", "psycholinguistics.ml");
 				  setcookie("jspsych_progress", $jspsych_progress, time()+144000, "/", "psycholinguistics.ml");
-          setcookie("jspsych_done", true, time()+144000, "/", "psycholinguistics.ml");
-				  $next = "https://www.psycholinguistics.ml/jspsych.html";
+          $next = "https://www.psycholinguistics.ml/jspsych.html";
+        } elseif ($comingFrom == substr($testgroup, $previous_progress, 1)) {
+          setcookie("jspsych_group", $jspsych_group, time()+144000, "/", "psycholinguistics.ml");
+				  setcookie("jspsych_progress", $jspsych_progress, time()+144000, "/", "psycholinguistics.ml");
+          $next = "https://www.psycholinguistics.ml/jspsych.html";
+        } else {
+          $next = "https://www.psycholinguistics.ml/vocab/no_back.html";
         }
 				break;
+
 			default:
 				$next = "https://www.psycholinguistics.ml/index/server_error.html";
 				break;
