@@ -93,24 +93,24 @@ if ($result->num_rows > 0) {
       $next = "https://www.psycholinguistics.ml/index/server_error.html";
     }
 
-    echo $prev_location;
+    echo $prev_location. " ".$comingFrom;
 
-		echo "Redirecting..." . $next;
-		$conn -> commit();
-		$conn->close();
-		header("Location: ". $next, true, 302);
-		exit();
+		// echo "Redirecting..." . $next;
+		// $conn -> commit();
+		// $conn->close();
+		// header("Location: ". $next, true, 302);
+		// exit();
 
 	}
 
 }
-    echo $prev_location;
+    echo $prev_location. " ".$comingFrom;
 
-		echo "Redirecting..." . $next;
-		$result -> free();
-		$conn->close();
-		header("Location: ". "https://www.psycholinguistics.ml", true, 302);
-		exit();
+		// echo "Redirecting..." . $next;
+		// $result -> free();
+		// $conn->close();
+		// header("Location: ". "https://www.psycholinguistics.ml", true, 302);
+		// exit();
 
 
 
