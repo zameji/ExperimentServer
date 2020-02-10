@@ -53,7 +53,6 @@ if ($result->num_rows > 0) {
 		}
 		elseif ($progress < 2){
 			switch (substr($testgroup, $progress, 1)){
-
 			case "1":
         if($progress == 0) { //This would mean that the participant is on the first step, because $progress - 1 would be -1
           setcookie("ibex_1_group", $ibex_1_group, time()+144000, "/", "psycholinguistics.ml");
