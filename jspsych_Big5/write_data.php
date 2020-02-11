@@ -81,11 +81,11 @@ $query = "UPDATE big5 SET big5_q1='" .  $big5_q1 . "', big5_q2='" .  $big5_q2 . 
 
 if (!$conn->query($query)) {
     die("Execute failed");
-} 
+}
 
 $conn -> commit();
 $conn->close();
-header("Location: ". "https://www.psycholinguistics.ml/get_next_jspsych.php", true, 302);
+header("Location: ". "https://www.psycholinguistics.ml/get_next_jspsych.php?from=O", true, 302);
 ob_end_flush();
 exit();
 ?>

@@ -19,7 +19,7 @@ file_put_contents($name, $data);
 // }
 
 header('Content-Type: application/json');
-echo json_encode(['location'=>'https://www.psycholinguistics.ml/get_next_jspsych.php']);
+echo json_encode(['location'=>'https://www.psycholinguistics.ml/get_next_jspsych.php?from=L']);
 exit();
 ob_end_flush();
 ?>
