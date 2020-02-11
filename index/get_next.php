@@ -96,20 +96,16 @@ if ($result->num_rows > 0) {
     echo "Coming from:".$comingFrom."     ";
     echo "Previous location:".$prev_location."     ";
     echo "next". $next ."     ";
-		// echo "Redirecting..." . $next;
-		// $conn -> commit();
-		// $conn->close();
-		// header("Location: ". $next, true, 302);
-		// exit();
+		echo "Redirecting..." . $next;
+		$conn -> commit();
+		$conn->close();
+		header("Location: ". $next, true, 302);
+		exit();
 
 	}
 
 }
 
-echo "Coming from:".$comingFrom."     ";
-echo "Previous location:".$prev_location."     ";
-echo "next". $next ."     ";
-echo "Lower part of if statement";
     //
 		// echo "Redirecting..." . $next;
 		// $result -> free();
