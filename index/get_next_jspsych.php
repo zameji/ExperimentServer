@@ -38,7 +38,7 @@ if ($result->num_rows > 0) {
 
 $result -> free();
 
-$previous_progress = $jspsych_progress-1;
+$previous_progress = $progress-1;
 $prev_location = substr($jspsych_group, $previous_progress, 1);
 $new_progress = $progress+1;
 
