@@ -156,7 +156,10 @@ $conn -> commit();
 $conn->close();
 
 echo "Coming from:".$comingFrom."   ";
+echo "Progress:".$progress."   ";
+echo "Prev progress:".$previous_progress."   ";
 echo "Prev location:".$prev_location."   ";
+echo "Order:".$jspsych_group."   ";
 
 header("Location: ". $next, true, 302);
 exit();
