@@ -106,12 +106,17 @@ if ($result->num_rows > 0) {
 
 }
 
-		echo "Redirecting..." . $next;
-		$result -> free();
-		$conn->close();
-		header("Location: ". "https://www.psycholinguistics.ml", true, 302);
-		exit();
-
+echo "Coming from:".$comingFrom."     ";
+echo "Previous location:".$prev_location."     ";
+echo "next". $next ."     ";
+echo "Lower part of if statement";
+    //
+		// echo "Redirecting..." . $next;
+		// $result -> free();
+		// $conn->close();
+		// header("Location: ". "https://www.psycholinguistics.ml", true, 302);
+		// exit();
+    //
 
 
 ?>
