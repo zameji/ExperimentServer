@@ -24,8 +24,6 @@ $result = $conn->query($query);
 // Update the progress, send them to the next page
 if ($result->num_rows > 0) {
 
-	//TODO: Verify that they came from the correct referrer
-
 	$row = $result->fetch_assoc();
 	$testgroup = $row["test_group"];
 	$progress = $row["progress"];

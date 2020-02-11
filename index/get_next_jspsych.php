@@ -2,6 +2,9 @@
 //Get user ID, update their Jspsych progress
 $prolificID = $_COOKIE["id"];
 
+//get where they are redirecting from
+$comingFrom = $_GET["from"];
+
 $servername = "localhost";
 $username = "ubuntu";
 $password = "ubuntuExperiment2019";
@@ -23,7 +26,7 @@ $result = $conn->query($stmt);
 // Update the progress, send them to the next page
 if ($result->num_rows > 0) {
 	$row = $result->fetch_assoc();
-	$progress = $row["jspsych_progress"] + 1;
+	$progress = $row["jspsych_progress"];
 	$testgroup = $row["jspsych_group"];
 } else {
 	$conn->close();
@@ -35,8 +38,12 @@ if ($result->num_rows > 0) {
 
 $result -> free();
 
+$previous_progress = $progress-1;
+$prev_location = substr($testgroup, $previous_progress, 1);
+$new_progress = $progress+1;
+
 $query = "UPDATE participants set
-								jspsych_progress = ".$progress."
+								jspsych_progress = ".$new_progress."
 								where prolific_id='".$prolificID."'";
 
 if (!$conn->query($query)) {
@@ -44,7 +51,7 @@ if (!$conn->query($query)) {
 }
 
 
-setcookie("jspsych_progress", $progress, time()+144000, "/", "psycholinguistics.ml");
+setcookie("jspsych_progress", $new_progress, time()+144000, "/", "psycholinguistics.ml");
 
 if ($progress < 9){
 switch (substr($testgroup, $progress, 1)){
