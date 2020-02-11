@@ -62,7 +62,7 @@ switch (substr($testgroup, $progress, 1)){
     } elseif ($comingFrom == $prev_location) {
       $next ="https://www.psycholinguistics.ml/jspsych/experiment.html";
     } else {
-      $next = "https://www.psycholinguistics.ml/index/no_back.html";
+      //$next = "https://www.psycholinguistics.ml/index/no_back.html";
     }
 		break;
 
@@ -72,7 +72,7 @@ switch (substr($testgroup, $progress, 1)){
     } elseif ($comingFrom == $prev_location) {
        $next ="https://www.psycholinguistics.ml/jspsych_1/index.html";//AXCPT
     } else {
-      $next = "https://www.psycholinguistics.ml/index/no_back.html";
+      //$next = "https://www.psycholinguistics.ml/index/no_back.html";
     }
 		break;
 
@@ -82,7 +82,7 @@ switch (substr($testgroup, $progress, 1)){
     } elseif ($comingFrom == $prev_location) {
       $next ="https://www.psycholinguistics.ml/jspsych_2/reading_span_web_english.html";
     } else {
-      $next = "https://www.psycholinguistics.ml/index/no_back.html";
+      //$next = "https://www.psycholinguistics.ml/index/no_back.html";
     }
 		break;
 
@@ -92,7 +92,7 @@ switch (substr($testgroup, $progress, 1)){
     } elseif ($comingFrom == $prev_location) {
       $next ="https://www.psycholinguistics.ml/jspsych_3/index.html";
     } else {
-      $next = "https://www.psycholinguistics.ml/index/no_back.html";
+      //$next = "https://www.psycholinguistics.ml/index/no_back.html";
     }
 		break;
 
@@ -102,7 +102,7 @@ switch (substr($testgroup, $progress, 1)){
     } elseif ($comingFrom == $prev_location) {
        $next ="https://www.psycholinguistics.ml/jspsych_4/index.html";
     } else {
-       $next = "https://www.psycholinguistics.ml/index/no_back.html";
+       //$next = "https://www.psycholinguistics.ml/index/no_back.html";
     }
 		break;
 
@@ -112,7 +112,7 @@ switch (substr($testgroup, $progress, 1)){
     } elseif ($comingFrom == $prev_location) {
       $next ="https://www.psycholinguistics.ml/jspsych_5/index.html";//Big5
     } else {
-      $next = "https://www.psycholinguistics.ml/index/no_back.html";
+      //$next = "https://www.psycholinguistics.ml/index/no_back.html";
     }
 		break;
 
@@ -122,7 +122,7 @@ switch (substr($testgroup, $progress, 1)){
     } elseif ($comingFrom == $prev_location) {
       $next ="https://www.psycholinguistics.ml/jspsych_6/index.html";//Navon
     } else {
-      $next = "https://www.psycholinguistics.ml/index/no_back.html";
+      //$next = "https://www.psycholinguistics.ml/index/no_back.html";
     }
 		break;
 
@@ -132,7 +132,7 @@ switch (substr($testgroup, $progress, 1)){
     } elseif ($comingFrom == $prev_location) {
       $next ="https://www.psycholinguistics.ml/vocab/index_timed.html";
     } else {
-      $next = "https://www.psycholinguistics.ml/index/no_back.html";
+      //$next = "https://www.psycholinguistics.ml/index/no_back.html";
     }
 		break;
 
@@ -142,7 +142,7 @@ switch (substr($testgroup, $progress, 1)){
     } elseif ($comingFrom == $prev_location) {
       $next ="https://www.psycholinguistics.ml/vocab/index2_timed.html";//ART
     } else {
-      $next = "https://www.psycholinguistics.ml/index/no_back.html";
+      //$next = "https://www.psycholinguistics.ml/index/no_back.html";
     }
 		break;
 
@@ -154,6 +154,10 @@ switch (substr($testgroup, $progress, 1)){
 
 $conn -> commit();
 $conn->close();
+
+echo "Coming from:".$comingFrom."   ";
+echo "Prev location:".$prev_location."   ";
+
 header("Location: ". $next, true, 302);
 exit();
 ob_end_flush();
