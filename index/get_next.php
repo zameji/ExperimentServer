@@ -1,7 +1,7 @@
 <?php
 $prolificID = $_COOKIE['id'];
 
-$comingFrom = $GET["from"];
+$comingFrom = $_GET["from"];
 
 $servername = "localhost";
 $username = "ubuntu";
