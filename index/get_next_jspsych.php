@@ -38,8 +38,8 @@ if ($result->num_rows > 0) {
 
 $result -> free();
 
-$previous_progress = $progress-1;
-$prev_location = substr($testgroup, $previous_progress, 1);
+$previous_progress = $jspsych_progress-1;
+$prev_location = substr($jspsych_group, $previous_progress, 1);
 $new_progress = $progress+1;
 
 $query = "UPDATE participants set
@@ -57,31 +57,93 @@ if ($progress < 9){
 switch (substr($testgroup, $progress, 1)){
 
 	case "J":
-		$next ="https://www.psycholinguistics.ml/jspsych/experiment.html";//circles
+    if($progress == 0) { //This would mean that the participant is on the first step, because $progress - 1 would be -1
+		  $next ="https://www.psycholinguistics.ml/jspsych/experiment.html";//circles
+    } elseif ($comingFrom == $prev_location) {
+      $next ="https://www.psycholinguistics.ml/jspsych/experiment.html";
+    } else {
+      $next = "https://www.psycholinguistics.ml/index/no_back.html";
+    }
 		break;
+
 	case "K":
-		$next ="https://www.psycholinguistics.ml/jspsych_1/index.html";//AXCPT
+    if($progress == 0) {
+		  $next ="https://www.psycholinguistics.ml/jspsych_1/index.html";//AXCPT
+    } elseif ($comingFrom == $prev_location) {
+       $next ="https://www.psycholinguistics.ml/jspsych_1/index.html";//AXCPT
+    } else {
+      $next = "https://www.psycholinguistics.ml/index/no_back.html";
+    }
 		break;
+
 	case "L":
-		$next ="https://www.psycholinguistics.ml/jspsych_2/reading_span_web_english.html"; //RST
+    if($progress == 0) {
+		  $next ="https://www.psycholinguistics.ml/jspsych_2/reading_span_web_english.html"; //RST
+    } elseif ($comingFrom == $prev_location) {
+      $next ="https://www.psycholinguistics.ml/jspsych_2/reading_span_web_english.html";
+    } else {
+      $next = "https://www.psycholinguistics.ml/index/no_back.html";
+    }
 		break;
+
 	case "M":
-		$next ="https://www.psycholinguistics.ml/jspsych_3/index.html";//Flanker
+    if($progress == 0) {
+		  $next ="https://www.psycholinguistics.ml/jspsych_3/index.html";//Flanker
+    } elseif ($comingFrom == $prev_location) {
+      $next ="https://www.psycholinguistics.ml/jspsych_3/index.html";
+    } else {
+      $next = "https://www.psycholinguistics.ml/index/no_back.html";
+    }
 		break;
+
 	case "N":
-		$next ="https://www.psycholinguistics.ml/jspsych_4/index.html";//Ravens
+    if($progress == 0) {
+		   $next ="https://www.psycholinguistics.ml/jspsych_4/index.html";//Ravens
+    } elseif ($comingFrom == $prev_location) {
+       $next ="https://www.psycholinguistics.ml/jspsych_4/index.html";
+    } else {
+       $next = "https://www.psycholinguistics.ml/index/no_back.html";
+    }
 		break;
+
 	case "O":
-		$next ="https://www.psycholinguistics.ml/jspsych_5/index.html";//Big5
+    if($progress == 0) {
+		  $next ="https://www.psycholinguistics.ml/jspsych_5/index.html";//Big5
+    } elseif ($comingFrom == $prev_location) {
+      $next ="https://www.psycholinguistics.ml/jspsych_5/index.html";//Big5
+    } else {
+      $next = "https://www.psycholinguistics.ml/index/no_back.html";
+    }
 		break;
+
 	case "P":
-		$next ="https://www.psycholinguistics.ml/jspsych_6/index.html";//Navon
+    if($progress == 0) {
+		  $next ="https://www.psycholinguistics.ml/jspsych_6/index.html";//Navon
+    } elseif ($comingFrom == $prev_location) {
+      $next ="https://www.psycholinguistics.ml/jspsych_6/index.html";//Navon
+    } else {
+      $next = "https://www.psycholinguistics.ml/index/no_back.html";
+    }
 		break;
+
 	case "Q":
-		$next ="https://www.psycholinguistics.ml/vocab/index_timed.html";// Vocabulary
+    if($progress == 0) {
+		  $next ="https://www.psycholinguistics.ml/vocab/index_timed.html";// Vocabulary
+    } elseif ($comingFrom == $prev_location) {
+      $next ="https://www.psycholinguistics.ml/vocab/index_timed.html";
+    } else {
+      $next = "https://www.psycholinguistics.ml/index/no_back.html";
+    }
 		break;
+
 	case "R":
-		$next ="https://www.psycholinguistics.ml/vocab/index2_timed.html";//ART
+    if($progress == 0) {
+		  $next ="https://www.psycholinguistics.ml/vocab/index2_timed.html";//ART
+    } elseif ($comingFrom == $prev_location) {
+      $next ="https://www.psycholinguistics.ml/vocab/index2_timed.html";//ART
+    } else {
+      $next = "https://www.psycholinguistics.ml/index/no_back.html";
+    }
 		break;
 
 	default:

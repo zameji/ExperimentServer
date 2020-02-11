@@ -47,7 +47,7 @@ if ($result->num_rows > 0) {
       if ($comingFrom == $prev_location){
         $next = "https://www.psycholinguistics.ml/vocab/index3_timed.html";
       } else {
-        $next = "https://www.psycholinguistics.ml/vocab/no_back.html";
+        $next = "https://www.psycholinguistics.ml/index/no_back.html";
       }
 		}
 		elseif ($progress < 2){
@@ -60,7 +60,7 @@ if ($result->num_rows > 0) {
 				  setcookie("ibex_1_group", $ibex_1_group, time()+144000, "/", "psycholinguistics.ml");
 				  $next = "https://www.psycholinguistics.ml/ibex_1/experiment.html";
         } else {
-          $next = "https://www.psycholinguistics.ml/vocab/no_back.html";
+          $next = "https://www.psycholinguistics.ml/index/no_back.html";
         }
 				break;
 
@@ -78,7 +78,7 @@ if ($result->num_rows > 0) {
 				  setcookie("jspsych_progress", $jspsych_progress, time()+144000, "/", "psycholinguistics.ml");
           $next = "https://www.psycholinguistics.ml/jspsych.html";
         } else {
-          $next = "https://www.psycholinguistics.ml/vocab/no_back.html";
+          $next = "https://www.psycholinguistics.ml/index/no_back.html";
         }
 				break;
 
