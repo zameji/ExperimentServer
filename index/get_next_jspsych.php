@@ -39,7 +39,7 @@ if ($result->num_rows > 0) {
 $result -> free();
 
 $previous_progress = $progress-1;
-$prev_location = substr($jspsych_group, $previous_progress, 1);
+$prev_location = substr($testgroup, $previous_progress, 1);
 $new_progress = $progress+1;
 
 $query = "UPDATE participants set
@@ -159,7 +159,7 @@ echo "Coming from:".$comingFrom."   ";
 echo "Progress:".$progress."   ";
 echo "Prev progress:".$previous_progress."   ";
 echo "Prev location:".$prev_location."   ";
-echo "Order:".$jspsych_group."   ";
+echo "Order:".$testgroup."   ";
 
 header("Location: ". $next, true, 302);
 exit();
