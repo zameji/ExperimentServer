@@ -105,7 +105,7 @@ var end_block = {
     exp_id: "ax_cpt",
     trial_id: "end"
   },
-  text: '<div class = centerbox><p class = center-block-text>Thanks for completing this task!</p><p class = center-block-text>Press <strong>enter</strong> to continue.</p></div>',
+  text: '<div class = centerbox><p class = center-block-text>Thanks for completing this task!</p><p class = center-block-text>Respond faster</p></div>',
   cont_key: [13],
   timing_post_trial: 0
 };
@@ -226,7 +226,7 @@ var distractor = {
   correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
   incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text>Incorrect</div></div>',
   show_stim_with_feedback: false,
-  timeout_message: '<div class = centerbox><div style="color:black; font-size: 40px;"; class = center-text-varsize>Press "F" for A-X<p></p>and "J" for anything else</div></div>'
+  timeout_message: '<div class = centerbox><div style="color:black; font-size: 40px;"; class = center-text-varsize>Respond faster</div></div>'
 };
 
 var X_probe = {
@@ -245,7 +245,7 @@ var X_probe = {
   correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
   incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text>Incorrect</div></div>',
   show_stim_with_feedback: false,
-  timeout_message: '<div class = centerbox><div style="color:black; font-size: 40px;"; class = center-text-varsize>Press "F" for A-X<p></p>and "J" for anything else</div></div>'
+  timeout_message: '<div class = centerbox><div style="color:black; font-size: 40px;"; class = center-text-varsize>Respond faster</div></div>'
 };
 
 var other_probe = {
@@ -264,7 +264,7 @@ var other_probe = {
   correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
 	incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text>Incorrect</div></div>',
   show_stim_with_feedback: false,
-  timeout_message: '<div class = centerbox><div style="color:black; font-size: 40px;"; class = center-text-varsize>Press "F" for A-X<p></p>and "J" for anything else</div></div>'
+  timeout_message: '<div class = centerbox><div style="color:black; font-size: 40px;"; class = center-text-varsize>Respond faster</div></div>'
 };
 
 /* ************************************ */
