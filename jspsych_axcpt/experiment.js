@@ -18,13 +18,13 @@ function evalAttentionChecks() {
 }
 
 var getChar = function() {
-  return '<div class = centerbox><p class = AX_text>' + chars[Math.floor(Math.random() * 22)] +
-    '</p></div>'
+  return '<div class = centerbox><div class = AX_text>' + chars[Math.floor(Math.random() * 22)] +
+    '</div></div>'
 }
 
 var getChar_red = function() {
-  return '<div class = centerbox><p class = AX_text style="color:red;">' + chars[Math.floor(Math.random() * 22)] +
-    '</p></div>'
+  return '<div class = centerbox><div class = AX_text style="color:red;">' + chars[Math.floor(Math.random() * 22)] +
+    '</div></div>'
 }
 
 var getInstructFeedback = function() {
