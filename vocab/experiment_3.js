@@ -164,8 +164,8 @@ var colloc_task = {
   timing_response: -1,
   timing_feedback_duration: 1,
   timing_post_trial: 1,
-  correct_text: "Correct",
-  incorrect_text: "False"
+  correct_text: "+",
+  incorrect_text: "+"
 
 };
 
