@@ -29,14 +29,13 @@ var instructions_block = {
   ' These sentences might make sense (e.g. <i>More and more women want to have a career.</i>) or not ' +
   '(e.g. <i>I stopped by the gas station to refuel on apple juice.</i>). <b>Read the sentence OUT LOUD and judge </b>' +
   'whether it makes sense. If it makes sense, press the left arrow &larr;, if it does not make sense, press the right arrow &rarr;. ' +
-  '<b>BE SURE TO USE AN ARROW KEY, DO NOT CLICK ON THE SCREEN!</b></p> '+
   '<p>Next, you will see a word on the screen. Read it out loud. <b>Your second </b>' +
-  '<b>task is to memorise this word in order to recall it later on.</b></p>' +
-  '<p>After three to six sentences (which you are supposed to judge) and words (which you are supposed to memorise), ' +
+  '<b>task is to memorise this word.</b></p>' +
+  '<p>After three to six sentences ' +
   'you will see a page with six empty fields. Whenever this happens, please enter all the words you still remember ' +
   'since the last round of empty fields, in any order. ' +
-  'Please use only one field per word and be careful of spelling. After you entered all the ' +
-  'words you still remember, you can start the next round by clicking the "Continue" button.</p>' +
+  'Please use only one field per word and be careful of spelling. ' +
+  'You can start the next round by clicking the "Continue" button.</p>' +
   '<p>Please do not use any external aids (pen/paper) to help you with this task.' +
   ' Reading is timed so that you cannot cheat! <b>Remember to read the sentences out loud, even if this makes the task more difficult!</b></p>' +
   '<p>Please press ENTER to begin the experiment.</p>' +
@@ -89,7 +88,7 @@ var practice_block14 = {
 var practice_block15 = {
   type: "single-stim",
   stimulus: ['<p>People in our town are more giving and cheerful at Christmas time.</p>' +
-                
+
                 '<div style="width:600px;margin:auto">&larr;  yes / no  &rarr;</div></p>'],
   choices: [37, 39],
   timing_response: 10000,
