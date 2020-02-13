@@ -135,7 +135,7 @@ if __name__ == "__main__":
 				<b>Reading English Sentences</b>
 			</p>
 			<p style="text-align:left">
-							This study has to do with the way native English speakers read and understand sentences. You will be asked to do various cognitive tasks, including reading sentences one word at a time.
+							This study is about the reading style of native speakers of English and how it relates to different abilities and traits. You will be asked to do various cognitive tasks, including reading sentences one word at a time.
 						</p>
 			<p style="text-align:left">
 							Risks: This experiment has various parts and may be longer than other questionnaires or experiments you have participated in before. We see no substantial risks to you in your participation, besides perhaps your own boredom  or loss of time.
