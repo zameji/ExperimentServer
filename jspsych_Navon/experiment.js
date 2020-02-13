@@ -196,7 +196,7 @@ var instructions_block = {
   pages: [
     '<div class = centerbox><p class = block-text>In this experiment you will see blue or black shapes made up of smaller shapes, like the image below. <br>Both the large shape and the smaller shapes can either be a circle, X, triangle or square.<br> For example, the big shape below is a square, and the small shape is a circle.</p><div class = instructionImgBox><img src = "images/blue_squareofcircles.png" height = 200 width = 200></img></div></div>',
     '<div class = centerbox><p class = block-text>Your task is to respond based on how many lines either the large or small shapes have, depending on the color. <br><br> If the shape is <b>' +
-    task_colors[0] + '</b> respond based on how many lines the <b>large</b> shape has. <br>If the shape is <b>' +
+    task_colors[0] + '</b> respond based on how many lines the <b>large</b> shape has. A square has 4 lines, a triangle has 3 lines, an X has 2 lines, and a circle has 1 line.<br>If the shape is <b>' +
     task_colors[1] +
     '</b> respond based on how many lines the <b>small</b> shape has.</p><p class = block-text>Use the number keys to respond 1 for a circle, 2 for an X, 3 for a triangle and 4 for a square.</p></div>',
     '<div class = centerbox><p class = block-text>For instance, for the shape below you would press <b>3</b> because it is <b>' +
