@@ -57,7 +57,7 @@ if ($progress < 9){
 switch (substr($testgroup, $progress, 1)){
 
 	case "J":
-    if($progress == 0 OR $$comingFrom == "index") { //This would mean that the participant is on the first step, because $progress - 1 would be -1
+    if($progress == 0 OR $comingFrom == "index") { //This would mean that the participant is on the first step, because $progress - 1 would be -1
 		  $next ="https://www.psycholinguistics.ml/jspsych/experiment.html";//circles
     } elseif ($comingFrom == $prev_location) {
       $next ="https://www.psycholinguistics.ml/jspsych/experiment.html";
@@ -67,7 +67,7 @@ switch (substr($testgroup, $progress, 1)){
 		break;
 
 	case "K":
-    if($progress == 0 OR $$comingFrom == "index") {
+    if($progress == 0 OR $comingFrom == "index") {
 		  $next ="https://www.psycholinguistics.ml/jspsych_1/index.html";//AXCPT
     } elseif ($comingFrom == $prev_location) {
        $next ="https://www.psycholinguistics.ml/jspsych_1/index.html";//AXCPT
@@ -77,7 +77,7 @@ switch (substr($testgroup, $progress, 1)){
 		break;
 
 	case "L":
-    if($progress == 0 OR $$comingFrom == "index") {
+    if($progress == 0 OR $comingFrom == "index") {
 		  $next ="https://www.psycholinguistics.ml/jspsych_2/reading_span_web_english.html"; //RST
     } elseif ($comingFrom == $prev_location) {
       $next ="https://www.psycholinguistics.ml/jspsych_2/reading_span_web_english.html";
@@ -87,7 +87,7 @@ switch (substr($testgroup, $progress, 1)){
 		break;
 
 	case "M":
-    if($progress == 0 OR $$comingFrom == "index") {
+    if($progress == 0 OR $comingFrom == "index") {
 		  $next ="https://www.psycholinguistics.ml/jspsych_3/index.html";//Flanker
     } elseif ($comingFrom == $prev_location) {
       $next ="https://www.psycholinguistics.ml/jspsych_3/index.html";
@@ -97,7 +97,7 @@ switch (substr($testgroup, $progress, 1)){
 		break;
 
 	case "N":
-    if($progress == 0 OR $$comingFrom == "index") {
+    if($progress == 0 OR $comingFrom == "index") {
 		   $next ="https://www.psycholinguistics.ml/jspsych_4/index.html";//Ravens
     } elseif ($comingFrom == $prev_location) {
        $next ="https://www.psycholinguistics.ml/jspsych_4/index.html";
@@ -107,7 +107,7 @@ switch (substr($testgroup, $progress, 1)){
 		break;
 
 	case "O":
-    if($progress == 0 OR $$comingFrom == "index") {
+    if($progress == 0 OR $comingFrom == "index") {
 		  $next ="https://www.psycholinguistics.ml/jspsych_5/index.html";//Big5
     } elseif ($comingFrom == $prev_location) {
       $next ="https://www.psycholinguistics.ml/jspsych_5/index.html";//Big5
@@ -117,7 +117,7 @@ switch (substr($testgroup, $progress, 1)){
 		break;
 
 	case "P":
-    if($progress == 0 OR $$comingFrom == "index") {
+    if($progress == 0 OR $comingFrom == "index") {
 		  $next ="https://www.psycholinguistics.ml/jspsych_6/index.html";//Navon
     } elseif ($comingFrom == $prev_location) {
       $next ="https://www.psycholinguistics.ml/jspsych_6/index.html";//Navon
@@ -127,7 +127,7 @@ switch (substr($testgroup, $progress, 1)){
 		break;
 
 	case "Q":
-    if($progress == 0 OR $$comingFrom == "index") {
+    if($progress == 0 OR $comingFrom == "index") {
 		  $next ="https://www.psycholinguistics.ml/vocab/index_timed.html";// Vocabulary
     } elseif ($comingFrom == $prev_location) {
       $next ="https://www.psycholinguistics.ml/vocab/index_timed.html";
@@ -137,7 +137,7 @@ switch (substr($testgroup, $progress, 1)){
 		break;
 
 	case "R":
-    if($progress == 0 OR $$comingFrom == "index") {
+    if($progress == 0 OR $comingFrom == "index") {
 		  $next ="https://www.psycholinguistics.ml/vocab/index2_timed.html";//ART
     } elseif ($comingFrom == $prev_location) {
       $next ="https://www.psycholinguistics.ml/vocab/index2_timed.html";//ART
