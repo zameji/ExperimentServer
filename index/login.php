@@ -32,7 +32,7 @@ if ($result->num_rows > 0) {
     $progress = $progress - 1; //added because it was skipping a whole part (either its been updated too soon or its being +1'ed again somewhere)
 		$jspsych_group = $row["jspsych_group"];
 		$jspsych_progress = $row["jspsych_progress"];
-    $jspsych_progress = $jspsych_progress - 1; //added because it was skipping a whole part
+    //$jspsych_progress = $jspsych_progress - 1; 
 		$ibex_1_group = $row["ibex_1_group"];
 		$result -> free();
 
