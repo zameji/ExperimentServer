@@ -473,6 +473,13 @@ function namesToIndices(results_line) {
     return na;
 }
 
+function getCookieValue(a) {
+	var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+	return b ? b.pop() : '';
+}
+var prolific_id = getCookieValue("id");
+
+
 function finishedCallback(resultsLines) {
     var currentElement = runningOrder[posInRunningOrder][posInCurrentElementSet];
 
@@ -481,7 +488,7 @@ function finishedCallback(resultsLines) {
             var group = currentElement.group;
             if (group && group.length)
                 group = group[0]
-            var preamble = [ [0, currentElement.controller ? currentElement.controller : "UNKNOWN"],
+            var preamble = [ [0, prolific_id],
                              [1, (currentElement.itemNumber || currentElement.itemNumber == 0) ? currentElement.itemNumber : "DYNAMIC"],
                              [2, (currentElement.elementNumber || currentElement.elementNumber == 0) ? currentElement.elementNumber : "DYNAMIC"],
                              [3, (currentElement.type || currentElement.type == 0) ? currentElement.type : "DYNAMIC"],
@@ -588,7 +595,7 @@ function getCookieValue(a) {
 function getID() {
 	var user_id = getCookieValue("id");
 	if (user_id != "") {
-		return user_id;			
+		return user_id;
 	} else {
 		window.location.href = "https://www.psycholinguistics.ml/cookie_error.html";
 	}
