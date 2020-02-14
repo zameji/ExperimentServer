@@ -489,8 +489,8 @@ function finishedCallback(resultsLines) {
             if (group && group.length)
                 group = group[0]
             var preamble = [[0, prolific_id],
-                             [0, currentElement.controller ? currentElement.controller : "UNKNOWN"],
-                             [1, (currentElement.itemNumber || currentElement.itemNumber == 0) ? currentElement.itemNumber : "DYNAMIC"],
+                             [1, currentElement.controller ? currentElement.controller : "UNKNOWN"],
+                             // [1, (currentElement.itemNumber || currentElement.itemNumber == 0) ? currentElement.itemNumber : "DYNAMIC"],
                              [2, (currentElement.elementNumber || currentElement.elementNumber == 0) ? currentElement.elementNumber : "DYNAMIC"],
                              [3, (currentElement.type || currentElement.type == 0) ? currentElement.type : "DYNAMIC"],
                              [4, (group == null) ? ((currentElement.itemNumber || currentElement.itemNumber == 0) ? "NULL" : "DYNAMIC") : group ] ];
