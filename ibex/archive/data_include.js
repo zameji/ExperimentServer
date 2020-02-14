@@ -10,6 +10,9 @@ function getCookieValue(a) {
         return b ? b.pop() : '';
 }
 
+//added 14 feb test to have id in every row/file/SOMEWHERE
+var id = getCookieValue("id");
+
 var sequence = getCookieValue("ibex_1_group");
 
 switch (sequence){
