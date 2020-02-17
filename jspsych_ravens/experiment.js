@@ -36,11 +36,11 @@ var path = 'images/'
 var prefix = '<div><img src = "'
 var bottom_id = '" id="bottom_img'
 var postfix = '"</img></div>'
-var top_img = ['top_7.jpg', 'top_8.jpg'//, 'top_9.jpg', 'top_10.jpg', 'top_11.jpg', 'top_12.jpg',  'top_13.jpg', 'top_14.jpg', 'top_15.jpg', 'top_16.jpg', 'top_17.jpg', 'top_18.jpg'
+var top_img = ['top_7.jpg', 'top_8.jpg', 'top_9.jpg', 'top_10.jpg', 'top_11.jpg', 'top_12.jpg',  'top_13.jpg', 'top_14.jpg', 'top_15.jpg', 'top_16.jpg', 'top_17.jpg', 'top_18.jpg'
 ]
 //'top_1.jpg', 'top_2.jpg', 'top_3.jpg', 'top_4.jpg', 'top_5.jpg', 'top_6.jpg',
-var bottom_img = ['bottom_7.jpg', 'bottom_8.jpg'//, 'bottom_9.jpg', 'bottom_10.jpg',
-  // 'bottom_11.jpg', 'bottom_12.jpg', 'bottom_13.jpg', 'bottom_14.jpg', 'bottom_15.jpg', 'bottom_16.jpg', 'bottom_17.jpg', 'bottom_18.jpg'
+var bottom_img = ['bottom_7.jpg', 'bottom_8.jpg', 'bottom_9.jpg', 'bottom_10.jpg',
+  'bottom_11.jpg', 'bottom_12.jpg', 'bottom_13.jpg', 'bottom_14.jpg', 'bottom_15.jpg', 'bottom_16.jpg', 'bottom_17.jpg', 'bottom_18.jpg'
 ]
 //'bottom_1.jpg', 'bottom_2.jpg', 'bottom_3.jpg', 'bottom_4.jpg', 'bottom_5.jpg','bottom_6.jpg',
 
