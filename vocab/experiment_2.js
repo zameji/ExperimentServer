@@ -152,7 +152,7 @@ var trials = [
     ["Denise Daniels", 74],
     ["Geraldine Dawson", 74],
     ["Aimee Dorr", 74],
-    ["W Patrick Dickson", 74],
+    ["W. Patrick Dickson", 74],
     ["Robert Emery", 74],
     ["Frances Fincham", 74],
     ["Martin Ford", 74],
