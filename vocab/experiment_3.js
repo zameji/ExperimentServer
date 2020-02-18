@@ -57,7 +57,7 @@ var trials = [
     ["divert attention", "apply attention", "dedicate attention", "grasp attention", "sidetrack attention"],
     ["serious problem", "extensive problem", "extreme problem", "significant problem", "vital problem"],
     ["urgent matters", "compelling matters", "critical matters",  "desperate matters", "major matters"],
-    ["close similarity", "doubtful similarity",  "evident similarity", "evident similarity", "extreme similarity", "near similarity"],
+    ["close similarity", "doubtful similarity",  "evident similarity", "extreme similarity", "near similarity"],
     ["hear rumours", "contradict rumours", "discover rumours", "know rumours", "tell rumours"],
     ["memorable phrase", "effective phrase", "helpful phrase", "noteworthy phrase", "significant phrase"],
     ["divert suspicion", "distract suspicion", "mislead suspicion", "redirect suspicion", "sidetrack suspicion"],
