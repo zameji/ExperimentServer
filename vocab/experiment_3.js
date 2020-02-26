@@ -36,7 +36,7 @@ var possible_responses = [
 var trials = [
     ["blatant lie", "clear lie", "conspicuous lie", "distinct lie", "recognizable lie"],
     ["blank expression", "frightful expression", "plain expression", "sinster expression", "terrible expression"],
-    ["attact publicity", "bring publicity", "make publicity", "win publicity", "attain publicity"],
+    ["attract publicity", "bring publicity", "make publicity", "win publicity", "attain publicity"],
     ["fair share", "honest share", "just share", "legitimate share", "reasonable share"],
     ["arouse suspicions", "incite suspicions", "kindle suspicions", "revive suspicions", "stimulate suspicions"],
     ["raise prices","elevate prices", "grow prices", "lift prices", "stimulate prices"],
