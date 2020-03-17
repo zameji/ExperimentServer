@@ -39,7 +39,7 @@ $query = "UPDATE participants SET J = J + 1 WHERE prolific_ID='".$prolificID."'"
 
 $result = $conn->query($query);
 
-echo $query . '\n' . $result
+echo $query . '\n' . $result;
 
 header('Content-Type: application/json');
 // echo json_encode(['location'=>'https://www.psycholinguistics.ml/get_next_jspsych.php?from=J']);
