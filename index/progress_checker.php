@@ -20,29 +20,41 @@ $query = "SELECT J, K, L, M, N, O, P, Q, R FROM participants WHERE prolific_ID='
 
 $result = $conn->query($query);
 
+if ($result->num_rows > 0) {
+	$row = $result->fetch_assoc();
+} else {
+	$conn->close();
+	header('Content-Type: application/json');
+	echo json_encode(['location'=>$next]);
+	ob_end_flush();
+	exit();
+}
+
+
+
 echo 'TEST ';
 echo $result[J];
 
 $conn -> commit();
 $conn->close();
 
-if ($result[J] == 0){
+if ($row[J] == 0){
   $next = "https://www.psycholinguistics.ml/jspsych/experiment.html";
-} elseif ($result[K] == 0) {
+} elseif ($row[K] == 0) {
   $next ="https://www.psycholinguistics.ml/jspsych_1/index.html";
-} elseif ($result[L] == 0) {
+} elseif ($row[L] == 0) {
   $next ="https://www.psycholinguistics.ml/jspsych_2/reading_span_web_english.html";
-} elseif ($result[M] == 0) {
+} elseif ($row[M] == 0) {
   $next ="https://www.psycholinguistics.ml/jspsych_3/index.html";
-} elseif ($result[N] == 0) {
+} elseif ($row[N] == 0) {
   $next ="https://www.psycholinguistics.ml/jspsych_4/index.html";
-} elseif ($result[O] == 0) {
+} elseif ($row[O] == 0) {
   $next ="https://www.psycholinguistics.ml/jspsych_5/index.html";
-} elseif ($result[P] == 0) {
+} elseif ($row[P] == 0) {
   $next ="https://www.psycholinguistics.ml/jspsych_6/index.html";
-} elseif ($result[Q] == 0) {
+} elseif ($row[Q] == 0) {
   $next ="https://www.psycholinguistics.ml/vocab/index_timed.html";
-} elseif ($result[R] == 0) {
+} elseif ($row[R] == 0) {
   $next ="https://www.psycholinguistics.ml/vocab/index2_timed.html";
 }else {$next = "https://www.psycholinguistics.ml/get_next.php?from=J";}
 
