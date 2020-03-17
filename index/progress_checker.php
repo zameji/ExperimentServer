@@ -49,6 +49,6 @@ if ($result[J] == 0){
 echo $next;
 
   //header("Location: ". $next, true, 302);
-  exit();
+  //exit();
 
 ?>
