@@ -46,6 +46,7 @@ if ($result[J] == 0){
   $next ="https://www.psycholinguistics.ml/vocab/index2_timed.html";
 }else {$next = "https://www.psycholinguistics.ml/get_next.php?from=J";}
 
+echo $next
 
   header("Location: ". $next, true, 302);
   exit();
