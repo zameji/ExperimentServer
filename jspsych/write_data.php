@@ -35,7 +35,7 @@ if ($conn->connect_error) {
 }
 
 //Check whether participant exists
-$query = "UPDATE participants SET J += 1 WHERE prolific_ID='".$prolificID."'";
+$query = "UPDATE participants SET J = J + 1 WHERE prolific_ID='".$prolificID."'";
 
 $result = $conn->query($query);
 
