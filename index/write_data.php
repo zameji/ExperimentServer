@@ -39,6 +39,18 @@ $reading= $_POST['read'];
 $reading_amt = '0';
 $reading_enj = '0';
 
+$J = '0';
+$K = '0';
+$L = '0';
+$M = '0';
+$N = '0';
+$O = '0';
+$P = '0';
+$Q = '0';
+$R = '0';
+$ibex = '0';
+
+
 // setcookie("ibex_1_done", false, time()+144000, "/", "psycholinguistics.ml");
 // setcookie("jspsych_done", false, time()+144000, "/", "psycholinguistics.ml");
 
@@ -84,6 +96,16 @@ $query = "UPDATE participants
 		reading_disability='".$reading."',
 		reading_amount='".$reading_amt."',
 		reading_enjoyment='".$reading_enj."'
+    J='".$J."'
+    K='".$K."'
+    L='".$L."'
+    M='".$M."'
+    N='".$N."'
+    O='".$O."'
+    P='".$P."'
+    Q='".$Q."'
+    R='".$R."'
+    ibex='".$ibex."'
 		WHERE prolific_id='".$prolificID."'";
 
     if (!$conn->query($query)) {
