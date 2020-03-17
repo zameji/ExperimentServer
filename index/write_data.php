@@ -105,7 +105,7 @@ $query = "UPDATE participants
     P='".$P."',
     Q='".$Q."',
     R='".$R."',
-    ibex='".$ibex."',
+    ibex='".$ibex."'
 		WHERE prolific_id='".$prolificID."'";
 
     if (!$conn->query($query)) {
