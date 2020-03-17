@@ -47,6 +47,7 @@ if ($result[J] == 0){
 }else {$next = "https://www.psycholinguistics.ml/get_next.php?from=J";}
 
 echo $next;
+echo 'TEST';
 
   //header("Location: ". $next, true, 302);
   //exit();
