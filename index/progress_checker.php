@@ -1,5 +1,5 @@
 <?php
-
+echo 'STEP1';
 $prolificID = $_COOKIE['id'];
 
 $servername = "localhost";
@@ -19,6 +19,7 @@ if ($conn->connect_error) {
 //Query
 $query = "SELECT J, K, L, M, N, O, P, Q, R FROM participants WHERE prolific_ID='".$prolificID."'";
 
+echo $query;
 $result = $conn->query($query);
 
 $array = $result->fetch_all();
@@ -47,7 +48,7 @@ if ($result[J] == 0){
 }else {$next = "https://www.psycholinguistics.ml/get_next.php?from=J";}
 
 echo $next;
-echo 'TEST';
+echo 'STEP2';
 
   //header("Location: ". $next, true, 302);
   //exit();
