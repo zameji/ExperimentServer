@@ -1,5 +1,4 @@
 <?php
-echo 'STEP1';
 $prolificID = $_COOKIE['id'];
 
 $servername = "localhost";
@@ -19,10 +18,9 @@ if ($conn->connect_error) {
 //Query
 $query = "SELECT J, K, L, M, N, O, P, Q, R FROM participants WHERE prolific_ID='".$prolificID."'";
 
-echo $query;
 $result = $conn->query($query);
 
-$array = $result->fetch_all();
+echo 'TEST ' . $result[J];
 
 $conn -> commit();
 $conn->close();
