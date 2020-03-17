@@ -20,7 +20,8 @@ $query = "SELECT J, K, L, M, N, O, P, Q, R FROM participants WHERE prolific_ID='
 
 $result = $conn->query($query);
 
-echo 'TEST ' . $result[J];
+echo 'TEST ';
+echo $result[J];
 
 $conn -> commit();
 $conn->close();
