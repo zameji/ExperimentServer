@@ -55,10 +55,8 @@ if ($row[J] == 0){
   $next ="https://www.psycholinguistics.ml/vocab/index2_timed.html";
 }else {$next = "https://www.psycholinguistics.ml/get_next.php?from=J";}
 
-echo $next;
-echo 'STEP2';
 
-  //header("Location: ". $next, true, 302);
-  //exit();
+  header("Location: ". $next, true, 302);
+  exit();
 
 ?>
