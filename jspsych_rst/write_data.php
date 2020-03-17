@@ -18,6 +18,27 @@ file_put_contents($name, $data);
 // 	file_put_contents($name, $data);
 // }
 
+$prolificID = $_COOKIE['id'];
+
+$servername = "localhost";
+$username = "ubuntu";
+$password = "ubuntuExperiment2019";
+$dbname = "experiment";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+//Query
+$query = "UPDATE participants SET L = L + 1 WHERE prolific_ID='".$prolificID."'";
+
+$result = $conn->query($query);
+
 header('Content-Type: application/json');
 echo json_encode(['location'=>'https://www.psycholinguistics.ml/get_next_jspsych.php?from=L']);
 exit();

@@ -84,7 +84,14 @@ if (!$conn->query($query)) {
 }
 
 $conn -> commit();
-$conn->close();
+
+$prolificID = $id
+
+//Query
+$query2 = "UPDATE participants SET O = O + 1 WHERE prolific_ID='".$prolificID."'";
+
+$result = $conn->query($query2);
+
 header("Location: ". "https://www.psycholinguistics.ml/get_next_jspsych.php?from=O", true, 302);
 ob_end_flush();
 exit();
