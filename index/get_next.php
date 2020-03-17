@@ -45,7 +45,6 @@ if ($result->num_rows > 0) {
 
 		if ($progress >= 2){
       $next = "https://www.psycholinguistics.ml/vocab/index3_timed.html";
-      
       // if ($comingFrom == $prev_location){
       //   $next = "https://www.psycholinguistics.ml/vocab/index3_timed.html";
       // } else {
