@@ -49,6 +49,7 @@ $P = '0';
 $Q = '0';
 $R = '0';
 $ibex = '0';
+$jspsych = '0';
 
 
 // setcookie("ibex_1_done", false, time()+144000, "/", "psycholinguistics.ml");
@@ -105,7 +106,8 @@ $query = "UPDATE participants
     P='".$P."',
     Q='".$Q."',
     R='".$R."',
-    ibex='".$ibex."'
+    ibex='".$ibex."',
+    jspsych='".$jspsych."'
 		WHERE prolific_id='".$prolificID."'";
 
     if (!$conn->query($query)) {

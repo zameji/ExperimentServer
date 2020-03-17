@@ -30,10 +30,7 @@ if ($result->num_rows > 0) {
 	exit();
 }
 
-
 $conn -> commit();
-$conn->close();
-
 
 if ($row[J] == 0){
   $next = "https://www.psycholinguistics.ml/jspsych/experiment.html";
@@ -53,8 +50,13 @@ if ($row[J] == 0){
   $next ="https://www.psycholinguistics.ml/vocab/index_timed.html";
 } elseif ($row[R] == 0) {
   $next ="https://www.psycholinguistics.ml/vocab/index2_timed.html";
-}else {$next = "https://www.psycholinguistics.ml/get_next.php?from=J";}
+}else {
+  $next = "https://www.psycholinguistics.ml/get_next.php";
+  $query = "UPDATE participants SET jspsych = jspsych + 1 WHERE prolific_ID='".$prolificID."'";
+  $result = $conn->query($query);
+}
 
+$conn->close();
 
   header("Location: ". $next, true, 302);
   exit();
