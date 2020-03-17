@@ -31,12 +31,9 @@ if ($result->num_rows > 0) {
 }
 
 
-
-echo 'TEST ';
-echo $result[J];
-
 $conn -> commit();
 $conn->close();
+
 
 if ($row[J] == 0){
   $next = "https://www.psycholinguistics.ml/jspsych/experiment.html";
