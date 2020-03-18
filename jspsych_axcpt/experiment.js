@@ -44,8 +44,10 @@ var possible_responses = [
   ["J key", 74]
 ]
 var chars = 'BCDEFGHIJLMNOPQRSTUVWZ'
-var trial_proportions = ["AX", "AX", "AX", "AX", "AX", "AX", "AX", "AX","AX", "AX","AX", "AX","AX", "AX","AX", "AX","AX", "BX","BX","BX","BX","AY", "AY","AY","AY","BY","BY", "BY"] //60-15-15-10 % like Lopez-Garcia (reduced to 28 trials from 34)
-// var trial_proportions = ["AX", "AX", "AX", "AX", "AX", "AX", "AX", "AX","AX", "AX","AX", "AX","AX", "AX","AX", "AX","AX", "AX","AX", "AX","AX", "AX","AX", "AX", "BX","BX","BX","BX","AY", "AY","AY","AY","BY","BY"]
+var trial_proportions = ["AX"]
+//directly below is the current version
+//var trial_proportions = ["AX", "AX", "AX", "AX", "AX", "AX", "AX", "AX","AX", "AX","AX", "AX","AX", "AX","AX", "AX","AX", "BX","BX","BX","BX","AY", "AY","AY","AY","BY","BY", "BY"] //60-15-15-10 % like Lopez-Garcia (reduced to 28 trials from 34)
+// OLD // var trial_proportions = ["AX", "AX", "AX", "AX", "AX", "AX", "AX", "AX","AX", "AX","AX", "AX","AX", "AX","AX", "AX","AX", "AX","AX", "AX","AX", "AX","AX", "AX", "BX","BX","BX","BX","AY", "AY","AY","AY","BY","BY"]
 var block1_list = jsPsych.randomization.repeat(trial_proportions, 1)
 var block2_list = jsPsych.randomization.repeat(trial_proportions, 1)
 var blocks = [block1_list] //removed block2_list

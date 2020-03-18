@@ -121,11 +121,11 @@ for (c = 0; c < task_colors.length; c++) {
 jsPsych.pluginAPI.preloadImages(images)
 
 //Set up experiment stimulus order
-var practice_trials = makeTrialList(10, stim, data)//10
+var practice_trials = makeTrialList(1, stim, data)//10
 for (i = 0; i < practice_trials.length; i++) {
   practice_trials[i].key_answer = practice_trials[i].data.correct_response
 }
-var test_trials = makeTrialList(50, stim, data) //50
+var test_trials = makeTrialList(1, stim, data) //50
 
 
 

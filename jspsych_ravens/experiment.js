@@ -1,3 +1,5 @@
+//to turn back to full length: uncomment practice section and questions/scales 7*
+
 /* ************************************ */
 /* Define helper functions */
 /* ************************************ */
@@ -130,116 +132,116 @@ var scale_q7 = {
   "G": 0,
   "H": 0
 }
-var scale_q8 = {
-  "A": 0,
-  "B": 1,
-  "C": 0,
-  "D": 0,
-  "E": 0,
-  "F": 0,
-  "G": 0,
-  "H": 0
-}
-var scale_q9 = {
-  "A": 0,
-  "B": 1,
-  "C": 0,
-  "D": 0,
-  "E": 0,
-  "F": 0,
-  "G": 0,
-  "H": 0
-}
-var scale_q10 = {
-  "A": 0,
-  "B": 0,
-  "C": 0,
-  "D": 0,
-  "E": 1,
-  "F": 0,
-  "G": 0,
-  "H": 0
-}
-var scale_q11 = {
-  "A": 1,
-  "B": 0,
-  "C": 0,
-  "D": 0,
-  "E": 0,
-  "F": 0,
-  "G": 0,
-  "H": 0
-}
-var scale_q12 = {
-  "A": 0,
-  "B": 0,
-  "C": 0,
-  "D": 0,
-  "E": 1,
-  "F": 0,
-  "G": 0,
-  "H": 0
-}
-var scale_q13 = {
-  "A": 1,
-  "B": 0,
-  "C": 0,
-  "D": 0,
-  "E": 0,
-  "F": 0,
-  "G": 0,
-  "H": 0
-}
-var scale_q14 = {
-  "A": 0,
-  "B": 0,
-  "C": 1,
-  "D": 0,
-  "E": 0,
-  "F": 0,
-  "G": 0,
-  "H": 0
-}
-var scale_q15 = {
-  "A": 0,
-  "B": 1,
-  "C": 0,
-  "D": 0,
-  "E": 0,
-  "F": 0,
-  "G": 0,
-  "H": 0
-}
-var scale_q16 = {
-  "A": 0,
-  "B": 0,
-  "C": 0,
-  "D": 0,
-  "E": 1,
-  "F": 0,
-  "G": 0,
-  "H": 0
-}
-var scale_q17 = {
-  "A": 0,
-  "B": 0,
-  "C": 0,
-  "D": 0,
-  "E": 0,
-  "F": 1,
-  "G": 0,
-  "H": 0
-}
-var scale_q18 = {
-  "A": 0,
-  "B": 0,
-  "C": 0,
-  "D": 1,
-  "E": 0,
-  "F": 0,
-  "G": 0,
-  "H": 0
-}
+// var scale_q8 = {
+//   "A": 0,
+//   "B": 1,
+//   "C": 0,
+//   "D": 0,
+//   "E": 0,
+//   "F": 0,
+//   "G": 0,
+//   "H": 0
+// }
+// var scale_q9 = {
+//   "A": 0,
+//   "B": 1,
+//   "C": 0,
+//   "D": 0,
+//   "E": 0,
+//   "F": 0,
+//   "G": 0,
+//   "H": 0
+// }
+// var scale_q10 = {
+//   "A": 0,
+//   "B": 0,
+//   "C": 0,
+//   "D": 0,
+//   "E": 1,
+//   "F": 0,
+//   "G": 0,
+//   "H": 0
+// }
+// var scale_q11 = {
+//   "A": 1,
+//   "B": 0,
+//   "C": 0,
+//   "D": 0,
+//   "E": 0,
+//   "F": 0,
+//   "G": 0,
+//   "H": 0
+// }
+// var scale_q12 = {
+//   "A": 0,
+//   "B": 0,
+//   "C": 0,
+//   "D": 0,
+//   "E": 1,
+//   "F": 0,
+//   "G": 0,
+//   "H": 0
+// }
+// var scale_q13 = {
+//   "A": 1,
+//   "B": 0,
+//   "C": 0,
+//   "D": 0,
+//   "E": 0,
+//   "F": 0,
+//   "G": 0,
+//   "H": 0
+// }
+// var scale_q14 = {
+//   "A": 0,
+//   "B": 0,
+//   "C": 1,
+//   "D": 0,
+//   "E": 0,
+//   "F": 0,
+//   "G": 0,
+//   "H": 0
+// }
+// var scale_q15 = {
+//   "A": 0,
+//   "B": 1,
+//   "C": 0,
+//   "D": 0,
+//   "E": 0,
+//   "F": 0,
+//   "G": 0,
+//   "H": 0
+// }
+// var scale_q16 = {
+//   "A": 0,
+//   "B": 0,
+//   "C": 0,
+//   "D": 0,
+//   "E": 1,
+//   "F": 0,
+//   "G": 0,
+//   "H": 0
+// }
+// var scale_q17 = {
+//   "A": 0,
+//   "B": 0,
+//   "C": 0,
+//   "D": 0,
+//   "E": 0,
+//   "F": 1,
+//   "G": 0,
+//   "H": 0
+// }
+// var scale_q18 = {
+//   "A": 0,
+//   "B": 0,
+//   "C": 0,
+//   "D": 1,
+//   "E": 0,
+//   "F": 0,
+//   "G": 0,
+//   "H": 0
+// }
 
 var score_scale = [
   // [scale_q1],
@@ -248,18 +250,18 @@ var score_scale = [
   // [scale_q4],
   // [scale_q5],
   // [scale_q6],
-  [scale_q7],
-  [scale_q8],
-  [scale_q9],
-  [scale_q10],
-  [scale_q11],
-  [scale_q12],
-  [scale_q13],
-  [scale_q14],
-  [scale_q15],
-  [scale_q16],
-  [scale_q17],
-  [scale_q18]
+  [scale_q7]//,
+  // [scale_q8],
+  // [scale_q9],
+  // [scale_q10],
+  // [scale_q11],
+  // [scale_q12],
+  // [scale_q13],
+  // [scale_q14],
+  // [scale_q15],
+  // [scale_q16],
+  // [scale_q17],
+  // [scale_q18]
 ]
 /* ************************************ */
 /* Set up jsPsych blocks */
@@ -497,10 +499,10 @@ var end_block = {
 //Set up experiment
 var ravens_experiment = []
 ravens_experiment.push(instruction_node);
-ravens_experiment.push(practice_node_1);
-ravens_experiment.push(practice_feedback_block)
-ravens_experiment.push(practice_node_2);
-ravens_experiment.push(practice_feedback_block)
+//ravens_experiment.push(practice_node_1);
+//ravens_experiment.push(practice_feedback_block)
+//ravens_experiment.push(practice_node_2);
+//ravens_experiment.push(practice_feedback_block)
 ravens_experiment.push(start_test_block);
 ravens_experiment.push(survey_block);
 ravens_experiment.push(end_block);
