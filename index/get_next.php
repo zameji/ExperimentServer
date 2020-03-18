@@ -99,9 +99,9 @@ if ($result->num_rows > 0) {
       $next = "https://www.psycholinguistics.ml/index/server_error.html";
     }
 
-    echo "Coming from:".$comingFrom."     ";
-    echo "Previous location:".$prev_location."     ";
-    echo "next". $next ."     ";
+    //echo "Coming from:".$comingFrom."     ";
+    //echo "Previous location:".$prev_location."     ";
+    //echo "next". $next ."     ";
 		echo "Redirecting..." . $next;
 		$conn -> commit();
 		$conn->close();
