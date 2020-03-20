@@ -182,7 +182,7 @@ var wait_block = {
   },
   choices: 'none',
 	timing_stim: 1000,
-	timing_response: 500,
+	timing_response: 1000,
 	timing_post_trial: 0
 }
 
