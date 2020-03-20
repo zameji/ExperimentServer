@@ -181,7 +181,7 @@ var wait_block = {
     trial_id: "wait"
   },
   choices: 'none',
-	timing_stim: 500,
+	timing_stim: 1000,
 	timing_response: 500,
 	timing_post_trial: 0
 }
