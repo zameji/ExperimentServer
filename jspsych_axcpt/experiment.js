@@ -301,7 +301,7 @@ ax_cpt_experiment.push(A_cue);
 ax_cpt_experiment.push(distractor);
 ax_cpt_experiment.push(distractor);
 ax_cpt_experiment.push(distractor);
-ax_cpt_experiment.push(X_cue);
+ax_cpt_experiment.push(X_probe);
 ax_cpt_experiment.push(wait_block);
 
 ax_cpt_experiment.push(start_test_block);
