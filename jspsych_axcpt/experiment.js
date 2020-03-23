@@ -128,7 +128,7 @@ var feedback_instruct_block = {
 var instructions_block = {
   type: 'poldrack-instructions',
   pages: [
-    '<div class = centerbox><p class = block-text>In this task, you will see a red letter, followed by multiple black letters, and finally, another red letter. That forms one set. Then, a new set will start. (Total: about 7 minutes.)</p><p class = block-text>Your job is to respond by pressing the "J" key after ALL letters EXCEPT if the first red letter in the set was an "A" and the current letter is a RED "X".<b> If the first red letter was an "A" <strong>AND</strong> the current letter is a red "X", press the ' +
+    '<div class = centerbox><p class = block-text>In this task, you will see a red letter, followed by multiple black letters, and finally, another red letter. That forms one set. Then, a new set will start. </p><p class = block-text>Your job is to respond by pressing the "J" key after ALL letters EXCEPT if the first red letter in the set was an "A" and the current letter is a RED "X".<b> If the first red letter was an "A" <strong>AND</strong> the current letter is a red "X", press the ' +
     possible_responses[0][0] + '. Otherwise press the ' + possible_responses[1][0] +
     ' after every letter.</b> </p><p class = block-text>Important: Do not press any keys before you see a letter. If you press a key before the letter is shown, you will lose a point for this section.</div>',
     '<div class = centerbox><p class = block-text>You will now see a practice set. Press J after every letter, except the second red letter. At the second red letter, press F if the first red letter was an A and the current (red) letter is an X. Otherwise, press J again.</p></div>'
@@ -171,7 +171,7 @@ var start_test_block = {
   data: {
     trial_id: "test_intro"
   },
-  text: '<div class = centerbox><p class = center-block-text>We will now start the test. Remember, press J after every letter unless the first red letter was an A and the current letter is a red X.</p></div>',
+  text: '<div class = centerbox><p class = center-block-text>We will now start the test. Remember, press J after every letter unless the first red letter was an A and the current letter is a red X.</p><p> This task will take 5-7min.</div>',
   cont_key: [13],
   timing_post_trial: 1000,
   on_finish: function() {
