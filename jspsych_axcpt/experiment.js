@@ -206,7 +206,7 @@ var wait_block = {
 
 /* define test block cues and probes*/
 var A_cue = {
-  type: 'poldrack-single-stim',
+  type: 'poldrack-categorize',
   stimulus: '<div class = centerbox><div style="color:red"; class = AX_text>A</div></div>',
   is_html: true,
   response_ends_trial: true,
@@ -217,8 +217,7 @@ var A_cue = {
   },
   key_answer: 74,
   timing_stim: 500,
-  timing_response: 700,
-  timing_feedback_duration: 1000,
+  timing_feedback_duration: 750,
   timing_response: 2000,
   correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
   incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text>Incorrect</div></div>',
@@ -227,7 +226,7 @@ var A_cue = {
 };
 
 var other_cue = {
-  type: 'poldrack-single-stim',
+  type: 'poldrack-categorize',
   stimulus: getChar_red,
   is_html: true,
   response_ends_trial: true,
@@ -238,8 +237,7 @@ var other_cue = {
   },
   key_answer: 74,
   timing_stim: 500,
-  timing_response: 700,
-  timing_feedback_duration: 1000,
+  timing_feedback_duration: 750,
   timing_response: 2000,
   correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
   incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text>Incorrect</div></div>',
@@ -259,7 +257,7 @@ var distractor = {
   },
   key_answer: 74,
   timing_stim: 500,
-  timing_feedback_duration: 1000,
+  timing_feedback_duration: 750,
   timing_response: 2000,
   correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
   incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text>Incorrect</div></div>',
@@ -278,7 +276,7 @@ var X_probe = {
   },
   timing_stim: 500,
   response_ends_trial: true,
-  timing_feedback_duration: 1000,
+  timing_feedback_duration: 750,
   timing_response: 2000,
   correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
   incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text>Incorrect</div></div>',
@@ -297,7 +295,7 @@ var other_probe = {
   },
   timing_stim: 500,
   response_ends_trial: true,
-  timing_feedback_duration: 1000,
+  timing_feedback_duration: 750,
   timing_response: 2000,
   correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
 	incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text>Incorrect</div></div>',
