@@ -303,6 +303,26 @@ var other_probe = {
   timeout_message: '<div class = centerbox><div style="color:black; font-size: 40px;"; class = center-text-varsize>Respond faster</div></div>'
 };
 
+var X_probe_practice = {
+  type: 'poldrack-categorize',
+  stimulus: '<div class = centerbox><div style="color:red"; class = AX_text>X</div></div>',
+  is_html: true,
+  choices: [possible_responses[0][1], possible_responses[1][1]],
+  data: {
+    trial_id: "probe",
+    exp_stage: "test"
+  },
+  timing_stim: -1,
+  key_answer: 70,
+  response_ends_trial: true,
+  timing_feedback_duration: 750,
+  //timing_response: 2000,
+  correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
+  incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text>Incorrect</div></div>',
+  show_stim_with_feedback: false,
+  timeout_message: '<div class = centerbox><div style="color:black; font-size: 40px;"; class = center-text-varsize>Respond faster</div></div>'
+};
+
 /* ************************************ */
 /* Set up experiment */
 /* ************************************ */
@@ -315,7 +335,7 @@ ax_cpt_experiment.push(A_cue);
 ax_cpt_experiment.push(distractor);
 ax_cpt_experiment.push(distractor);
 ax_cpt_experiment.push(distractor);
-ax_cpt_experiment.push(X_probe);
+ax_cpt_experiment.push(X_probe_practice);
 ax_cpt_experiment.push(wait_block);
 
 ax_cpt_experiment.push(start_test_block);
