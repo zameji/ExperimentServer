@@ -209,6 +209,7 @@ var A_cue = {
   type: 'poldrack-single-stim',
   stimulus: '<div class = centerbox><div style="color:red"; class = AX_text>A</div></div>',
   is_html: true,
+  response_ends_trial: true,
   choices: [possible_responses[0][1], possible_responses[1][1]],
   data: {
     trial_id: "cue",
@@ -218,6 +219,7 @@ var A_cue = {
   timing_stim: 500,
   timing_response: 700,
   timing_feedback_duration: 1000,
+  timing_response: 2000,
   correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
   incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text>Incorrect</div></div>',
   show_stim_with_feedback: false,
@@ -228,6 +230,7 @@ var other_cue = {
   type: 'poldrack-single-stim',
   stimulus: getChar_red,
   is_html: true,
+  response_ends_trial: true,
   choices: [possible_responses[0][1], possible_responses[1][1]],
   data: {
     trial_id: "cue",
@@ -237,6 +240,7 @@ var other_cue = {
   timing_stim: 500,
   timing_response: 700,
   timing_feedback_duration: 1000,
+  timing_response: 2000,
   correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
   incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text>Incorrect</div></div>',
   show_stim_with_feedback: false,
