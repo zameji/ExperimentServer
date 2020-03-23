@@ -209,26 +209,38 @@ var A_cue = {
   type: 'poldrack-single-stim',
   stimulus: '<div class = centerbox><div style="color:red"; class = AX_text>A</div></div>',
   is_html: true,
-  choices: 'none',
+  choices: [possible_responses[0][1], possible_responses[1][1]],
   data: {
     trial_id: "cue",
     exp_stage: "test"
   },
+  key_answer: 74,
   timing_stim: 500,
-  timing_response: 700
+  timing_response: 700,
+  timing_feedback_duration: 1000,
+  correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
+  incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text>Incorrect</div></div>',
+  show_stim_with_feedback: false,
+  timeout_message: '<div class = centerbox><div style="color:black; font-size: 40px;"; class = center-text-varsize>Respond faster</div></div>'
 };
 
 var other_cue = {
   type: 'poldrack-single-stim',
   stimulus: getChar_red,
   is_html: true,
-  choices: 'none',
+  choices: [possible_responses[0][1], possible_responses[1][1]],
   data: {
     trial_id: "cue",
     exp_stage: "test"
   },
+  key_answer: 74,
   timing_stim: 500,
-  timing_response: 700
+  timing_response: 700,
+  timing_feedback_duration: 1000,
+  correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
+  incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text>Incorrect</div></div>',
+  show_stim_with_feedback: false,
+  timeout_message: '<div class = centerbox><div style="color:black; font-size: 40px;"; class = center-text-varsize>Respond faster</div></div>'
 };
 
 var distractor = {
