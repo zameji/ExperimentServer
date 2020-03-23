@@ -171,7 +171,7 @@ var start_test_block = {
   data: {
     trial_id: "test_intro"
   },
-  text: '<div class = centerbox><p class = center-block-text>We will now start the test. Remember, press J after every letter unless the first red letter was an A and the current letter is a red X.</p><p class = center-block-text> This task will take 5-7min.</p></div>',
+  text: '<div class = centerbox><p class = center-block-text>We will now start the test. Remember, press J after every letter unless the first red letter was an A and the current letter is a red X.</p><p class = center-block-text> This task will take 5-7min.</p>, <p class = center-block-text> Press any key to continue.</p></div>',
   cont_key: [13],
   timing_post_trial: 1000,
   on_finish: function() {
