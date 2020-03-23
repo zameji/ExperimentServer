@@ -171,10 +171,7 @@ var start_test_block = {
   data: {
     trial_id: "test_intro"
   },
-  text: '<div class = centerbox><p class = center-block-text>We will now start the test. Remember, if the shape is ' +
-    task_colors[0] + ' respond based on how many lines the large shape has. If the shape is ' +
-    task_colors[1] +
-    ' respond based on how many lines the small shape has.</p><p class = center-block-text>Press <strong>enter</strong> to begin.</p></div>',
+  text: '<div class = centerbox><p class = center-block-text>We will now start the test. Remember, press J after every letter unless the first red letter was an A and the current letter is a red X.</p></div>',
   cont_key: [13],
   timing_post_trial: 1000,
   on_finish: function() {
