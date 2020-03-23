@@ -44,7 +44,7 @@ var possible_responses = [
   ["J key", 74]
 ]
 var chars = 'BCDEFGHIJLMNOPQRSTUVWZ'
-var practice_proportions = ["AX", "AX", "AY", "BX", "BY"]
+var practice_proportions = ["AX"]
 var practice_blocks = jsPsych.randomization.repeat(practice_proportions, 1)
 //directly below is the current version
 var trial_proportions = ["AX", "AX", "AX", "AX", "AX", "AX", "AX", "AX","AX", "AX","AX", "AX","AX", "AX","AX", "AX","AX", "BX","BX","BX","BX","AY", "AY","AY","AY","BY","BY", "BY"] //60-15-15-10 % like Lopez-Garcia (reduced to 28 trials from 34)
