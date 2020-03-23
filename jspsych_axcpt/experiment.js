@@ -216,9 +216,9 @@ var A_cue = {
     exp_stage: "test"
   },
   key_answer: 74,
-  timing_stim: 500,
+  timing_stim: -1, //was 500
   timing_feedback_duration: 750,
-  timing_response: 2000,
+  //timing_response: 2000,
   correct_text: '<div class = centerbox><div style="color:green"; class = center-text>Correct!</div></div>',
   incorrect_text: '<div class = centerbox><div style="color:red"; class = center-text>Incorrect</div></div>',
   show_stim_with_feedback: false,
