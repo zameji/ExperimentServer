@@ -44,7 +44,8 @@ var possible_responses = [
   ["J key", 74]
 ]
 var chars = 'BCDEFGHIJLMNOPQRSTUVWZ'
-//var trial_proportions = ["AX"]
+var practice_proportions = ["AX", "AX", "AY", "BX", "BY"]
+var practice_blocks = jsPsych.randomization.repeat(practice_proportions, 1)
 //directly below is the current version
 var trial_proportions = ["AX", "AX", "AX", "AX", "AX", "AX", "AX", "AX","AX", "AX","AX", "AX","AX", "AX","AX", "AX","AX", "BX","BX","BX","BX","AY", "AY","AY","AY","BY","BY", "BY"] //60-15-15-10 % like Lopez-Garcia (reduced to 28 trials from 34)
 // OLD // var trial_proportions = ["AX", "AX", "AX", "AX", "AX", "AX", "AX", "AX","AX", "AX","AX", "AX","AX", "AX","AX", "AX","AX", "AX","AX", "AX","AX", "AX","AX", "AX", "BX","BX","BX","BX","AY", "AY","AY","AY","BY","BY"]
@@ -127,7 +128,7 @@ var feedback_instruct_block = {
 var instructions_block = {
   type: 'poldrack-instructions',
   pages: [
-    '<div class = centerbox><p class = block-text>In this task, you will see a red letter, followed by multiple black letters, and finally, another red letter. That forms one set. Then, a new set will start. (Total: about 60 sets.)</p><p class = block-text>Your job is to respond by pressing the "J" key after ALL letters EXCEPT if the first red letter in the set was an "A" and the current letter is a RED "X".<b> If the first red letter was an "A" <strong>AND</strong> the current letter is a red "X", press the ' +
+    '<div class = centerbox><p class = block-text>In this task, you will see a red letter, followed by multiple black letters, and finally, another red letter. That forms one set. Then, a new set will start. (Total: about 7 minutes.)</p><p class = block-text>Your job is to respond by pressing the "J" key after ALL letters EXCEPT if the first red letter in the set was an "A" and the current letter is a RED "X".<b> If the first red letter was an "A" <strong>AND</strong> the current letter is a red "X", press the ' +
     possible_responses[0][0] + '. Otherwise press the ' + possible_responses[1][0] +
     ' after every letter.</b> This means that you have to <b>press a key after every letter! </b></p><p class = block-text>Important: Do not press any keys before you see a letter. If you press a key before the letter is shown, you will lose a point for this section.</div>',
     '<div class = centerbox><p class = block-text>We will now start the experiment. Remember: press the F key after you see a red "X" that was preceded by a red "A" (even if there were multiple letters in between), and the J key for all other combinations.</p></div>'
@@ -163,6 +164,24 @@ var instruction_node = {
   }
 }
 
+
+var start_test_block = {
+  type: 'poldrack-text',
+  timing_response: 180000,
+  data: {
+    trial_id: "test_intro"
+  },
+  text: '<div class = centerbox><p class = center-block-text>We will now start the test. Remember, if the shape is ' +
+    task_colors[0] + ' respond based on how many lines the large shape has. If the shape is ' +
+    task_colors[1] +
+    ' respond based on how many lines the small shape has.</p><p class = center-block-text>Press <strong>enter</strong> to begin.</p></div>',
+  cont_key: [13],
+  timing_post_trial: 1000,
+  on_finish: function() {
+  	current_trial = 0
+  }
+};
+
 var rest_block = {
   type: 'poldrack-text',
   timing_response: 180000,
@@ -176,7 +195,7 @@ var rest_block = {
 var wait_block = {
   type: 'poldrack-single-stim',
   // stimulus: '<div class = centerbox><div class = AX_text>+</div></div>',
-  stimulus: '<div class = centerbox><div class = AX_feedback>Press any key to continue to the next set.</div></div>',
+  stimulus: '<div class = centerbox><div class = AX_feedback>Press any key to continue to the next set of letters.</div></div>',
   is_html: true,
   data: {
     trial_id: "wait"
@@ -279,6 +298,57 @@ var other_probe = {
 
 var ax_cpt_experiment = []
 ax_cpt_experiment.push(instruction_node);
+
+
+for (b = 0; b < practice_blocks.length; b++) {
+  var block = practice_blocks[b]
+  for (i = 0; i < block.length; i++) {
+    switch (block[i]) {
+      case "AX":
+        cue = jQuery.extend(true, {}, A_cue)
+        probe = jQuery.extend(true, {}, X_probe)
+        cue.data.condition = "AX"
+        probe.data.condition = "AX"
+		probe.key_answer = 70
+        break;
+      case "BX":
+        cue = jQuery.extend(true, {}, other_cue)
+        probe = jQuery.extend(true, {}, X_probe)
+        cue.data.condition = "BX"
+        probe.data.condition = "BX"
+		probe.key_answer = 74
+        break;
+      case "AY":
+        cue = jQuery.extend(true, {}, A_cue)
+        probe = jQuery.extend(true, {}, other_probe)
+        cue.data.condition = "AY"
+        probe.data.condition = "AY"
+		probe.key_answer = 74
+        break;
+      case "BY":
+        cue = jQuery.extend(true, {}, other_cue)
+        probe = jQuery.extend(true, {}, other_probe)
+        cue.data.condition = "BY"
+        probe.data.condition = "BY"
+		probe.key_answer = 74
+        break;
+    }
+    distractor_1 = jQuery.extend(true, {}, distractor)
+  	distractor_2 = jQuery.extend(true, {}, distractor)
+  	distractor_3 = jQuery.extend(true, {}, distractor)
+
+      ax_cpt_experiment.push(cue)
+  	ax_cpt_experiment.push(distractor_1)
+  	ax_cpt_experiment.push(distractor_2)
+  	ax_cpt_experiment.push(distractor_3)
+      ax_cpt_experiment.push(probe)
+      ax_cpt_experiment.push(wait_block)
+    }
+    ax_cpt_experiment.push(attention_node)
+    }
+
+ax_cpt_experiment.push(start_test_block);
+
 
 for (b = 0; b < blocks.length; b++) {
   var block = blocks[b]
