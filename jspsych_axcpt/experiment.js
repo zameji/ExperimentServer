@@ -297,54 +297,14 @@ var ax_cpt_experiment = []
 ax_cpt_experiment.push(instruction_node);
 
 
-// for (b = 0; b < practice_blocks.length; b++) {
-//   var block = practice_blocks[b]
-//   for (i = 0; i < block.length; i++) {
-//     switch (block[i]) {
-//       case "AX":
-//         cue = jQuery.extend(true, {}, A_cue)
-//         probe = jQuery.extend(true, {}, X_probe)
-//         cue.data.condition = "AX"
-//         probe.data.condition = "AX"
-// 		probe.key_answer = 70
-//         break;
-//       case "BX":
-//         cue = jQuery.extend(true, {}, other_cue)
-//         probe = jQuery.extend(true, {}, X_probe)
-//         cue.data.condition = "BX"
-//         probe.data.condition = "BX"
-// 		probe.key_answer = 74
-//         break;
-//       case "AY":
-//         cue = jQuery.extend(true, {}, A_cue)
-//         probe = jQuery.extend(true, {}, other_probe)
-//         cue.data.condition = "AY"
-//         probe.data.condition = "AY"
-// 		probe.key_answer = 74
-//         break;
-//       case "BY":
-//         cue = jQuery.extend(true, {}, other_cue)
-//         probe = jQuery.extend(true, {}, other_probe)
-//         cue.data.condition = "BY"
-//         probe.data.condition = "BY"
-// 		probe.key_answer = 74
-//         break;
-//     }
-//     distractor_1 = jQuery.extend(true, {}, distractor)
-//   	distractor_2 = jQuery.extend(true, {}, distractor)
-//   	distractor_3 = jQuery.extend(true, {}, distractor)
-//
-//       ax_cpt_experiment.push(cue)
-//   	ax_cpt_experiment.push(distractor_1)
-//   	ax_cpt_experiment.push(distractor_2)
-//   	ax_cpt_experiment.push(distractor_3)
-//       ax_cpt_experiment.push(probe)
-//       ax_cpt_experiment.push(wait_block)
-//     }
-//     ax_cpt_experiment.push(attention_node)
-//     }
-//
-// ax_cpt_experiment.push(start_test_block);
+ax_cpt_experiment.push(A_cue);
+ax_cpt_experiment.push(distractor);
+ax_cpt_experiment.push(distractor);
+ax_cpt_experiment.push(distractor);
+ax_cpt_experiment.push(X_cue);
+ax_cpt_experiment.push(wait_block);
+
+ax_cpt_experiment.push(start_test_block);
 
 
 for (b = 0; b < blocks.length; b++) {
