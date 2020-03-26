@@ -107,7 +107,7 @@ var end_block = {
     exp_id: "ax_cpt",
     trial_id: "end"
   },
-  text: '<div class = centerbox><p class = center-block-text>Thanks for completing this task!</p></div>',
+  text: '<div class = centerbox><p class = center-block-text>Thanks for completing this task! Press enter to continue.</p></div>',
   cont_key: [13],
   timing_post_trial: 0
 };
