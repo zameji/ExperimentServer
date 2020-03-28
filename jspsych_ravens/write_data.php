@@ -33,7 +33,6 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
-    echo 'Click here to continue: https://www.psycholinguistics.ml/get_next_jspsych.php?from=N';
 }
 
 //Query

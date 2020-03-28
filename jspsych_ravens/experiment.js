@@ -487,13 +487,14 @@ var survey_block = {
 };
 
 var end_block = {
-  type: 'text',
+  type: 'poldrack-text',
   text: '<div class = centerbox><p class = center-block-text>Congratulations for completing this task!</p><p class = center-block-text>Press <strong>enter</strong> to continue.</p></div>',
   cont_key: [13],
   data: {
     exp_id: "ravens"
   }
 };
+
 
 
 //Set up experiment
