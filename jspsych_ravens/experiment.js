@@ -60,7 +60,7 @@ for (var i = 0; i < top_img.length; i++) {
 
 var opts = ["A", "B", "C", "D", "E", "F", "G", "H"]
 
-var all_options = fillArray([opts], 18)
+var all_options = fillArray([opts], 12)
 
 // var scale_q1 = {
 //   "A": 0,
@@ -483,7 +483,7 @@ var survey_block = {
   scale: score_scale,
   show_clickable_nav: true,
   allow_backward: true,
-  //required: fillArray([true], 18),
+  required: fillArray([true], 12),
 };
 
 // var end_block = {
