@@ -486,13 +486,25 @@ var survey_block = {
   required: fillArray([true], 18),
 };
 
+// var end_block = {
+//   type: 'poldrack-text',
+//   text: '<div class = centerbox><p class = center-block-text>Congratulations for completing this task!</p><p class = center-block-text>Press <strong>enter</strong> to continue.</p></div>',
+//   cont_key: [13],
+//   data: {
+//     exp_id: "ravens"
+//   }
+// };
+
 var end_block = {
   type: 'poldrack-text',
-  text: '<div class = centerbox><p class = center-block-text>Congratulations for completing this task!</p><p class = center-block-text>Press <strong>enter</strong> to continue.</p></div>',
-  cont_key: [13],
   data: {
-    exp_id: "ravens"
-  }
+    trial_id: "end",
+    exp_id: 'ravens'
+  },
+  timing_response: 180000,
+  text: '<div class = centerbox><p class = center-block-text>Thanks for completing this task!</p><p class = center-block-text>Press <strong>enter</strong> to continue.</p></div>',
+  cont_key: [13],
+  timing_post_trial: 0
 };
 
 
