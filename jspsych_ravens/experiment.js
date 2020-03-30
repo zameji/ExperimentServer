@@ -483,7 +483,7 @@ var survey_block = {
   scale: score_scale,
   show_clickable_nav: true,
   allow_backward: true,
-  required: fillArray([true], 18),
+  //required: fillArray([true], 18),
 };
 
 // var end_block = {
