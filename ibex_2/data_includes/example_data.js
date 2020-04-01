@@ -55,11 +55,14 @@ var items = [
 
     ["sep", "Separator", { }],
 
-    ["intro3", "Form", {
-        html: { include: "intro3.html" },} ],
+    ["intro_ibex2", "Form", {
+        html: { include: "intro_ibex2.html" },} ],
 
-    ["intro4", "Form", {
-        html: { include: "intro4.html" },} ],
+    ["intro2_ibex2", "Form", {
+        html: { include: "intro2_ibex2.html" },} ],
+
+		["exitpoll_pilot", "Form", {
+				html: { include: "exitpoll_pilot.html" },} ],
 
     ["exitpoll", "Form", {
         html: { include: "exitpoll.html" },} ],
