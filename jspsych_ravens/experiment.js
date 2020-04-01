@@ -465,7 +465,7 @@ var practice_node_2 = {
 var start_test_block = {
   type: 'poldrack-text',
   cont_key: [13],
-  text: '<div class = centerbox><p class = center-block-text>You are now ready to begin the test trials.<br><br>This task should take about 5-7 minutes. If you get stuck, give your best guess and move on.<br><br>Important: Some participants have had issues where this task does not send data. We are trying to get to the bottom of this, but it would be helpful if you write down the letters you select on a small piece of paper. Then if there are problems, we can skip the section for you quickly and easily! <br><br>Press <strong> Enter </strong> to continue.</p></div>',
+  text: '<div class = centerbox><p class = center-block-text>You are now ready to begin the test trials.<br><br>This task should take about 5-7 minutes. If you get stuck, give your best guess and move on.<br><br> Press <strong> Enter </strong> to continue.</p></div>',
   timing_post_trial: 0,
   timing_response: 180000,
   data: {
