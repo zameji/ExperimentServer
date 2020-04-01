@@ -1,16 +1,19 @@
-var sequence = getCookieValue("ibex_2_group");
+// var sequence = getCookieValue("ibex_2_group");
+//
+// if (sequence == ""){
+// 	sequence = "E"
+// }
+//
+// switch (sequence){
+//         case "E":
+//             var shuffleSequence = seq("intro3", sepWith("sep", seq("practice", "intro4", randomize("Exp1_ListA_firstPair"), randomize("Exp1_ListA_secondPair"), "exitpoll", "sendResults", "end")));
+//             break;
+//         default:
+//             var shuffleSequence = seq("end");
+//                 }
 
-if (sequence == ""){
-	sequence = "E"
-}
 
-switch (sequence){
-        case "E":
-            var shuffleSequence = seq("intro3", sepWith("sep", seq("practice", "intro4", randomize("Exp1_ListA_firstPair"), randomize("Exp1_ListA_secondPair"), "exitpoll", "sendResults", "end")));
-            break;
-        default:
-            var shuffleSequence = seq("end");
-                }
+shuffleSequence = seq("intro3", sepWith("sep", seq("practice", "intro4", randomize("Exp1_ListA_firstPair"), randomize("Exp1_ListA_secondPair"), "exitpoll", "sendResults", "end")));
 
 //var sequence = document.cookie.match('(^|[^;]+)\\s*group\\s*=\\s*([^;]+)');
 //if (sequence=='AAA'){var shuffleSequence = seq("intro", sepWith("sep", seq("practice", randomize("ListA_secondPair"), randomize("firstPair"))));
