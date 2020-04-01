@@ -1,3 +1,5 @@
+//Transfer time used to beb 1500
+
 // var sequence = getCookieValue("ibex_2_group");
 //
 // if (sequence == ""){
@@ -13,7 +15,7 @@
 //                 }
 
 
-shuffleSequence = seq("intro3", sepWith("sep", seq("practice", "intro4", randomize("Exp1_ListA_firstPair"), randomize("Exp1_ListA_secondPair"), "exitpoll", "sendResults", "end")));
+shuffleSequence = seq("intro3", sepWith("sep", seq("practice", "intro4", randomize("Exp2_ListA_firstPair"), randomize("Exp2_ListA_secondPair"), "exitpoll", "sendResults", "end")));
 
 //var sequence = document.cookie.match('(^|[^;]+)\\s*group\\s*=\\s*([^;]+)');
 //if (sequence=='AAA'){var shuffleSequence = seq("intro", sepWith("sep", seq("practice", randomize("ListA_secondPair"), randomize("firstPair"))));
@@ -68,20 +70,20 @@ var items = [
 	["sendResults", "__SendResults__", { }],
 
   ["practice",
-  "PictureDisplay", {transfer: 1500,
-            normalMessage: "Please recall this image",
-            url: "https://www.psycholinguistics.ml/ibex_2/img/1A.png"},
+  "PictureDisplay", {transfer: "keypress",
+            normalMessage: "Memorize this image, then press any key to continue.",
+            url: "https://www.psycholinguistics.ml/ibex_2/img/practice_1A.png"},
   "DashedSentence", {s: "This is a practice task to get you used to remembering images like this."},
   "PictureQuestion", {
         q: "Is this the image you saw?",
-        url: "https://www.psycholinguistics.ml/ibex_2/img/1B.png",
+        url: "https://www.psycholinguistics.ml/ibex_2/img/practice_1B.png",
         as:["yes", "no"]}
           ],
 
     ["practice",
-    "PictureDisplay", {transfer: 1500,
-              normalMessage: "Please recall this image",
-              url: "https://www.psycholinguistics.ml/ibex_2/img/2A.png"},
+    "PictureDisplay", {transfer: "keypress",
+              normalMessage: "Memorize this image, then press any key to continue.",
+              url: "https://www.psycholinguistics.ml/ibex_2/img/practice_2A.png"},
     "DashedSentence", {s: "Sometimes sentences will be followed by a question so make sure you read carefully."},
     "Question", {q: "Was the sentence about reading carefully?",
           as:["yes", "no"]}
@@ -89,19 +91,19 @@ var items = [
 
 ["practice",
   "AudioDisplay", {transfer: "keypress",
-            normalMessage: "Please remember this word, then press any key to continue.",
-            url: "https://www.psycholinguistics.ml/ibex_2/audio/1A.m4a"},
+            normalMessage: "Memorize these words, then press any key to continue.",
+            url: "https://www.psycholinguistics.ml/ibex_2/audio/practice_1F.m4a"},
   "DashedSentence", {s: "This is a practice task to get you used to listening to audio like this."},
   "AudioQuestion", {
         q: "Is this the sound you heard?",
-        url: "https://www.psycholinguistics.ml/ibex_2/audio/1B.m4a",
+        url: "https://www.psycholinguistics.ml/ibex_2/audio/practice_1M.m4a",
         as:["yes", "no"]}
             ],
 
 ["practice",
   "AudioDisplay", {transfer: "keypress",
-            normalMessage: "Please remember this word, then press any key to continue.",
-            url: "https://www.psycholinguistics.ml/ibex_2/audio/2A.m4a"},
+            normalMessage: "Memorize these words, then press any key to continue.",
+            url: "https://www.psycholinguistics.ml/ibex_2/audio/practice_2M.m4a"},
   "DashedSentence", {s: "Sentences may also be followed by questions checking how carefully you read."},
   "Question", {
         q: "Was the sentence about reading quickly?",
