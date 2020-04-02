@@ -66,4 +66,4 @@ properties: {
         return $(document.createElement("div")).text(opts.normalMessage)[0];
     }
 }
-});
+};
