@@ -49,7 +49,7 @@ jqueryWidget: {
 	       this.safeBind($(document), 'keydown', function (e) {
 		         t.finishedCallback(null);
 		         return false;
-	    }});
+	    });
         }
         else {
             var t = this;
