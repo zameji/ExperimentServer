@@ -14,9 +14,9 @@ jqueryWidget: {
         var x = this.utils.getValueFromPreviousElement("style");
         if (x) this.style = x;
         assert(this.style == "normal" || this.style == "error", "'style' property of Separator must either be 'normal' or 'error'");
-
+		
 		this.url = dget(this.options, "url");
-
+		
         this.transfer = dget(this.options, "transfer", "keypress");
         assert(this.transfer == "keypress" || typeof(this.transfer) == "number",
                "Value of 'transfer' option of Separator must either be the string 'keypress' or a number");
@@ -28,7 +28,7 @@ jqueryWidget: {
         var error_message = dget(this.options, "errorMessage", "Wrong. Press any key to continue.");
         var x = this.utils.getValueFromPreviousElement("errorMessage");
         if (x) error_message = x;
-
+		
         var p = $(document.createElement("p"));
         this.element.append(p);
         if (this.style == "error") {
@@ -43,17 +43,11 @@ jqueryWidget: {
 		this.element.append($('<audio>',{controls:"controls", autoplay: "autoplay", src:this.url, type:"audio/mpeg"}));
 
         if (this.transfer == "keypress") {
-	    this.safeBind($(document), 'keydown', function (e) {
-        var code = e.keyCode;
-        if (code == 13) {
-          var t = this;
+	    var t = this;
+	    this.safeBind($(document), 'keydown', function () {
 		t.finishedCallback(null);
 		return false;
-  }
-      else {
-        return true;
-      }
-      });
+	    });
         }
         else {
             var t = this;
