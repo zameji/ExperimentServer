@@ -45,11 +45,12 @@ jqueryWidget: {
         if (this.transfer == "keypress") {
 	    var t = this;
       var code = e.keyCode;
-      if (code == 32) {
-	       this.safeBind($(document), 'keydown', function (e) {
-		         t.finishedCallback(null);
-		         return false;
-	    });
+	    this.safeBind($(document), 'keydown', function (e) {
+        if (code == 32) {
+		t.finishedCallback(null);
+		return false;
+  }
+      });
         }
         else {
             var t = this;
@@ -57,7 +58,8 @@ jqueryWidget: {
                 t.finishedCallback(null);
             }, this.transfer);
         }
-    },
+    }
+},
 
 properties: {
     countsForProgressBar: false,
@@ -65,4 +67,4 @@ properties: {
         return $(document.createElement("div")).text(opts.normalMessage)[0];
     }
 }
-};
+});
