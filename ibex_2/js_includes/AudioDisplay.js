@@ -49,7 +49,7 @@ jqueryWidget: {
          if (code == 32) {
 		         t.finishedCallback(null);
 		         return false;
-	    ]});
+	    }});
         }
         else {
             var t = this;
