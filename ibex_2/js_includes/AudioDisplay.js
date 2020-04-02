@@ -44,8 +44,8 @@ jqueryWidget: {
 
         if (this.transfer == "keypress") {
 	    var t = this;
-      var code = e.keyCode;
 	    this.safeBind($(document), 'keydown', function (e) {
+        var code = e.keyCode;
         if (code == 32) {
 		t.finishedCallback(null);
 		return false;
