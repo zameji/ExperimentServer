@@ -43,8 +43,8 @@ jqueryWidget: {
 		this.element.append($('<audio>',{controls:"controls", autoplay: "autoplay", src:this.url, type:"audio/mpeg"}));
 
         if (this.transfer == "keypress") {
-	    var t = this;
 	    this.safeBind($(document), 'keydown', function (e) {
+         var t = this;
         var code = e.keyCode;
         if (code == 32) {
 		t.finishedCallback(null);
