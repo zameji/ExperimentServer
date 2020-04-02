@@ -57,8 +57,7 @@ jqueryWidget: {
                 t.finishedCallback(null);
             }, this.transfer);
         }
-    }
-},
+    },
 
 properties: {
     countsForProgressBar: false,
