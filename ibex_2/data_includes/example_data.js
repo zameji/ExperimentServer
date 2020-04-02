@@ -15,7 +15,7 @@
 //                 }
 
 
-shuffleSequence = seq("intro_ibex2", sepWith("sep", seq("practice", "intro2_ibex2", randomize("Exp2_ListA_firstPair"), randomize("Exp2_ListA_secondPair"), "exitpoll", "sendResults", "end")));
+shuffleSequence = seq("intro_ibex2", sepWith("sep", seq("practice", "intro2_ibex2", randomize("Exp2_ListA_firstPair"), randomize("Exp2_ListA_secondPair"), "exitpoll_pilot", "sendResults", "end")));
 
 //var sequence = document.cookie.match('(^|[^;]+)\\s*group\\s*=\\s*([^;]+)');
 //if (sequence=='AAA'){var shuffleSequence = seq("intro", sepWith("sep", seq("practice", randomize("ListA_secondPair"), randomize("firstPair"))));
