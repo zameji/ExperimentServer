@@ -14,9 +14,9 @@ jqueryWidget: {
         var x = this.utils.getValueFromPreviousElement("style");
         if (x) this.style = x;
         assert(this.style == "normal" || this.style == "error", "'style' property of Separator must either be 'normal' or 'error'");
-
+		
 		this.url = dget(this.options, "url");
-
+		
         this.transfer = dget(this.options, "transfer", "keypress");
         assert(this.transfer == "keypress" || typeof(this.transfer) == "number",
                "Value of 'transfer' option of Separator must either be the string 'keypress' or a number");
@@ -28,7 +28,7 @@ jqueryWidget: {
         var error_message = dget(this.options, "errorMessage", "Wrong. Press any key to continue.");
         var x = this.utils.getValueFromPreviousElement("errorMessage");
         if (x) error_message = x;
-
+		
         var p = $(document.createElement("p"));
         this.element.append(p);
         if (this.style == "error") {
@@ -44,7 +44,7 @@ jqueryWidget: {
 
         if (this.transfer == "keypress") {
 	    var t = this;
-	    this.safeBind($(document), 'mousedown', function () {
+	    this.safeBind($(document), 'keydown', function () {
 		t.finishedCallback(null);
 		return false;
 	    });
