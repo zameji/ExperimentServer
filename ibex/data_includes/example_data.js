@@ -8,28 +8,28 @@ var sequence = getCookieValue("ibex_1_group");
 
 switch (sequence){
         case "A":
-            var shuffleSequence = seq("intro3", sepWith("sep", seq("practice", "intro4", randomize("Exp1_ListA_firstPair"), randomize("Exp1_ListA_secondPair"), randomize("Exp1_ListD_firstPair"), randomize("Exp1_ListD_secondPair"), "sendResults", "end")));
+            var shuffleSequence = seq("intro3", sepWith("sep", seq("practice", "intro4", randomize("Exp2_ListA_firstPair"), randomize("Exp2_ListA_secondPair"), randomize("Exp2_ListD_firstPair"), randomize("Exp2_ListD_secondPair"), "sendResults", "end")));
             break;
         case "B":
-            var shuffleSequence = seq("intro3", sepWith("sep", seq("practice", "intro4", randomize("Exp1_ListA_secondPair"), randomize("Exp1_ListA_firstPair"), randomize("Exp1_ListD_secondPair"), randomize("Exp1_ListD_firstPair"), "sendResults", "end")));
+            var shuffleSequence = seq("intro3", sepWith("sep", seq("practice", "intro4", randomize("Exp2_ListA_secondPair"), randomize("Exp2_ListA_firstPair"), randomize("Exp2_ListD_secondPair"), randomize("Exp2_ListD_firstPair"), "sendResults", "end")));
             break;
         case "C":
-            var shuffleSequence = seq("intro3", sepWith("sep", seq("practice", "intro4", randomize("Exp1_ListB_firstPair"), randomize("Exp1_ListB_secondPair"), randomize("Exp1_ListC_firstPair"), randomize("Exp1_ListC_secondPair"), "sendResults", "end")));
+            var shuffleSequence = seq("intro3", sepWith("sep", seq("practice", "intro4", randomize("Exp2_ListB_firstPair"), randomize("Exp2_ListB_secondPair"), randomize("Exp2_ListC_firstPair"), randomize("Exp2_ListC_secondPair"), "sendResults", "end")));
             break;
         case "D":
-            var shuffleSequence = seq("intro3", sepWith("sep", seq("practice", "intro4", randomize("Exp1_ListB_secondPair"), randomize("Exp1_ListB_firstPair"), randomize("Exp1_ListC_secondPair"), randomize("Exp1_ListC_firstPair"), "sendResults", "end")));
+            var shuffleSequence = seq("intro3", sepWith("sep", seq("practice", "intro4", randomize("Exp2_ListB_secondPair"), randomize("Exp2_ListB_firstPair"), randomize("Exp2_ListC_secondPair"), randomize("Exp2_ListC_firstPair"), "sendResults", "end")));
             break;
         case "E":
-            var shuffleSequence = seq("intro3", sepWith("sep", seq("practice", "intro4", randomize("Exp1_ListD_firstPair"), randomize("Exp1_ListD_secondPair"), randomize("Exp1_ListA_firstPair"), randomize("Exp1_ListA_secondPair"), "sendResults", "end")));
+            var shuffleSequence = seq("intro3", sepWith("sep", seq("practice", "intro4", randomize("Exp2_ListD_firstPair"), randomize("Exp2_ListD_secondPair"), randomize("Exp2_ListA_firstPair"), randomize("Exp2_ListA_secondPair"), "sendResults", "end")));
             break;
         case "F":
-            var shuffleSequence = seq("intro3", sepWith("sep", seq("practice", "intro4", randomize("Exp1_ListD_secondPair"), randomize("Exp1_ListD_firstPair"), randomize("Exp1_ListA_secondPair"), randomize("Exp1_ListA_firstPair"), "sendResults", "end")));
+            var shuffleSequence = seq("intro3", sepWith("sep", seq("practice", "intro4", randomize("Exp2_ListD_secondPair"), randomize("Exp2_ListD_firstPair"), randomize("Exp2_ListA_secondPair"), randomize("Exp2_ListA_firstPair"), "sendResults", "end")));
             break;
         case "G":
-            var shuffleSequence = seq("intro3", sepWith("sep", seq("practice", "intro4", randomize("Exp1_ListC_firstPair"), randomize("Exp1_ListC_secondPair"), randomize("Exp1_ListB_firstPair"), randomize("Exp1_ListB_secondPair"), "sendResults", "end")));
+            var shuffleSequence = seq("intro3", sepWith("sep", seq("practice", "intro4", randomize("Exp2_ListC_firstPair"), randomize("Exp2_ListC_secondPair"), randomize("Exp2_ListB_firstPair"), randomize("Exp2_ListB_secondPair"), "sendResults", "end")));
             break;
         case "H":
-            var shuffleSequence = seq("intro3", sepWith("sep", seq("practice", "intro4", randomize("Exp1_ListC_secondPair"), randomize("Exp1_ListC_firstPair"), randomize("Exp1_ListB_secondPair"), randomize("Exp1_ListB_firstPair"), "sendResults", "end")));
+            var shuffleSequence = seq("intro3", sepWith("sep", seq("practice", "intro4", randomize("Exp2_ListC_secondPair"), randomize("Exp2_ListC_firstPair"), randomize("Exp2_ListB_secondPair"), randomize("Exp2_ListB_firstPair"), "sendResults", "end")));
             break;
         default:
             var shuffleSequence = seq("end");
