@@ -244,7 +244,7 @@ var items = [
  ["Exp2_ListA_secondPair", "DashedSentence", {s: "Discussing the_troubling_signs didn't_lead_to a_diagnosis."}],
  ["Exp2_ListA_firstPair", "DashedSentence", {s: "The_man_with the_uncanny_gift for_languages answered_the_phone."}, "Question", {q: "What did the man have a gift for?", as: ["languages", "mathematics", "the arts"]}],
  ["Exp2_ListA_secondPair", "DashedSentence", {s: "With the_uncanny_precision of_a_calculator, the_student could_work_out complicated mathematical_equations."}],
- ["Exp2_ListB_firstPair", "DashedSentence", {s: "James_ensured absolute_control throughout the_entire+process."}, "Question", {q: "Who ensured control throughout the process?", as: ["James", "Tommie", "Jessica"]}],
+ ["Exp2_ListB_firstPair", "DashedSentence", {s: "James_ensured absolute_control throughout the_entire_process."}, "Question", {q: "Who ensured control throughout the process?", as: ["James", "Tommie", "Jessica"]}],
  ["Exp2_ListB_secondPair", "DashedSentence", {s: "John_saw the_absolute_silence of_the_children as_a_bad_sign."}, "Question", {q: "What did John think was a bad sign?", as: ["the children's silence", "the loud music", "the negative reviews"]}],
  ["Exp2_ListB_firstPair", "DashedSentence", {s: "The_book stated_that an_adequate_supply of_common_medicines should_always be_stocked."}],
  ["Exp2_ListB_secondPair", "DashedSentence", {s: "Zach_insisted_upon an_adequate_training in_first_aid before_they_went on_the_trip."}, "Question", {q: "Who insisted upon training before leaving for the trip?", as: ["Zach", "Jeff", "James"]}],
