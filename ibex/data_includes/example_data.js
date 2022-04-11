@@ -87,15 +87,15 @@ var items = [
 
 	["sendResults", "__SendResults__", { }],
 
-    ["practice", "DashedSentence", {s: "This_is a_practice_sentence to_get_you used_to reading sentences_like_this."}],
-    ["practice", "DashedSentence", {s: "Please_try to_read as_normally_as possible."}],
+    ["practice", "DashedSentence", {s: "This_is a_practice_sentence to_get_you used_to reading_sentences like_this."}],
+    ["practice", "DashedSentence", {s: "Please_try to_read as_normally as_possible."}],
      ["practice", "DashedSentence", {s: "This_is another_practice_sentence with a_practice_question following_it."},
                   "Question", {hasCorrect: false, randomOrder: false,
                                q: "How would you like to answer this question?",
                                as: ["Press 1 or click here for this answer.",
                                     "Press 2 or click here for this answer.",
                                     "Press 3 or click here for this answer."]}],
-    ["practice", "DashedSentence", {s: "This_is the_last_practice sentence before_the_experiment begins."}],
+    ["practice", "DashedSentence", {s: "This_is the_last_practice_sentence before_the_experiment begins."}],
 
  //Stimuli
  ["Exp2_ListA_firstPair", "DashedSentence", {s: "John_saw the_absolute_control of_the_company as_a bad_thing."}],
